@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'compose-ui',
-  description: 'compose-ui documentation',
+  title: 'Compose UI',
+  description: 'Compose UI documentation',
 }
 
 export default function RootLayout({

@@ -7,7 +7,7 @@ interface DocLinksProps {
 
 export function DocLinks({ component }: DocLinksProps) {
   const docsUrl = `https://base-ui.com/react/components/${component}`
-  const apiUrl = `https://base-ui.com/react/api/${component}`
+  const apiUrl = `https://base-ui.com/react/components/${component}#api-reference`
 
   return (
     <div className='flex items-center gap-2'>
