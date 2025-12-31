@@ -8,7 +8,7 @@ export function SquareGrid({ className }: { className?: string }) {
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
       >
-        <g clip-path='url(#clip0_4_2404)'>
+        <g clipPath='url(#clip0_4_2404)'>
           <g opacity='0.09'>
             <line
               x1='-50.6172'
@@ -16,7 +16,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='624.998'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='-50.6172'
@@ -24,7 +24,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='947.736'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='-50.6172'
@@ -32,7 +32,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='302.259'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='-50.6172'
@@ -40,7 +40,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='463.627'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='-50.6172'
@@ -48,7 +48,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='786.366'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='-50.6172'
@@ -56,7 +56,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='140.889'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='-50.6172'
@@ -64,7 +64,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='544.312'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='-50.6172'
@@ -72,7 +72,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='867.05'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='-50.6172'
@@ -80,7 +80,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='221.574'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='-50.6172'
@@ -88,7 +88,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='382.942'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='-50.6172'
@@ -96,7 +96,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='705.682'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='-50.6172'
@@ -104,7 +104,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1460.96'
               y2='60.2036'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='642.139'
@@ -112,7 +112,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='642.139'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='319.398'
@@ -120,7 +120,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='319.398'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='964.875'
@@ -128,7 +128,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='964.875'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='1287.62'
@@ -136,7 +136,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1287.62'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='158.028'
@@ -144,7 +144,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='158.028'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='803.504'
@@ -152,7 +152,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='803.504'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='480.769'
@@ -160,7 +160,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='480.768'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='1126.25'
@@ -168,7 +168,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1126.24'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='77.3453'
@@ -176,7 +176,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='77.3453'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='722.822'
@@ -184,7 +184,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='722.822'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='400.081'
@@ -192,7 +192,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='400.081'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='1045.56'
@@ -200,7 +200,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1045.56'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='1368.3'
@@ -208,7 +208,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1368.3'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='238.716'
@@ -216,7 +216,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='238.715'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='884.192'
@@ -224,7 +224,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='884.192'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='561.452'
@@ -232,7 +232,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='561.452'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
             <line
               x1='1206.93'
@@ -240,7 +240,7 @@ export function SquareGrid({ className }: { className?: string }) {
               x2='1206.93'
               y2='1118.56'
               stroke='#222020'
-              stroke-width='1.2607'
+              strokeWidth='1.2607'
             />
           </g>
           <g opacity='0.5'>
@@ -250,7 +250,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#E8E8E8'
-              fill-opacity='0.5'
+              fillOpacity='0.5'
             />
             <rect
               x='400.14'
@@ -258,7 +258,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1126.76'
@@ -266,7 +266,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='480.368'
@@ -274,7 +274,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1045.39'
@@ -282,7 +282,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='399.994'
@@ -290,7 +290,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1045.39'
@@ -298,7 +298,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='399.995'
@@ -306,7 +306,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='319.914'
@@ -314,7 +314,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='319.914'
@@ -322,7 +322,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='81.3723'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='158.316'
@@ -330,7 +330,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='965.162'
@@ -338,7 +338,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='884.059'
@@ -346,7 +346,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.5062'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='884.059'
@@ -354,7 +354,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.0285'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='158.316'
@@ -362,7 +362,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='81.3723'
               height='82.5184'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='76.9434'
@@ -370,7 +370,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='81.3723'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='-3.28284'
@@ -378,7 +378,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='81.3723'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='76.9434'
@@ -386,7 +386,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='81.3723'
               height='82.5184'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='400.14'
@@ -394,7 +394,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='81.3723'
               height='80.2262'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='1126.76'
@@ -402,7 +402,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1206.99'
@@ -410,7 +410,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='240'
@@ -418,7 +418,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='81.3723'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1208.44'
@@ -426,7 +426,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='562.052'
@@ -434,7 +434,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='481.824'
@@ -442,7 +442,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='885.248'
@@ -450,7 +450,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#E8E8E8'
-              fill-opacity='0.5'
+              fillOpacity='0.5'
             />
             <rect
               x='401'
@@ -458,7 +458,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='81.3723'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1369.44'
@@ -466,7 +466,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='723.052'
@@ -474,7 +474,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='642.824'
@@ -482,7 +482,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1046.25'
@@ -490,7 +490,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#E8E8E8'
-              fill-opacity='0.5'
+              fillOpacity='0.5'
             />
             <rect
               x='1045.85'
@@ -498,7 +498,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#E8E8E8'
-              fill-opacity='0.5'
+              fillOpacity='0.5'
             />
             <rect
               x='642.423'
@@ -506,7 +506,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1369.04'
@@ -514,7 +514,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='722.65'
@@ -522,7 +522,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1287.67'
@@ -530,7 +530,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='642.277'
@@ -538,7 +538,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1287.67'
@@ -546,7 +546,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='642.277'
@@ -554,7 +554,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='562.197'
@@ -562,7 +562,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='562.197'
@@ -570,7 +570,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='81.3723'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='400.599'
@@ -578,7 +578,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1207.44'
@@ -586,7 +586,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1126.34'
@@ -594,7 +594,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.5062'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1126.34'
@@ -602,7 +602,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.0285'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='400.599'
@@ -610,7 +610,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='81.3723'
               height='82.5184'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='319.226'
@@ -618,7 +618,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='81.3723'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='642.423'
@@ -626,7 +626,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='81.3723'
               height='80.2262'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='400.599'
@@ -634,7 +634,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='81.3723'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1369.04'
@@ -642,7 +642,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='482.283'
@@ -650,7 +650,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='81.3723'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='804.334'
@@ -658,7 +658,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='724.107'
@@ -666,7 +666,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1127.53'
@@ -674,7 +674,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#E8E8E8'
-              fill-opacity='0.5'
+              fillOpacity='0.5'
             />
             <rect
               x='643.283'
@@ -682,7 +682,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='81.3723'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='965.334'
@@ -690,7 +690,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='885.107'
@@ -698,7 +698,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1288.53'
@@ -706,7 +706,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#E8E8E8'
-              fill-opacity='0.5'
+              fillOpacity='0.5'
             />
             <rect
               x='964.847'
@@ -714,7 +714,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#E8E8E8'
-              fill-opacity='0.5'
+              fillOpacity='0.5'
             />
             <rect
               x='561.423'
@@ -722,7 +722,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1288.04'
@@ -730,7 +730,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='641.65'
@@ -738,7 +738,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1206.67'
@@ -746,7 +746,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='561.277'
@@ -754,7 +754,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1206.67'
@@ -762,7 +762,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='561.277'
@@ -770,7 +770,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='481.197'
@@ -778,7 +778,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='319.599'
@@ -786,7 +786,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1126.44'
@@ -794,7 +794,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1045.34'
@@ -802,7 +802,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.5062'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1045.34'
@@ -810,7 +810,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.0285'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='319.599'
@@ -818,7 +818,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='81.3723'
               height='82.5184'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='238.226'
@@ -826,7 +826,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='81.3723'
               height='82.5184'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='561.423'
@@ -834,7 +834,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='81.3723'
               height='80.2262'
               fill='#F1F1F1'
-              fill-opacity='0.25'
+              fillOpacity='0.25'
             />
             <rect
               x='319.599'
@@ -842,7 +842,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='81.3723'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1288.04'
@@ -850,7 +850,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='1368.27'
@@ -858,7 +858,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='401.283'
@@ -866,7 +866,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='81.3723'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1369.73'
@@ -874,7 +874,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='723.334'
@@ -882,7 +882,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
             <rect
               x='643.107'
@@ -890,7 +890,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='1046.53'
@@ -898,7 +898,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='80.2262'
               fill='#E8E8E8'
-              fill-opacity='0.5'
+              fillOpacity='0.5'
             />
             <rect
               x='562.283'
@@ -906,7 +906,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='81.3723'
               fill='#DDDDDD'
-              fill-opacity='0.2'
+              fillOpacity='0.2'
             />
             <rect
               x='884.334'
@@ -914,7 +914,7 @@ export function SquareGrid({ className }: { className?: string }) {
               width='80.2262'
               height='79.0801'
               fill='#D2D2D2'
-              fill-opacity='0.15'
+              fillOpacity='0.15'
             />
           </g>
         </g>

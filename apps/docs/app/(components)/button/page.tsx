@@ -4,8 +4,16 @@ import Link from 'next/link'
 
 export default function ButtonComponent() {
   return (
-    <div className='flex min-h-screen items-center justify-center'>
-      <main className='space-y-5'>
+    <div className='p-8'>
+      <div className='mb-8'>
+        <h1 className='text-3xl font-bold tracking-tight'>Button</h1>
+        <p className='mt-2 text-muted-foreground'>
+          A versatile button component with multiple variants, sizes, and states including
+          loading indicators.
+        </p>
+      </div>
+
+      <div className='space-y-5 rounded-lg border p-6'>
         <div className='flex gap-2'>
           <Button size='sm'>Button</Button>
           <Button>Button</Button>
@@ -85,7 +93,7 @@ export default function ButtonComponent() {
         <div className='flex gap-2'>
           <Button render={<Link href='/docs'>Link</Link>} nativeButton={false} />
         </div>
-      </main>
+      </div>
     </div>
   )
 }
