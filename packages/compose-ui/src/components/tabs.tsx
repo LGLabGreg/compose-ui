@@ -23,7 +23,7 @@ TabsRoot.displayName = 'Tabs.Root'
 // ============================================================================
 
 const tabsListVariants = cva(
-  ['relative inline-flex items-center gap-1', 'rounded-lg bg-muted p-1'],
+  ['relative inline-flex w-fit items-center gap-1', 'rounded-lg bg-muted p-1'],
   {
     variants: {
       orientation: {

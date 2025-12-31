@@ -20,7 +20,7 @@ export function ComponentsSidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className='w-56 shrink-0 border-r'>
+    <aside className='fixed left-0 top-14 bottom-0 w-56 border-r bg-background'>
       <ScrollAreaRoot className='h-full'>
         <ScrollAreaViewport className='h-full'>
           <ScrollAreaContent className='py-6 px-4'>

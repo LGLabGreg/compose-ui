@@ -5,9 +5,9 @@ export default function ComponentsLayout({ children }: { children: React.ReactNo
   return (
     <div className='flex min-h-screen flex-col'>
       <DocHeader />
-      <div className='flex flex-1'>
+      <div className='flex flex-1 pt-14'>
         <ComponentsSidebar />
-        <main className='flex-1 overflow-auto'>{children}</main>
+        <main className='flex-1 overflow-auto pl-56'>{children}</main>
       </div>
     </div>
   )
