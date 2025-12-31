@@ -8,3 +8,15 @@ export {
   ScrollAreaCorner,
 } from './components/scroll-area'
 export { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from './components/tabs'
+export {
+  DialogRoot,
+  DialogTrigger,
+  DialogPortal,
+  DialogBackdrop,
+  DialogPopup,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+  DialogHeader,
+  DialogFooter,
+} from './components/dialog'
