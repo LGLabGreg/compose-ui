@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+@import '@lglab/compose-ui/styles/default.css';
+@source "../node_modules/@lglab/compose-ui";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
