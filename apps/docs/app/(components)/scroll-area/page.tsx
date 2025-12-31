@@ -7,6 +7,8 @@ import {
   ScrollAreaViewport,
 } from '@lglab/compose-ui'
 
+import { DocLinks } from '@/components/doc-links'
+
 export default function ScrollAreaComponent() {
   return (
     <div className='p-8'>
@@ -16,6 +18,9 @@ export default function ScrollAreaComponent() {
           A native scroll container with custom scrollbars for consistent styling across
           browsers.
         </p>
+        <div className='mt-4'>
+          <DocLinks component='scroll-area' />
+        </div>
       </div>
 
       <div className='space-y-8'>

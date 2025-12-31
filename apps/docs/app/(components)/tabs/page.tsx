@@ -1,6 +1,8 @@
 import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
 import { FolderIcon, SettingsIcon, UserIcon } from 'lucide-react'
 
+import { DocLinks } from '@/components/doc-links'
+
 export default function TabsComponent() {
   return (
     <div className='p-8'>
@@ -10,6 +12,9 @@ export default function TabsComponent() {
           A component for toggling between related panels on the same page with an
           animated indicator.
         </p>
+        <div className='mt-4'>
+          <DocLinks component='tabs' />
+        </div>
       </div>
 
       <div className='space-y-8'>

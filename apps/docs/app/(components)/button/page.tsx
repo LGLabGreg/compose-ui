@@ -2,6 +2,8 @@ import { Button } from '@lglab/compose-ui'
 import { TrashIcon } from 'lucide-react'
 import Link from 'next/link'
 
+import { DocLinks } from '@/components/doc-links'
+
 export default function ButtonComponent() {
   return (
     <div className='p-8'>
@@ -11,6 +13,9 @@ export default function ButtonComponent() {
           A versatile button component with multiple variants, sizes, and states including
           loading indicators.
         </p>
+        <div className='mt-4'>
+          <DocLinks component='button' />
+        </div>
       </div>
 
       <div className='space-y-5 rounded-lg border p-6'>
