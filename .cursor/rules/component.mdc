@@ -1,0 +1,37 @@
+---
+description: When creating a new compose-ui component
+alwaysApply: false
+---
+
+## Component Structure
+
+1. **File location**: `packages/compose-ui/src/components/{component-name}.tsx`
+2. **Add `'use client'`** directive at the top
+3. **Import from Base UI**: `import { Component } from '@base-ui/react/component'`
+4. **Use `cn` utility** from `../lib/utils` for class merging
+5. **Use CVA** (`class-variance-authority`) for variants when needed
+
+## Naming & Exports
+
+- Prefix sub-components with parent name: `TabsRoot`, `TabsList`, `TabsTab`
+- Export typed props: `export type ComponentProps = React.ComponentProps<typeof BaseComponent> & {...}`
+- Set `displayName`: `Component.displayName = 'Component.Part'`
+- Export from `src/index.ts`
+
+## Styling
+
+- Use Tailwind classes with design tokens (`bg-muted`, `text-foreground`, `border-border`)
+- Use Base UI data attributes for states: `data-[selected]:`, `data-[disabled]:`
+- Add focus-visible ring styles for accessibility
+
+## Accessibility
+
+Base UI handles ARIA attributes, keyboard navigation, and focus management automatically. Compose-ui is responsible for:
+
+- **Focus indication**: Always style `focus-visible:ring-*` for keyboard users
+- **Color contrast**: Ensure sufficient contrast between foreground/background using design tokens
+- **Disabled states**: Use `disabled:opacity-50 disabled:pointer-events-none`
+
+## Preview Page
+
+Create `apps/docs/app/(components)/{component-name}/page.tsx` and add to sidebar in `components-sidebar.tsx`

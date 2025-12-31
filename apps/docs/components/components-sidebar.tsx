@@ -13,6 +13,7 @@ import { usePathname } from 'next/navigation'
 const components = [
   { name: 'Button', href: '/button' },
   { name: 'Scroll Area', href: '/scroll-area' },
+  { name: 'Tabs', href: '/tabs' },
 ]
 
 export function ComponentsSidebar() {
