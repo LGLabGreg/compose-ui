@@ -21,7 +21,7 @@ export default function ScrollAreaComponent() {
       <div className='space-y-8'>
         {/* Vertical scroll example */}
         <div className='space-y-2'>
-          <h2 className='text-sm font-medium text-muted-foreground'>Vertical Scroll</h2>
+          <h2 className='font-medium'>Vertical Scroll</h2>
           <ScrollAreaRoot className='h-72 w-96 rounded-md border'>
             <ScrollAreaViewport className='h-full w-full'>
               <ScrollAreaContent className='p-4'>
@@ -43,7 +43,7 @@ export default function ScrollAreaComponent() {
 
         {/* Horizontal scroll example */}
         <div className='space-y-2'>
-          <h2 className='text-sm font-medium text-muted-foreground'>Horizontal Scroll</h2>
+          <h2 className='font-medium'>Horizontal Scroll</h2>
           <ScrollAreaRoot className='w-96 rounded-md border'>
             <ScrollAreaViewport className='w-full'>
               <ScrollAreaContent className='p-4'>
@@ -67,7 +67,7 @@ export default function ScrollAreaComponent() {
 
         {/* Both scrollbars example */}
         <div className='space-y-2'>
-          <h2 className='text-sm font-medium text-muted-foreground'>Both Scrollbars</h2>
+          <h2 className='font-medium'>Both Scrollbars</h2>
           <ScrollAreaRoot className='h-72 w-96 rounded-md border'>
             <ScrollAreaViewport className='h-full w-full'>
               <ScrollAreaContent className='p-4'>

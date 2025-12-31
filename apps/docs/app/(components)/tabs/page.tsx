@@ -15,7 +15,7 @@ export default function TabsComponent() {
       <div className='space-y-8'>
         {/* Basic example */}
         <div className='space-y-2'>
-          <h2 className='text-sm font-medium text-muted-foreground'>Basic</h2>
+          <h2 className='font-medium'>Basic</h2>
           <div className='rounded-lg border p-6'>
             <TabsRoot defaultValue='overview'>
               <TabsList>
@@ -54,7 +54,7 @@ export default function TabsComponent() {
 
         {/* With icons */}
         <div className='space-y-2'>
-          <h2 className='text-sm font-medium text-muted-foreground'>With Icons</h2>
+          <h2 className='font-medium'>With Icons</h2>
           <div className='rounded-lg border p-6'>
             <TabsRoot defaultValue='account'>
               <TabsList>
@@ -99,7 +99,7 @@ export default function TabsComponent() {
 
         {/* Size variants */}
         <div className='space-y-2'>
-          <h2 className='text-sm font-medium text-muted-foreground'>Sizes</h2>
+          <h2 className='font-medium'>Sizes</h2>
           <div className='space-y-4 rounded-lg border p-6'>
             <div>
               <p className='mb-2 text-xs text-muted-foreground'>Small</p>
@@ -151,7 +151,7 @@ export default function TabsComponent() {
 
         {/* Disabled tabs */}
         <div className='space-y-2'>
-          <h2 className='text-sm font-medium text-muted-foreground'>Disabled Tab</h2>
+          <h2 className='font-medium'>Disabled Tab</h2>
           <div className='rounded-lg border p-6'>
             <TabsRoot defaultValue='active'>
               <TabsList>
@@ -189,9 +189,7 @@ export default function TabsComponent() {
 
         {/* Vertical orientation */}
         <div className='space-y-2'>
-          <h2 className='text-sm font-medium text-muted-foreground'>
-            Vertical Orientation
-          </h2>
+          <h2 className='font-medium'>Vertical Orientation</h2>
           <div className='rounded-lg border p-6'>
             <TabsRoot
               defaultValue='general'
