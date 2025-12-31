@@ -1,0 +1,40 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import SecondaryExample from './examples/secondary'
+import OutlineExample from './examples/outline'
+import DestructiveExample from './examples/destructive'
+import GhostExample from './examples/ghost'
+import AsLinkExample from './examples/as-link'
+
+<ComponentPage
+  title="Button"
+  description="A versatile button component with multiple variants, sizes, and states including loading indicators."
+  component="button"
+>
+
+<ExampleLoader title="Default" filePath="app/(components)/button/examples/default.tsx">
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader title="Secondary" filePath="app/(components)/button/examples/secondary.tsx">
+  <SecondaryExample />
+</ExampleLoader>
+
+<ExampleLoader title="Outline" filePath="app/(components)/button/examples/outline.tsx">
+  <OutlineExample />
+</ExampleLoader>
+
+<ExampleLoader title="Destructive" filePath="app/(components)/button/examples/destructive.tsx">
+  <DestructiveExample />
+</ExampleLoader>
+
+<ExampleLoader title="Ghost" filePath="app/(components)/button/examples/ghost.tsx">
+  <GhostExample />
+</ExampleLoader>
+
+<ExampleLoader title="As Link" filePath="app/(components)/button/examples/as-link.tsx">
+  <AsLinkExample />
+</ExampleLoader>
+
+</ComponentPage>
