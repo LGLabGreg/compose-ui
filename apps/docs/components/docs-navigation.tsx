@@ -12,7 +12,7 @@ import { usePathname } from 'next/navigation'
 
 import { docsNavigation } from '@/lib/navigation'
 
-export function DocsNavigation() {
+export function DocsNavigation({ closeDrawer }: { closeDrawer?: () => void }) {
   const pathname = usePathname()
 
   return (
@@ -37,6 +37,7 @@ export function DocsNavigation() {
                                 ? 'bg-muted font-medium text-foreground'
                                 : 'hover:bg-muted/50 hover:text-foreground'
                             }`}
+                            onClick={closeDrawer}
                           >
                             {item.name}
                           </Link>
