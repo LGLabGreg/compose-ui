@@ -10,7 +10,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    dts(),
+    dts({ exclude: ['**/*.test.ts', '**/*.test.tsx', 'vitest.utils.ts'] }),
     preserveDirectives() as Plugin,
     viteStaticCopy({
       targets: [
