@@ -1,6 +1,6 @@
 export const Logo = () => {
   return (
-    <div className='size-8 [&>svg]:size-full dark:invert'>
+    <div className='size-8 [&>svg]:size-full fill-foreground'>
       <svg
         width='91.506'
         height='96'
