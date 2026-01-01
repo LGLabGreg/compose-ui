@@ -40,6 +40,7 @@ export async function MDXCodeBlock({ children }: MDXCodeBlockProps) {
       light: 'github-light',
       dark: 'github-dark',
     },
+    defaultColor: false,
   })
 
   return (

@@ -15,6 +15,7 @@ export async function CodeBlock({ code, language = 'tsx' }: CodeBlockProps) {
       light: 'github-light',
       dark: 'github-dark',
     },
+    defaultColor: false,
   })
 
   return (
