@@ -32,7 +32,7 @@ export function Example({ title, children, codeBlock }: ExampleProps) {
         </TabsList>
 
         <TabsPanel className='rounded-lg border' value='preview'>
-          <div className='p-6 pt-4'>{children}</div>
+          <div className='p-6'>{children}</div>
         </TabsPanel>
         <TabsPanel className='rounded-lg border' value='code'>
           <div className='max-h-[500px] overflow-auto'>{codeBlock}</div>
