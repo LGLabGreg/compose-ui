@@ -5,11 +5,11 @@ export default function GhostExample() {
   return (
     <div className='flex flex-wrap gap-2'>
       <Button variant='ghost' size='sm'>
-        Button
+        Small
       </Button>
-      <Button variant='ghost'>Button</Button>
+      <Button variant='ghost'>Default</Button>
       <Button variant='ghost' size='lg'>
-        Button
+        Large
       </Button>
       <Button variant='ghost' loading loadingText='Loading...'>
         Button

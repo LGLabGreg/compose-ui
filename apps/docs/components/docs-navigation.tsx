@@ -35,7 +35,7 @@ export function DocsNavigation() {
                             className={`block rounded-md px-2 py-1 text-sm transition-colors ${
                               pathname === item.href
                                 ? 'bg-muted font-medium text-foreground'
-                                : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
+                                : 'hover:bg-muted/50 hover:text-foreground'
                             }`}
                           >
                             {item.name}

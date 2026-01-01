@@ -5,11 +5,11 @@ export default function SecondaryExample() {
   return (
     <div className='flex flex-wrap gap-2'>
       <Button variant='secondary' size='sm'>
-        Button
+        Small
       </Button>
-      <Button variant='secondary'>Button</Button>
+      <Button variant='secondary'>Default</Button>
       <Button variant='secondary' size='lg'>
-        Button
+        Large
       </Button>
       <Button variant='secondary' loading loadingText='Loading...'>
         Button

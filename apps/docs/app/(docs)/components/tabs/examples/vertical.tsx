@@ -14,7 +14,7 @@ export default function VerticalExample() {
         <TabsPanel value='general' className='mt-0'>
           <div className='rounded-md p-4'>
             <h3 className='font-medium'>General Settings</h3>
-            <p className='mt-1 text-sm text-muted-foreground'>
+            <p className='mt-1 text-sm'>
               Configure general application settings and preferences.
             </p>
           </div>
@@ -22,7 +22,7 @@ export default function VerticalExample() {
         <TabsPanel value='security' className='mt-0'>
           <div className='rounded-md p-4'>
             <h3 className='font-medium'>Security Settings</h3>
-            <p className='mt-1 text-sm text-muted-foreground'>
+            <p className='mt-1 text-sm'>
               Manage your security preferences, two-factor authentication, and sessions.
             </p>
           </div>
@@ -30,7 +30,7 @@ export default function VerticalExample() {
         <TabsPanel value='notifications' className='mt-0'>
           <div className='rounded-md p-4'>
             <h3 className='font-medium'>Notification Preferences</h3>
-            <p className='mt-1 text-sm text-muted-foreground'>
+            <p className='mt-1 text-sm'>
               Control how and when you receive notifications.
             </p>
           </div>
@@ -38,7 +38,7 @@ export default function VerticalExample() {
         <TabsPanel value='billing' className='mt-0'>
           <div className='rounded-md p-4'>
             <h3 className='font-medium'>Billing Information</h3>
-            <p className='mt-1 text-sm text-muted-foreground'>
+            <p className='mt-1 text-sm'>
               View and manage your billing details and payment methods.
             </p>
           </div>

@@ -32,7 +32,7 @@ export default function SidesExample() {
                 </DrawerDescription>
               </DrawerHeader>
               <DrawerContent>
-                <p className='text-sm text-muted-foreground'>
+                <p className='text-sm'>
                   This is a basic drawer that slides in from the {side} side of the
                   screen.
                 </p>

@@ -19,7 +19,7 @@ export function InlineCopyButton({ code }: InlineCopyButtonProps) {
   return (
     <button
       onClick={handleCopy}
-      className='flex size-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground'
+      className='flex size-7 items-center justify-center rounded-md transition-colors hover:bg-muted hover:text-foreground'
       aria-label={copied ? 'Copied' : 'Copy code'}
     >
       {copied ? <CheckIcon className='size-4' /> : <CopyIcon className='size-4' />}

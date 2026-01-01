@@ -4,7 +4,7 @@ export default function SizesExample() {
   return (
     <div className='space-y-4'>
       <div>
-        <p className='mb-2 text-xs text-muted-foreground'>Small</p>
+        <p className='mb-2 text-xs'>Small</p>
         <TabsRoot defaultValue='tab1'>
           <TabsList>
             <TabsTab value='tab1' size='sm'>
@@ -21,7 +21,7 @@ export default function SizesExample() {
         </TabsRoot>
       </div>
       <div>
-        <p className='mb-2 text-xs text-muted-foreground'>Default</p>
+        <p className='mb-2 text-xs'>Default</p>
         <TabsRoot defaultValue='tab1'>
           <TabsList>
             <TabsTab value='tab1'>Tab 1</TabsTab>
@@ -32,7 +32,7 @@ export default function SizesExample() {
         </TabsRoot>
       </div>
       <div>
-        <p className='mb-2 text-xs text-muted-foreground'>Large</p>
+        <p className='mb-2 text-xs'>Large</p>
         <TabsRoot defaultValue='tab1'>
           <TabsList>
             <TabsTab value='tab1' size='lg'>

@@ -13,23 +13,19 @@ export default function DisabledExample() {
       </TabsList>
       <TabsPanel value='active'>
         <div className='rounded-md p-4'>
-          <p className='text-sm text-muted-foreground'>
+          <p className='text-sm'>
             This tab is active. The middle tab is disabled and cannot be selected.
           </p>
         </div>
       </TabsPanel>
       <TabsPanel value='disabled'>
         <div className='rounded-md p-4'>
-          <p className='text-sm text-muted-foreground'>
-            You shouldn&apos;t see this content.
-          </p>
+          <p className='text-sm'>You shouldn&apos;t see this content.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='another'>
         <div className='rounded-md p-4'>
-          <p className='text-sm text-muted-foreground'>
-            This is another active tab panel.
-          </p>
+          <p className='text-sm'>This is another active tab panel.</p>
         </div>
       </TabsPanel>
     </TabsRoot>

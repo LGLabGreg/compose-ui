@@ -5,11 +5,11 @@ export default function DestructiveExample() {
   return (
     <div className='flex flex-wrap gap-2'>
       <Button variant='destructive' size='sm'>
-        Button
+        Small
       </Button>
-      <Button variant='destructive'>Button</Button>
+      <Button variant='destructive'>Default</Button>
       <Button variant='destructive' size='lg'>
-        Button
+        Large
       </Button>
       <Button variant='destructive' loading loadingText='Loading...'>
         Button

@@ -10,6 +10,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
+:root {
+  --foreground: oklch(27.27% 0 0);
+}
+
+.dark {
+  --foreground: oklch(0.985 0 0);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

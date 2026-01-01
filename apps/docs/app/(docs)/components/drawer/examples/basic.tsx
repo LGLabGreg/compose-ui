@@ -24,7 +24,7 @@ export default function BasicExample() {
             <DrawerDescription>Manage your account preferences.</DrawerDescription>
           </DrawerHeader>
           <DrawerContent>
-            <p className='text-sm text-muted-foreground'>
+            <p className='text-sm'>
               This is a basic drawer that slides in from the right side of the screen.
             </p>
           </DrawerContent>

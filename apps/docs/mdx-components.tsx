@@ -8,9 +8,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: ({ children }) => (
       <h1 className='text-3xl font-bold tracking-tight'>{children}</h1>
     ),
-    h2: ({ children }) => <h2 className='text-xl font-semibold'>{children}</h2>,
+    h2: ({ children }) => <h2 className='text-xl font-semibold mb-2 mt-8'>{children}</h2>,
     h3: ({ children }) => <h3 className='text-lg font-medium'>{children}</h3>,
-    p: ({ children }) => <p className='text-muted-foreground'>{children}</p>,
+    p: ({ children }) => <p className='mb-5'>{children}</p>,
+    a: ({ children, ...props }) => (
+      <a className='text-foreground underline underline-offset-4' {...props}>
+        {children}
+      </a>
+    ),
     // Override code blocks with custom styling
     pre: ({ children }) => <MDXCodeBlock>{children}</MDXCodeBlock>,
     // Pass through any custom components

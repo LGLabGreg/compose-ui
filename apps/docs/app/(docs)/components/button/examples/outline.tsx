@@ -5,11 +5,11 @@ export default function OutlineExample() {
   return (
     <div className='flex flex-wrap gap-2'>
       <Button variant='outline' size='sm'>
-        Button
+        Small
       </Button>
-      <Button variant='outline'>Button</Button>
+      <Button variant='outline'>Default</Button>
       <Button variant='outline' size='lg'>
-        Button
+        Large
       </Button>
       <Button variant='outline' loading loadingText='Loading...'>
         Button

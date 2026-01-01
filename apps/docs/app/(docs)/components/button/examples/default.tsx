@@ -4,9 +4,9 @@ import { TrashIcon } from 'lucide-react'
 export default function DefaultExample() {
   return (
     <div className='flex flex-wrap gap-2'>
-      <Button size='sm'>Button</Button>
-      <Button>Button</Button>
-      <Button size='lg'>Button</Button>
+      <Button size='sm'>Small</Button>
+      <Button>Default</Button>
+      <Button size='lg'>Large</Button>
       <Button loading loadingText='Loading...'>
         Button
       </Button>

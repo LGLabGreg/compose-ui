@@ -38,18 +38,14 @@ export default function ControlledDialogExample() {
               <div className='flex items-center justify-between rounded-lg border border-border p-4'>
                 <div>
                   <p className='font-medium'>Email Notifications</p>
-                  <p className='text-sm text-muted-foreground'>
-                    Receive email updates about your account
-                  </p>
+                  <p className='text-sm'>Receive email updates about your account</p>
                 </div>
                 <div className='h-5 w-9 rounded-full bg-primary' />
               </div>
               <div className='flex items-center justify-between rounded-lg border border-border p-4'>
                 <div>
                   <p className='font-medium'>Marketing Emails</p>
-                  <p className='text-sm text-muted-foreground'>
-                    Receive emails about new features and offers
-                  </p>
+                  <p className='text-sm'>Receive emails about new features and offers</p>
                 </div>
                 <div className='h-5 w-9 rounded-full bg-muted' />
               </div>
@@ -61,9 +57,7 @@ export default function ControlledDialogExample() {
           </DialogPopup>
         </DialogPortal>
       </DialogRoot>
-      <span className='text-sm text-muted-foreground'>
-        Dialog is {open ? 'open' : 'closed'}
-      </span>
+      <span className='text-sm'>Dialog is {open ? 'open' : 'closed'}</span>
     </div>
   )
 }

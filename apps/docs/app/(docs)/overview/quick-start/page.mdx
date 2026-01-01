@@ -7,18 +7,36 @@ import { DocPage } from '@/components/mdx/doc-page'
 
 ## Installation
 
+Install Compose UI using your preferred package manager:
+
 ```bash
 npm i @lglab/compose-ui
 ```
 
 ## CSS
 
+Import the default styles and register Compose UI as a Tailwind source in your main CSS file. The `@source` directive ensures Tailwind scans the package for class names used by components.
+
 ```css
 @import '@lglab/compose-ui/styles/default.css';
 @source "../node_modules/@lglab/compose-ui";
 ```
 
+## Usage
+
+Import components directly from the package:
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+
+export function Example() {
+  return <Button>Click me</Button>
+}
+```
+
 ## Customizing
+
+Override the default theme by setting CSS variables. See the [Theming](/overview/theming) page for all available options.
 
 ```css
 @theme inline {
