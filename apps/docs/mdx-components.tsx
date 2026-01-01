@@ -1,3 +1,5 @@
+import { MdxCodeBlock } from '@/components/mdx-code-block'
+
 type MDXComponents = Record<string, React.ComponentType<{ children?: React.ReactNode }>>
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -9,6 +11,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h2: ({ children }) => <h2 className='text-xl font-semibold'>{children}</h2>,
     h3: ({ children }) => <h3 className='text-lg font-medium'>{children}</h3>,
     p: ({ children }) => <p className='text-muted-foreground'>{children}</p>,
+    // Override code blocks with custom styling
+    pre: ({ children }) => <MdxCodeBlock>{children}</MdxCodeBlock>,
     // Pass through any custom components
     ...components,
   }
