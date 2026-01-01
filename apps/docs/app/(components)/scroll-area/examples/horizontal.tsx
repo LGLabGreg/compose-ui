@@ -8,7 +8,7 @@ import {
 
 export default function HorizontalScrollExample() {
   return (
-    <ScrollAreaRoot className='w-96 rounded-md border'>
+    <ScrollAreaRoot className='w-full rounded-md border'>
       <ScrollAreaViewport className='w-full'>
         <ScrollAreaContent className='p-4'>
           <div className='flex gap-4'>

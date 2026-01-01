@@ -8,7 +8,7 @@ import {
 
 export default function VerticalScrollExample() {
   return (
-    <ScrollAreaRoot className='h-72 w-96 rounded-md border'>
+    <ScrollAreaRoot className='h-72 w-full rounded-md border'>
       <ScrollAreaViewport className='h-full w-full'>
         <ScrollAreaContent className='p-4'>
           <div className='space-y-4'>

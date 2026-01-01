@@ -9,7 +9,7 @@ import {
 
 export default function BothScrollbarsExample() {
   return (
-    <ScrollAreaRoot className='h-72 w-96 rounded-md border'>
+    <ScrollAreaRoot className='h-72 w-full lg:w-[50%] rounded-md border'>
       <ScrollAreaViewport className='h-full w-full'>
         <ScrollAreaContent className='p-4'>
           <div className='w-[800px] space-y-4'>

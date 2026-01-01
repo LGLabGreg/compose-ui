@@ -3,7 +3,7 @@ import { TrashIcon } from 'lucide-react'
 
 export default function DefaultExample() {
   return (
-    <div className='flex gap-2'>
+    <div className='flex flex-wrap gap-2'>
       <Button size='sm'>Button</Button>
       <Button>Button</Button>
       <Button size='lg'>Button</Button>
