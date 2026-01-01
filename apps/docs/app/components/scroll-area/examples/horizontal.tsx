@@ -9,7 +9,7 @@ import {
 export default function HorizontalScrollExample() {
   return (
     <ScrollAreaRoot className='w-full rounded-md border'>
-      <ScrollAreaViewport className='w-full'>
+      <ScrollAreaViewport>
         <ScrollAreaContent className='p-4'>
           <div className='flex gap-4'>
             {Array.from({ length: 15 }).map((_, i) => (

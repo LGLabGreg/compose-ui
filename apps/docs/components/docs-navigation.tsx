@@ -18,7 +18,7 @@ export function DocsNavigation() {
   return (
     <>
       <ScrollAreaRoot className='h-full'>
-        <ScrollAreaViewport className='h-full'>
+        <ScrollAreaViewport>
           <ScrollAreaContent>
             {docsNavigation.map((section) => (
               <div key={section.name}>
