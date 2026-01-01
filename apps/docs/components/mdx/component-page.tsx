@@ -20,7 +20,7 @@ export function ComponentPage({
   children,
 }: ComponentPageProps) {
   return (
-    <div className='p-8'>
+    <div className='p-6 md:p-8'>
       <div className='mb-8'>
         <h1 className='text-3xl font-bold tracking-tight'>{title}</h1>
         <p className='mt-2 text-muted-foreground'>{description}</p>

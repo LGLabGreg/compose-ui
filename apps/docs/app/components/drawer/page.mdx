@@ -1,0 +1,20 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import BasicExample from './examples/basic'
+import SidesExample from './examples/sides'
+
+<ComponentPage
+  title="Drawer"
+  description="A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content."
+  component="drawer"
+>
+
+<ExampleLoader title='Basic' filePath='app/components/drawer/examples/basic.tsx'>
+  <BasicExample />
+</ExampleLoader>
+
+<ExampleLoader title='Sides' filePath='app/components/drawer/examples/sides.tsx'>
+  <SidesExample />
+</ExampleLoader>
+
+</ComponentPage>

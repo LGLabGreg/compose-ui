@@ -10,7 +10,7 @@ import {
 export default function BothScrollbarsExample() {
   return (
     <ScrollAreaRoot className='h-72 w-full lg:w-[50%] rounded-md border'>
-      <ScrollAreaViewport className='h-full w-full'>
+      <ScrollAreaViewport>
         <ScrollAreaContent className='p-4'>
           <div className='w-[800px] space-y-4'>
             {Array.from({ length: 20 }).map((_, i) => (

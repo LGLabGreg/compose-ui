@@ -20,3 +20,16 @@ export {
   DialogHeader,
   DialogFooter,
 } from './components/dialog'
+export {
+  DrawerRoot,
+  DrawerTrigger,
+  DrawerPortal,
+  DrawerBackdrop,
+  DrawerPopup,
+  DrawerTitle,
+  DrawerDescription,
+  DrawerClose,
+  DrawerHeader,
+  DrawerContent,
+  DrawerFooter,
+} from './components/drawer'

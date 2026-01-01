@@ -1,8 +1,8 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
-import VerticalScrollExample from './examples/vertical'
-import HorizontalScrollExample from './examples/horizontal'
 import BothScrollbarsExample from './examples/both-scrollbars'
+import HorizontalScrollExample from './examples/horizontal'
+import VerticalScrollExample from './examples/vertical'
 
 <ComponentPage
   title="Scroll Area"
@@ -10,15 +10,24 @@ import BothScrollbarsExample from './examples/both-scrollbars'
   component="scroll-area"
 >
 
-<ExampleLoader title="Vertical Scroll" filePath="app/(components)/scroll-area/examples/vertical.tsx">
+<ExampleLoader
+  title='Vertical Scroll'
+  filePath='app/components/scroll-area/examples/vertical.tsx'
+>
   <VerticalScrollExample />
 </ExampleLoader>
 
-<ExampleLoader title="Horizontal Scroll" filePath="app/(components)/scroll-area/examples/horizontal.tsx">
+<ExampleLoader
+  title='Horizontal Scroll'
+  filePath='app/components/scroll-area/examples/horizontal.tsx'
+>
   <HorizontalScrollExample />
 </ExampleLoader>
 
-<ExampleLoader title="Both Scrollbars" filePath="app/(components)/scroll-area/examples/both-scrollbars.tsx">
+<ExampleLoader
+  title='Both Scrollbars'
+  filePath='app/components/scroll-area/examples/both-scrollbars.tsx'
+>
   <BothScrollbarsExample />
 </ExampleLoader>
 

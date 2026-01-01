@@ -34,7 +34,7 @@ export function Hero() {
           <Button
             size='lg'
             render={
-              <Link href='/getting-started'>
+              <Link href='/overview/quick-start'>
                 Get Started
                 <ArrowRight />
               </Link>
@@ -45,7 +45,7 @@ export function Hero() {
             variant='outline'
             size='lg'
             render={
-              <Link href='/button'>
+              <Link href='/components/button'>
                 <LayoutDashboard /> Components
               </Link>
             }

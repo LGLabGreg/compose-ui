@@ -1,10 +1,10 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import BasicExample from './examples/basic'
-import WithIconsExample from './examples/with-icons'
-import SizesExample from './examples/sizes'
 import DisabledExample from './examples/disabled'
+import SizesExample from './examples/sizes'
 import VerticalExample from './examples/vertical'
+import WithIconsExample from './examples/with-icons'
 
 <ComponentPage
   title="Tabs"
@@ -12,23 +12,26 @@ import VerticalExample from './examples/vertical'
   component="tabs"
 >
 
-<ExampleLoader title='Basic' filePath="app/(components)/tabs/examples/basic.tsx">
+<ExampleLoader title='Basic' filePath='app/components/tabs/examples/basic.tsx'>
   <BasicExample />
 </ExampleLoader>
 
-<ExampleLoader title='With Icons' filePath="app/(components)/tabs/examples/with-icons.tsx">
+<ExampleLoader title='With Icons' filePath='app/components/tabs/examples/with-icons.tsx'>
   <WithIconsExample />
 </ExampleLoader>
 
-<ExampleLoader title='Sizes' filePath="app/(components)/tabs/examples/sizes.tsx">
+<ExampleLoader title='Sizes' filePath='app/components/tabs/examples/sizes.tsx'>
   <SizesExample />
 </ExampleLoader>
 
-<ExampleLoader title='Disabled Tab' filePath="app/(components)/tabs/examples/disabled.tsx">
+<ExampleLoader title='Disabled Tab' filePath='app/components/tabs/examples/disabled.tsx'>
   <DisabledExample />
 </ExampleLoader>
 
-<ExampleLoader title='Vertical Orientation' filePath="app/(components)/tabs/examples/vertical.tsx">
+<ExampleLoader
+  title='Vertical Orientation'
+  filePath='app/components/tabs/examples/vertical.tsx'
+>
   <VerticalExample />
 </ExampleLoader>
 
