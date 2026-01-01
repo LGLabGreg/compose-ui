@@ -35,3 +35,24 @@ Base UI handles ARIA attributes, keyboard navigation, and focus management autom
 ## Preview Page
 
 Create `apps/docs/app/(docs)/components/{component-name}/page.tsx` and add to sidebar in `components-sidebar.tsx`
+
+## Testing
+
+Add test for the component
+
+- **Composition**: Create and test composed component as they would be used by the library user
+- **Accessibility**: Always get elements by their accessible roles
+- **User first**: Test components as they would be interacted with by a real user using userEvent
+
+### Example
+
+```
+import { render } from '~/vitest.utils'
+
+it('calls the onClick handler when clicked', async () => {
+  const onClick = vi.fn()
+  const { user } = render(<Button onClick={onClick}>Click</Button>)
+  await user.click(screen.getByRole('button', { name: 'Click' }))
+  expect(onClick).toHaveBeenCalled()
+})
+```
