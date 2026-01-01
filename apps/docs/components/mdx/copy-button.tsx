@@ -19,7 +19,7 @@ export function CopyButton({ code }: CopyButtonProps) {
   return (
     <button
       onClick={handleCopy}
-      className='absolute right-2 top-0 flex size-8 items-center justify-center rounded-md bg-muted/80 text-muted-foreground backdrop-blur-sm transition-colors hover:bg-muted hover:text-foreground'
+      className='absolute right-2 top-2 flex size-8 items-center justify-center rounded-md bg-muted/80 text-muted-foreground backdrop-blur-sm transition-colors hover:bg-muted hover:text-foreground'
       aria-label={copied ? 'Copied' : 'Copy code'}
     >
       {copied ? <CheckIcon className='size-4' /> : <CopyIcon className='size-4' />}

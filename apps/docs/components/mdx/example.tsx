@@ -30,14 +30,13 @@ export function Example({ title, children, codeBlock }: ExampleProps) {
           </TabsTab>
           <TabsIndicator />
         </TabsList>
-        <div className='mt-2 rounded-lg border'>
-          <TabsPanel value='preview'>
-            <div className='p-6 pt-4'>{children}</div>
-          </TabsPanel>
-          <TabsPanel value='code'>
-            <div className='max-h-[500px] overflow-auto'>{codeBlock}</div>
-          </TabsPanel>
-        </div>
+
+        <TabsPanel className='rounded-lg border' value='preview'>
+          <div className='p-6 pt-4'>{children}</div>
+        </TabsPanel>
+        <TabsPanel className='rounded-lg border' value='code'>
+          <div className='max-h-[500px] overflow-auto'>{codeBlock}</div>
+        </TabsPanel>
       </TabsRoot>
     </div>
   )

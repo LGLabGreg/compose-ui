@@ -1,7 +1,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 
-import { CodeBlock } from '@/components/code-block'
+import { CodeBlock } from '@/components/mdx/code-block'
 
 import { Example } from './example'
 

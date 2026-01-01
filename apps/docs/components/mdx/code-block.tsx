@@ -21,7 +21,7 @@ export async function CodeBlock({ code, language = 'tsx' }: CodeBlockProps) {
     <div className='relative'>
       <CopyButton code={trimmedCode} />
       <div
-        className='[&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:pr-12 [&_pre]:pt-1 [&_pre]:text-sm [&_pre]:leading-relaxed [&_.shiki]:bg-zinc-50 [&_.shiki]:dark:bg-zinc-900'
+        className='[&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:p-4 [&_pre]:pr-12 [&_pre]:text-sm [&_pre]:leading-relaxed'
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>
