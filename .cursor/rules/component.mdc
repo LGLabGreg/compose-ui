@@ -34,4 +34,4 @@ Base UI handles ARIA attributes, keyboard navigation, and focus management autom
 
 ## Preview Page
 
-Create `apps/docs/app/(components)/{component-name}/page.tsx` and add to sidebar in `components-sidebar.tsx`
+Create `apps/docs/app/components/{component-name}/page.tsx` and add to sidebar in `components-sidebar.tsx`

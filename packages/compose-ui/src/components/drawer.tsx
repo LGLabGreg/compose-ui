@@ -42,6 +42,9 @@ const drawerTriggerVariants = cva(
         sm: 'h-8 rounded-md px-3 text-xs',
         default: 'h-9 px-4 py-2',
         lg: 'h-10 rounded-md px-6',
+        icon: 'size-9',
+        'icon-sm': 'size-8',
+        'icon-lg': 'size-10',
       },
     },
     defaultVariants: {
@@ -55,7 +58,7 @@ export type DrawerTriggerProps = React.ComponentProps<typeof BaseDialog.Trigger>
   /** Visual style variant */
   variant?: 'default' | 'secondary' | 'outline' | 'ghost'
   /** Size of the trigger button */
-  size?: 'sm' | 'default' | 'lg'
+  size?: 'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'
 }
 
 const DrawerTrigger = ({ className, variant, size, ...props }: DrawerTriggerProps) => {
