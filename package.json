@@ -11,6 +11,7 @@
     "dev": "pnpm concurrently --names packages,apps \"pnpm watch:packages\" \"pnpm watch:docs\"",
     "watch:packages": "pnpm --filter \"./packages/**\" run build --watch",
     "watch:docs": "pnpm --filter \"./apps/docs/**\" run dev",
+    "build:docs": "pnpm --filter \"./apps/docs/**\" run build",
     "build:lib": "pnpm --filter \"./packages/**\" run build",
     "ci:publish": "pnpm build:lib && pnpm publish -r && pnpm changeset tag",
     "test": "vitest run",

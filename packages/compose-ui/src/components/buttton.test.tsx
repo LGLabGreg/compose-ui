@@ -1,6 +1,6 @@
-import { render } from '@/vitest.utils'
 import { screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
+import { render } from '~/vitest.utils'
 
 import { Button } from './button'
 

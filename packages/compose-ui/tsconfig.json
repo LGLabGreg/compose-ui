@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "~/*": ["./*"]
     },
     "target": "ES2020",
     "module": "ESNext",
@@ -19,9 +19,8 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "noEmit": true,
-    "outDir": "./dist",
-    "types": ["@testing-library/jest-dom"]
+    "outDir": "./dist"
   },
   "include": ["src/**/*"],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules", "**/*.test.ts", "**/*.test.tsx"]
 }
