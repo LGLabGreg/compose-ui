@@ -11,8 +11,9 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui'
 
-export default function BasicExample() {
+export default function FooterExample() {
   return (
     <DrawerRoot>
       <DrawerTrigger>Open Drawer</DrawerTrigger>
@@ -23,14 +24,15 @@ export default function BasicExample() {
             <DrawerTitle>Drawer</DrawerTitle>
             <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
           </DrawerHeader>
-          <DrawerContent>
+          <DrawerContent className='flex-1'>
             <p className='text-sm'>
               Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
               bibendum est aliquam mauris laoreet interdum.
             </p>
           </DrawerContent>
-          <DrawerFooter className='flex justify-end'>
-            <DrawerClose>Close</DrawerClose>
+          <DrawerFooter className='flex gap-2 justify-end'>
+            <DrawerClose>Cancel</DrawerClose>
+            <Button variant='destructive'>Delete</Button>
           </DrawerFooter>
         </DrawerPopup>
       </DrawerPortal>
