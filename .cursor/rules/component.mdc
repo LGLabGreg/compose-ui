@@ -56,7 +56,3 @@ it('calls the onClick handler when clicked', async () => {
   expect(onClick).toHaveBeenCalled()
 })
 ```
-
-## llms
-
-Update ./apps/docs/scripts/generate-llms-docs.ts getComponentParts with new component's parts
