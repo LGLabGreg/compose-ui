@@ -15,10 +15,10 @@ export function Hero() {
       <div className='relative z-10 flex flex-col items-center'>
         <div className='flex flex-col items-center gap-4 mb-5'>
           <Link
-            href='/docs'
+            href='/overview/quick-start'
             className='mx-auto mb-3 inline-flex items-center gap-3 rounded-full border px-2 pl-4 py-1 text-sm bg-background shadow-xs'
           >
-            <span className='font-medium'>Introducing compose-ui</span>
+            <span className='font-medium'>Introducing Compose UI</span>
             <span className='bg-muted flex size-7 items-center justify-center rounded-full'>
               <ArrowRight className='size-4' />
             </span>
