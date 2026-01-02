@@ -1,0 +1,168 @@
+# Button
+
+A versatile button component with multiple variants, sizes, and states including loading indicators.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { TrashIcon } from 'lucide-react'
+
+export default function DefaultExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <Button size='sm'>Small</Button>
+      <Button>Default</Button>
+      <Button size='lg'>Large</Button>
+      <Button loading loadingText='Loading...'>
+        Button
+      </Button>
+      <Button size='icon'>
+        <TrashIcon />
+      </Button>
+    </div>
+  )
+}
+```
+
+### Secondary
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { TrashIcon } from 'lucide-react'
+
+export default function SecondaryExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <Button variant='secondary' size='sm'>
+        Small
+      </Button>
+      <Button variant='secondary'>Default</Button>
+      <Button variant='secondary' size='lg'>
+        Large
+      </Button>
+      <Button variant='secondary' loading loadingText='Loading...'>
+        Button
+      </Button>
+      <Button variant='secondary' size='icon'>
+        <TrashIcon />
+      </Button>
+    </div>
+  )
+}
+```
+
+### Outline
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { TrashIcon } from 'lucide-react'
+
+export default function OutlineExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <Button variant='outline' size='sm'>
+        Small
+      </Button>
+      <Button variant='outline'>Default</Button>
+      <Button variant='outline' size='lg'>
+        Large
+      </Button>
+      <Button variant='outline' loading loadingText='Loading...'>
+        Button
+      </Button>
+      <Button variant='outline' size='icon'>
+        <TrashIcon />
+      </Button>
+    </div>
+  )
+}
+```
+
+### Destructive
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { TrashIcon } from 'lucide-react'
+
+export default function DestructiveExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <Button variant='destructive' size='sm'>
+        Small
+      </Button>
+      <Button variant='destructive'>Default</Button>
+      <Button variant='destructive' size='lg'>
+        Large
+      </Button>
+      <Button variant='destructive' loading loadingText='Loading...'>
+        Button
+      </Button>
+      <Button variant='destructive' size='icon'>
+        <TrashIcon />
+      </Button>
+    </div>
+  )
+}
+```
+
+### Ghost
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { TrashIcon } from 'lucide-react'
+
+export default function GhostExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <Button variant='ghost' size='sm'>
+        Small
+      </Button>
+      <Button variant='ghost'>Default</Button>
+      <Button variant='ghost' size='lg'>
+        Large
+      </Button>
+      <Button variant='ghost' loading loadingText='Loading...'>
+        Button
+      </Button>
+      <Button variant='ghost' size='icon'>
+        <TrashIcon />
+      </Button>
+    </div>
+  )
+}
+```
+
+### As Link
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import Link from 'next/link'
+
+export default function AsLinkExample() {
+  return (
+    <div className='flex gap-2'>
+      <Button render={<Link href='/docs'>Link</Link>} nativeButton={false} />
+    </div>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Button Documentation](https://base-ui.com/react/components/button)
+- [API Reference](https://base-ui.com/react/components/button#api-reference)

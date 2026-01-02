@@ -12,7 +12,10 @@ interface DocsNavigationSection {
 export const docsNavigation: DocsNavigationSection[] = [
   {
     name: 'Overview',
-    items: [{ name: 'Quick Start', href: '/overview/quick-start' }],
+    items: [
+      { name: 'Quick Start', href: '/overview/quick-start' },
+      { name: 'LLMs', href: '/overview/llms' },
+    ],
   },
   {
     name: 'Components',

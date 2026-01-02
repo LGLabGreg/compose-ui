@@ -4,6 +4,10 @@ on:
   pull_request:
     branches:
       - main
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
 
 jobs:
   test:
@@ -40,6 +44,16 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Generate LLM docs
+        run: pnpm generate:llms
+        working-directory: apps/docs
+
+      - name: Commit LLM docs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: regenerate llms docs'
+          file_pattern: 'apps/docs/public/llms* apps/docs/public/llms/**'
 
       - name: Run tests
         run: pnpm test

@@ -9,6 +9,8 @@ interface ComponentPageProps {
   description: string
   /** Component name for DocLinks (e.g., 'tabs', 'dialog') */
   component: string
+  /** Base UI component name for DocLinks (e.g., 'tabs', 'dialog') */
+  baseUiComponent: string
   /** The examples and content */
   children: ReactNode
 }
@@ -17,6 +19,7 @@ export function ComponentPage({
   title,
   description,
   component,
+  baseUiComponent,
   children,
 }: ComponentPageProps) {
   return (
@@ -25,7 +28,7 @@ export function ComponentPage({
         <h1 className='text-3xl font-bold tracking-tight'>{title}</h1>
         <p className='mt-2'>{description}</p>
         <div className='mt-4'>
-          <DocLinks component={component} />
+          <DocLinks component={component} baseUiComponent={baseUiComponent} />
         </div>
       </div>
       <div className='space-y-8'>{children}</div>
