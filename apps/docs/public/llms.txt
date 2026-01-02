@@ -1,0 +1,29 @@
+# Compose UI
+
+> A React component library built on Base UI primitives with Tailwind CSS styling. Install via npm for type-safe, accessible components with modern theming.
+
+Compose UI provides pre-styled, accessible React components built on Base UI. It uses Tailwind CSS for styling and class-variance-authority (CVA) for type-safe variants.
+
+Key features:
+- Built on @base-ui/react primitives (accessibility handled automatically)
+- Styled with Tailwind CSS using design tokens
+- Type-safe variants with CVA
+- CSS variable-based theming (compatible with Tailwind v4)
+- Tree-shakable ESM exports
+
+## Getting Started
+
+- [Quick Start](https://compose-ui.dev/overview/quick-start): Installation and basic usage
+
+## Components
+
+- [Tabs](https://compose-ui.dev/llms/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
+- [Scroll Area](https://compose-ui.dev/llms/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
+- [Drawer](https://compose-ui.dev/llms/drawer.md): A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
+- [Dialog](https://compose-ui.dev/llms/dialog.md): A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
+- [Button](https://compose-ui.dev/llms/button.md): A versatile button component with multiple variants, sizes, and states including loading indicators.
+
+## Optional
+
+- [Base UI Documentation](https://base-ui.com/react/components): Underlying component APIs
+- [GitHub Repository](https://github.com/lglab/compose-ui): Source code

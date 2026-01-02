@@ -1,0 +1,1402 @@
+# Compose UI - Complete Documentation
+
+> A React component library built on Base UI primitives with Tailwind CSS styling.
+
+## Table of Contents
+
+- Tabs
+- Scroll Area
+- Drawer
+- Dialog
+- Button
+
+---
+
+# Tabs
+
+A component for toggling between related panels on the same page with an animated indicator.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Basic
+
+```tsx
+import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+
+export default function BasicExample() {
+  return (
+    <TabsRoot defaultValue='overview'>
+      <TabsList>
+        <TabsTab value='overview'>Overview</TabsTab>
+        <TabsTab value='projects'>Projects</TabsTab>
+        <TabsTab value='settings'>Settings</TabsTab>
+        <TabsIndicator />
+      </TabsList>
+      <TabsPanel value='overview'>
+        <div className='rounded-md p-4'>
+          <p className='text-sm'>
+            This is the overview panel. Here you can see a summary of your account and
+            recent activity.
+          </p>
+        </div>
+      </TabsPanel>
+      <TabsPanel value='projects'>
+        <div className='rounded-md p-4'>
+          <p className='text-sm'>
+            View and manage your projects here. Create new projects or edit existing ones.
+          </p>
+        </div>
+      </TabsPanel>
+      <TabsPanel value='settings'>
+        <div className='rounded-md p-4'>
+          <p className='text-sm'>
+            Configure your account settings, preferences, and notification options.
+          </p>
+        </div>
+      </TabsPanel>
+    </TabsRoot>
+  )
+}
+```
+
+### With Icons
+
+```tsx
+import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import { FolderIcon, SettingsIcon, UserIcon } from 'lucide-react'
+
+export default function WithIconsExample() {
+  return (
+    <TabsRoot defaultValue='account'>
+      <TabsList>
+        <TabsTab value='account' className='gap-1.5'>
+          <UserIcon className='size-4' />
+          Account
+        </TabsTab>
+        <TabsTab value='projects' className='gap-1.5'>
+          <FolderIcon className='size-4' />
+          Projects
+        </TabsTab>
+        <TabsTab value='settings' className='gap-1.5'>
+          <SettingsIcon className='size-4' />
+          Settings
+        </TabsTab>
+        <TabsIndicator />
+      </TabsList>
+      <TabsPanel value='account'>
+        <div className='rounded-md p-4'>
+          <p className='text-sm'>Manage your account details and profile information.</p>
+        </div>
+      </TabsPanel>
+      <TabsPanel value='projects'>
+        <div className='rounded-md p-4'>
+          <p className='text-sm'>Browse and manage all your projects in one place.</p>
+        </div>
+      </TabsPanel>
+      <TabsPanel value='settings'>
+        <div className='rounded-md p-4'>
+          <p className='text-sm'>
+            Customize your experience with various settings options.
+          </p>
+        </div>
+      </TabsPanel>
+    </TabsRoot>
+  )
+}
+```
+
+### Sizes
+
+```tsx
+import { TabsIndicator, TabsList, TabsRoot, TabsTab } from '@lglab/compose-ui'
+
+export default function SizesExample() {
+  return (
+    <div className='space-y-4'>
+      <div>
+        <p className='mb-2 text-xs'>Small</p>
+        <TabsRoot defaultValue='tab1'>
+          <TabsList>
+            <TabsTab value='tab1' size='sm'>
+              Tab 1
+            </TabsTab>
+            <TabsTab value='tab2' size='sm'>
+              Tab 2
+            </TabsTab>
+            <TabsTab value='tab3' size='sm'>
+              Tab 3
+            </TabsTab>
+            <TabsIndicator />
+          </TabsList>
+        </TabsRoot>
+      </div>
+      <div>
+        <p className='mb-2 text-xs'>Default</p>
+        <TabsRoot defaultValue='tab1'>
+          <TabsList>
+            <TabsTab value='tab1'>Tab 1</TabsTab>
+            <TabsTab value='tab2'>Tab 2</TabsTab>
+            <TabsTab value='tab3'>Tab 3</TabsTab>
+            <TabsIndicator />
+          </TabsList>
+        </TabsRoot>
+      </div>
+      <div>
+        <p className='mb-2 text-xs'>Large</p>
+        <TabsRoot defaultValue='tab1'>
+          <TabsList>
+            <TabsTab value='tab1' size='lg'>
+              Tab 1
+            </TabsTab>
+            <TabsTab value='tab2' size='lg'>
+              Tab 2
+            </TabsTab>
+            <TabsTab value='tab3' size='lg'>
+              Tab 3
+            </TabsTab>
+            <TabsIndicator />
+          </TabsList>
+        </TabsRoot>
+      </div>
+    </div>
+  )
+}
+```
+
+### Disabled Tab
+
+```tsx
+import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+
+export default function DisabledExample() {
+  return (
+    <TabsRoot defaultValue='active'>
+      <TabsList>
+        <TabsTab value='active'>Active</TabsTab>
+        <TabsTab value='disabled' disabled>
+          Disabled
+        </TabsTab>
+        <TabsTab value='another'>Another Tab</TabsTab>
+        <TabsIndicator />
+      </TabsList>
+      <TabsPanel value='active'>
+        <div className='rounded-md p-4'>
+          <p className='text-sm'>
+            This tab is active. The middle tab is disabled and cannot be selected.
+          </p>
+        </div>
+      </TabsPanel>
+      <TabsPanel value='disabled'>
+        <div className='rounded-md p-4'>
+          <p className='text-sm'>You shouldn&apos;t see this content.</p>
+        </div>
+      </TabsPanel>
+      <TabsPanel value='another'>
+        <div className='rounded-md p-4'>
+          <p className='text-sm'>This is another active tab panel.</p>
+        </div>
+      </TabsPanel>
+    </TabsRoot>
+  )
+}
+```
+
+### Vertical Orientation
+
+```tsx
+import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+
+export default function VerticalExample() {
+  return (
+    <TabsRoot defaultValue='general' orientation='vertical' className='flex-row gap-4'>
+      <TabsList orientation='vertical'>
+        <TabsTab value='general'>General</TabsTab>
+        <TabsTab value='security'>Security</TabsTab>
+        <TabsTab value='notifications'>Notifications</TabsTab>
+        <TabsTab value='billing'>Billing</TabsTab>
+        <TabsIndicator orientation='vertical' />
+      </TabsList>
+      <div className='flex-1'>
+        <TabsPanel value='general' className='mt-0'>
+          <div className='rounded-md p-4'>
+            <h3 className='font-medium'>General Settings</h3>
+            <p className='mt-1 text-sm'>
+              Configure general application settings and preferences.
+            </p>
+          </div>
+        </TabsPanel>
+        <TabsPanel value='security' className='mt-0'>
+          <div className='rounded-md p-4'>
+            <h3 className='font-medium'>Security Settings</h3>
+            <p className='mt-1 text-sm'>
+              Manage your security preferences, two-factor authentication, and sessions.
+            </p>
+          </div>
+        </TabsPanel>
+        <TabsPanel value='notifications' className='mt-0'>
+          <div className='rounded-md p-4'>
+            <h3 className='font-medium'>Notification Preferences</h3>
+            <p className='mt-1 text-sm'>
+              Control how and when you receive notifications.
+            </p>
+          </div>
+        </TabsPanel>
+        <TabsPanel value='billing' className='mt-0'>
+          <div className='rounded-md p-4'>
+            <h3 className='font-medium'>Billing Information</h3>
+            <p className='mt-1 text-sm'>
+              View and manage your billing details and payment methods.
+            </p>
+          </div>
+        </TabsPanel>
+      </div>
+    </TabsRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Tabs Documentation](https://base-ui.com/react/components/tabs)
+- [API Reference](https://base-ui.com/react/components/tabs#api-reference)
+
+---
+
+# Scroll Area
+
+A native scroll container with custom scrollbars for consistent styling across browsers.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { ScrollAreaRoot, ScrollAreaViewport, ScrollAreaContent, ScrollAreaScrollbar, ScrollAreaThumb, ScrollAreaCorner } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Vertical Scroll
+
+```tsx
+import {
+  ScrollAreaContent,
+  ScrollAreaRoot,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+  ScrollAreaViewport,
+} from '@lglab/compose-ui'
+
+export default function VerticalScrollExample() {
+  return (
+    <ScrollAreaRoot className='h-72 w-full rounded-md border'>
+      <ScrollAreaViewport>
+        <ScrollAreaContent className='p-4'>
+          <div className='space-y-4'>
+            {Array.from({ length: 20 }).map((_, i) => (
+              <p key={i} className='text-sm'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod,
+                nisi vel consectetur interdum, nisl nunc egestas nunc.
+              </p>
+            ))}
+          </div>
+        </ScrollAreaContent>
+      </ScrollAreaViewport>
+      <ScrollAreaScrollbar orientation='vertical'>
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
+    </ScrollAreaRoot>
+  )
+}
+```
+
+### Horizontal Scroll
+
+```tsx
+import {
+  ScrollAreaContent,
+  ScrollAreaRoot,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+  ScrollAreaViewport,
+} from '@lglab/compose-ui'
+
+export default function HorizontalScrollExample() {
+  return (
+    <ScrollAreaRoot className='w-full rounded-md border'>
+      <ScrollAreaViewport>
+        <ScrollAreaContent className='p-4'>
+          <div className='flex gap-4'>
+            {Array.from({ length: 15 }).map((_, i) => (
+              <div
+                key={i}
+                className='flex h-24 w-32 shrink-0 items-center justify-center rounded-md bg-muted text-sm font-medium'
+              >
+                Item {i + 1}
+              </div>
+            ))}
+          </div>
+        </ScrollAreaContent>
+      </ScrollAreaViewport>
+      <ScrollAreaScrollbar orientation='horizontal'>
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
+    </ScrollAreaRoot>
+  )
+}
+```
+
+### Both Scrollbars
+
+```tsx
+import {
+  ScrollAreaContent,
+  ScrollAreaCorner,
+  ScrollAreaRoot,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+  ScrollAreaViewport,
+} from '@lglab/compose-ui'
+
+export default function BothScrollbarsExample() {
+  return (
+    <ScrollAreaRoot className='h-72 w-full lg:w-[50%] rounded-md border'>
+      <ScrollAreaViewport>
+        <ScrollAreaContent className='p-4'>
+          <div className='w-[800px] space-y-4'>
+            {Array.from({ length: 20 }).map((_, i) => (
+              <p key={i} className='text-sm whitespace-nowrap'>
+                {i + 1}. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                euismod, nisi vel consectetur interdum, nisl nunc egestas nunc, vel
+                consectetur nisl nunc egestas nunc.
+              </p>
+            ))}
+          </div>
+        </ScrollAreaContent>
+      </ScrollAreaViewport>
+      <ScrollAreaScrollbar orientation='vertical'>
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
+      <ScrollAreaScrollbar orientation='horizontal'>
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
+      <ScrollAreaCorner />
+    </ScrollAreaRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Scroll Area Documentation](https://base-ui.com/react/components/scroll-area)
+- [API Reference](https://base-ui.com/react/components/scroll-area#api-reference)
+
+---
+
+# Drawer
+
+A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { DrawerRoot, DrawerTrigger, DrawerPortal, DrawerBackdrop, DrawerPopup, DrawerTitle, DrawerDescription, DrawerClose, DrawerHeader, DrawerContent, DrawerFooter } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Basic
+
+```tsx
+import {
+  DrawerBackdrop,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerPopup,
+  DrawerPortal,
+  DrawerRoot,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@lglab/compose-ui'
+
+export default function BasicExample() {
+  return (
+    <DrawerRoot>
+      <DrawerTrigger>Open Drawer</DrawerTrigger>
+      <DrawerPortal>
+        <DrawerBackdrop />
+        <DrawerPopup>
+          <DrawerHeader>
+            <DrawerTitle>Drawer</DrawerTitle>
+            <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
+          </DrawerHeader>
+          <DrawerContent>
+            <p className='text-sm'>
+              Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
+              bibendum est aliquam mauris laoreet interdum.
+            </p>
+          </DrawerContent>
+          <DrawerFooter className='flex justify-end'>
+            <DrawerClose>Close</DrawerClose>
+          </DrawerFooter>
+        </DrawerPopup>
+      </DrawerPortal>
+    </DrawerRoot>
+  )
+}
+```
+
+### Sides
+
+```tsx
+import {
+  DrawerBackdrop,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerPopup,
+  DrawerPortal,
+  DrawerRoot,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@lglab/compose-ui'
+
+const sides = ['top', 'right', 'bottom', 'left'] as const
+
+export default function SidesExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      {sides.map((side) => (
+        <DrawerRoot key={side}>
+          <DrawerTrigger variant='outline' className='capitalize'>
+            {side}
+          </DrawerTrigger>
+          <DrawerPortal>
+            <DrawerBackdrop />
+            <DrawerPopup side={side}>
+              <DrawerHeader>
+                <DrawerTitle className='capitalize'>{side} Drawer</DrawerTitle>
+                <DrawerDescription>
+                  This drawer slides in from the {side}.
+                </DrawerDescription>
+              </DrawerHeader>
+              <DrawerContent>
+                <p className='text-sm'>
+                  Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
+                  bibendum est aliquam mauris laoreet interdum.
+                </p>
+              </DrawerContent>
+              <DrawerFooter className='flex justify-end'>
+                <DrawerClose>Close</DrawerClose>
+              </DrawerFooter>
+            </DrawerPopup>
+          </DrawerPortal>
+        </DrawerRoot>
+      ))}
+    </div>
+  )
+}
+```
+
+### Close button
+
+```tsx
+import {
+  DrawerBackdrop,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerPopup,
+  DrawerPortal,
+  DrawerRoot,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@lglab/compose-ui'
+import { X } from 'lucide-react'
+
+export default function CloseButtonExample() {
+  return (
+    <DrawerRoot>
+      <DrawerTrigger>Open Drawer</DrawerTrigger>
+      <DrawerPortal>
+        <DrawerBackdrop />
+        <DrawerPopup>
+          <DrawerClose
+            aria-label='Close'
+            size='icon-sm'
+            className='absolute top-3 right-3'
+          >
+            <X className='size-4' />
+          </DrawerClose>
+          <DrawerHeader>
+            <DrawerTitle>Drawer</DrawerTitle>
+            <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
+          </DrawerHeader>
+          <DrawerContent>
+            <p className='text-sm'>
+              Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
+              bibendum est aliquam mauris laoreet interdum.
+            </p>
+          </DrawerContent>
+        </DrawerPopup>
+      </DrawerPortal>
+    </DrawerRoot>
+  )
+}
+```
+
+### Scrollable
+
+```tsx
+import {
+  DrawerBackdrop,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerPopup,
+  DrawerPortal,
+  DrawerRoot,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@lglab/compose-ui'
+import {
+  ScrollAreaContent,
+  ScrollAreaRoot,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+  ScrollAreaViewport,
+} from '@lglab/compose-ui'
+
+export default function ScrollableExample() {
+  return (
+    <DrawerRoot>
+      <DrawerTrigger>Open Drawer</DrawerTrigger>
+      <DrawerPortal>
+        <DrawerBackdrop />
+        <DrawerPopup>
+          <DrawerHeader>
+            <DrawerTitle>Drawer</DrawerTitle>
+            <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
+          </DrawerHeader>
+          <DrawerContent className='flex-1 min-h-0'>
+            <ScrollAreaRoot className='h-full'>
+              <ScrollAreaViewport>
+                <ScrollAreaContent>
+                  <div className='space-y-4'>
+                    {Array.from({ length: 20 }).map((_, i) => (
+                      <p key={i} className='text-sm'>
+                        Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit.
+                        Nulla bibendum est aliquam mauris laoreet interdum.
+                      </p>
+                    ))}
+                  </div>
+                </ScrollAreaContent>
+              </ScrollAreaViewport>
+              <ScrollAreaScrollbar orientation='vertical'>
+                <ScrollAreaThumb />
+              </ScrollAreaScrollbar>
+            </ScrollAreaRoot>
+          </DrawerContent>
+          <DrawerFooter className='flex justify-end'>
+            <DrawerClose>Close</DrawerClose>
+          </DrawerFooter>
+        </DrawerPopup>
+      </DrawerPortal>
+    </DrawerRoot>
+  )
+}
+```
+
+### Controlled
+
+```tsx
+import {
+  DrawerBackdrop,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerPopup,
+  DrawerPortal,
+  DrawerRoot,
+  DrawerTitle,
+} from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui'
+import { SlidersHorizontal } from 'lucide-react'
+import { useState } from 'react'
+
+export default function ControlledExample() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)} variant='outline'>
+        <SlidersHorizontal />
+        Filters
+      </Button>
+      <DrawerRoot open={open} onOpenChange={setOpen}>
+        <DrawerPortal>
+          <DrawerBackdrop />
+          <DrawerPopup>
+            <DrawerHeader>
+              <DrawerTitle>Drawer</DrawerTitle>
+              <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
+            </DrawerHeader>
+            <DrawerContent>
+              <p className='text-sm'>
+                Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
+                bibendum est aliquam mauris laoreet interdum.
+              </p>
+            </DrawerContent>
+            <DrawerFooter className='flex justify-end'>
+              <DrawerClose>Close</DrawerClose>
+            </DrawerFooter>
+          </DrawerPopup>
+        </DrawerPortal>
+      </DrawerRoot>
+    </>
+  )
+}
+```
+
+### Nested
+
+```tsx
+import {
+  DrawerBackdrop,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerPopup,
+  DrawerPortal,
+  DrawerRoot,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@lglab/compose-ui'
+
+export default function NestedExample() {
+  return (
+    <DrawerRoot>
+      <DrawerTrigger>Open Drawer</DrawerTrigger>
+      <DrawerPortal>
+        <DrawerBackdrop />
+        <DrawerPopup>
+          <DrawerHeader>
+            <DrawerTitle>Drawer</DrawerTitle>
+            <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
+          </DrawerHeader>
+          <DrawerContent>
+            <p className='text-sm'>
+              Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
+              bibendum est aliquam mauris laoreet interdum.
+            </p>
+          </DrawerContent>
+          <DrawerFooter className='flex gap-2 justify-end'>
+            <DrawerClose>Close</DrawerClose>
+            <DrawerRoot>
+              <DrawerTrigger>Nested drawer</DrawerTrigger>
+              <DrawerPortal>
+                <DrawerPopup>
+                  <DrawerHeader>
+                    <DrawerTitle>Nested drawer</DrawerTitle>
+                    <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
+                  </DrawerHeader>
+                  <DrawerContent>
+                    <p className='text-sm'>
+                      Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit.
+                      Nulla bibendum est aliquam mauris laoreet interdum.
+                    </p>
+                  </DrawerContent>
+                  <DrawerFooter className='flex justify-end'>
+                    <DrawerClose>Close</DrawerClose>
+                  </DrawerFooter>
+                </DrawerPopup>
+              </DrawerPortal>
+            </DrawerRoot>
+          </DrawerFooter>
+        </DrawerPopup>
+      </DrawerPortal>
+    </DrawerRoot>
+  )
+}
+```
+
+### Footer
+
+```tsx
+import {
+  DrawerBackdrop,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerPopup,
+  DrawerPortal,
+  DrawerRoot,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui'
+
+export default function FooterExample() {
+  return (
+    <DrawerRoot>
+      <DrawerTrigger>Open Drawer</DrawerTrigger>
+      <DrawerPortal>
+        <DrawerBackdrop />
+        <DrawerPopup>
+          <DrawerHeader>
+            <DrawerTitle>Drawer</DrawerTitle>
+            <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
+          </DrawerHeader>
+          <DrawerContent className='flex-1'>
+            <p className='text-sm'>
+              Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
+              bibendum est aliquam mauris laoreet interdum.
+            </p>
+          </DrawerContent>
+          <DrawerFooter className='flex gap-2 justify-end'>
+            <DrawerClose>Cancel</DrawerClose>
+            <Button variant='destructive'>Delete</Button>
+          </DrawerFooter>
+        </DrawerPopup>
+      </DrawerPortal>
+    </DrawerRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Drawer Documentation](https://base-ui.com/react/components/drawer)
+- [API Reference](https://base-ui.com/react/components/drawer#api-reference)
+
+---
+
+# Dialog
+
+A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { DialogRoot, DialogTrigger, DialogPortal, DialogBackdrop, DialogPopup, DialogTitle, DialogDescription, DialogClose, DialogHeader, DialogFooter } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Basic
+
+```tsx
+import {
+  DialogBackdrop,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogPopup,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+} from '@lglab/compose-ui'
+
+export default function BasicExample() {
+  return (
+    <DialogRoot>
+      <DialogTrigger>Open Dialog</DialogTrigger>
+      <DialogPortal>
+        <DialogBackdrop />
+        <DialogPopup>
+          <DialogHeader>
+            <DialogTitle>Notifications</DialogTitle>
+            <DialogDescription>You are all caught up. Good job!</DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <DialogClose>Close</DialogClose>
+          </DialogFooter>
+        </DialogPopup>
+      </DialogPortal>
+    </DialogRoot>
+  )
+}
+```
+
+### Trigger Variants
+
+```tsx
+import {
+  DialogBackdrop,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogPopup,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+} from '@lglab/compose-ui'
+
+export default function VariantsExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <DialogRoot>
+        <DialogTrigger variant='default'>Default</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup>
+            <DialogHeader>
+              <DialogTitle>Default Variant</DialogTitle>
+              <DialogDescription>Triggered with default button style.</DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <DialogClose>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger variant='secondary'>Secondary</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup>
+            <DialogHeader>
+              <DialogTitle>Secondary Variant</DialogTitle>
+              <DialogDescription>
+                Triggered with secondary button style.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <DialogClose>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger variant='outline'>Outline</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup>
+            <DialogHeader>
+              <DialogTitle>Outline Variant</DialogTitle>
+              <DialogDescription>Triggered with outline button style.</DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <DialogClose>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger variant='ghost'>Ghost</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup>
+            <DialogHeader>
+              <DialogTitle>Ghost Variant</DialogTitle>
+              <DialogDescription>Triggered with ghost button style.</DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <DialogClose>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+    </div>
+  )
+}
+```
+
+### Sizes
+
+```tsx
+import {
+  DialogBackdrop,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogPopup,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+} from '@lglab/compose-ui'
+
+export default function SizesExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <DialogRoot>
+        <DialogTrigger size='sm'>Small</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup size='sm'>
+            <DialogHeader>
+              <DialogTitle>Small Dialog</DialogTitle>
+              <DialogDescription>
+                This is a compact dialog for quick interactions.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <DialogClose size='sm'>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger>Default</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup>
+            <DialogHeader>
+              <DialogTitle>Default Dialog</DialogTitle>
+              <DialogDescription>
+                This is the default sized dialog, suitable for most use cases.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <DialogClose>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger size='lg'>Large</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup size='lg'>
+            <DialogHeader>
+              <DialogTitle>Large Dialog</DialogTitle>
+              <DialogDescription>
+                This is a large dialog with more space for complex content like forms or
+                detailed information.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <DialogClose size='lg'>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+    </div>
+  )
+}
+```
+
+### With Form
+
+```tsx
+import {
+  DialogBackdrop,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogPopup,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+} from '@lglab/compose-ui'
+import { MailIcon } from 'lucide-react'
+import * as React from 'react'
+
+export default function FormDialogExample() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <DialogRoot open={open} onOpenChange={setOpen}>
+      <DialogTrigger className='gap-1.5'>
+        <MailIcon className='size-4' />
+        Contact Us
+      </DialogTrigger>
+      <DialogPortal>
+        <DialogBackdrop />
+        <DialogPopup>
+          <DialogHeader>
+            <DialogTitle>Send a Message</DialogTitle>
+            <DialogDescription>
+              Fill out the form below and we&apos;ll get back to you as soon as possible.
+            </DialogDescription>
+          </DialogHeader>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              setOpen(false)
+            }}
+          >
+            <div className='mt-4 space-y-4'>
+              <div>
+                <label htmlFor='email' className='mb-1.5 block text-sm font-medium'>
+                  Email
+                </label>
+                <input
+                  id='email'
+                  type='email'
+                  placeholder='you@example.com'
+                  className='w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring'
+                />
+              </div>
+              <div>
+                <label htmlFor='message' className='mb-1.5 block text-sm font-medium'>
+                  Message
+                </label>
+                <textarea
+                  id='message'
+                  placeholder='How can we help?'
+                  rows={4}
+                  className='w-full resize-none rounded-md border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring'
+                />
+              </div>
+            </div>
+            <DialogFooter>
+              <DialogClose variant='ghost'>Cancel</DialogClose>
+              <button
+                type='submit'
+                className='inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring'
+              >
+                Send Message
+              </button>
+            </DialogFooter>
+          </form>
+        </DialogPopup>
+      </DialogPortal>
+    </DialogRoot>
+  )
+}
+```
+
+### Destructive Action
+
+```tsx
+import {
+  DialogBackdrop,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogPopup,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+} from '@lglab/compose-ui'
+import { Trash2Icon } from 'lucide-react'
+
+export default function DestructiveExample() {
+  return (
+    <DialogRoot>
+      <DialogTrigger variant='outline' className='gap-1.5'>
+        <Trash2Icon className='size-4' />
+        Delete Account
+      </DialogTrigger>
+      <DialogPortal>
+        <DialogBackdrop />
+        <DialogPopup size='sm'>
+          <DialogHeader>
+            <DialogTitle>Delete Account</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to delete your account? This action cannot be undone
+              and all your data will be permanently removed.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <DialogClose variant='ghost'>Cancel</DialogClose>
+            <DialogClose className='bg-destructive text-white hover:bg-destructive/90'>
+              Delete
+            </DialogClose>
+          </DialogFooter>
+        </DialogPopup>
+      </DialogPortal>
+    </DialogRoot>
+  )
+}
+```
+
+### Controlled
+
+```tsx
+import {
+  DialogBackdrop,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogPopup,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+} from '@lglab/compose-ui'
+import { SettingsIcon } from 'lucide-react'
+import * as React from 'react'
+
+export default function ControlledDialogExample() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <div className='flex items-center gap-4'>
+      <DialogRoot open={open} onOpenChange={setOpen}>
+        <DialogTrigger variant='outline' className='gap-1.5'>
+          <SettingsIcon className='size-4' />
+          Settings
+        </DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup>
+            <DialogHeader>
+              <DialogTitle>Settings</DialogTitle>
+              <DialogDescription>
+                Manage your account settings and preferences.
+              </DialogDescription>
+            </DialogHeader>
+            <div className='mt-4 space-y-4'>
+              <div className='flex items-center justify-between rounded-lg border border-border p-4'>
+                <div>
+                  <p className='font-medium'>Email Notifications</p>
+                  <p className='text-sm'>Receive email updates about your account</p>
+                </div>
+                <div className='h-5 w-9 rounded-full bg-primary' />
+              </div>
+              <div className='flex items-center justify-between rounded-lg border border-border p-4'>
+                <div>
+                  <p className='font-medium'>Marketing Emails</p>
+                  <p className='text-sm'>Receive emails about new features and offers</p>
+                </div>
+                <div className='h-5 w-9 rounded-full bg-muted' />
+              </div>
+            </div>
+            <DialogFooter>
+              <DialogClose variant='ghost'>Cancel</DialogClose>
+              <DialogClose>Save Changes</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+      <span className='text-sm'>Dialog is {open ? 'open' : 'closed'}</span>
+    </div>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Dialog Documentation](https://base-ui.com/react/components/dialog)
+- [API Reference](https://base-ui.com/react/components/dialog#api-reference)
+
+---
+
+# Button
+
+A versatile button component with multiple variants, sizes, and states including loading indicators.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { TrashIcon } from 'lucide-react'
+
+export default function DefaultExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <Button size='sm'>Small</Button>
+      <Button>Default</Button>
+      <Button size='lg'>Large</Button>
+      <Button loading loadingText='Loading...'>
+        Button
+      </Button>
+      <Button size='icon'>
+        <TrashIcon />
+      </Button>
+    </div>
+  )
+}
+```
+
+### Secondary
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { TrashIcon } from 'lucide-react'
+
+export default function SecondaryExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <Button variant='secondary' size='sm'>
+        Small
+      </Button>
+      <Button variant='secondary'>Default</Button>
+      <Button variant='secondary' size='lg'>
+        Large
+      </Button>
+      <Button variant='secondary' loading loadingText='Loading...'>
+        Button
+      </Button>
+      <Button variant='secondary' size='icon'>
+        <TrashIcon />
+      </Button>
+    </div>
+  )
+}
+```
+
+### Outline
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { TrashIcon } from 'lucide-react'
+
+export default function OutlineExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <Button variant='outline' size='sm'>
+        Small
+      </Button>
+      <Button variant='outline'>Default</Button>
+      <Button variant='outline' size='lg'>
+        Large
+      </Button>
+      <Button variant='outline' loading loadingText='Loading...'>
+        Button
+      </Button>
+      <Button variant='outline' size='icon'>
+        <TrashIcon />
+      </Button>
+    </div>
+  )
+}
+```
+
+### Destructive
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { TrashIcon } from 'lucide-react'
+
+export default function DestructiveExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <Button variant='destructive' size='sm'>
+        Small
+      </Button>
+      <Button variant='destructive'>Default</Button>
+      <Button variant='destructive' size='lg'>
+        Large
+      </Button>
+      <Button variant='destructive' loading loadingText='Loading...'>
+        Button
+      </Button>
+      <Button variant='destructive' size='icon'>
+        <TrashIcon />
+      </Button>
+    </div>
+  )
+}
+```
+
+### Ghost
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { TrashIcon } from 'lucide-react'
+
+export default function GhostExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <Button variant='ghost' size='sm'>
+        Small
+      </Button>
+      <Button variant='ghost'>Default</Button>
+      <Button variant='ghost' size='lg'>
+        Large
+      </Button>
+      <Button variant='ghost' loading loadingText='Loading...'>
+        Button
+      </Button>
+      <Button variant='ghost' size='icon'>
+        <TrashIcon />
+      </Button>
+    </div>
+  )
+}
+```
+
+### As Link
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import Link from 'next/link'
+
+export default function AsLinkExample() {
+  return (
+    <div className='flex gap-2'>
+      <Button render={<Link href='/docs'>Link</Link>} nativeButton={false} />
+    </div>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Button Documentation](https://base-ui.com/react/components/button)
+- [API Reference](https://base-ui.com/react/components/button#api-reference)
