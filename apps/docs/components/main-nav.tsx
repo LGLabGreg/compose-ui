@@ -12,10 +12,10 @@ export default function MainNav() {
         <nav>
           <ul className='flex gap-4 text-sm'>
             <li>
-              <Link href='/getting-started'>Get Started</Link>
+              <Link href='/overview/quick-start'>Get Started</Link>
             </li>
             <li>
-              <Link href='/button'>Components</Link>
+              <Link href='/components/button'>Components</Link>
             </li>
           </ul>
         </nav>
