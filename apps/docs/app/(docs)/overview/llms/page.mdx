@@ -1,0 +1,70 @@
+import { DocPage } from '@/components/mdx/doc-page'
+
+<DocPage
+  title="LLM-Friendly Docs"
+  description="Use Compose UI documentation with AI coding assistants like Cursor, Claude, and ChatGPT."
+>
+
+## Overview
+
+Compose UI follows the [llms.txt standard](https://llmstxt.org/) to make our documentation easy for AI tools to consume. Whether you're using Cursor, Claude, ChatGPT, or another AI assistant, you can give it full context about our components.
+
+## Available Files
+
+**[llms.txt](/llms.txt)**  
+Index with links to all component docs. Use for quick reference and agent navigation.
+
+**[llms-full.txt](/llms-full.txt)**  
+Complete documentation in one file. Paste into ChatGPT/Claude or add to Cursor @Docs.
+
+**[/components/\[component\].md](/llms/button.md)**  
+Individual component markdown files. Use for focused context on specific components.
+
+## Usage
+
+### Cursor
+
+Add Compose UI to your Cursor docs for autocomplete and chat context:
+
+1. Open Cursor settings
+2. Go to **Features → Docs**
+3. Click **Add new doc**
+4. Enter: https://compose-ui.dev/llms-full.txt
+
+Now you can reference it with `@Docs` in Cursor chat.
+
+### Claude / ChatGPT
+
+Copy the contents of [/llms-full.txt](/llms-full.txt) and paste it into your conversation, or share the URL directly if the tool supports fetching.
+
+### Claude Code / Windsurf
+
+Point the agent to our llms.txt:
+
+```
+Read https://compose-ui.dev/llms.txt for Compose UI documentation
+```
+
+### Per-Component Context
+
+Each component page has a **View Markdown** link and **Copy Markdown** button in the header. Use these to grab focused documentation for a specific component without loading the entire library docs.
+
+You can also access component markdown directly by adding **.md** to the url e.g. **https://compose-ui.dev/components/button.md**
+
+## Tips for Best Results
+
+- **Be specific**: Tell the AI you're using Compose UI, not Base UI directly
+- **Include examples**: Our markdown files include full code examples for each variant
+- **Reference Base UI**: For advanced API questions, the AI can cross-reference [Base UI docs](https://base-ui.com) linked in each component
+
+## Example Prompts
+
+```
+Using Compose UI, create a Dialog with a form that has email and password fields.
+```
+
+```
+Show me how to use Compose UI Tabs with icons and vertical orientation.
+```
+
+</DocPage>

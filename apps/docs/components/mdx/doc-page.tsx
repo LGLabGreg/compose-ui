@@ -16,7 +16,7 @@ export function DocPage({ title, description, children }: DocPageProps) {
         <h1 className='text-3xl font-bold tracking-tight'>{title}</h1>
         <p className='mt-2'>{description}</p>
       </div>
-      <div className='space-y-4'>{children}</div>
+      <div>{children}</div>
     </div>
   )
 }
