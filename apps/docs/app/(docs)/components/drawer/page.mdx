@@ -1,6 +1,7 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import BasicExample from './examples/basic'
+import HeaderCloseExample from './examples/header-close'
 import SidesExample from './examples/sides'
 
 <ComponentPage
@@ -15,6 +16,13 @@ import SidesExample from './examples/sides'
 
 <ExampleLoader title='Sides' filePath='app/(docs)/components/drawer/examples/sides.tsx'>
   <SidesExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Close button in header'
+  filePath='app/(docs)/components/drawer/examples/header-close.tsx'
+>
+  <HeaderCloseExample />
 </ExampleLoader>
 
 </ComponentPage>

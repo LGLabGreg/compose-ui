@@ -37,7 +37,7 @@ export default function SidesExample() {
                   screen.
                 </p>
               </DrawerContent>
-              <DrawerFooter>
+              <DrawerFooter className='flex justify-end'>
                 <DrawerClose>Close</DrawerClose>
               </DrawerFooter>
             </DrawerPopup>

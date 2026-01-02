@@ -39,9 +39,9 @@ const drawerTriggerVariants = cva(
         ghost: 'hover:bg-accent hover:text-accent-foreground',
       },
       size: {
-        sm: 'h-8 rounded-md px-3 text-xs',
-        default: 'h-9 px-4 py-2',
-        lg: 'h-10 rounded-md px-6',
+        default: 'h-9 px-4 py-2 has-[>svg]:px-3',
+        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
+        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
         icon: 'size-9',
         'icon-sm': 'size-8',
         'icon-lg': 'size-10',
@@ -187,12 +187,7 @@ DrawerTitle.displayName = 'Drawer.Title'
 export type DrawerDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
 
 const DrawerDescription = ({ className, ...props }: DrawerDescriptionProps) => {
-  return (
-    <BaseDialog.Description
-      className={cn('text-sm text-muted-foreground', className)}
-      {...props}
-    />
-  )
+  return <BaseDialog.Description className={cn('text-sm', className)} {...props} />
 }
 
 DrawerDescription.displayName = 'Drawer.Description'
@@ -218,9 +213,12 @@ const drawerCloseVariants = cva(
         ghost: 'hover:bg-accent hover:text-accent-foreground',
       },
       size: {
-        sm: 'h-8 rounded-md px-3 text-xs',
-        default: 'h-9 px-4 py-2',
-        lg: 'h-10 rounded-md px-6',
+        default: 'h-9 px-4 py-2 has-[>svg]:px-3',
+        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
+        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
+        icon: 'size-9',
+        'icon-sm': 'size-8',
+        'icon-lg': 'size-10',
       },
     },
     defaultVariants: {
@@ -234,7 +232,7 @@ export type DrawerCloseProps = React.ComponentProps<typeof BaseDialog.Close> & {
   /** Visual style variant */
   variant?: 'default' | 'secondary' | 'outline' | 'ghost'
   /** Size of the close button */
-  size?: 'sm' | 'default' | 'lg'
+  size?: 'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'
 }
 
 const DrawerClose = ({ className, variant, size, ...props }: DrawerCloseProps) => {
@@ -267,7 +265,7 @@ DrawerHeader.displayName = 'Drawer.Header'
 export type DrawerContentProps = React.HTMLAttributes<HTMLDivElement>
 
 const DrawerContent = ({ className, ...props }: DrawerContentProps) => {
-  return <div className={cn('flex-1 overflow-y-auto py-5', className)} {...props} />
+  return <div className={cn('py-5', className)} {...props} />
 }
 
 DrawerContent.displayName = 'Drawer.Content'
@@ -279,15 +277,7 @@ DrawerContent.displayName = 'Drawer.Content'
 export type DrawerFooterProps = React.HTMLAttributes<HTMLDivElement>
 
 const DrawerFooter = ({ className, ...props }: DrawerFooterProps) => {
-  return (
-    <div
-      className={cn(
-        'mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end',
-        className,
-      )}
-      {...props}
-    />
-  )
+  return <div className={cn('', className)} {...props} />
 }
 
 DrawerFooter.displayName = 'Drawer.Footer'
