@@ -33,8 +33,8 @@ export default function SidesExample() {
               </DrawerHeader>
               <DrawerContent>
                 <p className='text-sm'>
-                  This is a basic drawer that slides in from the {side} side of the
-                  screen.
+                  Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
+                  bibendum est aliquam mauris laoreet interdum.
                 </p>
               </DrawerContent>
               <DrawerFooter className='flex justify-end'>

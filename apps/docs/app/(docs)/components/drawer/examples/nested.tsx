@@ -1,0 +1,59 @@
+import {
+  DrawerBackdrop,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerPopup,
+  DrawerPortal,
+  DrawerRoot,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@lglab/compose-ui'
+
+export default function NestedExample() {
+  return (
+    <DrawerRoot>
+      <DrawerTrigger>Open Drawer</DrawerTrigger>
+      <DrawerPortal>
+        <DrawerBackdrop />
+        <DrawerPopup>
+          <DrawerHeader>
+            <DrawerTitle>Drawer</DrawerTitle>
+            <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
+          </DrawerHeader>
+          <DrawerContent>
+            <p className='text-sm'>
+              Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
+              bibendum est aliquam mauris laoreet interdum.
+            </p>
+          </DrawerContent>
+          <DrawerFooter className='flex gap-2 justify-end'>
+            <DrawerClose>Close</DrawerClose>
+            <DrawerRoot>
+              <DrawerTrigger>Nested drawer</DrawerTrigger>
+              <DrawerPortal>
+                <DrawerPopup>
+                  <DrawerHeader>
+                    <DrawerTitle>Nested drawer</DrawerTitle>
+                    <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
+                  </DrawerHeader>
+                  <DrawerContent>
+                    <p className='text-sm'>
+                      Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit.
+                      Nulla bibendum est aliquam mauris laoreet interdum.
+                    </p>
+                  </DrawerContent>
+                  <DrawerFooter className='flex justify-end'>
+                    <DrawerClose>Close</DrawerClose>
+                  </DrawerFooter>
+                </DrawerPopup>
+              </DrawerPortal>
+            </DrawerRoot>
+          </DrawerFooter>
+        </DrawerPopup>
+      </DrawerPortal>
+    </DrawerRoot>
+  )
+}

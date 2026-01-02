@@ -12,7 +12,7 @@ import {
 } from '@lglab/compose-ui'
 import { X } from 'lucide-react'
 
-export default function HeaderCloseExample() {
+export default function CloseButtonExample() {
   return (
     <DrawerRoot>
       <DrawerTrigger>Open Drawer</DrawerTrigger>
@@ -27,12 +27,13 @@ export default function HeaderCloseExample() {
             <X className='size-4' />
           </DrawerClose>
           <DrawerHeader>
-            <DrawerTitle>Settings</DrawerTitle>
-            <DrawerDescription>Manage your account preferences.</DrawerDescription>
+            <DrawerTitle>Drawer</DrawerTitle>
+            <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
           </DrawerHeader>
           <DrawerContent>
             <p className='text-sm'>
-              This is a basic drawer that slides in from the right side of the screen.
+              Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
+              bibendum est aliquam mauris laoreet interdum.
             </p>
           </DrawerContent>
         </DrawerPopup>

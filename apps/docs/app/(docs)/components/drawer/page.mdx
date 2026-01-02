@@ -1,13 +1,17 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import BasicExample from './examples/basic'
-import HeaderCloseExample from './examples/header-close'
+import CloseButtonExample from './examples/close-button'
+import ControlledExample from './examples/controlled'
+import FooterExample from './examples/footer'
+import NestedExample from './examples/nested'
+import ScrollableExample from './examples/scrollable'
 import SidesExample from './examples/sides'
 
 <ComponentPage
   title="Drawer"
   description="A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content."
-  component="drawer"
+  component="dialog"
 >
 
 <ExampleLoader title='Basic' filePath='app/(docs)/components/drawer/examples/basic.tsx'>
@@ -19,10 +23,32 @@ import SidesExample from './examples/sides'
 </ExampleLoader>
 
 <ExampleLoader
-  title='Close button in header'
-  filePath='app/(docs)/components/drawer/examples/header-close.tsx'
+  title='Close button'
+  filePath='app/(docs)/components/drawer/examples/close-button.tsx'
 >
-  <HeaderCloseExample />
+  <CloseButtonExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Scrollable'
+  filePath='app/(docs)/components/drawer/examples/scrollable.tsx'
+>
+  <ScrollableExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Controlled'
+  filePath='app/(docs)/components/drawer/examples/controlled.tsx'
+>
+  <ControlledExample />
+</ExampleLoader>
+
+<ExampleLoader title='Nested' filePath='app/(docs)/components/drawer/examples/nested.tsx'>
+  <NestedExample />
+</ExampleLoader>
+
+<ExampleLoader title='Footer' filePath='app/(docs)/components/drawer/examples/footer.tsx'>
+  <FooterExample />
 </ExampleLoader>
 
 </ComponentPage>
