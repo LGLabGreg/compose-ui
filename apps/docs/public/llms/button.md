@@ -28,11 +28,18 @@ export default function DefaultExample() {
       <Button size='sm'>Small</Button>
       <Button>Default</Button>
       <Button size='lg'>Large</Button>
-      <Button loading loadingText='Loading...'>
-        Button
+      <Button size='icon-sm'>
+        <TrashIcon />
       </Button>
       <Button size='icon'>
         <TrashIcon />
+      </Button>
+      <Button size='icon-lg'>
+        <TrashIcon />
+      </Button>
+      <Button disabled>Disabled</Button>
+      <Button loading loadingText='Loading...'>
+        Button
       </Button>
     </div>
   )
@@ -55,11 +62,20 @@ export default function SecondaryExample() {
       <Button variant='secondary' size='lg'>
         Large
       </Button>
-      <Button variant='secondary' loading loadingText='Loading...'>
-        Button
+      <Button variant='secondary' size='icon-sm'>
+        <TrashIcon />
       </Button>
       <Button variant='secondary' size='icon'>
         <TrashIcon />
+      </Button>
+      <Button variant='secondary' size='icon-lg'>
+        <TrashIcon />
+      </Button>
+      <Button variant='secondary' disabled>
+        Disabled
+      </Button>
+      <Button variant='secondary' loading loadingText='Loading...'>
+        Button
       </Button>
     </div>
   )
@@ -82,11 +98,20 @@ export default function OutlineExample() {
       <Button variant='outline' size='lg'>
         Large
       </Button>
-      <Button variant='outline' loading loadingText='Loading...'>
-        Button
+      <Button variant='outline' size='icon-sm'>
+        <TrashIcon />
       </Button>
       <Button variant='outline' size='icon'>
         <TrashIcon />
+      </Button>
+      <Button variant='outline' size='icon-lg'>
+        <TrashIcon />
+      </Button>
+      <Button variant='outline' disabled>
+        Disabled
+      </Button>
+      <Button variant='outline' loading loadingText='Loading...'>
+        Button
       </Button>
     </div>
   )
@@ -109,11 +134,20 @@ export default function DestructiveExample() {
       <Button variant='destructive' size='lg'>
         Large
       </Button>
-      <Button variant='destructive' loading loadingText='Loading...'>
-        Button
+      <Button variant='destructive' size='icon-sm'>
+        <TrashIcon />
       </Button>
       <Button variant='destructive' size='icon'>
         <TrashIcon />
+      </Button>
+      <Button variant='destructive' size='icon-lg'>
+        <TrashIcon />
+      </Button>
+      <Button variant='destructive' disabled>
+        Disabled
+      </Button>
+      <Button variant='destructive' loading loadingText='Loading...'>
+        Button
       </Button>
     </div>
   )
@@ -136,11 +170,20 @@ export default function GhostExample() {
       <Button variant='ghost' size='lg'>
         Large
       </Button>
-      <Button variant='ghost' loading loadingText='Loading...'>
-        Button
+      <Button variant='ghost' size='icon-sm'>
+        <TrashIcon />
       </Button>
       <Button variant='ghost' size='icon'>
         <TrashIcon />
+      </Button>
+      <Button variant='ghost' size='icon-lg'>
+        <TrashIcon />
+      </Button>
+      <Button variant='ghost' disabled>
+        Disabled
+      </Button>
+      <Button variant='ghost' loading loadingText='Loading...'>
+        Button
       </Button>
     </div>
   )
@@ -151,12 +194,21 @@ export default function GhostExample() {
 
 ```tsx
 import { Button } from '@lglab/compose-ui'
+import { Github } from 'lucide-react'
 import Link from 'next/link'
 
 export default function AsLinkExample() {
   return (
     <div className='flex gap-2'>
-      <Button render={<Link href='/docs'>Link</Link>} nativeButton={false} />
+      <Button
+        render={
+          <Link href='https://github.com/LGLabGreg/compose-ui'>
+            <Github />
+            Github
+          </Link>
+        }
+        nativeButton={false}
+      />
     </div>
   )
 }

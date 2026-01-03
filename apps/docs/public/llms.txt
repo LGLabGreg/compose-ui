@@ -26,4 +26,4 @@ Key features:
 ## Optional
 
 - [Base UI Documentation](https://base-ui.com/react/components): Underlying component APIs
-- [GitHub Repository](https://github.com/lglab/compose-ui): Source code
+- [GitHub Repository](https://github.com/LGLabGreg/compose-ui): Source code
