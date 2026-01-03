@@ -21,7 +21,7 @@ const features = [
   {
     title: 'AI Ready',
     description:
-      'LLM docs at /llms.txt give your AI assistant instant knowledge of every component and API.',
+      'LLM docs give your AI assistant instant knowledge of every component and API.',
     href: '/overview/llms',
   },
   {
