@@ -11,7 +11,7 @@ const ScrollAreaRoot = ({ className, ...props }: ScrollAreaRootProps) => {
   return <BaseScrollArea.Root className={cn('relative', className)} {...props} />
 }
 
-ScrollAreaRoot.displayName = 'ScrollArea.Root'
+ScrollAreaRoot.displayName = 'ScrollAreaRoot'
 
 type ScrollAreaViewportProps = React.ComponentProps<typeof BaseScrollArea.Viewport>
 
@@ -24,7 +24,7 @@ const ScrollAreaViewport = ({ className, ...props }: ScrollAreaViewportProps) =>
   )
 }
 
-ScrollAreaViewport.displayName = 'ScrollArea.Viewport'
+ScrollAreaViewport.displayName = 'ScrollAreaViewport'
 
 type ScrollAreaContentProps = React.ComponentProps<typeof BaseScrollArea.Content>
 
@@ -32,7 +32,7 @@ const ScrollAreaContent = ({ className, ...props }: ScrollAreaContentProps) => {
   return <BaseScrollArea.Content className={cn('min-w-full', className)} {...props} />
 }
 
-ScrollAreaContent.displayName = 'ScrollArea.Content'
+ScrollAreaContent.displayName = 'ScrollAreaContent'
 
 type ScrollAreaScrollbarProps = React.ComponentProps<typeof BaseScrollArea.Scrollbar>
 
@@ -56,7 +56,7 @@ const ScrollAreaScrollbar = ({
   )
 }
 
-ScrollAreaScrollbar.displayName = 'ScrollArea.Scrollbar'
+ScrollAreaScrollbar.displayName = 'ScrollAreaScrollbar'
 
 type ScrollAreaThumbProps = React.ComponentProps<typeof BaseScrollArea.Thumb>
 
@@ -73,7 +73,7 @@ const ScrollAreaThumb = ({ className, ...props }: ScrollAreaThumbProps) => {
   )
 }
 
-ScrollAreaThumb.displayName = 'ScrollArea.Thumb'
+ScrollAreaThumb.displayName = 'ScrollAreaThumb'
 
 type ScrollAreaCornerProps = React.ComponentProps<typeof BaseScrollArea.Corner>
 
@@ -81,7 +81,7 @@ const ScrollAreaCorner = ({ className, ...props }: ScrollAreaCornerProps) => {
   return <BaseScrollArea.Corner className={cn('bg-muted/50', className)} {...props} />
 }
 
-ScrollAreaCorner.displayName = 'ScrollArea.Corner'
+ScrollAreaCorner.displayName = 'ScrollAreaCorner'
 
 export {
   ScrollAreaRoot,

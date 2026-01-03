@@ -16,7 +16,7 @@ const TabsRoot = ({ className, ...props }: TabsRootProps) => {
   return <BaseTabs.Root className={cn('flex flex-col', className)} {...props} />
 }
 
-TabsRoot.displayName = 'Tabs.Root'
+TabsRoot.displayName = 'TabsRoot'
 
 // ============================================================================
 // TabsList
@@ -51,7 +51,7 @@ const TabsList = ({ className, orientation = 'horizontal', ...props }: TabsListP
   )
 }
 
-TabsList.displayName = 'Tabs.List'
+TabsList.displayName = 'TabsList'
 
 // ============================================================================
 // TabsTab
@@ -91,7 +91,7 @@ const TabsTab = ({ className, size, ...props }: TabsTabProps) => {
   return <BaseTabs.Tab className={cn(tabsTabVariants({ size }), className)} {...props} />
 }
 
-TabsTab.displayName = 'Tabs.Tab'
+TabsTab.displayName = 'TabsTab'
 
 // ============================================================================
 // TabsIndicator
@@ -132,7 +132,7 @@ const TabsIndicator = ({
   )
 }
 
-TabsIndicator.displayName = 'Tabs.Indicator'
+TabsIndicator.displayName = 'TabsIndicator'
 
 // ============================================================================
 // TabsPanel
@@ -153,7 +153,7 @@ const TabsPanel = ({ className, ...props }: TabsPanelProps) => {
   )
 }
 
-TabsPanel.displayName = 'Tabs.Panel'
+TabsPanel.displayName = 'TabsPanel'
 
 // ============================================================================
 // Exports

@@ -16,7 +16,7 @@ const DialogRoot = (props: DialogRootProps) => {
   return <BaseDialog.Root {...props} />
 }
 
-DialogRoot.displayName = 'Dialog.Root'
+DialogRoot.displayName = 'DialogRoot'
 
 // ============================================================================
 // DialogTrigger
@@ -67,7 +67,7 @@ const DialogTrigger = ({ className, variant, size, ...props }: DialogTriggerProp
   )
 }
 
-DialogTrigger.displayName = 'Dialog.Trigger'
+DialogTrigger.displayName = 'DialogTrigger'
 
 // ============================================================================
 // DialogPortal
@@ -79,7 +79,7 @@ const DialogPortal = (props: DialogPortalProps) => {
   return <BaseDialog.Portal {...props} />
 }
 
-DialogPortal.displayName = 'Dialog.Portal'
+DialogPortal.displayName = 'DialogPortal'
 
 // ============================================================================
 // DialogBackdrop
@@ -101,7 +101,7 @@ const DialogBackdrop = ({ className, ...props }: DialogBackdropProps) => {
   )
 }
 
-DialogBackdrop.displayName = 'Dialog.Backdrop'
+DialogBackdrop.displayName = 'DialogBackdrop'
 
 // ============================================================================
 // DialogPopup
@@ -148,7 +148,7 @@ const DialogPopup = ({ className, size, ...props }: DialogPopupProps) => {
   )
 }
 
-DialogPopup.displayName = 'Dialog.Popup'
+DialogPopup.displayName = 'DialogPopup'
 
 // ============================================================================
 // DialogTitle
@@ -165,7 +165,7 @@ const DialogTitle = ({ className, ...props }: DialogTitleProps) => {
   )
 }
 
-DialogTitle.displayName = 'Dialog.Title'
+DialogTitle.displayName = 'DialogTitle'
 
 // ============================================================================
 // DialogDescription
@@ -177,7 +177,7 @@ const DialogDescription = ({ className, ...props }: DialogDescriptionProps) => {
   return <BaseDialog.Description className={cn('mt-2', className)} {...props} />
 }
 
-DialogDescription.displayName = 'Dialog.Description'
+DialogDescription.displayName = 'DialogDescription'
 
 // ============================================================================
 // DialogClose
@@ -228,7 +228,7 @@ const DialogClose = ({ className, variant, size, ...props }: DialogCloseProps) =
   )
 }
 
-DialogClose.displayName = 'Dialog.Close'
+DialogClose.displayName = 'DialogClose'
 
 // ============================================================================
 // DialogHeader (Utility Component)
@@ -240,7 +240,7 @@ const DialogHeader = ({ className, ...props }: DialogHeaderProps) => {
   return <div className={cn('flex flex-col space-y-1 mb-5', className)} {...props} />
 }
 
-DialogHeader.displayName = 'Dialog.Header'
+DialogHeader.displayName = 'DialogHeader'
 
 // ============================================================================
 // DialogFooter (Utility Component)
@@ -260,7 +260,7 @@ const DialogFooter = ({ className, ...props }: DialogFooterProps) => {
   )
 }
 
-DialogFooter.displayName = 'Dialog.Footer'
+DialogFooter.displayName = 'DialogFooter'
 
 // ============================================================================
 // Exports

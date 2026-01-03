@@ -16,7 +16,7 @@ const DrawerRoot = (props: DrawerRootProps) => {
   return <BaseDialog.Root {...props} />
 }
 
-DrawerRoot.displayName = 'Drawer.Root'
+DrawerRoot.displayName = 'DrawerRoot'
 
 // ============================================================================
 // DrawerTrigger
@@ -70,7 +70,7 @@ const DrawerTrigger = ({ className, variant, size, ...props }: DrawerTriggerProp
   )
 }
 
-DrawerTrigger.displayName = 'Drawer.Trigger'
+DrawerTrigger.displayName = 'DrawerTrigger'
 
 // ============================================================================
 // DrawerPortal
@@ -82,7 +82,7 @@ const DrawerPortal = (props: DrawerPortalProps) => {
   return <BaseDialog.Portal {...props} />
 }
 
-DrawerPortal.displayName = 'Drawer.Portal'
+DrawerPortal.displayName = 'DrawerPortal'
 
 // ============================================================================
 // DrawerBackdrop
@@ -104,7 +104,7 @@ const DrawerBackdrop = ({ className, ...props }: DrawerBackdropProps) => {
   )
 }
 
-DrawerBackdrop.displayName = 'Drawer.Backdrop'
+DrawerBackdrop.displayName = 'DrawerBackdrop'
 
 // ============================================================================
 // DrawerPopup
@@ -163,7 +163,7 @@ const DrawerPopup = ({ className, side, ...props }: DrawerPopupProps) => {
   )
 }
 
-DrawerPopup.displayName = 'Drawer.Popup'
+DrawerPopup.displayName = 'DrawerPopup'
 
 // ============================================================================
 // DrawerTitle
@@ -180,7 +180,7 @@ const DrawerTitle = ({ className, ...props }: DrawerTitleProps) => {
   )
 }
 
-DrawerTitle.displayName = 'Drawer.Title'
+DrawerTitle.displayName = 'DrawerTitle'
 
 // ============================================================================
 // DrawerDescription
@@ -192,7 +192,7 @@ const DrawerDescription = ({ className, ...props }: DrawerDescriptionProps) => {
   return <BaseDialog.Description className={cn('', className)} {...props} />
 }
 
-DrawerDescription.displayName = 'Drawer.Description'
+DrawerDescription.displayName = 'DrawerDescription'
 
 // ============================================================================
 // DrawerClose
@@ -246,7 +246,7 @@ const DrawerClose = ({ className, variant, size, ...props }: DrawerCloseProps) =
   )
 }
 
-DrawerClose.displayName = 'Drawer.Close'
+DrawerClose.displayName = 'DrawerClose'
 
 // ============================================================================
 // DrawerHeader (Utility Component)
@@ -258,7 +258,7 @@ const DrawerHeader = ({ className, ...props }: DrawerHeaderProps) => {
   return <div className={cn('flex flex-col space-y-1.5', className)} {...props} />
 }
 
-DrawerHeader.displayName = 'Drawer.Header'
+DrawerHeader.displayName = 'DrawerHeader'
 
 // ============================================================================
 // DrawerContent (Utility Component)
@@ -270,7 +270,7 @@ const DrawerContent = ({ className, ...props }: DrawerContentProps) => {
   return <div className={cn('py-5', className)} {...props} />
 }
 
-DrawerContent.displayName = 'Drawer.Content'
+DrawerContent.displayName = 'DrawerContent'
 
 // ============================================================================
 // DrawerFooter (Utility Component)
@@ -282,7 +282,7 @@ const DrawerFooter = ({ className, ...props }: DrawerFooterProps) => {
   return <div className={cn('', className)} {...props} />
 }
 
-DrawerFooter.displayName = 'Drawer.Footer'
+DrawerFooter.displayName = 'DrawerFooter'
 
 // ============================================================================
 // Exports
