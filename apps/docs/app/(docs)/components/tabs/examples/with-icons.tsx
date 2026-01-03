@@ -21,19 +21,17 @@ export default function WithIconsExample() {
       </TabsList>
       <TabsPanel value='account'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>Manage your account details and profile information.</p>
+          <p>Manage your account details and profile information.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='projects'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>Browse and manage all your projects in one place.</p>
+          <p>Browse and manage all your projects in one place.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='settings'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>
-            Customize your experience with various settings options.
-          </p>
+          <p>Customize your experience with various settings options.</p>
         </div>
       </TabsPanel>
     </TabsRoot>

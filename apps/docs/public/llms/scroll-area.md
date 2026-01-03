@@ -34,7 +34,7 @@ export default function VerticalScrollExample() {
         <ScrollAreaContent className='p-4'>
           <div className='space-y-4'>
             {Array.from({ length: 20 }).map((_, i) => (
-              <p key={i} className='text-sm'>
+              <p key={i}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod,
                 nisi vel consectetur interdum, nisl nunc egestas nunc.
               </p>

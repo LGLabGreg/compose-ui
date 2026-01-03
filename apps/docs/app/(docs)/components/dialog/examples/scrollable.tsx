@@ -1,15 +1,16 @@
+'use client'
+
 import {
-  DrawerBackdrop,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerPopup,
-  DrawerPortal,
-  DrawerRoot,
-  DrawerTitle,
-  DrawerTrigger,
+  DialogBackdrop,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogPopup,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
 } from '@lglab/compose-ui'
 import {
   ScrollAreaContent,
@@ -21,16 +22,18 @@ import {
 
 export default function ScrollableExample() {
   return (
-    <DrawerRoot>
-      <DrawerTrigger>Open Drawer</DrawerTrigger>
-      <DrawerPortal>
-        <DrawerBackdrop />
-        <DrawerPopup>
-          <DrawerHeader>
-            <DrawerTitle>Drawer</DrawerTitle>
-            <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
-          </DrawerHeader>
-          <DrawerContent className='flex-1 min-h-0'>
+    <DialogRoot>
+      <DialogTrigger>Open Dialog</DialogTrigger>
+      <DialogPortal>
+        <DialogBackdrop />
+        <DialogPopup className='flex flex-col h-[min(32rem,calc(100vh-2rem))]'>
+          <DialogHeader>
+            <DialogTitle>Scrollable Dialog</DialogTitle>
+            <DialogDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            </DialogDescription>
+          </DialogHeader>
+          <div className='flex-1 min-h-0'>
             <ScrollAreaRoot className='h-full'>
               <ScrollAreaViewport>
                 <ScrollAreaContent>
@@ -48,12 +51,12 @@ export default function ScrollableExample() {
                 <ScrollAreaThumb />
               </ScrollAreaScrollbar>
             </ScrollAreaRoot>
-          </DrawerContent>
-          <DrawerFooter className='flex justify-end'>
-            <DrawerClose>Close</DrawerClose>
-          </DrawerFooter>
-        </DrawerPopup>
-      </DrawerPortal>
-    </DrawerRoot>
+          </div>
+          <DialogFooter>
+            <DialogClose>Close</DialogClose>
+          </DialogFooter>
+        </DialogPopup>
+      </DialogPortal>
+    </DialogRoot>
   )
 }

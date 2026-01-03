@@ -32,7 +32,7 @@ export default function BasicExample() {
       </TabsList>
       <TabsPanel value='overview'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>
+          <p>
             This is the overview panel. Here you can see a summary of your account and
             recent activity.
           </p>
@@ -40,16 +40,14 @@ export default function BasicExample() {
       </TabsPanel>
       <TabsPanel value='projects'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>
+          <p>
             View and manage your projects here. Create new projects or edit existing ones.
           </p>
         </div>
       </TabsPanel>
       <TabsPanel value='settings'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>
-            Configure your account settings, preferences, and notification options.
-          </p>
+          <p>Configure your account settings, preferences, and notification options.</p>
         </div>
       </TabsPanel>
     </TabsRoot>
@@ -83,19 +81,17 @@ export default function WithIconsExample() {
       </TabsList>
       <TabsPanel value='account'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>Manage your account details and profile information.</p>
+          <p>Manage your account details and profile information.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='projects'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>Browse and manage all your projects in one place.</p>
+          <p>Browse and manage all your projects in one place.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='settings'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>
-            Customize your experience with various settings options.
-          </p>
+          <p>Customize your experience with various settings options.</p>
         </div>
       </TabsPanel>
     </TabsRoot>
@@ -179,19 +175,17 @@ export default function DisabledExample() {
       </TabsList>
       <TabsPanel value='active'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>
-            This tab is active. The middle tab is disabled and cannot be selected.
-          </p>
+          <p>This tab is active. The middle tab is disabled and cannot be selected.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='disabled'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>You shouldn&apos;t see this content.</p>
+          <p>You shouldn&apos;t see this content.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='another'>
         <div className='rounded-md p-4'>
-          <p className='text-sm'>This is another active tab panel.</p>
+          <p>This is another active tab panel.</p>
         </div>
       </TabsPanel>
     </TabsRoot>

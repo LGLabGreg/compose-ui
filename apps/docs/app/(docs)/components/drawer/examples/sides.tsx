@@ -19,9 +19,7 @@ export default function SidesExample() {
     <div className='flex flex-wrap gap-2'>
       {sides.map((side) => (
         <DrawerRoot key={side}>
-          <DrawerTrigger variant='outline' className='capitalize'>
-            {side}
-          </DrawerTrigger>
+          <DrawerTrigger className='capitalize'>{side}</DrawerTrigger>
           <DrawerPortal>
             <DrawerBackdrop />
             <DrawerPopup side={side}>
@@ -32,7 +30,7 @@ export default function SidesExample() {
                 </DrawerDescription>
               </DrawerHeader>
               <DrawerContent>
-                <p className='text-sm'>
+                <p>
                   Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
                   bibendum est aliquam mauris laoreet interdum.
                 </p>

@@ -4,13 +4,12 @@ import { Button } from '@lglab/compose-ui'
 import {
   DrawerBackdrop,
   DrawerClose,
-  DrawerFooter,
   DrawerPopup,
   DrawerPortal,
   DrawerRoot,
   DrawerTrigger,
 } from '@lglab/compose-ui'
-import { Github, Menu } from 'lucide-react'
+import { Github, Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -44,10 +43,14 @@ export function DocHeader() {
           <DrawerPortal>
             <DrawerBackdrop />
             <DrawerPopup className='w-full' side='right'>
+              <DrawerClose
+                aria-label='Close'
+                size='icon-sm'
+                className='absolute top-3 right-3'
+              >
+                <X className='size-4' />
+              </DrawerClose>
               <DocsNavigation closeDrawer={() => setOpen(false)} />
-              <DrawerFooter>
-                <DrawerClose>Close</DrawerClose>
-              </DrawerFooter>
             </DrawerPopup>
           </DrawerPortal>
         </DrawerRoot>

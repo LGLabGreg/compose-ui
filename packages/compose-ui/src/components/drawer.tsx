@@ -115,6 +115,8 @@ const drawerPopupVariants = cva(
     'fixed z-50 flex flex-col bg-background p-6 shadow-lg',
     'outline-none',
     'transition-transform duration-300 ease-out',
+    'scale-[calc(1-0.1*var(--nested-dialogs))]',
+    'data-[nested-dialog-open]:after:absolute data-[nested-dialog-open]:after:inset-0 data-[nested-dialog-open]:after:rounded-[inherit] data-[nested-dialog-open]:after:bg-black/5',
   ],
   {
     variants: {
@@ -125,7 +127,7 @@ const drawerPopupVariants = cva(
           'data-ending-style:-translate-y-full',
         ],
         right: [
-          'inset-y-0 right-0 h-full w-3/4 max-w-sm border-l border-border',
+          'inset-y-0 right-0 h-full w-sm max-w-full border-l border-border',
           'data-starting-style:translate-x-full',
           'data-ending-style:translate-x-full',
         ],
@@ -135,7 +137,7 @@ const drawerPopupVariants = cva(
           'data-ending-style:translate-y-full',
         ],
         left: [
-          'inset-y-0 left-0 h-full w-3/4 max-w-sm border-r border-border',
+          'inset-y-0 left-0 h-full w-sm max-w-full border-r border-border',
           'data-starting-style:-translate-x-full',
           'data-ending-style:-translate-x-full',
         ],
@@ -187,7 +189,7 @@ DrawerTitle.displayName = 'Drawer.Title'
 export type DrawerDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
 
 const DrawerDescription = ({ className, ...props }: DrawerDescriptionProps) => {
-  return <BaseDialog.Description className={cn('text-sm', className)} {...props} />
+  return <BaseDialog.Description className={cn('', className)} {...props} />
 }
 
 DrawerDescription.displayName = 'Drawer.Description'

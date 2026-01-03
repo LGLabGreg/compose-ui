@@ -45,7 +45,7 @@ export default function BasicExample() {
             <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
           </DrawerHeader>
           <DrawerContent>
-            <p className='text-sm'>
+            <p>
               Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
               bibendum est aliquam mauris laoreet interdum.
             </p>
@@ -84,9 +84,7 @@ export default function SidesExample() {
     <div className='flex flex-wrap gap-2'>
       {sides.map((side) => (
         <DrawerRoot key={side}>
-          <DrawerTrigger variant='outline' className='capitalize'>
-            {side}
-          </DrawerTrigger>
+          <DrawerTrigger className='capitalize'>{side}</DrawerTrigger>
           <DrawerPortal>
             <DrawerBackdrop />
             <DrawerPopup side={side}>
@@ -97,7 +95,7 @@ export default function SidesExample() {
                 </DrawerDescription>
               </DrawerHeader>
               <DrawerContent>
-                <p className='text-sm'>
+                <p>
                   Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
                   bibendum est aliquam mauris laoreet interdum.
                 </p>
@@ -110,6 +108,50 @@ export default function SidesExample() {
         </DrawerRoot>
       ))}
     </div>
+  )
+}
+```
+
+### Custom size
+
+```tsx
+import {
+  DrawerBackdrop,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerPopup,
+  DrawerPortal,
+  DrawerRoot,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@lglab/compose-ui'
+
+export default function SizeExample() {
+  return (
+    <DrawerRoot>
+      <DrawerTrigger>Open Drawer</DrawerTrigger>
+      <DrawerPortal>
+        <DrawerBackdrop />
+        <DrawerPopup className='w-1/2'>
+          <DrawerHeader>
+            <DrawerTitle>Custom Size</DrawerTitle>
+            <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
+          </DrawerHeader>
+          <DrawerContent>
+            <p>
+              Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
+              bibendum est aliquam mauris laoreet interdum.
+            </p>
+          </DrawerContent>
+          <DrawerFooter className='flex justify-end'>
+            <DrawerClose>Close</DrawerClose>
+          </DrawerFooter>
+        </DrawerPopup>
+      </DrawerPortal>
+    </DrawerRoot>
   )
 }
 ```
@@ -150,7 +192,7 @@ export default function CloseButtonExample() {
             <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
           </DrawerHeader>
           <DrawerContent>
-            <p className='text-sm'>
+            <p>
               Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
               bibendum est aliquam mauris laoreet interdum.
             </p>
@@ -203,7 +245,7 @@ export default function ScrollableExample() {
                 <ScrollAreaContent>
                   <div className='space-y-4'>
                     {Array.from({ length: 20 }).map((_, i) => (
-                      <p key={i} className='text-sm'>
+                      <p key={i}>
                         Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit.
                         Nulla bibendum est aliquam mauris laoreet interdum.
                       </p>
@@ -263,7 +305,7 @@ export default function ControlledExample() {
               <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
             </DrawerHeader>
             <DrawerContent>
-              <p className='text-sm'>
+              <p>
                 Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
                 bibendum est aliquam mauris laoreet interdum.
               </p>
@@ -308,7 +350,7 @@ export default function NestedExample() {
             <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
           </DrawerHeader>
           <DrawerContent>
-            <p className='text-sm'>
+            <p>
               Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
               bibendum est aliquam mauris laoreet interdum.
             </p>
@@ -324,7 +366,7 @@ export default function NestedExample() {
                     <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
                   </DrawerHeader>
                   <DrawerContent>
-                    <p className='text-sm'>
+                    <p>
                       Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit.
                       Nulla bibendum est aliquam mauris laoreet interdum.
                     </p>
@@ -373,7 +415,7 @@ export default function FooterExample() {
             <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
           </DrawerHeader>
           <DrawerContent className='flex-1'>
-            <p className='text-sm'>
+            <p>
               Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
               bibendum est aliquam mauris laoreet interdum.
             </p>

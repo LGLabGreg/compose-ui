@@ -18,7 +18,7 @@ export type ScrollAreaViewportProps = React.ComponentProps<typeof BaseScrollArea
 const ScrollAreaViewport = ({ className, ...props }: ScrollAreaViewportProps) => {
   return (
     <BaseScrollArea.Viewport
-      className={cn('h-full overscroll-contain', className)}
+      className={cn('h-full overscroll-contain pr-3', className)}
       {...props}
     />
   )

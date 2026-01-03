@@ -24,7 +24,6 @@ import {
   DialogClose,
   DialogDescription,
   DialogFooter,
-  DialogHeader,
   DialogPopup,
   DialogPortal,
   DialogRoot,
@@ -39,10 +38,8 @@ export default function BasicExample() {
       <DialogPortal>
         <DialogBackdrop />
         <DialogPopup>
-          <DialogHeader>
-            <DialogTitle>Notifications</DialogTitle>
-            <DialogDescription>You are all caught up. Good job!</DialogDescription>
-          </DialogHeader>
+          <DialogTitle>Notifications</DialogTitle>
+          <DialogDescription>You are all caught up. Good job!</DialogDescription>
           <DialogFooter>
             <DialogClose>Close</DialogClose>
           </DialogFooter>
@@ -162,18 +159,16 @@ export default function SizesExample() {
   return (
     <div className='flex flex-wrap gap-2'>
       <DialogRoot>
-        <DialogTrigger size='sm'>Small</DialogTrigger>
+        <DialogTrigger>Small</DialogTrigger>
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup size='sm'>
-            <DialogHeader>
-              <DialogTitle>Small Dialog</DialogTitle>
-              <DialogDescription>
-                This is a compact dialog for quick interactions.
-              </DialogDescription>
-            </DialogHeader>
+            <DialogTitle>Small Dialog</DialogTitle>
+            <DialogDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            </DialogDescription>
             <DialogFooter>
-              <DialogClose size='sm'>Close</DialogClose>
+              <DialogClose>Close</DialogClose>
             </DialogFooter>
           </DialogPopup>
         </DialogPortal>
@@ -184,12 +179,10 @@ export default function SizesExample() {
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup>
-            <DialogHeader>
-              <DialogTitle>Default Dialog</DialogTitle>
-              <DialogDescription>
-                This is the default sized dialog, suitable for most use cases.
-              </DialogDescription>
-            </DialogHeader>
+            <DialogTitle>Default Dialog</DialogTitle>
+            <DialogDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            </DialogDescription>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
@@ -198,19 +191,74 @@ export default function SizesExample() {
       </DialogRoot>
 
       <DialogRoot>
-        <DialogTrigger size='lg'>Large</DialogTrigger>
+        <DialogTrigger>Large</DialogTrigger>
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup size='lg'>
+            <DialogTitle>Large Dialog</DialogTitle>
+            <DialogDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            </DialogDescription>
+            <DialogFooter>
+              <DialogClose>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger>Extra Large</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup size='xl'>
+            <DialogTitle>Extra Large Dialog</DialogTitle>
+            <DialogDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            </DialogDescription>
+            <DialogFooter>
+              <DialogClose>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger>Full Screen</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup size='full'>
             <DialogHeader>
-              <DialogTitle>Large Dialog</DialogTitle>
+              <DialogTitle>Full Screen Dialog</DialogTitle>
               <DialogDescription>
-                This is a large dialog with more space for complex content like forms or
-                detailed information.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogDescription>
+              Nam sed enim a eros eleifend accumsan. Morbi ac risus enim. Praesent in ante
+              euismod, laoreet nisl quis, maximus nisl. Maecenas congue placerat aliquet.
+              Praesent sit amet orci sed purus volutpat viverra vel vitae quam. Nulla a
+              varius lectus. Aenean in facilisis justo.
+            </DialogDescription>
+            <DialogFooter>
+              <DialogClose>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger>Custom</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup className='w-1/2'>
+            <DialogHeader>
+              <DialogTitle>Custom Size</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
               </DialogDescription>
             </DialogHeader>
             <DialogFooter>
-              <DialogClose size='lg'>Close</DialogClose>
+              <DialogClose>Close</DialogClose>
             </DialogFooter>
           </DialogPopup>
         </DialogPortal>
@@ -350,6 +398,70 @@ export default function DestructiveExample() {
 }
 ```
 
+### Scrollable
+
+```tsx
+import {
+  DrawerBackdrop,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerPopup,
+  DrawerPortal,
+  DrawerRoot,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@lglab/compose-ui'
+import {
+  ScrollAreaContent,
+  ScrollAreaRoot,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+  ScrollAreaViewport,
+} from '@lglab/compose-ui'
+
+export default function ScrollableExample() {
+  return (
+    <DrawerRoot>
+      <DrawerTrigger>Open Drawer</DrawerTrigger>
+      <DrawerPortal>
+        <DrawerBackdrop />
+        <DrawerPopup>
+          <DrawerHeader>
+            <DrawerTitle>Drawer</DrawerTitle>
+            <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
+          </DrawerHeader>
+          <DrawerContent className='flex-1 min-h-0'>
+            <ScrollAreaRoot className='h-full'>
+              <ScrollAreaViewport>
+                <ScrollAreaContent>
+                  <div className='space-y-4'>
+                    {Array.from({ length: 20 }).map((_, i) => (
+                      <p key={i}>
+                        Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit.
+                        Nulla bibendum est aliquam mauris laoreet interdum.
+                      </p>
+                    ))}
+                  </div>
+                </ScrollAreaContent>
+              </ScrollAreaViewport>
+              <ScrollAreaScrollbar orientation='vertical'>
+                <ScrollAreaThumb />
+              </ScrollAreaScrollbar>
+            </ScrollAreaRoot>
+          </DrawerContent>
+          <DrawerFooter className='flex justify-end'>
+            <DrawerClose>Close</DrawerClose>
+          </DrawerFooter>
+        </DrawerPopup>
+      </DrawerPortal>
+    </DrawerRoot>
+  )
+}
+```
+
 ### Controlled
 
 ```tsx
@@ -391,14 +503,14 @@ export default function ControlledDialogExample() {
               <div className='flex items-center justify-between rounded-lg border border-border p-4'>
                 <div>
                   <p className='font-medium'>Email Notifications</p>
-                  <p className='text-sm'>Receive email updates about your account</p>
+                  <p>Receive email updates about your account</p>
                 </div>
                 <div className='h-5 w-9 rounded-full bg-primary' />
               </div>
               <div className='flex items-center justify-between rounded-lg border border-border p-4'>
                 <div>
                   <p className='font-medium'>Marketing Emails</p>
-                  <p className='text-sm'>Receive emails about new features and offers</p>
+                  <p>Receive emails about new features and offers</p>
                 </div>
                 <div className='h-5 w-9 rounded-full bg-muted' />
               </div>
@@ -410,8 +522,60 @@ export default function ControlledDialogExample() {
           </DialogPopup>
         </DialogPortal>
       </DialogRoot>
-      <span className='text-sm'>Dialog is {open ? 'open' : 'closed'}</span>
+      <span>Dialog is {open ? 'open' : 'closed'}</span>
     </div>
+  )
+}
+```
+
+### Nested
+
+```tsx
+import {
+  DialogBackdrop,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogPopup,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+} from '@lglab/compose-ui'
+
+export default function NestedExample() {
+  return (
+    <DialogRoot>
+      <DialogTrigger>Open Dialog</DialogTrigger>
+      <DialogPortal>
+        <DialogBackdrop />
+        <DialogPopup>
+          <DialogTitle>Notifications</DialogTitle>
+          <DialogDescription>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+          </DialogDescription>
+          <DialogFooter>
+            <DialogRoot>
+              <DialogTrigger>Nested Dialog</DialogTrigger>
+              <DialogPortal>
+                <DialogBackdrop />
+                <DialogPopup>
+                  <DialogTitle>Nested Dialog</DialogTitle>
+                  <DialogDescription>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                    quos.
+                  </DialogDescription>
+                  <DialogFooter>
+                    <DialogClose>Close</DialogClose>
+                  </DialogFooter>
+                </DialogPopup>
+              </DialogPortal>
+            </DialogRoot>
+            <DialogClose>Close</DialogClose>
+          </DialogFooter>
+        </DialogPopup>
+      </DialogPortal>
+    </DialogRoot>
   )
 }
 ```
