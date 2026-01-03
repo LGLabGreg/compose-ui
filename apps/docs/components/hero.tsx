@@ -51,7 +51,7 @@ export function Hero() {
             variant='outline'
             size='lg'
             render={
-              <Link href='/components/button'>
+              <Link href='/components/accordion'>
                 <LayoutDashboard /> Components
               </Link>
             }

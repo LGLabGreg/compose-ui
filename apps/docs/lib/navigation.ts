@@ -23,6 +23,7 @@ export const docsNavigation: DocsNavigationSection[] = [
   {
     name: 'Components',
     items: [
+      { name: 'Accordion', href: '/components/accordion' },
       { name: 'Button', href: '/components/button' },
       { name: 'Dialog', href: '/components/dialog' },
       { name: 'Drawer', href: '/components/drawer' },
