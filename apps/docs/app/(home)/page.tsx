@@ -34,7 +34,7 @@ const features = [
 
 export default function Home() {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col pb-10'>
       <MainNav />
       <Hero />
       <div className='container max-w-7xl mx-auto px-6'>
