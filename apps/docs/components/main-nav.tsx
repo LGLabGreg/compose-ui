@@ -15,7 +15,7 @@ export default function MainNav() {
               <Link href='/overview/quick-start'>Get Started</Link>
             </li>
             <li>
-              <Link href='/components/button'>Components</Link>
+              <Link href='/components/accordion'>Components</Link>
             </li>
           </ul>
         </nav>
