@@ -43,6 +43,7 @@ Add test for the component
 - **Composition**: Create and test composed component as they would be used by the library user
 - **Accessibility**: Always get elements by their accessible roles
 - **User first**: Test components as they would be interacted with by a real user using userEvent
+- **No comments**: Do not include comments in test files - the test code should be self-explanatory
 
 ### Example
 

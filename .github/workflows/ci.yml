@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  test:
+  generate-llms-docs:
     runs-on: ubuntu-latest
 
     steps:
@@ -54,6 +54,41 @@ jobs:
         with:
           commit_message: 'chore: regenerate llms docs'
           file_pattern: 'apps/docs/public/llms* apps/docs/public/llms/**'
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install latest npm
+        run: npm install -g npm@latest
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Get pnpm store directory
+        id: store-path
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v5
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.store-path.outputs.STORE_PATH}}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Run tests
         run: pnpm test
