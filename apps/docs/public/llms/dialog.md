@@ -466,6 +466,7 @@ export default function ScrollableExample() {
 
 ```tsx
 import {
+  Button,
   DialogBackdrop,
   DialogClose,
   DialogDescription,
@@ -475,7 +476,6 @@ import {
   DialogPortal,
   DialogRoot,
   DialogTitle,
-  DialogTrigger,
 } from '@lglab/compose-ui'
 import { SettingsIcon } from 'lucide-react'
 import * as React from 'react'
@@ -484,12 +484,11 @@ export default function ControlledDialogExample() {
   const [open, setOpen] = React.useState(false)
 
   return (
-    <div className='flex items-center gap-4'>
+    <>
+      <Button onClick={() => setOpen(true)} variant='outline'>
+        <SettingsIcon /> Settings
+      </Button>
       <DialogRoot open={open} onOpenChange={setOpen}>
-        <DialogTrigger variant='outline' className='gap-1.5'>
-          <SettingsIcon className='size-4' />
-          Settings
-        </DialogTrigger>
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup>
@@ -522,8 +521,7 @@ export default function ControlledDialogExample() {
           </DialogPopup>
         </DialogPortal>
       </DialogRoot>
-      <span>Dialog is {open ? 'open' : 'closed'}</span>
-    </div>
+    </>
   )
 }
 ```
