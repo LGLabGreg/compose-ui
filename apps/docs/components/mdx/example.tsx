@@ -2,6 +2,7 @@
 
 import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
 import { CodeIcon, EyeIcon } from 'lucide-react'
+import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 interface ExampleProps {
@@ -14,9 +15,14 @@ interface ExampleProps {
 }
 
 export function Example({ title, children, codeBlock }: ExampleProps) {
+  const slug = title ? title.toLowerCase().replace(/ /g, '-') : ''
   return (
     <div className='space-y-2'>
-      {title && <h2 className='font-medium'>{title}</h2>}
+      {title && (
+        <h2 className='text-lg font-medium mb-2 scroll-mt-20' id={slug}>
+          <Link href={`#${slug}`}>{title}</Link>
+        </h2>
+      )}
 
       <TabsRoot defaultValue='preview'>
         <TabsList>
