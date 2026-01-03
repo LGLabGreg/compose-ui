@@ -33,6 +33,13 @@ export {
   DrawerContent,
   DrawerFooter,
 } from './components/drawer'
+export {
+  AccordionRoot,
+  AccordionItem,
+  AccordionHeader,
+  AccordionTrigger,
+  AccordionPanel,
+} from './components/accordion'
 
 export type { ButtonProps } from './components/button'
 export type {
@@ -75,3 +82,10 @@ export type {
   DrawerContentProps,
   DrawerFooterProps,
 } from './components/drawer'
+export type {
+  AccordionRootProps,
+  AccordionItemProps,
+  AccordionHeaderProps,
+  AccordionTriggerProps,
+  AccordionPanelProps,
+} from './components/accordion'
