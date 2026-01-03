@@ -10,7 +10,7 @@ import { cn } from '../lib/utils'
 // DialogRoot
 // ============================================================================
 
-export type DialogRootProps = React.ComponentProps<typeof BaseDialog.Root>
+type DialogRootProps = React.ComponentProps<typeof BaseDialog.Root>
 
 const DialogRoot = (props: DialogRootProps) => {
   return <BaseDialog.Root {...props} />
@@ -51,7 +51,7 @@ const dialogTriggerVariants = cva(
   },
 )
 
-export type DialogTriggerProps = React.ComponentProps<typeof BaseDialog.Trigger> & {
+type DialogTriggerProps = React.ComponentProps<typeof BaseDialog.Trigger> & {
   /** Visual style variant */
   variant?: 'default' | 'secondary' | 'outline' | 'ghost'
   /** Size of the trigger button */
@@ -73,7 +73,7 @@ DialogTrigger.displayName = 'Dialog.Trigger'
 // DialogPortal
 // ============================================================================
 
-export type DialogPortalProps = React.ComponentProps<typeof BaseDialog.Portal>
+type DialogPortalProps = React.ComponentProps<typeof BaseDialog.Portal>
 
 const DialogPortal = (props: DialogPortalProps) => {
   return <BaseDialog.Portal {...props} />
@@ -85,7 +85,7 @@ DialogPortal.displayName = 'Dialog.Portal'
 // DialogBackdrop
 // ============================================================================
 
-export type DialogBackdropProps = React.ComponentProps<typeof BaseDialog.Backdrop>
+type DialogBackdropProps = React.ComponentProps<typeof BaseDialog.Backdrop>
 
 const DialogBackdrop = ({ className, ...props }: DialogBackdropProps) => {
   return (
@@ -134,7 +134,7 @@ const dialogPopupVariants = cva(
   },
 )
 
-export type DialogPopupProps = React.ComponentProps<typeof BaseDialog.Popup> & {
+type DialogPopupProps = React.ComponentProps<typeof BaseDialog.Popup> & {
   /** Size of the dialog popup */
   size?: 'sm' | 'default' | 'lg' | 'xl' | 'full'
 }
@@ -154,7 +154,7 @@ DialogPopup.displayName = 'Dialog.Popup'
 // DialogTitle
 // ============================================================================
 
-export type DialogTitleProps = React.ComponentProps<typeof BaseDialog.Title>
+type DialogTitleProps = React.ComponentProps<typeof BaseDialog.Title>
 
 const DialogTitle = ({ className, ...props }: DialogTitleProps) => {
   return (
@@ -171,7 +171,7 @@ DialogTitle.displayName = 'Dialog.Title'
 // DialogDescription
 // ============================================================================
 
-export type DialogDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
+type DialogDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
 
 const DialogDescription = ({ className, ...props }: DialogDescriptionProps) => {
   return <BaseDialog.Description className={cn('mt-2', className)} {...props} />
@@ -212,7 +212,7 @@ const dialogCloseVariants = cva(
   },
 )
 
-export type DialogCloseProps = React.ComponentProps<typeof BaseDialog.Close> & {
+type DialogCloseProps = React.ComponentProps<typeof BaseDialog.Close> & {
   /** Visual style variant */
   variant?: 'default' | 'secondary' | 'outline' | 'ghost'
   /** Size of the close button */
@@ -234,7 +234,7 @@ DialogClose.displayName = 'Dialog.Close'
 // DialogHeader (Utility Component)
 // ============================================================================
 
-export type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement>
+type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
 const DialogHeader = ({ className, ...props }: DialogHeaderProps) => {
   return <div className={cn('flex flex-col space-y-1 mb-5', className)} {...props} />
@@ -246,7 +246,7 @@ DialogHeader.displayName = 'Dialog.Header'
 // DialogFooter (Utility Component)
 // ============================================================================
 
-export type DialogFooterProps = React.HTMLAttributes<HTMLDivElement>
+type DialogFooterProps = React.HTMLAttributes<HTMLDivElement>
 
 const DialogFooter = ({ className, ...props }: DialogFooterProps) => {
   return (
@@ -277,4 +277,17 @@ export {
   DialogClose,
   DialogHeader,
   DialogFooter,
+}
+
+export type {
+  DialogRootProps,
+  DialogTriggerProps,
+  DialogPortalProps,
+  DialogBackdropProps,
+  DialogPopupProps,
+  DialogTitleProps,
+  DialogDescriptionProps,
+  DialogCloseProps,
+  DialogHeaderProps,
+  DialogFooterProps,
 }

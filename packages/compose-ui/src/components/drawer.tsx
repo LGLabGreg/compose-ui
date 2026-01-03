@@ -10,7 +10,7 @@ import { cn } from '../lib/utils'
 // DrawerRoot
 // ============================================================================
 
-export type DrawerRootProps = React.ComponentProps<typeof BaseDialog.Root>
+type DrawerRootProps = React.ComponentProps<typeof BaseDialog.Root>
 
 const DrawerRoot = (props: DrawerRootProps) => {
   return <BaseDialog.Root {...props} />
@@ -54,7 +54,7 @@ const drawerTriggerVariants = cva(
   },
 )
 
-export type DrawerTriggerProps = React.ComponentProps<typeof BaseDialog.Trigger> & {
+type DrawerTriggerProps = React.ComponentProps<typeof BaseDialog.Trigger> & {
   /** Visual style variant */
   variant?: 'default' | 'secondary' | 'outline' | 'ghost'
   /** Size of the trigger button */
@@ -76,7 +76,7 @@ DrawerTrigger.displayName = 'Drawer.Trigger'
 // DrawerPortal
 // ============================================================================
 
-export type DrawerPortalProps = React.ComponentProps<typeof BaseDialog.Portal>
+type DrawerPortalProps = React.ComponentProps<typeof BaseDialog.Portal>
 
 const DrawerPortal = (props: DrawerPortalProps) => {
   return <BaseDialog.Portal {...props} />
@@ -88,7 +88,7 @@ DrawerPortal.displayName = 'Drawer.Portal'
 // DrawerBackdrop
 // ============================================================================
 
-export type DrawerBackdropProps = React.ComponentProps<typeof BaseDialog.Backdrop>
+type DrawerBackdropProps = React.ComponentProps<typeof BaseDialog.Backdrop>
 
 const DrawerBackdrop = ({ className, ...props }: DrawerBackdropProps) => {
   return (
@@ -149,7 +149,7 @@ const drawerPopupVariants = cva(
   },
 )
 
-export type DrawerPopupProps = React.ComponentProps<typeof BaseDialog.Popup> & {
+type DrawerPopupProps = React.ComponentProps<typeof BaseDialog.Popup> & {
   /** Side from which the drawer slides in */
   side?: 'top' | 'right' | 'bottom' | 'left'
 }
@@ -169,7 +169,7 @@ DrawerPopup.displayName = 'Drawer.Popup'
 // DrawerTitle
 // ============================================================================
 
-export type DrawerTitleProps = React.ComponentProps<typeof BaseDialog.Title>
+type DrawerTitleProps = React.ComponentProps<typeof BaseDialog.Title>
 
 const DrawerTitle = ({ className, ...props }: DrawerTitleProps) => {
   return (
@@ -186,7 +186,7 @@ DrawerTitle.displayName = 'Drawer.Title'
 // DrawerDescription
 // ============================================================================
 
-export type DrawerDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
+type DrawerDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
 
 const DrawerDescription = ({ className, ...props }: DrawerDescriptionProps) => {
   return <BaseDialog.Description className={cn('', className)} {...props} />
@@ -230,7 +230,7 @@ const drawerCloseVariants = cva(
   },
 )
 
-export type DrawerCloseProps = React.ComponentProps<typeof BaseDialog.Close> & {
+type DrawerCloseProps = React.ComponentProps<typeof BaseDialog.Close> & {
   /** Visual style variant */
   variant?: 'default' | 'secondary' | 'outline' | 'ghost'
   /** Size of the close button */
@@ -252,7 +252,7 @@ DrawerClose.displayName = 'Drawer.Close'
 // DrawerHeader (Utility Component)
 // ============================================================================
 
-export type DrawerHeaderProps = React.HTMLAttributes<HTMLDivElement>
+type DrawerHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
 const DrawerHeader = ({ className, ...props }: DrawerHeaderProps) => {
   return <div className={cn('flex flex-col space-y-1.5', className)} {...props} />
@@ -264,7 +264,7 @@ DrawerHeader.displayName = 'Drawer.Header'
 // DrawerContent (Utility Component)
 // ============================================================================
 
-export type DrawerContentProps = React.HTMLAttributes<HTMLDivElement>
+type DrawerContentProps = React.HTMLAttributes<HTMLDivElement>
 
 const DrawerContent = ({ className, ...props }: DrawerContentProps) => {
   return <div className={cn('py-5', className)} {...props} />
@@ -276,7 +276,7 @@ DrawerContent.displayName = 'Drawer.Content'
 // DrawerFooter (Utility Component)
 // ============================================================================
 
-export type DrawerFooterProps = React.HTMLAttributes<HTMLDivElement>
+type DrawerFooterProps = React.HTMLAttributes<HTMLDivElement>
 
 const DrawerFooter = ({ className, ...props }: DrawerFooterProps) => {
   return <div className={cn('', className)} {...props} />
@@ -300,4 +300,18 @@ export {
   DrawerHeader,
   DrawerContent,
   DrawerFooter,
+}
+
+export type {
+  DrawerRootProps,
+  DrawerTriggerProps,
+  DrawerPortalProps,
+  DrawerBackdropProps,
+  DrawerPopupProps,
+  DrawerTitleProps,
+  DrawerDescriptionProps,
+  DrawerCloseProps,
+  DrawerHeaderProps,
+  DrawerContentProps,
+  DrawerFooterProps,
 }

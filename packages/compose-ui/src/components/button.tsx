@@ -49,7 +49,7 @@ const buttonVariants = cva(
   },
 )
 
-export type ButtonProps = React.ComponentProps<typeof BaseButton> & {
+type ButtonProps = React.ComponentProps<typeof BaseButton> & {
   /** Visual style variant */
   variant?: ButtonVariant
   /** Size of the button */
@@ -91,3 +91,5 @@ const Button = ({
 Button.displayName = 'Button'
 
 export { Button }
+
+export type { ButtonProps }
