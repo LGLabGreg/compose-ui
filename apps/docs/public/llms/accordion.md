@@ -53,7 +53,7 @@ export default function BasicExample() {
             <AccordionTrigger>{item.title}</AccordionTrigger>
           </AccordionHeader>
           <AccordionPanel>
-            <div className='pb-3'>
+            <div className='pb-4'>
               <p>{item.content}</p>
             </div>
           </AccordionPanel>
@@ -107,7 +107,7 @@ export default function MultipleExample() {
             <AccordionTrigger>{item.title}</AccordionTrigger>
           </AccordionHeader>
           <AccordionPanel>
-            <div className='pb-3'>
+            <div className='pb-4'>
               <p>{item.content}</p>
             </div>
           </AccordionPanel>
