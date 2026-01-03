@@ -1,0 +1,73 @@
+import { DocPage } from '@/components/mdx/doc-page'
+
+<DocPage
+  title="Accessibility"
+  description="Base UI's accessibility foundation handles ARIA, keyboard navigation, and focus management automatically."
+>
+
+## What You Get for Free
+
+Compose UI components inherit comprehensive accessibility support from [Base UI](https://base-ui.com). This includes:
+
+**ARIA Attributes** — Roles, states, and properties are managed automatically. A Dialog announces itself as a dialog, tabs communicate their selected state, and so on.
+
+**Keyboard Navigation** — Arrow keys work in tab lists, Escape closes dialogs and drawers, Enter activates buttons. These interactions follow [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/).
+
+**Focus Management** — Focus moves into dialogs when they open and returns to the trigger when they close. Focus is trapped within modals. Tab panels receive focus when selected.
+
+## What You're Responsible For
+
+While Base UI handles the behavioral aspects, there are still things you should be mindful of:
+
+### Color Contrast
+
+Compose UI's default theme uses sufficient contrast ratios, but if you customize colors, verify that text remains readable. The WCAG 2.1 guidelines recommend a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text.
+
+### Meaningful Labels
+
+Components need descriptive labels. For buttons with only icons, provide an accessible name:
+
+```tsx
+<Button size='icon' aria-label='Close sidebar'>
+  <XIcon />
+</Button>
+```
+
+For form inputs, associate labels properly:
+
+```tsx
+<label htmlFor="email">Email</label>
+<input id="email" type="email" />
+```
+
+### Focus Visibility
+
+Compose UI components include visible focus indicators using `focus-visible:ring-*` styles. If you override these, ensure keyboard users can still see where focus is.
+
+### Motion Sensitivity
+
+Some components use animations. Consider users who prefer reduced motion:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  /* Disable or reduce animations */
+}
+```
+
+## Testing Accessibility
+
+A few ways to verify your implementation:
+
+**Keyboard-only navigation** — Put your mouse aside and navigate your interface using only Tab, Shift+Tab, Enter, Escape, and arrow keys.
+
+**Screen reader testing** — Test with VoiceOver (Mac), NVDA (Windows), or similar tools to hear how your interface is announced.
+
+**Automated tools** — Browser extensions like axe DevTools can catch common issues like missing alt text or insufficient contrast.
+
+## Further Reading
+
+- [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) — Patterns and examples for accessible widgets
+- [Base UI Accessibility](https://base-ui.com/react/overview/accessibility) — Details on Base UI's accessibility implementation
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) — Verify your color combinations
+
+</DocPage>

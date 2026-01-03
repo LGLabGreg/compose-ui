@@ -31,7 +31,7 @@ export function ComponentPage({
           <DocLinks component={component} baseUiComponent={baseUiComponent} />
         </div>
       </div>
-      <div className='space-y-8'>{children}</div>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>{children}</div>
     </div>
   )
 }

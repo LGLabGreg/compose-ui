@@ -1,37 +1,12 @@
-# @lglab/compose-ui
+# Compose UI
 
-## Install
+Base UI accessibility meets Tailwind flexibility. Accessible React components
+you can npm install and start using immediately.
 
-```
-pnpm add @lglab/compose-ui
-```
+## Documentation
 
-or
+To get started, check out the [Compose UI documentation](https://www.compose-ui.dev/overview/quick-start).
 
-```
-npm i @lglab/compose-ui
-```
+## License
 
-or
-
-```
-yarn add @lglab/compose-ui
-```
-
-or
-
-```
-bun add @lglab/compose-ui
-```
-
-## Quick Start
-
-```
-import { Button } from '@lglab/compose-ui'
-
-const Page = () => {
-  return (
-    <Button>Click</Button>
-  );
-}
-```
+Licensed under the [MIT license](https://github.com/LGLabGreg/compose-ui/blob/main/LICENSE.md).

@@ -13,21 +13,27 @@ export function Hero() {
         <SquareGrid className='mask-[radial-gradient(75%_75%_at_center,white,transparent)] opacity-90' />
       </div>
       <div className='relative z-10 flex flex-col items-center'>
-        <div className='flex flex-col items-center gap-4 mb-5'>
+        <div className='flex flex-col items-center gap-3 mb-6'>
           <Link
             href='/overview/quick-start'
-            className='mx-auto mb-3 inline-flex items-center gap-3 rounded-full border px-2 pl-4 py-1 text-sm bg-background shadow-xs'
+            className='mx-auto inline-flex items-center gap-3 rounded-full border px-2 py-1 text-sm bg-background shadow-xs'
           >
-            <span className='font-medium'>Introducing Compose UI</span>
+            <span className='inline-flex items-center rounded-full bg-primary text-primary-foreground px-3 py-1 text-xs font-medium'>
+              Beta
+            </span>
+            <span className='font-medium'>
+              Introducing <span className='font-semibold'>Compose UI</span>
+            </span>
             <span className='bg-muted flex size-7 items-center justify-center rounded-full'>
               <ArrowRight className='size-4' />
             </span>
           </Link>
-          <h1 className='text-primary leading-tighter text-4xl font-semibold tracking-tight text-balance lg:leading-[1.3] lg:font-semibold xl:text-5xl xl:tracking-tighter max-w-4xl'>
+          <h1 className='text-primary leading-tighter text-4xl font-semibold tracking-tight text-balance lg:leading-[1.2] lg:font-semibold xl:text-5xl xl:tracking-tighter max-w-4xl'>
             A Collection of Components Built With Base UI & Tailwind CSS
           </h1>
           <p className='text-foreground max-w-3xl text-base sm:text-lg'>
-            A growing collection of composable and accessible components.
+            Base UI accessibility meets Tailwind flexibility. Accessible React components
+            you can npm install and start using immediately.
           </p>
         </div>
         <div className='flex gap-4'>

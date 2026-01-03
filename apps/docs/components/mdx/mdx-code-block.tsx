@@ -44,7 +44,7 @@ export async function MDXCodeBlock({ children }: MDXCodeBlockProps) {
   })
 
   return (
-    <div className='overflow-hidden rounded-lg border mt-5'>
+    <div className='overflow-hidden rounded-lg border mt-5 mb-4'>
       <div className='flex items-center justify-between border-b bg-muted/50 px-4 py-1'>
         <span className='font-mono text-xs'>{language}</span>
         <InlineCopyButton code={code} />
