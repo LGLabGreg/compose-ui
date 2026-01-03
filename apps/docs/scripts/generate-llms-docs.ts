@@ -229,7 +229,9 @@ function generateLlmsTxt(
   lines.push(
     '- [Base UI Documentation](https://base-ui.com/react/components): Underlying component APIs',
   )
-  lines.push('- [GitHub Repository](https://github.com/lglab/compose-ui): Source code')
+  lines.push(
+    '- [GitHub Repository](https://github.com/LGLabGreg/compose-ui): Source code',
+  )
   lines.push('')
 
   return lines.join('\n')
