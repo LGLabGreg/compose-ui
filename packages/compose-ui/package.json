@@ -1,7 +1,7 @@
 {
   "name": "@lglab/compose-ui",
   "version": "0.0.0",
-  "description": "compose-ui library",
+  "description": "A collection of components built with Base UI & Tailwind CSS",
   "author": "LGLab",
   "license": "MIT",
   "repository": {
@@ -11,14 +11,11 @@
   },
   "homepage": "https://compose-ui.dev",
   "keywords": [
-    "compose-ui",
     "react",
+    "react-component",
     "base-ui",
     "tailwind",
-    "library",
-    "typescript",
-    "open-source",
-    "accessible"
+    "a11y"
   ],
   "type": "module",
   "scripts": {
