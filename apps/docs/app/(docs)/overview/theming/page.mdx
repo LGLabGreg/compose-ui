@@ -1,0 +1,157 @@
+import { DocPage } from '@/components/mdx/doc-page'
+
+<DocPage
+  title="Theming"
+  description="Customize Compose UI with CSS variables for colors, radius, and dark mode support."
+>
+
+## How Theming Works
+
+Compose UI uses a two-layer CSS variable system:
+
+1. **Semantic tokens** (`:root` and `.dark`) — Define your design system values like `--primary`, `--background`, `--border`
+2. **Tailwind mapping** (`@theme inline`) — Maps semantic tokens to Tailwind utilities like `bg-primary`, `text-foreground`
+
+This approach means you can customize your entire theme by changing a few CSS variables, and all components automatically update.
+
+## Default Theme
+
+The default theme is imported from the package:
+
+```css
+@import '@lglab/compose-ui/styles/default.css';
+@source "../node_modules/@lglab/compose-ui";
+```
+
+This gives you a neutral gray palette with both light and dark mode support.
+
+## Customizing Colors
+
+Override the semantic tokens in `:root` and `.dark` to customize your theme while preserving light/dark mode support:
+
+```css
+:root {
+  --primary: oklch(48.8% 0.243 264.376);
+  --primary-foreground: oklch(100% 0 0);
+}
+
+.dark {
+  --primary: oklch(65% 0.2 264);
+  --primary-foreground: oklch(10% 0 0);
+}
+```
+
+The Tailwind mapping in `@theme inline` references these variables via `var(--primary)`, so your overrides automatically flow through to utilities like `bg-primary`.
+
+If you want a color that stays the same in both light and dark modes, you can override the Tailwind mapping directly:
+
+```css
+@theme inline {
+  --color-primary: oklch(48.8% 0.243 264.376);
+}
+```
+
+This bypasses the `:root`/`.dark` switching, so use it only when you intentionally want a static value.
+
+## Available Tokens
+
+```css
+/* Base border radius */
+--radius: 0.5rem;
+/* Page background */
+--background: oklch(1 0 0);
+/* Default text color */
+--foreground: oklch(0.145 0 0);
+/* Primary actions and emphasis */
+--primary: oklch(0.205 0 0);
+/* Text on primary backgrounds */
+--primary-foreground: oklch(0.985 0 0);
+/* Secondary actions */
+--secondary: oklch(0.97 0 0);
+/* Text on secondary backgrounds */
+--secondary-foreground: oklch(0.205 0 0);
+/* Subtle backgrounds */
+--muted: oklch(0.97 0 0);
+/* Subdued text */
+--muted-foreground: oklch(0.556 0 0);
+/* Highlights and hover states */
+--accent: oklch(0.97 0 0);
+/* Text on accent backgrounds */
+--accent-foreground: oklch(0.205 0 0);
+/* Dangerous actions */
+--destructive: oklch(0.577 0.245 27.325);
+/* Border color */
+--border: oklch(0.922 0 0);
+/* Focus ring color */
+--ring: oklch(0.708 0 0);
+```
+
+## Border Radius
+
+The `--radius` variable controls the base border radius. Component-specific radii are calculated from this value:
+
+```css
+:root {
+  --radius: 0.5rem; /* Default */
+}
+```
+
+```css
+:root {
+  --radius: 0.75rem; /* More rounded */
+}
+```
+
+```css
+:root {
+  --radius: 0; /* Sharp corners */
+}
+```
+
+## Dark Mode
+
+Compose UI supports dark mode automatically via the `prefers-color-scheme` media query. If a user's system is set to dark mode, they'll see dark colors with no additional setup.
+
+For apps that need a manual theme toggle, Compose UI also respects a `.dark` class on a parent element. Libraries like [next-themes](https://github.com/pacocoursey/next-themes) can manage this:
+
+```tsx
+import { ThemeProvider } from 'next-themes'
+
+function App({ children }) {
+  return <ThemeProvider attribute='class'>{children}</ThemeProvider>
+}
+```
+
+If you need to force light mode while the user has dark system preferences, add a `.light` class to `:root`—the media query won't apply when `.light` is present.
+
+## OKLCH Color Format
+
+The default theme uses [OKLCH](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch) colors, a perceptually uniform color space that makes it easier to create consistent palettes. The format is:
+
+```
+oklch(lightness chroma hue)
+```
+
+- **Lightness**: 0% (black) to 100% (white)
+- **Chroma**: 0 (gray) to ~0.4 (most saturated)
+- **Hue**: 0-360 degrees on the color wheel
+
+Tools like [OKLCH Color Picker](https://oklch.com/) can help you find colors. You can also use the [Tailwind color pallette](https://tailwindcss.com/docs/colors) which uses the oklch format.
+
+## Example: Blue Theme
+
+```css
+:root {
+  --primary: oklch(48.8% 0.243 264.376);
+  --primary-foreground: oklch(100% 0 0);
+  --ring: oklch(48.8% 0.243 264.376);
+}
+
+.dark {
+  --primary: oklch(65% 0.2 264);
+  --primary-foreground: oklch(10% 0 0);
+  --ring: oklch(65% 0.2 264);
+}
+```
+
+</DocPage>

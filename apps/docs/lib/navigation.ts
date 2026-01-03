@@ -14,6 +14,9 @@ export const docsNavigation: DocsNavigationSection[] = [
     name: 'Overview',
     items: [
       { name: 'Quick Start', href: '/overview/quick-start' },
+      { name: 'Composition', href: '/overview/composition' },
+      { name: 'Accessibility', href: '/overview/accessibility' },
+      { name: 'Theming', href: '/overview/theming' },
       { name: 'LLMs', href: '/overview/llms' },
     ],
   },
