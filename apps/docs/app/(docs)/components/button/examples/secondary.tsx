@@ -11,11 +11,20 @@ export default function SecondaryExample() {
       <Button variant='secondary' size='lg'>
         Large
       </Button>
-      <Button variant='secondary' loading loadingText='Loading...'>
-        Button
+      <Button variant='secondary' size='icon-sm'>
+        <TrashIcon />
       </Button>
       <Button variant='secondary' size='icon'>
         <TrashIcon />
+      </Button>
+      <Button variant='secondary' size='icon-lg'>
+        <TrashIcon />
+      </Button>
+      <Button variant='secondary' disabled>
+        Disabled
+      </Button>
+      <Button variant='secondary' loading loadingText='Loading...'>
+        Button
       </Button>
     </div>
   )

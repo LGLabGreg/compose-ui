@@ -11,11 +11,20 @@ export default function DestructiveExample() {
       <Button variant='destructive' size='lg'>
         Large
       </Button>
-      <Button variant='destructive' loading loadingText='Loading...'>
-        Button
+      <Button variant='destructive' size='icon-sm'>
+        <TrashIcon />
       </Button>
       <Button variant='destructive' size='icon'>
         <TrashIcon />
+      </Button>
+      <Button variant='destructive' size='icon-lg'>
+        <TrashIcon />
+      </Button>
+      <Button variant='destructive' disabled>
+        Disabled
+      </Button>
+      <Button variant='destructive' loading loadingText='Loading...'>
+        Button
       </Button>
     </div>
   )
