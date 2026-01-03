@@ -17,12 +17,12 @@ Key features:
 
 ## Components
 
-- [Tabs](https://compose-ui.dev/llms/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
-- [Scroll Area](https://compose-ui.dev/llms/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
-- [Drawer](https://compose-ui.dev/llms/drawer.md): A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
-- [Dialog](https://compose-ui.dev/llms/dialog.md): A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
-- [Button](https://compose-ui.dev/llms/button.md): A versatile button component with multiple variants, sizes, and states including loading indicators.
-- [Accordion](https://compose-ui.dev/llms/accordion.md): A set of collapsible panels with headings.
+- [Tabs](https://compose-ui.dev/components/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
+- [Scroll Area](https://compose-ui.dev/components/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
+- [Drawer](https://compose-ui.dev/components/drawer.md): A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
+- [Dialog](https://compose-ui.dev/components/dialog.md): A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
+- [Button](https://compose-ui.dev/components/button.md): A versatile button component with multiple variants, sizes, and states including loading indicators.
+- [Accordion](https://compose-ui.dev/components/accordion.md): A set of collapsible panels with headings.
 
 ## Optional
 
