@@ -11,11 +11,20 @@ export default function OutlineExample() {
       <Button variant='outline' size='lg'>
         Large
       </Button>
-      <Button variant='outline' loading loadingText='Loading...'>
-        Button
+      <Button variant='outline' size='icon-sm'>
+        <TrashIcon />
       </Button>
       <Button variant='outline' size='icon'>
         <TrashIcon />
+      </Button>
+      <Button variant='outline' size='icon-lg'>
+        <TrashIcon />
+      </Button>
+      <Button variant='outline' disabled>
+        Disabled
+      </Button>
+      <Button variant='outline' loading loadingText='Loading...'>
+        Button
       </Button>
     </div>
   )

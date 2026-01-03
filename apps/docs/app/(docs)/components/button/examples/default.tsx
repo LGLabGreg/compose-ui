@@ -7,11 +7,18 @@ export default function DefaultExample() {
       <Button size='sm'>Small</Button>
       <Button>Default</Button>
       <Button size='lg'>Large</Button>
-      <Button loading loadingText='Loading...'>
-        Button
+      <Button size='icon-sm'>
+        <TrashIcon />
       </Button>
       <Button size='icon'>
         <TrashIcon />
+      </Button>
+      <Button size='icon-lg'>
+        <TrashIcon />
+      </Button>
+      <Button disabled>Disabled</Button>
+      <Button loading loadingText='Loading...'>
+        Button
       </Button>
     </div>
   )

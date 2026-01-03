@@ -4,91 +4,64 @@ import { Dialog as BaseDialog } from '@base-ui/react/dialog'
 import { cva } from 'class-variance-authority'
 import * as React from 'react'
 
+import {
+  type ButtonSize,
+  type ButtonVariant,
+  buttonVariants,
+} from '../lib/button-variants'
 import { cn } from '../lib/utils'
 
 // ============================================================================
 // DrawerRoot
 // ============================================================================
 
-export type DrawerRootProps = React.ComponentProps<typeof BaseDialog.Root>
+type DrawerRootProps = React.ComponentProps<typeof BaseDialog.Root>
 
 const DrawerRoot = (props: DrawerRootProps) => {
   return <BaseDialog.Root {...props} />
 }
 
-DrawerRoot.displayName = 'Drawer.Root'
+DrawerRoot.displayName = 'DrawerRoot'
 
 // ============================================================================
 // DrawerTrigger
 // ============================================================================
 
-const drawerTriggerVariants = cva(
-  [
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium',
-    'transition-all',
-    'outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-    'disabled:pointer-events-none disabled:opacity-50',
-  ],
-  {
-    variants: {
-      variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        outline:
-          'border border-border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-      },
-      size: {
-        default: 'h-9 px-4 py-2 has-[>svg]:px-3',
-        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
-        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
-        icon: 'size-9',
-        'icon-sm': 'size-8',
-        'icon-lg': 'size-10',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-    },
-  },
-)
-
-export type DrawerTriggerProps = React.ComponentProps<typeof BaseDialog.Trigger> & {
+type DrawerTriggerProps = React.ComponentProps<typeof BaseDialog.Trigger> & {
   /** Visual style variant */
-  variant?: 'default' | 'secondary' | 'outline' | 'ghost'
+  variant?: ButtonVariant
   /** Size of the trigger button */
-  size?: 'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'
+  size?: ButtonSize
 }
 
 const DrawerTrigger = ({ className, variant, size, ...props }: DrawerTriggerProps) => {
   return (
     <BaseDialog.Trigger
-      className={cn(drawerTriggerVariants({ variant, size }), className)}
+      className={cn(buttonVariants({ variant, size }), className)}
       {...props}
     />
   )
 }
 
-DrawerTrigger.displayName = 'Drawer.Trigger'
+DrawerTrigger.displayName = 'DrawerTrigger'
 
 // ============================================================================
 // DrawerPortal
 // ============================================================================
 
-export type DrawerPortalProps = React.ComponentProps<typeof BaseDialog.Portal>
+type DrawerPortalProps = React.ComponentProps<typeof BaseDialog.Portal>
 
 const DrawerPortal = (props: DrawerPortalProps) => {
   return <BaseDialog.Portal {...props} />
 }
 
-DrawerPortal.displayName = 'Drawer.Portal'
+DrawerPortal.displayName = 'DrawerPortal'
 
 // ============================================================================
 // DrawerBackdrop
 // ============================================================================
 
-export type DrawerBackdropProps = React.ComponentProps<typeof BaseDialog.Backdrop>
+type DrawerBackdropProps = React.ComponentProps<typeof BaseDialog.Backdrop>
 
 const DrawerBackdrop = ({ className, ...props }: DrawerBackdropProps) => {
   return (
@@ -104,7 +77,7 @@ const DrawerBackdrop = ({ className, ...props }: DrawerBackdropProps) => {
   )
 }
 
-DrawerBackdrop.displayName = 'Drawer.Backdrop'
+DrawerBackdrop.displayName = 'DrawerBackdrop'
 
 // ============================================================================
 // DrawerPopup
@@ -149,7 +122,7 @@ const drawerPopupVariants = cva(
   },
 )
 
-export type DrawerPopupProps = React.ComponentProps<typeof BaseDialog.Popup> & {
+type DrawerPopupProps = React.ComponentProps<typeof BaseDialog.Popup> & {
   /** Side from which the drawer slides in */
   side?: 'top' | 'right' | 'bottom' | 'left'
 }
@@ -163,13 +136,13 @@ const DrawerPopup = ({ className, side, ...props }: DrawerPopupProps) => {
   )
 }
 
-DrawerPopup.displayName = 'Drawer.Popup'
+DrawerPopup.displayName = 'DrawerPopup'
 
 // ============================================================================
 // DrawerTitle
 // ============================================================================
 
-export type DrawerTitleProps = React.ComponentProps<typeof BaseDialog.Title>
+type DrawerTitleProps = React.ComponentProps<typeof BaseDialog.Title>
 
 const DrawerTitle = ({ className, ...props }: DrawerTitleProps) => {
   return (
@@ -180,109 +153,77 @@ const DrawerTitle = ({ className, ...props }: DrawerTitleProps) => {
   )
 }
 
-DrawerTitle.displayName = 'Drawer.Title'
+DrawerTitle.displayName = 'DrawerTitle'
 
 // ============================================================================
 // DrawerDescription
 // ============================================================================
 
-export type DrawerDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
+type DrawerDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
 
 const DrawerDescription = ({ className, ...props }: DrawerDescriptionProps) => {
   return <BaseDialog.Description className={cn('', className)} {...props} />
 }
 
-DrawerDescription.displayName = 'Drawer.Description'
+DrawerDescription.displayName = 'DrawerDescription'
 
 // ============================================================================
 // DrawerClose
 // ============================================================================
 
-const drawerCloseVariants = cva(
-  [
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium',
-    'transition-all',
-    'outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-    'disabled:pointer-events-none disabled:opacity-50',
-  ],
-  {
-    variants: {
-      variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        outline:
-          'border border-border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-      },
-      size: {
-        default: 'h-9 px-4 py-2 has-[>svg]:px-3',
-        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
-        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
-        icon: 'size-9',
-        'icon-sm': 'size-8',
-        'icon-lg': 'size-10',
-      },
-    },
-    defaultVariants: {
-      variant: 'outline',
-      size: 'default',
-    },
-  },
-)
-
-export type DrawerCloseProps = React.ComponentProps<typeof BaseDialog.Close> & {
+type DrawerCloseProps = React.ComponentProps<typeof BaseDialog.Close> & {
   /** Visual style variant */
-  variant?: 'default' | 'secondary' | 'outline' | 'ghost'
+  variant?: ButtonVariant
   /** Size of the close button */
-  size?: 'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'
+  size?: ButtonSize
 }
 
 const DrawerClose = ({ className, variant, size, ...props }: DrawerCloseProps) => {
   return (
     <BaseDialog.Close
-      className={cn(drawerCloseVariants({ variant, size }), className)}
+      className={cn(buttonVariants({ variant: variant ?? 'outline', size }), className)}
       {...props}
     />
   )
 }
 
-DrawerClose.displayName = 'Drawer.Close'
+DrawerClose.displayName = 'DrawerClose'
 
 // ============================================================================
 // DrawerHeader (Utility Component)
 // ============================================================================
 
-export type DrawerHeaderProps = React.HTMLAttributes<HTMLDivElement>
+type DrawerHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
 const DrawerHeader = ({ className, ...props }: DrawerHeaderProps) => {
   return <div className={cn('flex flex-col space-y-1.5', className)} {...props} />
 }
 
-DrawerHeader.displayName = 'Drawer.Header'
+DrawerHeader.displayName = 'DrawerHeader'
 
 // ============================================================================
 // DrawerContent (Utility Component)
 // ============================================================================
 
-export type DrawerContentProps = React.HTMLAttributes<HTMLDivElement>
+type DrawerContentProps = React.HTMLAttributes<HTMLDivElement>
 
 const DrawerContent = ({ className, ...props }: DrawerContentProps) => {
   return <div className={cn('py-5', className)} {...props} />
 }
 
-DrawerContent.displayName = 'Drawer.Content'
+DrawerContent.displayName = 'DrawerContent'
 
 // ============================================================================
 // DrawerFooter (Utility Component)
 // ============================================================================
 
-export type DrawerFooterProps = React.HTMLAttributes<HTMLDivElement>
+type DrawerFooterProps = React.HTMLAttributes<HTMLDivElement>
 
 const DrawerFooter = ({ className, ...props }: DrawerFooterProps) => {
   return <div className={cn('', className)} {...props} />
 }
 
-DrawerFooter.displayName = 'Drawer.Footer'
+DrawerFooter.displayName = 'DrawerFooter'
 
 // ============================================================================
 // Exports
@@ -300,4 +241,18 @@ export {
   DrawerHeader,
   DrawerContent,
   DrawerFooter,
+}
+
+export type {
+  DrawerRootProps,
+  DrawerTriggerProps,
+  DrawerPortalProps,
+  DrawerBackdropProps,
+  DrawerPopupProps,
+  DrawerTitleProps,
+  DrawerDescriptionProps,
+  DrawerCloseProps,
+  DrawerHeaderProps,
+  DrawerContentProps,
+  DrawerFooterProps,
 }

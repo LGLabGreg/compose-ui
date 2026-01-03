@@ -4,88 +4,64 @@ import { Dialog as BaseDialog } from '@base-ui/react/dialog'
 import { cva } from 'class-variance-authority'
 import * as React from 'react'
 
+import {
+  type ButtonSize,
+  type ButtonVariant,
+  buttonVariants,
+} from '../lib/button-variants'
 import { cn } from '../lib/utils'
 
 // ============================================================================
 // DialogRoot
 // ============================================================================
 
-export type DialogRootProps = React.ComponentProps<typeof BaseDialog.Root>
+type DialogRootProps = React.ComponentProps<typeof BaseDialog.Root>
 
 const DialogRoot = (props: DialogRootProps) => {
   return <BaseDialog.Root {...props} />
 }
 
-DialogRoot.displayName = 'Dialog.Root'
+DialogRoot.displayName = 'DialogRoot'
 
 // ============================================================================
 // DialogTrigger
 // ============================================================================
 
-const dialogTriggerVariants = cva(
-  [
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium',
-    'transition-all',
-    'outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-    'disabled:pointer-events-none disabled:opacity-50',
-  ],
-  {
-    variants: {
-      variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        outline:
-          'border border-border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-      },
-      size: {
-        sm: 'h-8 rounded-md px-3 text-xs',
-        default: 'h-9 px-4 py-2',
-        lg: 'h-10 rounded-md px-6',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-    },
-  },
-)
-
-export type DialogTriggerProps = React.ComponentProps<typeof BaseDialog.Trigger> & {
+type DialogTriggerProps = React.ComponentProps<typeof BaseDialog.Trigger> & {
   /** Visual style variant */
-  variant?: 'default' | 'secondary' | 'outline' | 'ghost'
+  variant?: ButtonVariant
   /** Size of the trigger button */
-  size?: 'sm' | 'default' | 'lg'
+  size?: ButtonSize
 }
 
 const DialogTrigger = ({ className, variant, size, ...props }: DialogTriggerProps) => {
   return (
     <BaseDialog.Trigger
-      className={cn(dialogTriggerVariants({ variant, size }), className)}
+      className={cn(buttonVariants({ variant, size }), className)}
       {...props}
     />
   )
 }
 
-DialogTrigger.displayName = 'Dialog.Trigger'
+DialogTrigger.displayName = 'DialogTrigger'
 
 // ============================================================================
 // DialogPortal
 // ============================================================================
 
-export type DialogPortalProps = React.ComponentProps<typeof BaseDialog.Portal>
+type DialogPortalProps = React.ComponentProps<typeof BaseDialog.Portal>
 
 const DialogPortal = (props: DialogPortalProps) => {
   return <BaseDialog.Portal {...props} />
 }
 
-DialogPortal.displayName = 'Dialog.Portal'
+DialogPortal.displayName = 'DialogPortal'
 
 // ============================================================================
 // DialogBackdrop
 // ============================================================================
 
-export type DialogBackdropProps = React.ComponentProps<typeof BaseDialog.Backdrop>
+type DialogBackdropProps = React.ComponentProps<typeof BaseDialog.Backdrop>
 
 const DialogBackdrop = ({ className, ...props }: DialogBackdropProps) => {
   return (
@@ -101,7 +77,7 @@ const DialogBackdrop = ({ className, ...props }: DialogBackdropProps) => {
   )
 }
 
-DialogBackdrop.displayName = 'Dialog.Backdrop'
+DialogBackdrop.displayName = 'DialogBackdrop'
 
 // ============================================================================
 // DialogPopup
@@ -134,7 +110,7 @@ const dialogPopupVariants = cva(
   },
 )
 
-export type DialogPopupProps = React.ComponentProps<typeof BaseDialog.Popup> & {
+type DialogPopupProps = React.ComponentProps<typeof BaseDialog.Popup> & {
   /** Size of the dialog popup */
   size?: 'sm' | 'default' | 'lg' | 'xl' | 'full'
 }
@@ -148,13 +124,13 @@ const DialogPopup = ({ className, size, ...props }: DialogPopupProps) => {
   )
 }
 
-DialogPopup.displayName = 'Dialog.Popup'
+DialogPopup.displayName = 'DialogPopup'
 
 // ============================================================================
 // DialogTitle
 // ============================================================================
 
-export type DialogTitleProps = React.ComponentProps<typeof BaseDialog.Title>
+type DialogTitleProps = React.ComponentProps<typeof BaseDialog.Title>
 
 const DialogTitle = ({ className, ...props }: DialogTitleProps) => {
   return (
@@ -165,88 +141,59 @@ const DialogTitle = ({ className, ...props }: DialogTitleProps) => {
   )
 }
 
-DialogTitle.displayName = 'Dialog.Title'
+DialogTitle.displayName = 'DialogTitle'
 
 // ============================================================================
 // DialogDescription
 // ============================================================================
 
-export type DialogDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
+type DialogDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
 
 const DialogDescription = ({ className, ...props }: DialogDescriptionProps) => {
   return <BaseDialog.Description className={cn('mt-2', className)} {...props} />
 }
 
-DialogDescription.displayName = 'Dialog.Description'
+DialogDescription.displayName = 'DialogDescription'
 
 // ============================================================================
 // DialogClose
 // ============================================================================
 
-const dialogCloseVariants = cva(
-  [
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium',
-    'transition-all',
-    'outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-    'disabled:pointer-events-none disabled:opacity-50',
-  ],
-  {
-    variants: {
-      variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        outline:
-          'border border-border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-      },
-      size: {
-        sm: 'h-8 rounded-md px-3 text-xs',
-        default: 'h-9 px-4 py-2',
-        lg: 'h-10 rounded-md px-6',
-      },
-    },
-    defaultVariants: {
-      variant: 'outline',
-      size: 'default',
-    },
-  },
-)
-
-export type DialogCloseProps = React.ComponentProps<typeof BaseDialog.Close> & {
+type DialogCloseProps = React.ComponentProps<typeof BaseDialog.Close> & {
   /** Visual style variant */
-  variant?: 'default' | 'secondary' | 'outline' | 'ghost'
+  variant?: ButtonVariant
   /** Size of the close button */
-  size?: 'sm' | 'default' | 'lg'
+  size?: ButtonSize
 }
 
 const DialogClose = ({ className, variant, size, ...props }: DialogCloseProps) => {
   return (
     <BaseDialog.Close
-      className={cn(dialogCloseVariants({ variant, size }), className)}
+      className={cn(buttonVariants({ variant: variant ?? 'outline', size }), className)}
       {...props}
     />
   )
 }
 
-DialogClose.displayName = 'Dialog.Close'
+DialogClose.displayName = 'DialogClose'
 
 // ============================================================================
 // DialogHeader (Utility Component)
 // ============================================================================
 
-export type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement>
+type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
 const DialogHeader = ({ className, ...props }: DialogHeaderProps) => {
   return <div className={cn('flex flex-col space-y-1 mb-5', className)} {...props} />
 }
 
-DialogHeader.displayName = 'Dialog.Header'
+DialogHeader.displayName = 'DialogHeader'
 
 // ============================================================================
 // DialogFooter (Utility Component)
 // ============================================================================
 
-export type DialogFooterProps = React.HTMLAttributes<HTMLDivElement>
+type DialogFooterProps = React.HTMLAttributes<HTMLDivElement>
 
 const DialogFooter = ({ className, ...props }: DialogFooterProps) => {
   return (
@@ -260,7 +207,7 @@ const DialogFooter = ({ className, ...props }: DialogFooterProps) => {
   )
 }
 
-DialogFooter.displayName = 'Dialog.Footer'
+DialogFooter.displayName = 'DialogFooter'
 
 // ============================================================================
 // Exports
@@ -277,4 +224,17 @@ export {
   DialogClose,
   DialogHeader,
   DialogFooter,
+}
+
+export type {
+  DialogRootProps,
+  DialogTriggerProps,
+  DialogPortalProps,
+  DialogBackdropProps,
+  DialogPopupProps,
+  DialogTitleProps,
+  DialogDescriptionProps,
+  DialogCloseProps,
+  DialogHeaderProps,
+  DialogFooterProps,
 }

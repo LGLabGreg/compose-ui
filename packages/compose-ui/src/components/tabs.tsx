@@ -10,13 +10,13 @@ import { cn } from '../lib/utils'
 // TabsRoot
 // ============================================================================
 
-export type TabsRootProps = React.ComponentProps<typeof BaseTabs.Root>
+type TabsRootProps = React.ComponentProps<typeof BaseTabs.Root>
 
 const TabsRoot = ({ className, ...props }: TabsRootProps) => {
   return <BaseTabs.Root className={cn('flex flex-col', className)} {...props} />
 }
 
-TabsRoot.displayName = 'Tabs.Root'
+TabsRoot.displayName = 'TabsRoot'
 
 // ============================================================================
 // TabsList
@@ -37,7 +37,7 @@ const tabsListVariants = cva(
   },
 )
 
-export type TabsListProps = React.ComponentProps<typeof BaseTabs.List> & {
+type TabsListProps = React.ComponentProps<typeof BaseTabs.List> & {
   /** Orientation of the tabs list */
   orientation?: 'horizontal' | 'vertical'
 }
@@ -51,7 +51,7 @@ const TabsList = ({ className, orientation = 'horizontal', ...props }: TabsListP
   )
 }
 
-TabsList.displayName = 'Tabs.List'
+TabsList.displayName = 'TabsList'
 
 // ============================================================================
 // TabsTab
@@ -82,7 +82,7 @@ const tabsTabVariants = cva(
   },
 )
 
-export type TabsTabProps = React.ComponentProps<typeof BaseTabs.Tab> & {
+type TabsTabProps = React.ComponentProps<typeof BaseTabs.Tab> & {
   /** Size of the tab */
   size?: 'sm' | 'default' | 'lg'
 }
@@ -91,7 +91,7 @@ const TabsTab = ({ className, size, ...props }: TabsTabProps) => {
   return <BaseTabs.Tab className={cn(tabsTabVariants({ size }), className)} {...props} />
 }
 
-TabsTab.displayName = 'Tabs.Tab'
+TabsTab.displayName = 'TabsTab'
 
 // ============================================================================
 // TabsIndicator
@@ -114,7 +114,7 @@ const tabsIndicatorVariants = cva(
   },
 )
 
-export type TabsIndicatorProps = React.ComponentProps<typeof BaseTabs.Indicator> & {
+type TabsIndicatorProps = React.ComponentProps<typeof BaseTabs.Indicator> & {
   /** Orientation of the indicator (should match the tabs list orientation) */
   orientation?: 'horizontal' | 'vertical'
 }
@@ -132,13 +132,13 @@ const TabsIndicator = ({
   )
 }
 
-TabsIndicator.displayName = 'Tabs.Indicator'
+TabsIndicator.displayName = 'TabsIndicator'
 
 // ============================================================================
 // TabsPanel
 // ============================================================================
 
-export type TabsPanelProps = React.ComponentProps<typeof BaseTabs.Panel>
+type TabsPanelProps = React.ComponentProps<typeof BaseTabs.Panel>
 
 const TabsPanel = ({ className, ...props }: TabsPanelProps) => {
   return (
@@ -153,10 +153,18 @@ const TabsPanel = ({ className, ...props }: TabsPanelProps) => {
   )
 }
 
-TabsPanel.displayName = 'Tabs.Panel'
+TabsPanel.displayName = 'TabsPanel'
 
 // ============================================================================
 // Exports
 // ============================================================================
 
 export { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel }
+
+export type {
+  TabsRootProps,
+  TabsListProps,
+  TabsTabProps,
+  TabsIndicatorProps,
+  TabsPanelProps,
+}

@@ -5,15 +5,15 @@ import * as React from 'react'
 
 import { cn } from '../lib/utils'
 
-export type ScrollAreaRootProps = React.ComponentProps<typeof BaseScrollArea.Root>
+type ScrollAreaRootProps = React.ComponentProps<typeof BaseScrollArea.Root>
 
 const ScrollAreaRoot = ({ className, ...props }: ScrollAreaRootProps) => {
   return <BaseScrollArea.Root className={cn('relative', className)} {...props} />
 }
 
-ScrollAreaRoot.displayName = 'ScrollArea.Root'
+ScrollAreaRoot.displayName = 'ScrollAreaRoot'
 
-export type ScrollAreaViewportProps = React.ComponentProps<typeof BaseScrollArea.Viewport>
+type ScrollAreaViewportProps = React.ComponentProps<typeof BaseScrollArea.Viewport>
 
 const ScrollAreaViewport = ({ className, ...props }: ScrollAreaViewportProps) => {
   return (
@@ -24,19 +24,17 @@ const ScrollAreaViewport = ({ className, ...props }: ScrollAreaViewportProps) =>
   )
 }
 
-ScrollAreaViewport.displayName = 'ScrollArea.Viewport'
+ScrollAreaViewport.displayName = 'ScrollAreaViewport'
 
-export type ScrollAreaContentProps = React.ComponentProps<typeof BaseScrollArea.Content>
+type ScrollAreaContentProps = React.ComponentProps<typeof BaseScrollArea.Content>
 
 const ScrollAreaContent = ({ className, ...props }: ScrollAreaContentProps) => {
   return <BaseScrollArea.Content className={cn('min-w-full', className)} {...props} />
 }
 
-ScrollAreaContent.displayName = 'ScrollArea.Content'
+ScrollAreaContent.displayName = 'ScrollAreaContent'
 
-export type ScrollAreaScrollbarProps = React.ComponentProps<
-  typeof BaseScrollArea.Scrollbar
->
+type ScrollAreaScrollbarProps = React.ComponentProps<typeof BaseScrollArea.Scrollbar>
 
 const ScrollAreaScrollbar = ({
   className,
@@ -58,9 +56,9 @@ const ScrollAreaScrollbar = ({
   )
 }
 
-ScrollAreaScrollbar.displayName = 'ScrollArea.Scrollbar'
+ScrollAreaScrollbar.displayName = 'ScrollAreaScrollbar'
 
-export type ScrollAreaThumbProps = React.ComponentProps<typeof BaseScrollArea.Thumb>
+type ScrollAreaThumbProps = React.ComponentProps<typeof BaseScrollArea.Thumb>
 
 const ScrollAreaThumb = ({ className, ...props }: ScrollAreaThumbProps) => {
   return (
@@ -75,15 +73,15 @@ const ScrollAreaThumb = ({ className, ...props }: ScrollAreaThumbProps) => {
   )
 }
 
-ScrollAreaThumb.displayName = 'ScrollArea.Thumb'
+ScrollAreaThumb.displayName = 'ScrollAreaThumb'
 
-export type ScrollAreaCornerProps = React.ComponentProps<typeof BaseScrollArea.Corner>
+type ScrollAreaCornerProps = React.ComponentProps<typeof BaseScrollArea.Corner>
 
 const ScrollAreaCorner = ({ className, ...props }: ScrollAreaCornerProps) => {
   return <BaseScrollArea.Corner className={cn('bg-muted/50', className)} {...props} />
 }
 
-ScrollAreaCorner.displayName = 'ScrollArea.Corner'
+ScrollAreaCorner.displayName = 'ScrollAreaCorner'
 
 export {
   ScrollAreaRoot,
@@ -92,4 +90,13 @@ export {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaCorner,
+}
+
+export type {
+  ScrollAreaRootProps,
+  ScrollAreaViewportProps,
+  ScrollAreaContentProps,
+  ScrollAreaScrollbarProps,
+  ScrollAreaThumbProps,
+  ScrollAreaCornerProps,
 }
