@@ -219,7 +219,7 @@ function generateLlmsTxt(
   lines.push('')
   for (const comp of components) {
     lines.push(
-      `- [${comp.title}](${baseUrl}/llms/${comp.component}.md): ${comp.description}`,
+      `- [${comp.title}](${baseUrl}/components/${comp.component}.md): ${comp.description}`,
     )
   }
   lines.push('')
