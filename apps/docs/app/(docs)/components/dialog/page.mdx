@@ -4,6 +4,8 @@ import BasicExample from './examples/basic'
 import ControlledDialogExample from './examples/controlled'
 import DestructiveExample from './examples/destructive'
 import FormDialogExample from './examples/form'
+import NestedExample from './examples/nested'
+import ScrollableExample from './examples/scrollable'
 import SizesExample from './examples/sizes'
 import VariantsExample from './examples/variants'
 
@@ -44,10 +46,21 @@ import VariantsExample from './examples/variants'
 </ExampleLoader>
 
 <ExampleLoader
+  title='Scrollable'
+  filePath='app/(docs)/components/drawer/examples/scrollable.tsx'
+>
+  <ScrollableExample />
+</ExampleLoader>
+
+<ExampleLoader
   title='Controlled'
   filePath='app/(docs)/components/dialog/examples/controlled.tsx'
 >
   <ControlledDialogExample />
+</ExampleLoader>
+
+<ExampleLoader title='Nested' filePath='app/(docs)/components/dialog/examples/nested.tsx'>
+  <NestedExample />
 </ExampleLoader>
 
 </ComponentPage>

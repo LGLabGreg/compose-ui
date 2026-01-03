@@ -17,18 +17,16 @@ export default function SizesExample() {
   return (
     <div className='flex flex-wrap gap-2'>
       <DialogRoot>
-        <DialogTrigger size='sm'>Small</DialogTrigger>
+        <DialogTrigger>Small</DialogTrigger>
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup size='sm'>
-            <DialogHeader>
-              <DialogTitle>Small Dialog</DialogTitle>
-              <DialogDescription>
-                This is a compact dialog for quick interactions.
-              </DialogDescription>
-            </DialogHeader>
+            <DialogTitle>Small Dialog</DialogTitle>
+            <DialogDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            </DialogDescription>
             <DialogFooter>
-              <DialogClose size='sm'>Close</DialogClose>
+              <DialogClose>Close</DialogClose>
             </DialogFooter>
           </DialogPopup>
         </DialogPortal>
@@ -39,12 +37,10 @@ export default function SizesExample() {
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup>
-            <DialogHeader>
-              <DialogTitle>Default Dialog</DialogTitle>
-              <DialogDescription>
-                This is the default sized dialog, suitable for most use cases.
-              </DialogDescription>
-            </DialogHeader>
+            <DialogTitle>Default Dialog</DialogTitle>
+            <DialogDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            </DialogDescription>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
@@ -53,19 +49,74 @@ export default function SizesExample() {
       </DialogRoot>
 
       <DialogRoot>
-        <DialogTrigger size='lg'>Large</DialogTrigger>
+        <DialogTrigger>Large</DialogTrigger>
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup size='lg'>
+            <DialogTitle>Large Dialog</DialogTitle>
+            <DialogDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            </DialogDescription>
+            <DialogFooter>
+              <DialogClose>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger>Extra Large</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup size='xl'>
+            <DialogTitle>Extra Large Dialog</DialogTitle>
+            <DialogDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            </DialogDescription>
+            <DialogFooter>
+              <DialogClose>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger>Full Screen</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup size='full'>
             <DialogHeader>
-              <DialogTitle>Large Dialog</DialogTitle>
+              <DialogTitle>Full Screen Dialog</DialogTitle>
               <DialogDescription>
-                This is a large dialog with more space for complex content like forms or
-                detailed information.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogDescription>
+              Nam sed enim a eros eleifend accumsan. Morbi ac risus enim. Praesent in ante
+              euismod, laoreet nisl quis, maximus nisl. Maecenas congue placerat aliquet.
+              Praesent sit amet orci sed purus volutpat viverra vel vitae quam. Nulla a
+              varius lectus. Aenean in facilisis justo.
+            </DialogDescription>
+            <DialogFooter>
+              <DialogClose>Close</DialogClose>
+            </DialogFooter>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger>Custom</DialogTrigger>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup className='w-1/2'>
+            <DialogHeader>
+              <DialogTitle>Custom Size</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
               </DialogDescription>
             </DialogHeader>
             <DialogFooter>
-              <DialogClose size='lg'>Close</DialogClose>
+              <DialogClose>Close</DialogClose>
             </DialogFooter>
           </DialogPopup>
         </DialogPortal>

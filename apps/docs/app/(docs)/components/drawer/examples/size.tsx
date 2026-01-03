@@ -12,15 +12,15 @@ import {
   DrawerTrigger,
 } from '@lglab/compose-ui'
 
-export default function BasicExample() {
+export default function SizeExample() {
   return (
     <DrawerRoot>
       <DrawerTrigger>Open Drawer</DrawerTrigger>
       <DrawerPortal>
         <DrawerBackdrop />
-        <DrawerPopup>
+        <DrawerPopup className='w-1/2'>
           <DrawerHeader>
-            <DrawerTitle>Drawer</DrawerTitle>
+            <DrawerTitle>Custom Size</DrawerTitle>
             <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
           </DrawerHeader>
           <DrawerContent>

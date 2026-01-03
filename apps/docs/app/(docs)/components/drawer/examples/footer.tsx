@@ -25,7 +25,7 @@ export default function FooterExample() {
             <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
           </DrawerHeader>
           <DrawerContent className='flex-1'>
-            <p className='text-sm'>
+            <p>
               Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
               bibendum est aliquam mauris laoreet interdum.
             </p>

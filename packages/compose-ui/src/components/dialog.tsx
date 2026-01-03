@@ -110,20 +110,22 @@ DialogBackdrop.displayName = 'Dialog.Backdrop'
 const dialogPopupVariants = cva(
   [
     'fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2',
-    'w-full max-w-lg rounded-lg border border-border bg-background p-6 shadow-lg',
+    'w-full max-w-[calc(100vw-2rem)] rounded-lg border border-border bg-background p-6 shadow-lg',
     'outline-none',
     'transition-all duration-200',
     'data-[starting-style]:scale-95 data-[starting-style]:opacity-0',
     'data-[ending-style]:scale-95 data-[ending-style]:opacity-0',
+    'top-[calc(50%+1.25rem*var(--nested-dialogs))] scale-[calc(1-0.1*var(--nested-dialogs))]',
+    'data-[nested-dialog-open]:after:absolute data-[nested-dialog-open]:after:inset-0 data-[nested-dialog-open]:after:rounded-[inherit] data-[nested-dialog-open]:after:bg-black/5',
   ],
   {
     variants: {
       size: {
-        sm: 'max-w-sm',
-        default: 'max-w-lg',
-        lg: 'max-w-2xl',
-        xl: 'max-w-4xl',
-        full: 'max-w-[calc(100vw-2rem)] h-[calc(100vh-2rem)]',
+        sm: 'w-sm',
+        default: 'w-lg',
+        lg: 'w-2xl',
+        xl: 'w-4xl',
+        full: 'h-[calc(100vh-2rem)]',
       },
     },
     defaultVariants: {
@@ -172,12 +174,7 @@ DialogTitle.displayName = 'Dialog.Title'
 export type DialogDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
 
 const DialogDescription = ({ className, ...props }: DialogDescriptionProps) => {
-  return (
-    <BaseDialog.Description
-      className={cn('mt-2 text-sm text-muted-foreground', className)}
-      {...props}
-    />
-  )
+  return <BaseDialog.Description className={cn('mt-2', className)} {...props} />
 }
 
 DialogDescription.displayName = 'Dialog.Description'
@@ -240,7 +237,7 @@ DialogClose.displayName = 'Dialog.Close'
 export type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
 const DialogHeader = ({ className, ...props }: DialogHeaderProps) => {
-  return <div className={cn('flex flex-col space-y-1.5', className)} {...props} />
+  return <div className={cn('flex flex-col space-y-1 mb-5', className)} {...props} />
 }
 
 DialogHeader.displayName = 'Dialog.Header'

@@ -24,7 +24,7 @@ export default function NestedExample() {
             <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
           </DrawerHeader>
           <DrawerContent>
-            <p className='text-sm'>
+            <p>
               Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit. Nulla
               bibendum est aliquam mauris laoreet interdum.
             </p>
@@ -40,7 +40,7 @@ export default function NestedExample() {
                     <DrawerDescription>Lorem ipsum dolor sit amet</DrawerDescription>
                   </DrawerHeader>
                   <DrawerContent>
-                    <p className='text-sm'>
+                    <p>
                       Curabitur non dui rhoncus, cursus turpis fermentum, cursus elit.
                       Nulla bibendum est aliquam mauris laoreet interdum.
                     </p>
