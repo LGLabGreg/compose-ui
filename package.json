@@ -3,7 +3,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/LGLabGreg/react-qr-code.git"
+    "url": "https://github.com/LGLabGreg/compose-ui.git"
   },
   "packageManager": "pnpm@10.27.0",
   "type": "module",
