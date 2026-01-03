@@ -1,6 +1,9 @@
 {
   "name": "@lglab/compose-ui",
   "version": "0.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "compose-ui library",
   "author": "LGLab",
   "license": "MIT",
