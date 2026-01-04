@@ -22,6 +22,7 @@ Key features:
 - [Drawer](https://compose-ui.dev/components/drawer.md): A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
 - [Dialog](https://compose-ui.dev/components/dialog.md): A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
 - [Button](https://compose-ui.dev/components/button.md): A versatile button component with multiple variants, sizes, and states including loading indicators.
+- [Avatar](https://compose-ui.dev/components/avatar.md): An easily stylable avatar component for displaying user profile pictures, initials, or fallback content.
 - [Alert Dialog](https://compose-ui.dev/components/alert-dialog.md): A dialog that requires a user response to proceed.
 - [Accordion](https://compose-ui.dev/components/accordion.md): A set of collapsible panels with headings.
 
