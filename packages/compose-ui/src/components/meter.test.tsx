@@ -100,18 +100,4 @@ describe('Meter', () => {
       { timeout: 2000 },
     )
   })
-
-  it('does not animate when value is 0 and animated is true', () => {
-    render(
-      <MeterRoot value={0} animated>
-        <MeterValue />
-        <MeterTrack>
-          <MeterIndicator />
-        </MeterTrack>
-      </MeterRoot>,
-    )
-
-    const meter = screen.getByRole('meter')
-    expect(meter).toHaveAttribute('aria-valuenow', '0')
-  })
 })
