@@ -1,6 +1,7 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import BasicExample from './examples/basic'
+import IconExample from './examples/icon'
 import MultipleExample from './examples/multiple'
 
 <ComponentPage
@@ -15,6 +16,10 @@ import MultipleExample from './examples/multiple'
   filePath='app/(docs)/components/accordion/examples/basic.tsx'
 >
   <BasicExample />
+</ExampleLoader>
+
+<ExampleLoader title='Icon' filePath='app/(docs)/components/accordion/examples/icon.tsx'>
+  <IconExample />
 </ExampleLoader>
 
 <ExampleLoader
