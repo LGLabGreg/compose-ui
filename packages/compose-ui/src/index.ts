@@ -11,6 +11,8 @@ export {
   AlertDialogClose,
 } from './components/alert-dialog'
 export { AlertDialog } from '@base-ui/react/alert-dialog'
+export { AvatarRoot, AvatarImage, AvatarFallback, AvatarStack } from './components/avatar'
+export { Avatar } from '@base-ui/react/avatar'
 export {
   ScrollAreaRoot,
   ScrollAreaViewport,
@@ -65,6 +67,12 @@ export type {
   AlertDialogDescriptionProps,
   AlertDialogCloseProps,
 } from './components/alert-dialog'
+export type {
+  AvatarRootProps,
+  AvatarImageProps,
+  AvatarFallbackProps,
+  AvatarStackProps,
+} from './components/avatar'
 export type {
   ScrollAreaRootProps,
   ScrollAreaViewportProps,

@@ -1,0 +1,37 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import BasicExample from './examples/basic'
+import FallbackExample from './examples/fallback'
+import StackExample from './examples/stack'
+import StackOverflowExample from './examples/stack-overflow'
+
+<ComponentPage
+  title="Avatar"
+  description="An easily stylable avatar component for displaying user profile pictures, initials, or fallback content."
+  component="avatar"
+  baseUiComponent="avatar"
+>
+
+<ExampleLoader title='Basic' filePath='app/(docs)/components/avatar/examples/basic.tsx'>
+  <BasicExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Fallback'
+  filePath='app/(docs)/components/avatar/examples/fallback.tsx'
+>
+  <FallbackExample />
+</ExampleLoader>
+
+<ExampleLoader title='Stack' filePath='app/(docs)/components/avatar/examples/stack.tsx'>
+  <StackExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stack with overflow'
+  filePath='app/(docs)/components/avatar/examples/stack-overflow.tsx'
+>
+  <StackOverflowExample />
+</ExampleLoader>
+
+</ComponentPage>
