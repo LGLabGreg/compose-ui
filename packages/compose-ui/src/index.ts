@@ -62,6 +62,14 @@ export {
   MeterLabel,
 } from './components/meter'
 export { Meter } from '@base-ui/react/meter'
+export {
+  ProgressRoot,
+  ProgressTrack,
+  ProgressIndicator,
+  ProgressValue,
+  ProgressLabel,
+} from './components/progress'
+export { Progress } from '@base-ui/react/progress'
 
 export type { ButtonProps } from './components/button'
 export type {
@@ -135,3 +143,10 @@ export type {
   MeterValueProps,
   MeterLabelProps,
 } from './components/meter'
+export type {
+  ProgressRootProps,
+  ProgressTrackProps,
+  ProgressIndicatorProps,
+  ProgressValueProps,
+  ProgressLabelProps,
+} from './components/progress'
