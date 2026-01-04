@@ -1,0 +1,51 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import BasicExample from './examples/basic'
+import CloseConfirmationExample from './examples/close-confirmation'
+import ControlledMultipleExample from './examples/controlled-multiple'
+import DetachedTriggersExample from './examples/detached-triggers'
+import MultipleTriggersExample from './examples/multiple-triggers'
+
+<ComponentPage
+  title="Alert Dialog"
+  description="A dialog that requires a user response to proceed."
+  component="alert-dialog"
+  baseUiComponent="alert-dialog"
+>
+
+<ExampleLoader
+  title='Basic'
+  filePath='app/(docs)/components/alert-dialog/examples/basic.tsx'
+>
+  <BasicExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Close confirmation'
+  filePath='app/(docs)/components/alert-dialog/examples/close-confirmation.tsx'
+>
+  <CloseConfirmationExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Detached triggers'
+  filePath='app/(docs)/components/alert-dialog/examples/detached-triggers.tsx'
+>
+  <DetachedTriggersExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Multiple triggers'
+  filePath='app/(docs)/components/alert-dialog/examples/multiple-triggers.tsx'
+>
+  <MultipleTriggersExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Controlled mode with multiple triggers'
+  filePath='app/(docs)/components/alert-dialog/examples/controlled-multiple.tsx'
+>
+  <ControlledMultipleExample />
+</ExampleLoader>
+
+</ComponentPage>
