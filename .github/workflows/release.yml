@@ -45,5 +45,5 @@ jobs:
           title: 'chore(release): version packages'
           publish: pnpm ci:publish --no-git-checks
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
