@@ -54,6 +54,14 @@ export {
   AccordionTrigger,
   AccordionPanel,
 } from './components/accordion'
+export {
+  MeterRoot,
+  MeterTrack,
+  MeterIndicator,
+  MeterValue,
+  MeterLabel,
+} from './components/meter'
+export { Meter } from '@base-ui/react/meter'
 
 export type { ButtonProps } from './components/button'
 export type {
@@ -120,3 +128,10 @@ export type {
   AccordionTriggerProps,
   AccordionPanelProps,
 } from './components/accordion'
+export type {
+  MeterRootProps,
+  MeterTrackProps,
+  MeterIndicatorProps,
+  MeterValueProps,
+  MeterLabelProps,
+} from './components/meter'
