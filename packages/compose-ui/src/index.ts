@@ -1,5 +1,17 @@
 export { Button } from './components/button'
 export {
+  AlertDialogRoot,
+  AlertDialogTrigger,
+  AlertDialogPortal,
+  AlertDialogBackdrop,
+  AlertDialogViewport,
+  AlertDialogPopup,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogClose,
+} from './components/alert-dialog'
+export { AlertDialog } from '@base-ui/react/alert-dialog'
+export {
   ScrollAreaRoot,
   ScrollAreaViewport,
   ScrollAreaContent,
@@ -42,6 +54,17 @@ export {
 } from './components/accordion'
 
 export type { ButtonProps } from './components/button'
+export type {
+  AlertDialogRootProps,
+  AlertDialogTriggerProps,
+  AlertDialogPortalProps,
+  AlertDialogBackdropProps,
+  AlertDialogViewportProps,
+  AlertDialogPopupProps,
+  AlertDialogTitleProps,
+  AlertDialogDescriptionProps,
+  AlertDialogCloseProps,
+} from './components/alert-dialog'
 export type {
   ScrollAreaRootProps,
   ScrollAreaViewportProps,

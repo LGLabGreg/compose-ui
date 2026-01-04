@@ -34,6 +34,8 @@ Base UI handles ARIA attributes, keyboard navigation, and focus management autom
 
 Create `apps/docs/app/(docs)/components/{component-name}/page.tsx` and add to sidebar in `components-sidebar.tsx`
 
+**Note**: LLM documentation files (`apps/docs/public/llms/{component-name}.md`) are automatically generated in CI - do not create them manually.
+
 ## Testing
 
 Add test for the component
