@@ -1,0 +1,32 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import AnimatedExample from './examples/animated'
+import BasicExample from './examples/basic'
+import CustomFormatExample from './examples/custom-format'
+
+<ComponentPage
+  title="Meter"
+  description="A graphical display of a numeric value within a defined range."
+  component="meter"
+  baseUiComponent="meter"
+>
+
+<ExampleLoader title='Basic' filePath='app/(docs)/components/meter/examples/basic.tsx'>
+  <BasicExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Animated'
+  filePath='app/(docs)/components/meter/examples/animated.tsx'
+>
+  <AnimatedExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Custom Format'
+  filePath='app/(docs)/components/meter/examples/custom-format.tsx'
+>
+  <CustomFormatExample />
+</ExampleLoader>
+
+</ComponentPage>
