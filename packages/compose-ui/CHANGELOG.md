@@ -1,5 +1,11 @@
 # @lglab/compose-ui
 
+## 0.3.0
+
+### Minor Changes
+
+- [#24](https://github.com/LGLabGreg/compose-ui/pull/24) [`310b3a3`](https://github.com/LGLabGreg/compose-ui/commit/310b3a372c30cd0dacb120f921099387264d8016) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Remove lucide-react from library and let icons be composed"
+
 ## 0.2.0
 
 ### Minor Changes
