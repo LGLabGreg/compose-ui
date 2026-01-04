@@ -1471,9 +1471,6 @@ export default function DefaultExample() {
         <TrashIcon />
       </Button>
       <Button disabled>Disabled</Button>
-      <Button loading loadingText='Loading...'>
-        Button
-      </Button>
     </div>
   )
 }
@@ -1506,9 +1503,6 @@ export default function SecondaryExample() {
       </Button>
       <Button variant='secondary' disabled>
         Disabled
-      </Button>
-      <Button variant='secondary' loading loadingText='Loading...'>
-        Button
       </Button>
     </div>
   )
@@ -1543,9 +1537,6 @@ export default function OutlineExample() {
       <Button variant='outline' disabled>
         Disabled
       </Button>
-      <Button variant='outline' loading loadingText='Loading...'>
-        Button
-      </Button>
     </div>
   )
 }
@@ -1578,9 +1569,6 @@ export default function DestructiveExample() {
       </Button>
       <Button variant='destructive' disabled>
         Disabled
-      </Button>
-      <Button variant='destructive' loading loadingText='Loading...'>
-        Button
       </Button>
     </div>
   )
@@ -1615,8 +1603,38 @@ export default function GhostExample() {
       <Button variant='ghost' disabled>
         Disabled
       </Button>
-      <Button variant='ghost' loading loadingText='Loading...'>
-        Button
+    </div>
+  )
+}
+```
+
+### Loading
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { LoaderCircle } from 'lucide-react'
+import { useState } from 'react'
+
+export default function LoadingExample() {
+  const [loading, setLoading] = useState(false)
+
+  const handleClick = () => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }
+
+  return (
+    <div className='flex gap-2'>
+      <Button disabled={loading} focusableWhenDisabled onClick={handleClick}>
+        {loading ? (
+          <div className='flex items-center gap-2'>
+            <LoaderCircle className='animate-spin' /> Loading...
+          </div>
+        ) : (
+          'Submit'
+        )}
       </Button>
     </div>
   )
@@ -1682,6 +1700,7 @@ import {
   AccordionRoot,
   AccordionTrigger,
 } from '@lglab/compose-ui'
+import { ChevronDown } from 'lucide-react'
 
 const items = [
   {
@@ -1706,7 +1725,10 @@ export default function BasicExample() {
       {items.map((item) => (
         <AccordionItem key={item.title} value={item.title}>
           <AccordionHeader>
-            <AccordionTrigger>{item.title}</AccordionTrigger>
+            <AccordionTrigger className='group'>
+              {item.title}
+              <ChevronDown className='h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200 group-data-panel-open:rotate-180' />
+            </AccordionTrigger>
           </AccordionHeader>
           <AccordionPanel>
             <div className='pb-4'>
@@ -1730,6 +1752,7 @@ import {
   AccordionRoot,
   AccordionTrigger,
 } from '@lglab/compose-ui'
+import { ChevronDown } from 'lucide-react'
 
 const items = [
   {
@@ -1760,7 +1783,10 @@ export default function MultipleExample() {
       {items.map((item) => (
         <AccordionItem key={item.title} value={item.title}>
           <AccordionHeader>
-            <AccordionTrigger>{item.title}</AccordionTrigger>
+            <AccordionTrigger className='group'>
+              {item.title}
+              <ChevronDown className='h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200 group-data-panel-open:rotate-180' />
+            </AccordionTrigger>
           </AccordionHeader>
           <AccordionPanel>
             <div className='pb-4'>
