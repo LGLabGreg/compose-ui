@@ -17,9 +17,6 @@ export default function DefaultExample() {
         <TrashIcon />
       </Button>
       <Button disabled>Disabled</Button>
-      <Button loading loadingText='Loading...'>
-        Button
-      </Button>
     </div>
   )
 }

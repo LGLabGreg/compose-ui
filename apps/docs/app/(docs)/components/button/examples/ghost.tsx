@@ -23,9 +23,6 @@ export default function GhostExample() {
       <Button variant='ghost' disabled>
         Disabled
       </Button>
-      <Button variant='ghost' loading loadingText='Loading...'>
-        Button
-      </Button>
     </div>
   )
 }

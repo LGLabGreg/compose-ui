@@ -1,7 +1,6 @@
 'use client'
 
 import { Button as BaseButton } from '@base-ui/react/button'
-import { LoaderCircle } from 'lucide-react'
 import * as React from 'react'
 
 import {
@@ -16,18 +15,12 @@ type ButtonProps = React.ComponentProps<typeof BaseButton> & {
   variant?: ButtonVariant
   /** Size of the button */
   size?: ButtonSize
-  /** Show loading state */
-  loading?: boolean
-  /** Content to show when loading */
-  loadingText?: string
 }
 
 const Button = ({
   className,
   variant,
   size,
-  loading = false,
-  loadingText,
   disabled,
   children,
   ...props
@@ -35,17 +28,10 @@ const Button = ({
   return (
     <BaseButton
       className={cn(buttonVariants({ variant, size }), className)}
-      disabled={disabled || loading}
+      disabled={disabled}
       {...props}
     >
-      {loading ? (
-        <>
-          <LoaderCircle className='animate-spin' />
-          {loadingText ?? children}
-        </>
-      ) : (
-        children
-      )}
+      {children}
     </BaseButton>
   )
 }
