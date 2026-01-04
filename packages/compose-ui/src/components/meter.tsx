@@ -16,7 +16,7 @@ type MeterRootProps = React.ComponentProps<typeof BaseMeter.Root> & {
 
 const MeterRoot = ({ className, animated, value, ...props }: MeterRootProps) => {
   const targetValue = value ?? 0
-  const [animatedValue, setAnimatedValue] = React.useState(animated ? 0 : targetValue)
+  const [displayValue, setDisplayValue] = React.useState(animated ? 0 : targetValue)
 
   React.useEffect(() => {
     if (animated) {
@@ -24,17 +24,15 @@ const MeterRoot = ({ className, animated, value, ...props }: MeterRootProps) => 
       // before transitioning to the target value
       const timer1 = requestAnimationFrame(() => {
         const timer2 = requestAnimationFrame(() => {
-          setAnimatedValue(value ?? 0)
+          setDisplayValue(targetValue ?? 0)
         })
         return () => cancelAnimationFrame(timer2)
       })
       return () => cancelAnimationFrame(timer1)
     } else {
-      setAnimatedValue(value ?? 0)
+      setDisplayValue(targetValue ?? 0)
     }
-  }, [animated, value])
-
-  const displayValue = animated ? animatedValue : targetValue
+  }, [animated, targetValue])
 
   return (
     <BaseMeter.Root className={cn('w-full', className)} value={displayValue} {...props} />
