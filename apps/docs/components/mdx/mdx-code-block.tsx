@@ -37,8 +37,8 @@ export async function MDXCodeBlock({ children }: MDXCodeBlockProps) {
   const html = await codeToHtml(code, {
     lang: language,
     themes: {
-      light: 'github-light',
-      dark: 'github-dark',
+      light: 'github-light-high-contrast',
+      dark: 'github-dark-high-contrast',
     },
     defaultColor: false,
   })

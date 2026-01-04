@@ -12,8 +12,8 @@ export async function CodeBlock({ code, language = 'tsx' }: CodeBlockProps) {
   const html = await codeToHtml(trimmedCode, {
     lang: language,
     themes: {
-      light: 'github-light',
-      dark: 'github-dark',
+      light: 'github-light-high-contrast',
+      dark: 'github-dark-high-contrast',
     },
     defaultColor: false,
   })
