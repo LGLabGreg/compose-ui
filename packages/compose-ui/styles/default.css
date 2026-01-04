@@ -76,6 +76,12 @@
   }
 }
 
+@layer base {
+  * {
+    @apply focus:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-disabled:pointer-events-none data-disabled:opacity-80;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

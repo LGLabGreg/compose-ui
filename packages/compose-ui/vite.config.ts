@@ -38,7 +38,6 @@ export default defineConfig({
         'clsx',
         'class-variance-authority',
         'tailwind-merge',
-        'lucide-react',
       ],
       output: {
         globals: {

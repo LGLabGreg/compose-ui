@@ -5,7 +5,7 @@ import {
   AccordionRoot,
   AccordionTrigger,
 } from '@lglab/compose-ui'
-import { ChevronDown } from 'lucide-react'
+import { Plus } from 'lucide-react'
 
 const items = [
   {
@@ -32,7 +32,7 @@ export default function BasicExample() {
           <AccordionHeader>
             <AccordionTrigger className='group'>
               {item.title}
-              <ChevronDown className='h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200 group-data-panel-open:rotate-180' />
+              <Plus className='size-5 shrink-0 text-muted-foreground transition-transform duration-200 group-data-panel-open:rotate-45 group-data-panel-open:scale-105' />
             </AccordionTrigger>
           </AccordionHeader>
           <AccordionPanel>

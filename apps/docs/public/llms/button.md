@@ -38,9 +38,6 @@ export default function DefaultExample() {
         <TrashIcon />
       </Button>
       <Button disabled>Disabled</Button>
-      <Button loading loadingText='Loading...'>
-        Button
-      </Button>
     </div>
   )
 }
@@ -73,9 +70,6 @@ export default function SecondaryExample() {
       </Button>
       <Button variant='secondary' disabled>
         Disabled
-      </Button>
-      <Button variant='secondary' loading loadingText='Loading...'>
-        Button
       </Button>
     </div>
   )
@@ -110,9 +104,6 @@ export default function OutlineExample() {
       <Button variant='outline' disabled>
         Disabled
       </Button>
-      <Button variant='outline' loading loadingText='Loading...'>
-        Button
-      </Button>
     </div>
   )
 }
@@ -145,9 +136,6 @@ export default function DestructiveExample() {
       </Button>
       <Button variant='destructive' disabled>
         Disabled
-      </Button>
-      <Button variant='destructive' loading loadingText='Loading...'>
-        Button
       </Button>
     </div>
   )
@@ -182,8 +170,38 @@ export default function GhostExample() {
       <Button variant='ghost' disabled>
         Disabled
       </Button>
-      <Button variant='ghost' loading loadingText='Loading...'>
-        Button
+    </div>
+  )
+}
+```
+
+### Loading
+
+```tsx
+import { Button } from '@lglab/compose-ui'
+import { LoaderCircle } from 'lucide-react'
+import { useState } from 'react'
+
+export default function LoadingExample() {
+  const [loading, setLoading] = useState(false)
+
+  const handleClick = () => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }
+
+  return (
+    <div className='flex gap-2'>
+      <Button disabled={loading} focusableWhenDisabled onClick={handleClick}>
+        {loading ? (
+          <div className='flex items-center gap-2'>
+            <LoaderCircle className='animate-spin' /> Loading...
+          </div>
+        ) : (
+          'Submit'
+        )}
       </Button>
     </div>
   )

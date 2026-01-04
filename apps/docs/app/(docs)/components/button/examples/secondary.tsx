@@ -23,9 +23,6 @@ export default function SecondaryExample() {
       <Button variant='secondary' disabled>
         Disabled
       </Button>
-      <Button variant='secondary' loading loadingText='Loading...'>
-        Button
-      </Button>
     </div>
   )
 }

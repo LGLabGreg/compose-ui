@@ -23,9 +23,6 @@ export default function DestructiveExample() {
       <Button variant='destructive' disabled>
         Disabled
       </Button>
-      <Button variant='destructive' loading loadingText='Loading...'>
-        Button
-      </Button>
     </div>
   )
 }
