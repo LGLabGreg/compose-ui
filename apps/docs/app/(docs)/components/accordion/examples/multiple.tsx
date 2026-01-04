@@ -5,6 +5,7 @@ import {
   AccordionRoot,
   AccordionTrigger,
 } from '@lglab/compose-ui'
+import { ChevronDown } from 'lucide-react'
 
 const items = [
   {
@@ -35,7 +36,10 @@ export default function MultipleExample() {
       {items.map((item) => (
         <AccordionItem key={item.title} value={item.title}>
           <AccordionHeader>
-            <AccordionTrigger>{item.title}</AccordionTrigger>
+            <AccordionTrigger className='group'>
+              {item.title}
+              <ChevronDown className='h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200 group-data-panel-open:rotate-180' />
+            </AccordionTrigger>
           </AccordionHeader>
           <AccordionPanel>
             <div className='pb-4'>

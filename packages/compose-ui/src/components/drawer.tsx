@@ -86,7 +86,6 @@ DrawerBackdrop.displayName = 'DrawerBackdrop'
 const drawerPopupVariants = cva(
   [
     'fixed z-50 flex flex-col bg-background p-6 shadow-lg',
-    'outline-none',
     'transition-transform duration-300 ease-out',
     'scale-[calc(1-0.1*var(--nested-dialogs))]',
     'data-[nested-dialog-open]:after:absolute data-[nested-dialog-open]:after:inset-0 data-[nested-dialog-open]:after:rounded-[inherit] data-[nested-dialog-open]:after:bg-black/5',
