@@ -12,7 +12,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h3: ({ children }) => <h3 className='text-lg font-semibold mb-2 mt-4'>{children}</h3>,
     p: ({ children }) => <p className='mb-5'>{children}</p>,
     a: ({ children, ...props }) => (
-      <a className='text-foreground underline underline-offset-4' {...props}>
+      <a
+        className='text-foreground underline underline-offset-4 hover:opacity-90'
+        {...props}
+      >
         {children}
       </a>
     ),
