@@ -18,6 +18,7 @@ Key features:
 ## Components
 
 - [Tabs](https://compose-ui.dev/components/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
+- [Switch](https://compose-ui.dev/components/switch.md): A control that indicates whether a setting is on or off.
 - [Scroll Area](https://compose-ui.dev/components/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
 - [Progress](https://compose-ui.dev/components/progress.md): The progressbar range widget indicates that a request has been received and the application is making progress toward completing the requested action.
 - [Meter](https://compose-ui.dev/components/meter.md): A graphical display of a numeric value within a defined range.
