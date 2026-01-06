@@ -32,6 +32,7 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Meter', href: '/components/meter' },
       { name: 'Progress', href: '/components/progress' },
       { name: 'Scroll Area', href: '/components/scroll-area' },
+      { name: 'Switch', href: '/components/switch' },
       { name: 'Tabs', href: '/components/tabs' },
     ],
   },

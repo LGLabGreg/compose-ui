@@ -21,6 +21,8 @@ export {
   ScrollAreaThumb,
   ScrollAreaCorner,
 } from './components/scroll-area'
+export { SwitchRoot, SwitchThumb } from './components/switch'
+export { Switch } from '@base-ui/react/switch'
 export { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from './components/tabs'
 export {
   DialogRoot,
@@ -97,6 +99,7 @@ export type {
   ScrollAreaThumbProps,
   ScrollAreaCornerProps,
 } from './components/scroll-area'
+export type { SwitchRootProps, SwitchThumbProps } from './components/switch'
 export type {
   TabsRootProps,
   TabsListProps,
