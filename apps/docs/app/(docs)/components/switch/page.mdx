@@ -1,0 +1,43 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import CheckedExample from './examples/checked'
+import ControlledExample from './examples/controlled'
+import DefaultExample from './examples/default'
+import DisabledExample from './examples/disabled'
+
+<ComponentPage
+  title="Switch"
+  description="A control that indicates whether a setting is on or off."
+  component="switch"
+  baseUiComponent="switch"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/switch/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Checked'
+  filePath='app/(docs)/components/switch/examples/checked.tsx'
+>
+  <CheckedExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Controlled'
+  filePath='app/(docs)/components/switch/examples/controlled.tsx'
+>
+  <ControlledExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Disabled'
+  filePath='app/(docs)/components/switch/examples/disabled.tsx'
+>
+  <DisabledExample />
+</ExampleLoader>
+
+</ComponentPage>

@@ -12,7 +12,6 @@ export {
 } from './components/alert-dialog'
 export { AlertDialog } from '@base-ui/react/alert-dialog'
 export { AvatarRoot, AvatarImage, AvatarFallback, AvatarStack } from './components/avatar'
-export { Avatar } from '@base-ui/react/avatar'
 export {
   ScrollAreaRoot,
   ScrollAreaViewport,
@@ -21,6 +20,7 @@ export {
   ScrollAreaThumb,
   ScrollAreaCorner,
 } from './components/scroll-area'
+export { SwitchRoot, SwitchThumb } from './components/switch'
 export { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from './components/tabs'
 export {
   DialogRoot,
@@ -61,7 +61,6 @@ export {
   MeterValue,
   MeterLabel,
 } from './components/meter'
-export { Meter } from '@base-ui/react/meter'
 export {
   ProgressRoot,
   ProgressTrack,
@@ -69,7 +68,6 @@ export {
   ProgressValue,
   ProgressLabel,
 } from './components/progress'
-export { Progress } from '@base-ui/react/progress'
 
 export type { ButtonProps } from './components/button'
 export type {
@@ -97,6 +95,7 @@ export type {
   ScrollAreaThumbProps,
   ScrollAreaCornerProps,
 } from './components/scroll-area'
+export type { SwitchRootProps, SwitchThumbProps } from './components/switch'
 export type {
   TabsRootProps,
   TabsListProps,
