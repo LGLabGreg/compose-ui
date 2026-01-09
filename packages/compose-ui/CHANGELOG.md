@@ -1,5 +1,11 @@
 # @lglab/compose-ui
 
+## 0.9.1
+
+### Patch Changes
+
+- [#43](https://github.com/LGLabGreg/compose-ui/pull/43) [`014ee42`](https://github.com/LGLabGreg/compose-ui/commit/014ee425027d6fe6eeba3aeca404c7ba8e82957a) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - README
+
 ## 0.9.0
 
 ### Minor Changes
