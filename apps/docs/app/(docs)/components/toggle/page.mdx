@@ -1,0 +1,51 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import ControlledExample from './examples/controlled'
+import DefaultExample from './examples/default'
+import DisabledExample from './examples/disabled'
+import PressedExample from './examples/pressed'
+import WithTextExample from './examples/with-text'
+
+<ComponentPage
+  title="Toggle"
+  description="A two-state button that can be on or off."
+  component="toggle"
+  baseUiComponent="toggle"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/toggle/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Pressed'
+  filePath='app/(docs)/components/toggle/examples/pressed.tsx'
+>
+  <PressedExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Controlled'
+  filePath='app/(docs)/components/toggle/examples/controlled.tsx'
+>
+  <ControlledExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Disabled'
+  filePath='app/(docs)/components/toggle/examples/disabled.tsx'
+>
+  <DisabledExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Text'
+  filePath='app/(docs)/components/toggle/examples/with-text.tsx'
+>
+  <WithTextExample />
+</ExampleLoader>
+
+</ComponentPage>
