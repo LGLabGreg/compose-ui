@@ -69,6 +69,7 @@ export {
   ProgressValue,
   ProgressLabel,
 } from './components/progress'
+export { ToggleGroupRoot, ToggleGroupItem } from './components/toggle-group'
 
 export type { ButtonProps } from './components/button'
 export type {
@@ -152,3 +153,7 @@ export type {
   ProgressValueProps,
   ProgressLabelProps,
 } from './components/progress'
+export type {
+  ToggleGroupRootProps,
+  ToggleGroupItemProps,
+} from './components/toggle-group'
