@@ -23,6 +23,9 @@ alwaysApply: false
 
 - Use Tailwind classes with design tokens (`bg-muted`, `text-foreground`, `border-border`)
 - Use Base UI data attributes for states: `data-[selected]:`, `data-[disabled]:`
+- **Do not repeat** focus ring and disabled styles - these are globally applied in `styles/default.css`:
+  - `focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2`
+  - `data-disabled:pointer-events-none data-disabled:opacity-70`
 
 ## Accessibility
 

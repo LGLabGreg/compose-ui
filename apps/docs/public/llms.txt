@@ -17,6 +17,7 @@ Key features:
 
 ## Components
 
+- [Toggle](https://compose-ui.dev/components/toggle.md): A two-state button that can be on or off.
 - [Tabs](https://compose-ui.dev/components/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
 - [Switch](https://compose-ui.dev/components/switch.md): A control that indicates whether a setting is on or off.
 - [Scroll Area](https://compose-ui.dev/components/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
