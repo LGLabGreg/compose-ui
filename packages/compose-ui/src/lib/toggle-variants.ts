@@ -9,7 +9,6 @@ export const toggleVariants = cva(
     'border border-border bg-background hover:bg-muted shadow-xs',
     'transition-all duration-150',
     'data-pressed:border-primary data-pressed:bg-primary data-pressed:text-primary-foreground data-pressed:shadow-sm',
-    'data-disabled:pointer-events-none data-disabled:opacity-50',
   ],
   {
     variants: {
