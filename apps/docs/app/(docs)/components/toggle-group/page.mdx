@@ -1,0 +1,59 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import ControlledExample from './examples/controlled'
+import DefaultExample from './examples/default'
+import DisabledExample from './examples/disabled'
+import MultipleExample from './examples/multiple'
+import OrientationExample from './examples/orientation'
+import SizesExample from './examples/sizes'
+
+<ComponentPage
+  title="Toggle Group"
+  description="Provides a shared state to a series of toggle buttons."
+  component="toggle-group"
+  baseUiComponent="toggle-group"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/toggle-group/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Multiple Selection'
+  filePath='app/(docs)/components/toggle-group/examples/multiple.tsx'
+>
+  <MultipleExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Controlled'
+  filePath='app/(docs)/components/toggle-group/examples/controlled.tsx'
+>
+  <ControlledExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Sizes'
+  filePath='app/(docs)/components/toggle-group/examples/sizes.tsx'
+>
+  <SizesExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Vertical Orientation'
+  filePath='app/(docs)/components/toggle-group/examples/orientation.tsx'
+>
+  <OrientationExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Disabled'
+  filePath='app/(docs)/components/toggle-group/examples/disabled.tsx'
+>
+  <DisabledExample />
+</ExampleLoader>
+
+</ComponentPage>

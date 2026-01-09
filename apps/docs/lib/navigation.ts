@@ -35,6 +35,7 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Switch', href: '/components/switch' },
       { name: 'Tabs', href: '/components/tabs' },
       { name: 'Toggle', href: '/components/toggle' },
+      { name: 'Toggle Group', href: '/components/toggle-group' },
     ],
   },
 ]
