@@ -3,29 +3,20 @@
 import { Toggle as BaseToggle } from '@base-ui/react/toggle'
 import * as React from 'react'
 
+import { type ToggleSize, toggleVariants } from '../lib/toggle-variants'
 import { cn } from '../lib/utils'
 
 // ============================================================================
 // Toggle
 // ============================================================================
 
-type ToggleProps = React.ComponentProps<typeof BaseToggle>
+type ToggleProps = React.ComponentProps<typeof BaseToggle> & {
+  /** Size of the toggle */
+  size?: ToggleSize
+}
 
-const Toggle = ({ className, ...props }: ToggleProps) => {
-  return (
-    <BaseToggle
-      className={cn(
-        'inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium',
-        'h-9 min-w-9 px-2.5',
-        "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
-        'border border-border bg-background hover:bg-muted shadow-xs',
-        'transition-all duration-150',
-        'data-pressed:border-primary data-pressed:bg-primary data-pressed:text-primary-foreground data-pressed:shadow-sm',
-        className,
-      )}
-      {...props}
-    />
-  )
+const Toggle = ({ className, size, ...props }: ToggleProps) => {
+  return <BaseToggle className={cn(toggleVariants({ size }), className)} {...props} />
 }
 
 Toggle.displayName = 'Toggle'

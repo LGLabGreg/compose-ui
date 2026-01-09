@@ -98,6 +98,7 @@ export type {
 } from './components/scroll-area'
 export type { SwitchRootProps, SwitchThumbProps } from './components/switch'
 export type { ToggleProps } from './components/toggle'
+export type { ToggleSize } from './lib/toggle-variants'
 export type {
   TabsRootProps,
   TabsListProps,
