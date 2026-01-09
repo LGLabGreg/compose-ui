@@ -1,39 +1,14 @@
+# Compose UI
 
-# @lglab/compose-ui
+![Beta](https://img.shields.io/badge/status-beta-yellow)
 
+Base UI accessibility meets Tailwind flexibility. Accessible React components
+you can npm install and start using immediately.
 
-## Install
+## Documentation
 
-```
-pnpm add @lglab/compose-ui
-```
+To get started, check out the [Compose UI documentation](https://www.compose-ui.dev/overview/quick-start).
 
-or
+## License
 
-```
-npm i @lglab/compose-ui
-```
-
-or
-
-```
-yarn add @lglab/compose-ui
-```
-
-or
-
-```
-bun add @lglab/compose-ui
-```
-
-## Quick Start
-
-```
-import { Button } from '@lglab/compose-ui'
-
-const Page = () => {
-  return (
-    <Button>Click</Button>
-  );
-}
-```
+Licensed under the [MIT license](https://github.com/LGLabGreg/compose-ui/blob/main/LICENSE.md).
