@@ -91,14 +91,16 @@ import DefaultExample from './examples/default'
 
 **Location**: `apps/docs/app/(docs)/components/$ARGUMENTS/examples/`
 
-Create at least a `default.tsx` example:
+Create at least a `default.tsx` example. Use `lucide-react` icons in examples (not inline SVGs):
 
 ```tsx
 import { ComponentPart, ComponentRoot } from '@lglab/compose-ui'
+import { SomeIcon } from 'lucide-react'
 
 export default function DefaultExample() {
   return (
     <ComponentRoot>
+      <SomeIcon />
       <ComponentPart />
     </ComponentRoot>
   )
