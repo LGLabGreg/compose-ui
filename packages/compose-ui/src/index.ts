@@ -1,5 +1,10 @@
 export { Button } from './components/button'
 export {
+  CollapsibleRoot,
+  CollapsibleTrigger,
+  CollapsiblePanel,
+} from './components/collapsible'
+export {
   AlertDialogRoot,
   AlertDialogTrigger,
   AlertDialogPortal,
@@ -72,6 +77,11 @@ export {
 export { ToggleGroupRoot, ToggleGroupItem } from './components/toggle-group'
 
 export type { ButtonProps } from './components/button'
+export type {
+  CollapsibleRootProps,
+  CollapsibleTriggerProps,
+  CollapsiblePanelProps,
+} from './components/collapsible'
 export type {
   AlertDialogRootProps,
   AlertDialogTriggerProps,
