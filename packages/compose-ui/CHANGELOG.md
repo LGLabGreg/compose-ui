@@ -1,5 +1,11 @@
 # @lglab/compose-ui
 
+## 0.11.0
+
+### Minor Changes
+
+- [#47](https://github.com/LGLabGreg/compose-ui/pull/47) [`55ae577`](https://github.com/LGLabGreg/compose-ui/commit/55ae5774b12de8ae89eb8d8b8a5a36733f703e2f) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Refactor Toggle
+
 ## 0.10.0
 
 ### Minor Changes
