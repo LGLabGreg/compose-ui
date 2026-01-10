@@ -10,13 +10,13 @@ export default function ControlledExample() {
   return (
     <div className='flex items-center gap-3'>
       <ToggleGroupRoot value={value} onValueChange={setValue}>
-        <ToggleGroupItem value='left' aria-label='Align left'>
+        <ToggleGroupItem value='left' aria-label='Align left' size='icon'>
           <AlignLeftIcon />
         </ToggleGroupItem>
-        <ToggleGroupItem value='center' aria-label='Align center'>
+        <ToggleGroupItem value='center' aria-label='Align center' size='icon'>
           <AlignCenterIcon />
         </ToggleGroupItem>
-        <ToggleGroupItem value='right' aria-label='Align right'>
+        <ToggleGroupItem value='right' aria-label='Align right' size='icon'>
           <AlignRightIcon />
         </ToggleGroupItem>
       </ToggleGroupRoot>

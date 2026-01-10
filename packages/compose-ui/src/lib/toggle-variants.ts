@@ -1,24 +1,36 @@
 import { cva } from 'class-variance-authority'
 
-export type ToggleSize = 'sm' | 'default' | 'lg'
+export type ToggleSize = 'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'
+export type ToggleVariant = 'default' | 'ghost'
 
 export const toggleVariants = cva(
   [
-    'inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium',
+    'inline-flex items-center justify-center gap-2 rounded-md',
+    'text-sm font-medium',
     "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
-    'border border-border bg-background hover:bg-muted shadow-xs',
-    'transition-all duration-150',
-    'data-pressed:border-primary data-pressed:bg-primary data-pressed:text-primary-foreground data-pressed:shadow-sm',
+    'select-none transition-colors duration-200',
   ],
   {
     variants: {
+      variant: {
+        default: [
+          'border border-border bg-background shadow-xs',
+          'hover:bg-accent hover:text-accent-foreground',
+          'data-pressed:border-primary data-pressed:bg-primary data-pressed:text-primary-foreground data-pressed:shadow-none',
+        ],
+        ghost: ['hover:bg-accent'],
+      },
       size: {
-        sm: 'h-8 min-w-8 px-2 gap-1.5',
-        default: 'h-9 min-w-9 px-2.5',
-        lg: 'h-10 min-w-10 px-3',
+        sm: 'h-8 min-w-8 px-2.5 gap-1.5',
+        default: 'h-9 min-w-9 px-3',
+        lg: 'h-10 min-w-10 px-3.5',
+        icon: 'size-9',
+        'icon-sm': 'size-8',
+        'icon-lg': 'size-10',
       },
     },
     defaultVariants: {
+      variant: 'default',
       size: 'default',
     },
   },

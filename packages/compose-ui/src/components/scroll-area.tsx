@@ -44,7 +44,7 @@ const ScrollAreaScrollbar = ({
   return (
     <BaseScrollArea.Scrollbar
       className={cn(
-        'flex touch-none select-none p-0.5 transition-colors duration-150 ease-out',
+        'flex touch-none select-none p-0.5 transition-colors duration-200 ease-out',
         'data-hovering:bg-muted/50',
         orientation === 'vertical' && 'h-full w-2.5',
         orientation === 'horizontal' && 'h-2.5 w-full flex-col',

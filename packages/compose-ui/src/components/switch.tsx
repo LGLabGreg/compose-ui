@@ -43,7 +43,7 @@ const SwitchThumb = ({ className, ...props }: SwitchThumbProps) => {
       className={cn(
         'aspect-square h-full rounded-full bg-background',
         'shadow-[0_0_1px_1px,0_1px_1px,1px_2px_4px_-1px] shadow-muted-foreground/20',
-        'transition-all duration-150',
+        'transition-all duration-200',
         'data-checked:translate-x-4',
         'dark:shadow-black/25 dark:bg-foreground dark:data-checked:bg-background',
         'data-disabled:opacity-100',
