@@ -1,6 +1,8 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import DefaultExample from './examples/default'
+import SidebarMenuExample from './examples/sidebar-menu'
+import SidebarMenuDefaultOpenExample from './examples/sidebar-menu-default-open'
 
 <ComponentPage
   title="Collapsible"
@@ -10,10 +12,24 @@ import DefaultExample from './examples/default'
 >
 
 <ExampleLoader
-  title='Default'
+  title='Basic'
   filePath='app/(docs)/components/collapsible/examples/default.tsx'
 >
   <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Sidebar Menu'
+  filePath='app/(docs)/components/collapsible/examples/sidebar-menu.tsx'
+>
+  <SidebarMenuExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Default Open'
+  filePath='app/(docs)/components/collapsible/examples/sidebar-menu-default-open.tsx'
+>
+  <SidebarMenuDefaultOpenExample />
 </ExampleLoader>
 
 </ComponentPage>
