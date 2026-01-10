@@ -61,8 +61,7 @@ const ToggleGroupItem = ({
       className={cn(
         toggleVariants({ variant, size }),
         // Ghost variant in toggle-group: add borders, no background when pressed
-        variant === 'ghost' &&
-          'border border-border bg-background hover:bg-accent hover:text-accent-foreground data-pressed:bg-transparent data-pressed:text-foreground',
+        variant === 'ghost' && 'border border-border',
         className,
       )}
       {...props}
