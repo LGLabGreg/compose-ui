@@ -9,7 +9,12 @@ export default function ControlledExample() {
 
   return (
     <div className='flex items-center gap-3'>
-      <Toggle pressed={pressed} onPressedChange={setPressed} aria-label='Toggle bold'>
+      <Toggle
+        pressed={pressed}
+        onPressedChange={setPressed}
+        aria-label='Toggle bold'
+        size='icon'
+      >
         <BoldIcon />
       </Toggle>
       <span className='text-sm'>{pressed ? 'Bold on' : 'Bold off'}</span>

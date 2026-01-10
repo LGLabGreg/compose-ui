@@ -3,6 +3,7 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 import ControlledExample from './examples/controlled'
 import DefaultExample from './examples/default'
 import DisabledExample from './examples/disabled'
+import GhostExample from './examples/ghost'
 import PressedExample from './examples/pressed'
 import SizesExample from './examples/sizes'
 import WithTextExample from './examples/with-text'
@@ -21,10 +22,7 @@ import WithTextExample from './examples/with-text'
   <DefaultExample />
 </ExampleLoader>
 
-<ExampleLoader
-  title='Sizes'
-  filePath='app/(docs)/components/toggle/examples/sizes.tsx'
->
+<ExampleLoader title='Sizes' filePath='app/(docs)/components/toggle/examples/sizes.tsx'>
   <SizesExample />
 </ExampleLoader>
 
@@ -54,6 +52,10 @@ import WithTextExample from './examples/with-text'
   filePath='app/(docs)/components/toggle/examples/with-text.tsx'
 >
   <WithTextExample />
+</ExampleLoader>
+
+<ExampleLoader title='Ghost' filePath='app/(docs)/components/toggle/examples/ghost.tsx'>
+  <GhostExample />
 </ExampleLoader>
 
 </ComponentPage>

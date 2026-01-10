@@ -24,7 +24,7 @@ import { BoldIcon } from 'lucide-react'
 
 export default function DefaultExample() {
   return (
-    <Toggle aria-label='Toggle bold'>
+    <Toggle aria-label='Toggle bold' size='icon'>
       <BoldIcon />
     </Toggle>
   )
@@ -39,14 +39,14 @@ import { BoldIcon } from 'lucide-react'
 
 export default function SizesExample() {
   return (
-    <div className='flex items-center gap-2'>
-      <Toggle size='sm' aria-label='Toggle bold'>
+    <div className='flex flex-wrap gap-2'>
+      <Toggle aria-label='Toggle bold' size='icon-sm'>
         <BoldIcon className='size-3.5' />
       </Toggle>
-      <Toggle aria-label='Toggle bold'>
+      <Toggle aria-label='Toggle bold' size='icon'>
         <BoldIcon />
       </Toggle>
-      <Toggle size='lg' aria-label='Toggle bold'>
+      <Toggle aria-label='Toggle bold' size='icon-lg'>
         <BoldIcon />
       </Toggle>
     </div>
@@ -62,7 +62,7 @@ import { BoldIcon } from 'lucide-react'
 
 export default function PressedExample() {
   return (
-    <Toggle defaultPressed aria-label='Toggle bold'>
+    <Toggle defaultPressed aria-label='Toggle bold' size='icon'>
       <BoldIcon />
     </Toggle>
   )
@@ -81,7 +81,12 @@ export default function ControlledExample() {
 
   return (
     <div className='flex items-center gap-3'>
-      <Toggle pressed={pressed} onPressedChange={setPressed} aria-label='Toggle bold'>
+      <Toggle
+        pressed={pressed}
+        onPressedChange={setPressed}
+        aria-label='Toggle bold'
+        size='icon'
+      >
         <BoldIcon />
       </Toggle>
       <span className='text-sm'>{pressed ? 'Bold on' : 'Bold off'}</span>
@@ -98,11 +103,11 @@ import { BoldIcon } from 'lucide-react'
 
 export default function DisabledExample() {
   return (
-    <div className='flex gap-4'>
-      <Toggle disabled aria-label='Toggle bold'>
+    <div className='flex flex-wrap gap-2'>
+      <Toggle disabled aria-label='Toggle bold' size='icon'>
         <BoldIcon />
       </Toggle>
-      <Toggle disabled defaultPressed aria-label='Toggle bold'>
+      <Toggle disabled defaultPressed aria-label='Toggle bold' size='icon'>
         <BoldIcon />
       </Toggle>
     </div>
@@ -118,10 +123,34 @@ import { BoldIcon } from 'lucide-react'
 
 export default function WithTextExample() {
   return (
-    <Toggle aria-label='Toggle bold'>
-      <BoldIcon />
-      Bold
-    </Toggle>
+    <div className='flex flex-wrap gap-2'>
+      <Toggle aria-label='Toggle bold'>
+        <BoldIcon />
+        Bold
+      </Toggle>
+      <Toggle aria-label='Toggle bold'>Bold</Toggle>
+    </div>
+  )
+}
+```
+
+### Ghost
+
+```tsx
+import { Toggle } from '@lglab/compose-ui'
+import { Heart } from 'lucide-react'
+
+export default function GhostExample() {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      <Toggle
+        variant='ghost'
+        aria-label='Toggle like'
+        className='data-pressed:*:[svg]:fill-red-500 data-pressed:*:[svg]:stroke-red-500'
+      >
+        <Heart />
+      </Toggle>
+    </div>
   )
 }
 ```

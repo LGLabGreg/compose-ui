@@ -25,13 +25,13 @@ import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 export default function DefaultExample() {
   return (
     <ToggleGroupRoot defaultValue={['left']}>
-      <ToggleGroupItem value='left' aria-label='Align left'>
+      <ToggleGroupItem value='left' aria-label='Align left' size='icon'>
         <AlignLeftIcon />
       </ToggleGroupItem>
-      <ToggleGroupItem value='center' aria-label='Align center'>
+      <ToggleGroupItem value='center' aria-label='Align center' size='icon'>
         <AlignCenterIcon />
       </ToggleGroupItem>
-      <ToggleGroupItem value='right' aria-label='Align right'>
+      <ToggleGroupItem value='right' aria-label='Align right' size='icon'>
         <AlignRightIcon />
       </ToggleGroupItem>
     </ToggleGroupRoot>
@@ -48,13 +48,13 @@ import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react'
 export default function MultipleExample() {
   return (
     <ToggleGroupRoot multiple defaultValue={['bold']}>
-      <ToggleGroupItem value='bold' aria-label='Bold'>
+      <ToggleGroupItem value='bold' aria-label='Bold' size='icon'>
         <BoldIcon />
       </ToggleGroupItem>
-      <ToggleGroupItem value='italic' aria-label='Italic'>
+      <ToggleGroupItem value='italic' aria-label='Italic' size='icon'>
         <ItalicIcon />
       </ToggleGroupItem>
-      <ToggleGroupItem value='underline' aria-label='Underline'>
+      <ToggleGroupItem value='underline' aria-label='Underline' size='icon'>
         <UnderlineIcon />
       </ToggleGroupItem>
     </ToggleGroupRoot>
@@ -75,13 +75,13 @@ export default function ControlledExample() {
   return (
     <div className='flex items-center gap-3'>
       <ToggleGroupRoot value={value} onValueChange={setValue}>
-        <ToggleGroupItem value='left' aria-label='Align left'>
+        <ToggleGroupItem value='left' aria-label='Align left' size='icon'>
           <AlignLeftIcon />
         </ToggleGroupItem>
-        <ToggleGroupItem value='center' aria-label='Align center'>
+        <ToggleGroupItem value='center' aria-label='Align center' size='icon'>
           <AlignCenterIcon />
         </ToggleGroupItem>
-        <ToggleGroupItem value='right' aria-label='Align right'>
+        <ToggleGroupItem value='right' aria-label='Align right' size='icon'>
           <AlignRightIcon />
         </ToggleGroupItem>
       </ToggleGroupRoot>
@@ -89,6 +89,29 @@ export default function ControlledExample() {
         {value.length > 0 ? `Aligned: ${value[0]}` : 'No alignment'}
       </span>
     </div>
+  )
+}
+```
+
+### Disabled
+
+```tsx
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
+
+export default function DisabledExample() {
+  return (
+    <ToggleGroupRoot disabled defaultValue={['left']}>
+      <ToggleGroupItem value='left' aria-label='Align left' size='icon'>
+        <AlignLeftIcon />
+      </ToggleGroupItem>
+      <ToggleGroupItem value='center' aria-label='Align center' size='icon'>
+        <AlignCenterIcon />
+      </ToggleGroupItem>
+      <ToggleGroupItem value='right' aria-label='Align right' size='icon'>
+        <AlignRightIcon />
+      </ToggleGroupItem>
+    </ToggleGroupRoot>
   )
 }
 ```
@@ -103,37 +126,37 @@ export default function SizesExample() {
   return (
     <div className='flex flex-col items-start gap-4'>
       <ToggleGroupRoot defaultValue={['left']}>
-        <ToggleGroupItem value='left' aria-label='Align left' size='sm'>
+        <ToggleGroupItem value='left' aria-label='Align left' size='icon-sm'>
           <AlignLeftIcon />
         </ToggleGroupItem>
-        <ToggleGroupItem value='center' aria-label='Align center' size='sm'>
+        <ToggleGroupItem value='center' aria-label='Align center' size='icon-sm'>
           <AlignCenterIcon />
         </ToggleGroupItem>
-        <ToggleGroupItem value='right' aria-label='Align right' size='sm'>
+        <ToggleGroupItem value='right' aria-label='Align right' size='icon-sm'>
           <AlignRightIcon />
         </ToggleGroupItem>
       </ToggleGroupRoot>
 
       <ToggleGroupRoot defaultValue={['left']}>
-        <ToggleGroupItem value='left' aria-label='Align left'>
+        <ToggleGroupItem value='left' aria-label='Align left' size='icon'>
           <AlignLeftIcon />
         </ToggleGroupItem>
-        <ToggleGroupItem value='center' aria-label='Align center'>
+        <ToggleGroupItem value='center' aria-label='Align center' size='icon'>
           <AlignCenterIcon />
         </ToggleGroupItem>
-        <ToggleGroupItem value='right' aria-label='Align right'>
+        <ToggleGroupItem value='right' aria-label='Align right' size='icon'>
           <AlignRightIcon />
         </ToggleGroupItem>
       </ToggleGroupRoot>
 
       <ToggleGroupRoot defaultValue={['left']}>
-        <ToggleGroupItem value='left' aria-label='Align left' size='lg'>
+        <ToggleGroupItem value='left' aria-label='Align left' size='icon-lg'>
           <AlignLeftIcon />
         </ToggleGroupItem>
-        <ToggleGroupItem value='center' aria-label='Align center' size='lg'>
+        <ToggleGroupItem value='center' aria-label='Align center' size='icon-lg'>
           <AlignCenterIcon />
         </ToggleGroupItem>
-        <ToggleGroupItem value='right' aria-label='Align right' size='lg'>
+        <ToggleGroupItem value='right' aria-label='Align right' size='icon-lg'>
           <AlignRightIcon />
         </ToggleGroupItem>
       </ToggleGroupRoot>
@@ -150,14 +173,14 @@ import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 
 export default function OrientationExample() {
   return (
-    <ToggleGroupRoot orientation='vertical' defaultValue={['left']} className='flex-col'>
-      <ToggleGroupItem value='left' aria-label='Align left'>
+    <ToggleGroupRoot orientation='vertical' defaultValue={['left']}>
+      <ToggleGroupItem value='left' aria-label='Align left' size='icon'>
         <AlignLeftIcon />
       </ToggleGroupItem>
-      <ToggleGroupItem value='center' aria-label='Align center'>
+      <ToggleGroupItem value='center' aria-label='Align center' size='icon'>
         <AlignCenterIcon />
       </ToggleGroupItem>
-      <ToggleGroupItem value='right' aria-label='Align right'>
+      <ToggleGroupItem value='right' aria-label='Align right' size='icon'>
         <AlignRightIcon />
       </ToggleGroupItem>
     </ToggleGroupRoot>
@@ -165,23 +188,67 @@ export default function OrientationExample() {
 }
 ```
 
-### Disabled
+### With Text
 
 ```tsx
 import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
-import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
+import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react'
 
-export default function DisabledExample() {
+export default function WithTextExample() {
   return (
-    <ToggleGroupRoot disabled defaultValue={['left']}>
-      <ToggleGroupItem value='left' aria-label='Align left'>
-        <AlignLeftIcon />
+    <ToggleGroupRoot defaultValue={['bold']}>
+      <ToggleGroupItem value='bold' aria-label='Bold'>
+        <BoldIcon />
+        Bold
       </ToggleGroupItem>
-      <ToggleGroupItem value='center' aria-label='Align center'>
-        <AlignCenterIcon />
+      <ToggleGroupItem value='italic' aria-label='Italic'>
+        <ItalicIcon />
+        Italic
       </ToggleGroupItem>
-      <ToggleGroupItem value='right' aria-label='Align right'>
-        <AlignRightIcon />
+      <ToggleGroupItem value='underline' aria-label='Underline'>
+        <UnderlineIcon />
+        Underline
+      </ToggleGroupItem>
+    </ToggleGroupRoot>
+  )
+}
+```
+
+### Ghost
+
+```tsx
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { Bookmark, Heart, Star } from 'lucide-react'
+
+export default function GhostExample() {
+  return (
+    <ToggleGroupRoot multiple>
+      <ToggleGroupItem
+        value='star'
+        variant='ghost'
+        aria-label='Favorite'
+        size='icon'
+        className='data-pressed:*:[svg]:fill-yellow-500 data-pressed:*:[svg]:stroke-yellow-500'
+      >
+        <Star />
+      </ToggleGroupItem>
+      <ToggleGroupItem
+        value='heart'
+        variant='ghost'
+        aria-label='Like'
+        size='icon'
+        className='data-pressed:*:[svg]:fill-red-500 data-pressed:*:[svg]:stroke-red-500'
+      >
+        <Heart />
+      </ToggleGroupItem>
+      <ToggleGroupItem
+        value='bookmark'
+        variant='ghost'
+        aria-label='Bookmark'
+        size='icon'
+        className='data-pressed:*:[svg]:fill-blue-500 data-pressed:*:[svg]:stroke-blue-500'
+      >
+        <Bookmark />
       </ToggleGroupItem>
     </ToggleGroupRoot>
   )

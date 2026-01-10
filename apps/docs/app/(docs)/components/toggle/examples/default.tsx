@@ -3,7 +3,7 @@ import { BoldIcon } from 'lucide-react'
 
 export default function DefaultExample() {
   return (
-    <Toggle aria-label='Toggle bold'>
+    <Toggle aria-label='Toggle bold' size='icon'>
       <BoldIcon />
     </Toggle>
   )
