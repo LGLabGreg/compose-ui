@@ -1,5 +1,11 @@
 # @lglab/compose-ui
 
+## 0.13.1
+
+### Patch Changes
+
+- [#54](https://github.com/LGLabGreg/compose-ui/pull/54) [`ebe66a3`](https://github.com/LGLabGreg/compose-ui/commit/ebe66a3c04bbd676e3eeaf22f001334f27ba17b9) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Fix Switch dark color transition
+
 ## 0.13.0
 
 ### Minor Changes
