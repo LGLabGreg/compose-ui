@@ -12,7 +12,6 @@ Before creating the component:
      - `transition-[transform,scale,opacity]` or similar specific transitions (not `transition-all`)
      - `data-[starting-style]` and `data-[ending-style]` classes for animations
      - Scale and opacity values (e.g., `scale-90`, `opacity-0`)
-   - **CRITICAL**: Copy any SVG components (like ArrowSvg) directly from Base UI examples - these are essential for functionality
    - Adapt colors to use design tokens (`bg-background`, `text-foreground`, `border-border`) instead of Base UI's color values
 2. **Review existing components** in `packages/compose-ui/src/components/` for patterns and conventions
 
@@ -136,7 +135,6 @@ Add the component to the Components section in alphabetical order:
   - `text-gray-900` → `text-foreground`
   - `outline-gray-200` → `outline-border`
   - `shadow-gray-200` → Keep as-is or adapt to design tokens if available
-- **SVG Components**: Copy SVG components (like ArrowSvg) directly from Base UI examples, then adapt fill/stroke colors to design tokens
 - **Data Attributes**: Use Base UI data attributes for states: `data-[selected]:`, `data-[disabled]:`, `data-[checked]:`, `data-highlighted:`
 - Review similar components for consistent styling patterns, but prioritize Base UI's animation/transform styles
 

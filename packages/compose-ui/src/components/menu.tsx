@@ -309,7 +309,7 @@ const MenuSubmenuTrigger = ({ className, ...props }: MenuSubmenuTriggerProps) =>
     <BaseMenu.SubmenuTrigger
       className={cn(
         buttonVariants({ variant: 'ghost', size: 'sm' }),
-        'flex justify-start',
+        'flex justify-between',
         className,
       )}
       {...props}

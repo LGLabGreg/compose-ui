@@ -32,9 +32,9 @@ export default function SubmenuExample() {
             <MenuItem>Email Link</MenuItem>
             <MenuSeparator />
             <MenuSubmenuRoot>
-              <MenuSubmenuTrigger className='justify-between'>
+              <MenuSubmenuTrigger>
                 Social Media
-                <ChevronRight className='size-4 ml-auto' />
+                <ChevronRight className='size-4' />
               </MenuSubmenuTrigger>
               <MenuPortal>
                 <MenuPositioner side='right' sideOffset={4}>
@@ -43,9 +43,9 @@ export default function SubmenuExample() {
                     <MenuItem>Facebook</MenuItem>
                     <MenuItem>LinkedIn</MenuItem>
                     <MenuSubmenuRoot>
-                      <MenuSubmenuTrigger className='justify-between'>
+                      <MenuSubmenuTrigger>
                         More
-                        <ChevronRight className='size-4 ml-auto' />
+                        <ChevronRight className='size-4' />
                       </MenuSubmenuTrigger>
                       <MenuPortal>
                         <MenuPositioner side='right' sideOffset={4}>
