@@ -6,7 +6,9 @@ You are creating a new compose-ui component. Follow the guidelines in @component
 
 Before creating the component:
 
-1. **Check Base UI documentation** at `https://base-ui.com/react/components/$ARGUMENTS.md` to understand the available parts and API
+1. **Read the Base UI markdown documentation** by fetching `https://base-ui.com/react/components/$ARGUMENTS.md`
+   - **IMPORTANT**: Read/fetch the `.md` file directly - do NOT navigate the HTML page or take screenshots
+   - The markdown contains the full component API, all sub-components, and example code in a readable format
    - **CRITICAL**: Copy the exact animation/transform styles from Base UI's examples, especially:
      - `origin-[var(--transform-origin)]` for proper transform origin
      - `transition-[transform,scale,opacity]` or similar specific transitions (not `transition-all`)
