@@ -103,6 +103,53 @@ export default function OpenOnHoverExample() {
 }
 ```
 
+### Sides
+
+```tsx
+import {
+  Button,
+  MenuArrow,
+  MenuItem,
+  MenuPopup,
+  MenuPortal,
+  MenuPositioner,
+  MenuRoot,
+  MenuSeparator,
+  MenuTrigger,
+} from '@lglab/compose-ui'
+
+const sides = ['top', 'right', 'bottom', 'left'] as const
+
+export default function SidesExample() {
+  return (
+    <div className='flex flex-wrap gap-2 items-center justify-center'>
+      {sides.map((side) => (
+        <MenuRoot key={side}>
+          <MenuTrigger
+            render={(props) => (
+              <Button {...props} variant='outline' className='capitalize'>
+                {side}
+              </Button>
+            )}
+          />
+          <MenuPortal>
+            <MenuPositioner side={side}>
+              <MenuPopup>
+                <MenuArrow />
+                <MenuItem>Profile</MenuItem>
+                <MenuItem>Settings</MenuItem>
+                <MenuSeparator />
+                <MenuItem>Logout</MenuItem>
+              </MenuPopup>
+            </MenuPositioner>
+          </MenuPortal>
+        </MenuRoot>
+      ))}
+    </div>
+  )
+}
+```
+
 ### With Icons
 
 ```tsx
@@ -384,9 +431,9 @@ export default function SubmenuExample() {
             <MenuItem>Email Link</MenuItem>
             <MenuSeparator />
             <MenuSubmenuRoot>
-              <MenuSubmenuTrigger className='justify-between'>
+              <MenuSubmenuTrigger>
                 Social Media
-                <ChevronRight className='size-4 ml-auto' />
+                <ChevronRight className='size-4' />
               </MenuSubmenuTrigger>
               <MenuPortal>
                 <MenuPositioner side='right' sideOffset={4}>
@@ -395,9 +442,9 @@ export default function SubmenuExample() {
                     <MenuItem>Facebook</MenuItem>
                     <MenuItem>LinkedIn</MenuItem>
                     <MenuSubmenuRoot>
-                      <MenuSubmenuTrigger className='justify-between'>
+                      <MenuSubmenuTrigger>
                         More
-                        <ChevronRight className='size-4 ml-auto' />
+                        <ChevronRight className='size-4' />
                       </MenuSubmenuTrigger>
                       <MenuPortal>
                         <MenuPositioner side='right' sideOffset={4}>
