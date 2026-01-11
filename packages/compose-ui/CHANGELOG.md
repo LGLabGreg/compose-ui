@@ -1,5 +1,11 @@
 # @lglab/compose-ui
 
+## 0.14.0
+
+### Minor Changes
+
+- [#56](https://github.com/LGLabGreg/compose-ui/pull/56) [`506359a`](https://github.com/LGLabGreg/compose-ui/commit/506359ad3f047c008a4b2d1c286d4be8cc6c54b8) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Popover
+
 ## 0.13.1
 
 ### Patch Changes
