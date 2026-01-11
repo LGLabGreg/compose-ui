@@ -12,7 +12,7 @@ import {
   MenuTrigger,
 } from '@lglab/compose-ui'
 
-const sides = ['top', 'right', 'bottom', 'left'] as const
+const sides = ['left', 'bottom', 'top', 'right'] as const
 
 export default function SidesExample() {
   return (

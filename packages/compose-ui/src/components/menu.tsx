@@ -70,7 +70,7 @@ const MenuPopup = ({ className, ...props }: MenuPopupProps) => {
   return (
     <BaseMenu.Popup
       className={cn(
-        'rounded-md bg-background p-1 text-foreground shadow-sm shadow-gray-200 border border-border transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-0 data-starting-style:opacity-0 dark:shadow-none',
+        'rounded-md bg-background p-1 text-foreground shadow-sm border border-border transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-0 data-starting-style:opacity-0 dark:shadow-none',
         'min-w-[8rem]',
         className,
       )}

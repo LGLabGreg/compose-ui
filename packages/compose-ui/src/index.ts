@@ -89,6 +89,19 @@ export {
   MenuSubmenuRoot,
 } from './components/menu'
 export {
+  PopoverRoot,
+  PopoverTrigger,
+  PopoverPortal,
+  PopoverBackdrop,
+  PopoverPositioner,
+  PopoverPopup,
+  PopoverArrow,
+  PopoverTitle,
+  PopoverDescription,
+  PopoverClose,
+  PopoverViewport,
+} from './components/popover'
+export {
   ProgressRoot,
   ProgressTrack,
   ProgressIndicator,
@@ -198,6 +211,19 @@ export type {
   MenuSubmenuTriggerProps,
   MenuSubmenuRootProps,
 } from './components/menu'
+export type {
+  PopoverRootProps,
+  PopoverTriggerProps,
+  PopoverPortalProps,
+  PopoverBackdropProps,
+  PopoverPositionerProps,
+  PopoverPopupProps,
+  PopoverArrowProps,
+  PopoverTitleProps,
+  PopoverDescriptionProps,
+  PopoverCloseProps,
+  PopoverViewportProps,
+} from './components/popover'
 export type {
   ProgressRootProps,
   ProgressTrackProps,

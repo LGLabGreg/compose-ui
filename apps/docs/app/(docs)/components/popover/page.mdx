@@ -1,0 +1,40 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import OpenOnHoverExample from './examples/open-on-hover'
+import SidesExample from './examples/sides'
+import WithCloseExample from './examples/with-close'
+
+<ComponentPage
+  title="Popover"
+  description="An accessible popup anchored to a button."
+  component="popover"
+  baseUiComponent="popover"
+>
+
+<ExampleLoader
+  title='Basic'
+  filePath='app/(docs)/components/popover/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Open on Hover'
+  filePath='app/(docs)/components/popover/examples/open-on-hover.tsx'
+>
+  <OpenOnHoverExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Close Button'
+  filePath='app/(docs)/components/popover/examples/with-close.tsx'
+>
+  <WithCloseExample />
+</ExampleLoader>
+
+<ExampleLoader title='Sides' filePath='app/(docs)/components/popover/examples/sides.tsx'>
+  <SidesExample />
+</ExampleLoader>
+
+</ComponentPage>
