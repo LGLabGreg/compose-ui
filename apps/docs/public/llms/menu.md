@@ -155,6 +155,7 @@ export default function SidesExample() {
 ```tsx
 import {
   Button,
+  MenuArrow,
   MenuItem,
   MenuPopup,
   MenuPortal,
@@ -178,6 +179,7 @@ export default function WithIconsExample() {
       <MenuPortal>
         <MenuPositioner>
           <MenuPopup>
+            <MenuArrow />
             <MenuItem>
               <User className='size-4' />
               Profile
@@ -217,6 +219,7 @@ export default function WithIconsExample() {
 ```tsx
 import {
   Button,
+  MenuArrow,
   MenuGroup,
   MenuGroupLabel,
   MenuItem,
@@ -243,6 +246,7 @@ export default function GroupsExample() {
       <MenuPortal>
         <MenuPositioner>
           <MenuPopup>
+            <MenuArrow />
             <MenuGroup>
               <MenuGroupLabel>Account</MenuGroupLabel>
               <MenuItem>Profile</MenuItem>
@@ -268,6 +272,7 @@ export default function GroupsExample() {
 ```tsx
 import {
   Button,
+  MenuArrow,
   MenuCheckboxItem,
   MenuCheckboxItemIndicator,
   MenuCheckboxItemLabel,
@@ -299,6 +304,7 @@ export default function CheckboxItemsExample() {
       <MenuPortal>
         <MenuPositioner>
           <MenuPopup>
+            <MenuArrow />
             <MenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
               <MenuCheckboxItemIndicator>
                 <Check className='size-3.5' />
@@ -334,6 +340,7 @@ export default function CheckboxItemsExample() {
 ```tsx
 import {
   Button,
+  MenuArrow,
   MenuGroup,
   MenuGroupLabel,
   MenuPopup,
@@ -365,6 +372,7 @@ export default function RadioGroupExample() {
       <MenuPortal>
         <MenuPositioner>
           <MenuPopup>
+            <MenuArrow />
             <MenuGroup>
               <MenuGroupLabel>Theme</MenuGroupLabel>
               <MenuRadioGroup value={theme} onValueChange={setTheme}>
@@ -401,6 +409,7 @@ export default function RadioGroupExample() {
 ```tsx
 import {
   Button,
+  MenuArrow,
   MenuItem,
   MenuPopup,
   MenuPortal,
@@ -427,6 +436,7 @@ export default function SubmenuExample() {
       <MenuPortal>
         <MenuPositioner>
           <MenuPopup>
+            <MenuArrow />
             <MenuItem>Copy Link</MenuItem>
             <MenuItem>Email Link</MenuItem>
             <MenuSeparator />
