@@ -2,6 +2,7 @@
 
 import {
   Button,
+  MenuArrow,
   MenuItem,
   MenuPopup,
   MenuPortal,
@@ -25,6 +26,7 @@ export default function WithIconsExample() {
       <MenuPortal>
         <MenuPositioner>
           <MenuPopup>
+            <MenuArrow />
             <MenuItem>
               <User className='size-4' />
               Profile

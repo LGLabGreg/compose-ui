@@ -2,6 +2,7 @@
 
 import {
   Button,
+  MenuArrow,
   MenuGroup,
   MenuGroupLabel,
   MenuItem,
@@ -28,6 +29,7 @@ export default function GroupsExample() {
       <MenuPortal>
         <MenuPositioner>
           <MenuPopup>
+            <MenuArrow />
             <MenuGroup>
               <MenuGroupLabel>Account</MenuGroupLabel>
               <MenuItem>Profile</MenuItem>

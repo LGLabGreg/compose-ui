@@ -2,6 +2,7 @@
 
 import {
   Button,
+  MenuArrow,
   MenuGroup,
   MenuGroupLabel,
   MenuPopup,
@@ -33,6 +34,7 @@ export default function RadioGroupExample() {
       <MenuPortal>
         <MenuPositioner>
           <MenuPopup>
+            <MenuArrow />
             <MenuGroup>
               <MenuGroupLabel>Theme</MenuGroupLabel>
               <MenuRadioGroup value={theme} onValueChange={setTheme}>

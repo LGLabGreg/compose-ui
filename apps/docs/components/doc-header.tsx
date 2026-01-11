@@ -15,6 +15,7 @@ import { useState } from 'react'
 
 import { DocsNavigation } from './docs-navigation'
 import { Logo } from './logo'
+import { ThemeColorSelector } from './theme-color-selector'
 import { ThemeToggle } from './theme-toggle'
 
 export function DocHeader() {
@@ -25,6 +26,7 @@ export function DocHeader() {
         <Logo />
       </Link>
       <div className='flex items-center gap-1 ml-auto'>
+        <ThemeColorSelector />
         <ThemeToggle />
         <Button
           variant='ghost'
