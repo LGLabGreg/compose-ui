@@ -20,7 +20,6 @@ const SwitchRoot = ({ className, ...props }: SwitchRootProps) => {
         'transition-[background-position,box-shadow] duration-125 ease-[cubic-bezier(0.26,0.75,0.38,0.45)]',
         'data-checked:bg-position-[0%_0%]',
         'dark:from-primary/50 dark:shadow-none',
-        'dark:data-checked:bg-foreground',
         'data-disabled:cursor-not-allowed data-disabled:opacity-70',
         className,
       )}
