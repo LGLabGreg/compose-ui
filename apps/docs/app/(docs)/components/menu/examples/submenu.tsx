@@ -2,6 +2,7 @@
 
 import {
   Button,
+  MenuArrow,
   MenuItem,
   MenuPopup,
   MenuPortal,
@@ -28,6 +29,7 @@ export default function SubmenuExample() {
       <MenuPortal>
         <MenuPositioner>
           <MenuPopup>
+            <MenuArrow />
             <MenuItem>Copy Link</MenuItem>
             <MenuItem>Email Link</MenuItem>
             <MenuSeparator />

@@ -2,6 +2,7 @@
 
 import {
   Button,
+  MenuArrow,
   MenuCheckboxItem,
   MenuCheckboxItemIndicator,
   MenuCheckboxItemLabel,
@@ -33,6 +34,7 @@ export default function CheckboxItemsExample() {
       <MenuPortal>
         <MenuPositioner>
           <MenuPopup>
+            <MenuArrow />
             <MenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
               <MenuCheckboxItemIndicator>
                 <Check className='size-3.5' />
