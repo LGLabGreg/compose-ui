@@ -1,0 +1,63 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import CheckboxItemsExample from './examples/checkbox-items'
+import DefaultExample from './examples/default'
+import GroupsExample from './examples/groups'
+import OpenOnHoverExample from './examples/open-on-hover'
+import RadioGroupExample from './examples/radio-group'
+import SidesExample from './examples/sides'
+import SubmenuExample from './examples/submenu'
+import WithIconsExample from './examples/with-icons'
+
+<ComponentPage
+  title="Menu"
+  description="A component that displays a list of options on a temporary surface."
+  component="menu"
+  baseUiComponent="menu"
+>
+
+<ExampleLoader title='Basic' filePath='app/(docs)/components/menu/examples/default.tsx'>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Open on Hover'
+  filePath='app/(docs)/components/menu/examples/open-on-hover.tsx'
+>
+  <OpenOnHoverExample />
+</ExampleLoader>
+
+<ExampleLoader title='Sides' filePath='app/(docs)/components/menu/examples/sides.tsx'>
+  <SidesExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Icons'
+  filePath='app/(docs)/components/menu/examples/with-icons.tsx'
+>
+  <WithIconsExample />
+</ExampleLoader>
+
+<ExampleLoader title='Groups' filePath='app/(docs)/components/menu/examples/groups.tsx'>
+  <GroupsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Checkbox Items'
+  filePath='app/(docs)/components/menu/examples/checkbox-items.tsx'
+>
+  <CheckboxItemsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Radio Group'
+  filePath='app/(docs)/components/menu/examples/radio-group.tsx'
+>
+  <RadioGroupExample />
+</ExampleLoader>
+
+<ExampleLoader title='Submenu' filePath='app/(docs)/components/menu/examples/submenu.tsx'>
+  <SubmenuExample />
+</ExampleLoader>
+
+</ComponentPage>
