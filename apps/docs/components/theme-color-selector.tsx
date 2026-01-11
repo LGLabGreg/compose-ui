@@ -21,7 +21,6 @@ import { useEffect, useSyncExternalStore } from 'react'
 
 const STORAGE_KEY = 'compose-ui-theme-color'
 
-// Preset colors with hue values for OKLCH
 const themeColors = [
   { name: 'Default', hue: null, chroma: 0 },
   { name: 'Blue', hue: 265.638, chroma: 0.199 },
@@ -32,14 +31,11 @@ const themeColors = [
   { name: 'Teal', hue: 188.216, chroma: 0.078 },
 ] as const
 
-//oklch(55.3% 0.195 38.402)
-
 type ThemeColor = (typeof themeColors)[number]
 
 function applyThemeColor(colorName: string, isDark: boolean) {
   const color = themeColors.find((c) => c.name === colorName)
   if (!color || color.hue === null) {
-    // Reset to default
     document.documentElement.style.removeProperty('--primary')
     document.documentElement.style.removeProperty('--primary-foreground')
     document.documentElement.style.removeProperty('--ring')
@@ -85,7 +81,6 @@ export function ThemeColorSelector() {
   const { resolvedTheme } = useTheme()
   const currentColor = useThemeColorStorage()
 
-  // Apply theme color when theme changes (after mount)
   useEffect(() => {
     applyThemeColor(currentColor, resolvedTheme === 'dark')
   }, [resolvedTheme, currentColor])
