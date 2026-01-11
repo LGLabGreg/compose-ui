@@ -17,7 +17,7 @@ import {
 } from '@lglab/compose-ui'
 import { Check, Palette } from 'lucide-react'
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { useEffect, useSyncExternalStore } from 'react'
 
 const STORAGE_KEY = 'compose-ui-theme-color'
 
@@ -70,11 +70,20 @@ function getSwatchColor(color: ThemeColor): string {
   return `oklch(0.5 ${color.chroma} ${color.hue})`
 }
 
+function useThemeColorStorage() {
+  return useSyncExternalStore(
+    (callback) => {
+      window.addEventListener('storage', callback)
+      return () => window.removeEventListener('storage', callback)
+    },
+    () => window.localStorage.getItem(STORAGE_KEY) || 'Default',
+    () => 'Default',
+  )
+}
+
 export function ThemeColorSelector() {
   const { resolvedTheme } = useTheme()
-  const [currentColor, setCurrentColor] = useState(
-    localStorage.getItem(STORAGE_KEY) || 'Default',
-  )
+  const currentColor = useThemeColorStorage()
 
   // Apply theme color when theme changes (after mount)
   useEffect(() => {
@@ -82,8 +91,8 @@ export function ThemeColorSelector() {
   }, [resolvedTheme, currentColor])
 
   const handleColorChange = (colorName: string) => {
-    localStorage.setItem(STORAGE_KEY, colorName)
-    setCurrentColor(colorName)
+    window.localStorage.setItem(STORAGE_KEY, colorName)
+    window.dispatchEvent(new Event('storage'))
   }
 
   return (
