@@ -1,5 +1,11 @@
 # @lglab/compose-ui
 
+## 0.16.0
+
+### Minor Changes
+
+- [#60](https://github.com/LGLabGreg/compose-ui/pull/60) [`7826f9a`](https://github.com/LGLabGreg/compose-ui/commit/7826f9a8d0bde670aadadc19406af091074b928d) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Card
+
 ## 0.15.0
 
 ### Minor Changes
