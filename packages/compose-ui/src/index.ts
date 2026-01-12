@@ -25,6 +25,7 @@ export {
   ScrollAreaThumb,
   ScrollAreaCorner,
 } from './components/scroll-area'
+export { Separator } from './components/separator'
 export { SwitchRoot, SwitchThumb } from './components/switch'
 export { Toggle } from './components/toggle'
 export { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from './components/tabs'
@@ -141,6 +142,7 @@ export type {
   ScrollAreaThumbProps,
   ScrollAreaCornerProps,
 } from './components/scroll-area'
+export type { SeparatorProps } from './components/separator'
 export type { SwitchRootProps, SwitchThumbProps } from './components/switch'
 export type { ToggleProps } from './components/toggle'
 export type { ToggleSize } from './lib/toggle-variants'

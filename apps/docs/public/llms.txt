@@ -21,6 +21,7 @@ Key features:
 - [Toggle](https://compose-ui.dev/components/toggle.md): A two-state button that can be on or off.
 - [Tabs](https://compose-ui.dev/components/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
 - [Switch](https://compose-ui.dev/components/switch.md): A control that indicates whether a setting is on or off.
+- [Separator](https://compose-ui.dev/components/separator.md): A separator element accessible to screen readers.
 - [Scroll Area](https://compose-ui.dev/components/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
 - [Progress](https://compose-ui.dev/components/progress.md): The progressbar range widget indicates that a request has been received and the application is making progress toward completing the requested action.
 - [Popover](https://compose-ui.dev/components/popover.md): An accessible popup anchored to a button.
