@@ -110,6 +110,16 @@ export {
   ProgressLabel,
 } from './components/progress'
 export { ToggleGroupRoot, ToggleGroupItem } from './components/toggle-group'
+export {
+  CardRoot,
+  CardMedia,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+  CardSection,
+  CardContent,
+} from './components/card'
 
 export type { ButtonProps } from './components/button'
 export type {
@@ -237,3 +247,13 @@ export type {
   ToggleGroupRootProps,
   ToggleGroupItemProps,
 } from './components/toggle-group'
+export type {
+  CardRootProps,
+  CardMediaProps,
+  CardHeaderProps,
+  CardTitleProps,
+  CardDescriptionProps,
+  CardFooterProps,
+  CardSectionProps,
+  CardContentProps,
+} from './components/card'
