@@ -1,5 +1,12 @@
 # docs
 
+## 0.8.5
+
+### Patch Changes
+
+- Updated dependencies [[`7826f9a`](https://github.com/LGLabGreg/compose-ui/commit/7826f9a8d0bde670aadadc19406af091074b928d)]:
+  - @lglab/compose-ui@0.16.0
+
 ## 0.8.4
 
 ### Patch Changes
