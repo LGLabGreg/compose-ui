@@ -120,6 +120,27 @@ export {
   CardSection,
   CardContent,
 } from './components/card'
+export {
+  ContextMenuRoot,
+  ContextMenuTrigger,
+  ContextMenuPortal,
+  ContextMenuPositioner,
+  ContextMenuPopup,
+  ContextMenuArrow,
+  ContextMenuItem,
+  ContextMenuSeparator,
+  ContextMenuGroup,
+  ContextMenuGroupLabel,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
+  ContextMenuRadioItemIndicator,
+  ContextMenuRadioItemLabel,
+  ContextMenuCheckboxItem,
+  ContextMenuCheckboxItemIndicator,
+  ContextMenuCheckboxItemLabel,
+  ContextMenuSubmenuTrigger,
+  ContextMenuSubmenuRoot,
+} from './components/context-menu'
 
 export type { ButtonProps } from './components/button'
 export type {
@@ -257,3 +278,24 @@ export type {
   CardSectionProps,
   CardContentProps,
 } from './components/card'
+export type {
+  ContextMenuRootProps,
+  ContextMenuTriggerProps,
+  ContextMenuPortalProps,
+  ContextMenuPositionerProps,
+  ContextMenuPopupProps,
+  ContextMenuArrowProps,
+  ContextMenuItemProps,
+  ContextMenuSeparatorProps,
+  ContextMenuGroupProps,
+  ContextMenuGroupLabelProps,
+  ContextMenuRadioGroupProps,
+  ContextMenuRadioItemProps,
+  ContextMenuRadioItemIndicatorProps,
+  ContextMenuRadioItemLabelProps,
+  ContextMenuCheckboxItemProps,
+  ContextMenuCheckboxItemIndicatorProps,
+  ContextMenuCheckboxItemLabelProps,
+  ContextMenuSubmenuTriggerProps,
+  ContextMenuSubmenuRootProps,
+} from './components/context-menu'
