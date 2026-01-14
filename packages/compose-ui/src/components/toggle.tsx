@@ -4,10 +4,10 @@ import { Toggle as BaseToggle } from '@base-ui/react/toggle'
 import * as React from 'react'
 
 import {
-  type ToggleSize,
-  type ToggleVariant,
-  toggleVariants,
-} from '../lib/toggle-variants'
+  type ControlSize,
+  type ControlVariant,
+  controlVariants,
+} from '../lib/control-variants'
 import { cn } from '../lib/utils'
 
 // ============================================================================
@@ -16,14 +16,17 @@ import { cn } from '../lib/utils'
 
 type ToggleProps = React.ComponentProps<typeof BaseToggle> & {
   /** Visual style of the toggle */
-  variant?: ToggleVariant
+  variant?: ControlVariant
   /** Size of the toggle */
-  size?: ToggleSize
+  size?: ControlSize
 }
 
 const Toggle = ({ className, variant, size, ...props }: ToggleProps) => {
   return (
-    <BaseToggle className={cn(toggleVariants({ variant, size }), className)} {...props} />
+    <BaseToggle
+      className={cn(controlVariants({ variant, size }), className)}
+      {...props}
+    />
   )
 }
 

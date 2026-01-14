@@ -5,10 +5,10 @@ import { ToggleGroup as BaseToggleGroup } from '@base-ui/react/toggle-group'
 import * as React from 'react'
 
 import {
-  type ToggleSize,
-  type ToggleVariant,
-  toggleVariants,
-} from '../lib/toggle-variants'
+  type ControlSize,
+  type ControlVariant,
+  controlVariants,
+} from '../lib/control-variants'
 import { cn } from '../lib/utils'
 
 // ============================================================================
@@ -25,11 +25,11 @@ const ToggleGroupRoot = ({ className, orientation, ...props }: ToggleGroupRootPr
         'inline-flex',
         orientation === 'vertical' && 'flex-col',
         // Connected items: collapse borders, round only outer corners
-        '*:rounded-none [&>*:not(:first-child)]:-ml-px',
-        '[&>*:first-child]:rounded-l-md [&>*:last-child]:rounded-r-md',
+        '[&>button]:rounded-none [&>button:not(:first-of-type)]:-ml-px',
+        '[&>button:first-of-type]:rounded-l-md [&>button:last-of-type]:rounded-r-md',
         // Vertical orientation adjustments
         orientation === 'vertical' &&
-          '[&>*:not(:first-child)]:ml-0 [&>*:not(:first-child)]:-mt-px [&>*:first-child]:rounded-bl-none [&>*:last-child]:rounded-r-none [&>*:first-child]:rounded-t-md [&>*:last-child]:rounded-b-md',
+          '[&>button:not(:first-of-type)]:ml-0 [&>button:not(:first-of-type)]:-mt-px [&>button:first-of-type]:rounded-bl-none [&>button:last-of-type]:rounded-r-none [&>button:first-of-type]:rounded-t-md [&>button:last-of-type]:rounded-b-md',
         className,
       )}
       {...props}
@@ -45,9 +45,9 @@ ToggleGroupRoot.displayName = 'ToggleGroupRoot'
 
 type ToggleGroupItemProps = React.ComponentProps<typeof Toggle> & {
   /** Visual style of the toggle item */
-  variant?: ToggleVariant
+  variant?: ControlVariant
   /** Size of the toggle item */
-  size?: ToggleSize
+  size?: ControlSize
 }
 
 const ToggleGroupItem = ({
@@ -57,15 +57,7 @@ const ToggleGroupItem = ({
   ...props
 }: ToggleGroupItemProps) => {
   return (
-    <Toggle
-      className={cn(
-        toggleVariants({ variant, size }),
-        // Ghost variant in toggle-group: add borders, no background when pressed
-        variant === 'ghost' && 'border border-border',
-        className,
-      )}
-      {...props}
-    />
+    <Toggle className={cn(controlVariants({ variant, size }), className)} {...props} />
   )
 }
 

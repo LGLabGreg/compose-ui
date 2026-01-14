@@ -141,6 +141,28 @@ export {
   ContextMenuSubmenuTrigger,
   ContextMenuSubmenuRoot,
 } from './components/context-menu'
+export {
+  MenubarRoot,
+  MenubarMenu,
+  MenubarTrigger,
+  MenubarPortal,
+  MenubarPositioner,
+  MenubarPopup,
+  MenubarArrow,
+  MenubarItem,
+  MenubarSeparator,
+  MenubarGroup,
+  MenubarGroupLabel,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarRadioItemIndicator,
+  MenubarRadioItemLabel,
+  MenubarCheckboxItem,
+  MenubarCheckboxItemIndicator,
+  MenubarCheckboxItemLabel,
+  MenubarSubmenuTrigger,
+  MenubarSubmenuRoot,
+} from './components/menubar'
 
 export type { ButtonProps } from './components/button'
 export type {
@@ -176,7 +198,7 @@ export type {
 export type { SeparatorProps } from './components/separator'
 export type { SwitchRootProps, SwitchThumbProps } from './components/switch'
 export type { ToggleProps } from './components/toggle'
-export type { ToggleSize } from './lib/toggle-variants'
+export type { ControlSize } from './lib/control-variants'
 export type {
   TabsRootProps,
   TabsListProps,
@@ -299,3 +321,25 @@ export type {
   ContextMenuSubmenuTriggerProps,
   ContextMenuSubmenuRootProps,
 } from './components/context-menu'
+export type {
+  MenubarRootProps,
+  MenubarMenuProps,
+  MenubarTriggerProps,
+  MenubarPortalProps,
+  MenubarPositionerProps,
+  MenubarPopupProps,
+  MenubarArrowProps,
+  MenubarItemProps,
+  MenubarSeparatorProps,
+  MenubarGroupProps,
+  MenubarGroupLabelProps,
+  MenubarRadioGroupProps,
+  MenubarRadioItemProps,
+  MenubarRadioItemIndicatorProps,
+  MenubarRadioItemLabelProps,
+  MenubarCheckboxItemProps,
+  MenubarCheckboxItemIndicatorProps,
+  MenubarCheckboxItemLabelProps,
+  MenubarSubmenuTriggerProps,
+  MenubarSubmenuRootProps,
+} from './components/menubar'
