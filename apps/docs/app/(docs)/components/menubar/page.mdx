@@ -1,0 +1,69 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import CheckboxItemsExample from './examples/checkbox-items'
+import DefaultExample from './examples/default'
+import GhostExample from './examples/ghost'
+import RadioGroupExample from './examples/radio-group'
+import SizesExample from './examples/sizes'
+import SubmenuExample from './examples/submenu'
+import WithArrowExample from './examples/with-arrow'
+import WithIconsExample from './examples/with-icons'
+
+<ComponentPage
+  title="Menubar"
+  description="A horizontal menu bar with dropdown menus for application commands and options."
+  component="menubar"
+  baseUiComponent="menubar"
+>
+
+<ExampleLoader
+  title='Basic'
+  filePath='app/(docs)/components/menubar/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Icons'
+  filePath='app/(docs)/components/menubar/examples/with-icons.tsx'
+>
+  <WithIconsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Arrow'
+  filePath='app/(docs)/components/menubar/examples/with-arrow.tsx'
+>
+  <WithArrowExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Submenu'
+  filePath='app/(docs)/components/menubar/examples/submenu.tsx'
+>
+  <SubmenuExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Checkbox Items'
+  filePath='app/(docs)/components/menubar/examples/checkbox-items.tsx'
+>
+  <CheckboxItemsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Radio Group'
+  filePath='app/(docs)/components/menubar/examples/radio-group.tsx'
+>
+  <RadioGroupExample />
+</ExampleLoader>
+
+<ExampleLoader title='Ghost' filePath='app/(docs)/components/menubar/examples/ghost.tsx'>
+  <GhostExample />
+</ExampleLoader>
+
+<ExampleLoader title='Sizes' filePath='app/(docs)/components/menubar/examples/sizes.tsx'>
+  <SizesExample />
+</ExampleLoader>
+
+</ComponentPage>

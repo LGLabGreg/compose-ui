@@ -73,7 +73,7 @@ export default function ControlledExample() {
   const [value, setValue] = useState<string[]>(['left'])
 
   return (
-    <div className='flex items-center gap-3'>
+    <div className='flex flex-col items-center gap-3'>
       <ToggleGroupRoot value={value} onValueChange={setValue}>
         <ToggleGroupItem value='left' aria-label='Align left' size='icon'>
           <AlignLeftIcon />

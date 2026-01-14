@@ -1,22 +1,23 @@
 import { cva } from 'class-variance-authority'
 
-export type ToggleSize = 'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'
-export type ToggleVariant = 'default' | 'ghost'
+export type ControlSize = 'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'
+export type ControlVariant = 'default' | 'ghost'
 
-export const toggleVariants = cva(
+export const controlVariants = cva(
   [
     'inline-flex items-center justify-center gap-2 rounded-md',
     'text-sm font-medium',
     "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
     'select-none transition-colors duration-200',
+    'border border-border bg-background shadow-xs',
   ],
   {
     variants: {
       variant: {
         default: [
-          'border border-border bg-background shadow-xs',
           'hover:bg-accent hover:text-accent-foreground',
           'data-pressed:border-primary data-pressed:bg-primary data-pressed:text-primary-foreground data-pressed:shadow-none',
+          'data-popup-open:border-primary data-popup-open:bg-primary data-popup-open:text-primary-foreground data-popup-open:shadow-none',
         ],
         ghost: ['hover:bg-accent'],
       },
