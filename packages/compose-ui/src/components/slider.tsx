@@ -60,7 +60,7 @@ type SliderTrackProps = React.ComponentProps<typeof BaseSlider.Track>
 const SliderTrack = ({ className, ...props }: SliderTrackProps) => {
   return (
     <BaseSlider.Track
-      className={cn('relative h-1.5 w-full rounded-full bg-primary/10', className)}
+      className={cn('relative h-1.5 w-full rounded-full bg-primary/20', className)}
       {...props}
     />
   )
@@ -96,13 +96,12 @@ const SliderThumb = ({ className, ...props }: SliderThumbProps) => {
     <BaseSlider.Thumb
       className={cn(
         'size-4 rounded-full bg-background',
-        'outline outline-border',
+        'outline',
         'shadow-sm',
         'transition-[box-shadow,outline-color] duration-150',
         'hover:outline-primary/50',
         'focus-visible:outline-2 focus-visible:outline-primary',
         'data-dragging:outline-2 data-dragging:outline-primary',
-        'data-disabled:opacity-50 data-disabled:pointer-events-none',
         className,
       )}
       {...props}
