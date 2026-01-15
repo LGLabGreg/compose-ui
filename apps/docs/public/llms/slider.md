@@ -16,7 +16,7 @@ import { SliderRoot, SliderValue, SliderControl, SliderTrack, SliderIndicator, S
 
 ## Examples
 
-### Default
+### Basic
 
 ```tsx
 import {
