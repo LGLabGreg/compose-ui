@@ -1,0 +1,34 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import RangeExample from './examples/range'
+import StepExample from './examples/step'
+import VerticalExample from './examples/vertical'
+
+<ComponentPage
+  title="Slider"
+  description="A control for selecting a value or range from a continuous or discrete set of values."
+  component="slider"
+  baseUiComponent="slider"
+>
+
+<ExampleLoader title='Basic' filePath='app/(docs)/components/slider/examples/default.tsx'>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader title='Range' filePath='app/(docs)/components/slider/examples/range.tsx'>
+  <RangeExample />
+</ExampleLoader>
+
+<ExampleLoader title='Step' filePath='app/(docs)/components/slider/examples/step.tsx'>
+  <StepExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Vertical'
+  filePath='app/(docs)/components/slider/examples/vertical.tsx'
+>
+  <VerticalExample />
+</ExampleLoader>
+
+</ComponentPage>
