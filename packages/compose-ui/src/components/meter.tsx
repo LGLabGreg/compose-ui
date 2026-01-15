@@ -51,7 +51,7 @@ const MeterTrack = ({ className, ...props }: MeterTrackProps) => {
   return (
     <BaseMeter.Track
       className={cn(
-        'relative h-2 w-full overflow-hidden rounded-full bg-primary/20',
+        'relative h-2 w-full overflow-hidden rounded-full bg-primary/10',
         className,
       )}
       {...props}

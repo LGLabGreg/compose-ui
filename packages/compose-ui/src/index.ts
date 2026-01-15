@@ -163,6 +163,14 @@ export {
   MenubarSubmenuTrigger,
   MenubarSubmenuRoot,
 } from './components/menubar'
+export {
+  SliderRoot,
+  SliderValue,
+  SliderControl,
+  SliderTrack,
+  SliderIndicator,
+  SliderThumb,
+} from './components/slider'
 
 export type { ButtonProps } from './components/button'
 export type {
@@ -343,3 +351,11 @@ export type {
   MenubarSubmenuTriggerProps,
   MenubarSubmenuRootProps,
 } from './components/menubar'
+export type {
+  SliderRootProps,
+  SliderValueProps,
+  SliderControlProps,
+  SliderTrackProps,
+  SliderIndicatorProps,
+  SliderThumbProps,
+} from './components/slider'
