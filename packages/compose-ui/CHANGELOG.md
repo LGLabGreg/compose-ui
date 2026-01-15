@@ -1,5 +1,11 @@
 # @lglab/compose-ui
 
+## 0.19.0
+
+### Minor Changes
+
+- [#69](https://github.com/LGLabGreg/compose-ui/pull/69) [`cafa1da`](https://github.com/LGLabGreg/compose-ui/commit/cafa1dad37d18762f04e391c52cf30596147e34b) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Slider
+
 ## 0.18.0
 
 ### Minor Changes
