@@ -130,7 +130,7 @@ const PopoverArrow = ({ className, ...props }: PopoverArrowProps) => {
   return (
     <BasePopover.Arrow
       className={cn(
-        'flex data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180',
+        'flex data-[side=bottom]:top-[-9px] data-[side=left]:right-[-14px] data-[side=left]:rotate-90 data-[side=right]:left-[-14px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-11px] data-[side=top]:rotate-180',
         className,
       )}
       {...props}
