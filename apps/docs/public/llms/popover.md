@@ -168,7 +168,7 @@ import {
   PopoverTrigger,
 } from '@lglab/compose-ui'
 
-const sides = ['right', 'left', 'bottom', 'top', 'right'] as const
+const sides = ['left', 'bottom', 'top', 'right'] as const
 
 export default function SidesExample() {
   return (
