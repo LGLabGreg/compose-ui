@@ -17,6 +17,7 @@ Key features:
 
 ## Components
 
+- [Tooltip](https://compose-ui.dev/components/tooltip.md): A popup that appears when an element is hovered or focused, showing a hint for sighted users.
 - [Toggle Group](https://compose-ui.dev/components/toggle-group.md): Provides a shared state to a series of toggle buttons.
 - [Toggle](https://compose-ui.dev/components/toggle.md): A two-state button that can be on or off.
 - [Tabs](https://compose-ui.dev/components/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
