@@ -171,6 +171,15 @@ export {
   SliderIndicator,
   SliderThumb,
 } from './components/slider'
+export {
+  TooltipProvider,
+  TooltipRoot,
+  TooltipTrigger,
+  TooltipPortal,
+  TooltipPositioner,
+  TooltipPopup,
+  TooltipArrow,
+} from './components/tooltip'
 
 export type { ButtonProps } from './components/button'
 export type {
@@ -359,3 +368,12 @@ export type {
   SliderIndicatorProps,
   SliderThumbProps,
 } from './components/slider'
+export type {
+  TooltipProviderProps,
+  TooltipRootProps,
+  TooltipTriggerProps,
+  TooltipPortalProps,
+  TooltipPositionerProps,
+  TooltipPopupProps,
+  TooltipArrowProps,
+} from './components/tooltip'
