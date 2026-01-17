@@ -34,6 +34,11 @@ updates:
         patterns:
           - 'tailwind*'
           - '@tailwind*'
+      next:
+        patterns:
+          - 'next*'
+          - '@next*'
+          - '*next*'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
