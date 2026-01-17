@@ -11,13 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import {
-  ProgressIndicator,
-  ProgressLabel,
-  ProgressRoot,
-  ProgressTrack,
-  ProgressValue,
-} from '@lglab/compose-ui'
+import { ProgressRoot, ProgressTrack, ProgressIndicator, ProgressValue, ProgressLabel } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -31,7 +25,7 @@ import {
   ProgressRoot,
   ProgressTrack,
   ProgressValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/progress'
 import * as React from 'react'
 
 export default function BasicExample() {

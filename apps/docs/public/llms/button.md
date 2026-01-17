@@ -19,7 +19,7 @@ import { Button } from '@lglab/compose-ui'
 ### Default
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { TrashIcon } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -46,7 +46,7 @@ export default function DefaultExample() {
 ### Secondary
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { TrashIcon } from 'lucide-react'
 
 export default function SecondaryExample() {
@@ -79,7 +79,7 @@ export default function SecondaryExample() {
 ### Outline
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { TrashIcon } from 'lucide-react'
 
 export default function OutlineExample() {
@@ -112,7 +112,7 @@ export default function OutlineExample() {
 ### Destructive
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { TrashIcon } from 'lucide-react'
 
 export default function DestructiveExample() {
@@ -145,7 +145,7 @@ export default function DestructiveExample() {
 ### Ghost
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { TrashIcon } from 'lucide-react'
 
 export default function GhostExample() {
@@ -178,7 +178,7 @@ export default function GhostExample() {
 ### Loading
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { LoaderCircle } from 'lucide-react'
 import { useState } from 'react'
 
@@ -211,7 +211,7 @@ export default function LoadingExample() {
 ### As Link
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { Github } from 'lucide-react'
 import Link from 'next/link'
 

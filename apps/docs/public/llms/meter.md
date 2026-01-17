@@ -11,13 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import {
-  MeterIndicator,
-  MeterLabel,
-  MeterRoot,
-  MeterTrack,
-  MeterValue,
-} from '@lglab/compose-ui'
+import { MeterRoot, MeterTrack, MeterIndicator, MeterValue, MeterLabel } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -31,7 +25,7 @@ import {
   MeterRoot,
   MeterTrack,
   MeterValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/meter'
 
 export default function BasicExample() {
   return (
@@ -79,7 +73,7 @@ import {
   MeterRoot,
   MeterTrack,
   MeterValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/meter'
 
 export default function AnimatedExample() {
   return (
@@ -127,7 +121,7 @@ import {
   MeterRoot,
   MeterTrack,
   MeterValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/meter'
 
 export default function CustomFormatExample() {
   return (

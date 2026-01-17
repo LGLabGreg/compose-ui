@@ -11,27 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import {
-  MenuArrow,
-  MenuCheckboxItem,
-  MenuCheckboxItemIndicator,
-  MenuCheckboxItemLabel,
-  MenuGroup,
-  MenuGroupLabel,
-  MenuItem,
-  MenuPopup,
-  MenuPortal,
-  MenuPositioner,
-  MenuRadioGroup,
-  MenuRadioItem,
-  MenuRadioItemIndicator,
-  MenuRadioItemLabel,
-  MenuRoot,
-  MenuSeparator,
-  MenuSubmenuRoot,
-  MenuSubmenuTrigger,
-  MenuTrigger,
-} from '@lglab/compose-ui'
+import { MenuRoot, MenuTrigger, MenuPortal, MenuPositioner, MenuPopup, MenuArrow, MenuItem, MenuSeparator, MenuGroup, MenuGroupLabel, MenuRadioGroup, MenuRadioItem, MenuRadioItemIndicator, MenuRadioItemLabel, MenuCheckboxItem, MenuCheckboxItemIndicator, MenuCheckboxItemLabel, MenuSubmenuTrigger, MenuSubmenuRoot } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -39,8 +19,8 @@ import {
 ### Basic
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -49,7 +29,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { MoreVertical } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -83,8 +63,8 @@ export default function DefaultExample() {
 ### Open on Hover
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -93,7 +73,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { MoreVertical } from 'lucide-react'
 
 export default function OpenOnHoverExample() {
@@ -126,8 +106,8 @@ export default function OpenOnHoverExample() {
 ### Sides
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -136,7 +116,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 
 const sides = ['left', 'bottom', 'top', 'right'] as const
 
@@ -173,8 +153,8 @@ export default function SidesExample() {
 ### With Icons
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -183,7 +163,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { Copy, LogOut, MoreVertical, PenLine, Settings, Trash2, User } from 'lucide-react'
 
 export default function WithIconsExample() {
@@ -237,8 +217,8 @@ export default function WithIconsExample() {
 ### Groups
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuGroup,
   MenuGroupLabel,
@@ -249,7 +229,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { Menu } from 'lucide-react'
 
 export default function GroupsExample() {
@@ -290,8 +270,8 @@ export default function GroupsExample() {
 ### Checkbox Items
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuCheckboxItem,
   MenuCheckboxItemIndicator,
@@ -302,7 +282,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { Check, Settings } from 'lucide-react'
 import * as React from 'react'
 
@@ -358,8 +338,8 @@ export default function CheckboxItemsExample() {
 ### Radio Group
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuGroup,
   MenuGroupLabel,
@@ -372,7 +352,7 @@ import {
   MenuRadioItemLabel,
   MenuRoot,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { Check, SunMoon } from 'lucide-react'
 import * as React from 'react'
 
@@ -427,8 +407,8 @@ export default function RadioGroupExample() {
 ### Submenu
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -439,7 +419,7 @@ import {
   MenuSubmenuRoot,
   MenuSubmenuTrigger,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { ChevronRight, Share } from 'lucide-react'
 
 export default function SubmenuExample() {

@@ -11,18 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import {
-  DialogBackdrop,
-  DialogClose,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogPopup,
-  DialogPortal,
-  DialogRoot,
-  DialogTitle,
-  DialogTrigger,
-} from '@lglab/compose-ui'
+import { DialogRoot, DialogTrigger, DialogPortal, DialogBackdrop, DialogPopup, DialogTitle, DialogDescription, DialogClose, DialogHeader, DialogFooter } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -40,7 +29,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 
 export default function BasicExample() {
   return (
@@ -75,7 +64,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 
 export default function VariantsExample() {
   return (
@@ -164,7 +153,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 
 export default function SizesExample() {
   return (
@@ -293,7 +282,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { MailIcon } from 'lucide-react'
 import * as React from 'react'
 
@@ -376,7 +365,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { Trash2Icon } from 'lucide-react'
 
 export default function DestructiveExample() {
@@ -424,14 +413,14 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 import {
   ScrollAreaContent,
   ScrollAreaRoot,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 
 export default function ScrollableExample() {
   return (
@@ -476,8 +465,8 @@ export default function ScrollableExample() {
 ### Controlled
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   DialogBackdrop,
   DialogClose,
   DialogDescription,
@@ -487,7 +476,7 @@ import {
   DialogPortal,
   DialogRoot,
   DialogTitle,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { SettingsIcon } from 'lucide-react'
 import * as React from 'react'
 
@@ -550,7 +539,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 
 export default function NestedExample() {
   return (

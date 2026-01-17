@@ -11,15 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import {
-  TooltipArrow,
-  TooltipPopup,
-  TooltipPortal,
-  TooltipPositioner,
-  TooltipProvider,
-  TooltipRoot,
-  TooltipTrigger,
-} from '@lglab/compose-ui'
+import { TooltipProvider, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipPositioner, TooltipPopup, TooltipArrow } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -27,15 +19,15 @@ import {
 ### Default
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { Plus } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -65,15 +57,15 @@ export default function DefaultExample() {
 ### Variants
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 
 export default function VariantsExample() {
   return (
@@ -133,14 +125,14 @@ export default function VariantsExample() {
 ### No Arrow
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { Info } from 'lucide-react'
 
 export default function NoArrowExample() {
@@ -167,15 +159,15 @@ export default function NoArrowExample() {
 ### Sides
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp } from 'lucide-react'
 
 export default function SidesExample() {
@@ -271,7 +263,7 @@ import {
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 
 export default function TrackCursorExample() {
   return (
@@ -302,15 +294,15 @@ export default function TrackCursorExample() {
 ### Delay
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { Clock } from 'lucide-react'
 
 export default function DelayExample() {
@@ -363,8 +355,8 @@ export default function DelayExample() {
 ### Provider
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
@@ -372,7 +364,7 @@ import {
   TooltipProvider,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { Bold, Italic, Underline } from 'lucide-react'
 
 export default function ProviderExample() {
@@ -444,15 +436,15 @@ export default function ProviderExample() {
 ### Anchor to Another Element
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import * as React from 'react'
 
 export default function AnchorElementExample() {
