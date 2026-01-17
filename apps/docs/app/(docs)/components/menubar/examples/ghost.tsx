@@ -8,7 +8,7 @@ import {
   MenubarPositioner,
   MenubarRoot,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 
 export default function GhostExample() {
   return (

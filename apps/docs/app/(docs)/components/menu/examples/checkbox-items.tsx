@@ -1,7 +1,7 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuCheckboxItem,
   MenuCheckboxItemIndicator,
@@ -12,7 +12,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { Check, Settings } from 'lucide-react'
 import * as React from 'react'
 

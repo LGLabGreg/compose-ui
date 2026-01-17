@@ -1,4 +1,4 @@
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { TrashIcon } from 'lucide-react'
 
 export default function DestructiveExample() {

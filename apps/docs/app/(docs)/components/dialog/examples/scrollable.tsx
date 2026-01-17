@@ -11,14 +11,14 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import {
   ScrollAreaContent,
   ScrollAreaRoot,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 
 export default function ScrollableExample() {
   return (

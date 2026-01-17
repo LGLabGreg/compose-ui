@@ -1,14 +1,14 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   CardDescription,
   CardFooter,
   CardRoot,
   CardSection,
   CardTitle,
-  Separator,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/card'
+import { Separator } from '@lglab/compose-ui/separator'
 
 export default function MultiSectionCard() {
   return (

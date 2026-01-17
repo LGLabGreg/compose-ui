@@ -11,7 +11,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { Trash2Icon } from 'lucide-react'
 
 export default function DestructiveExample() {

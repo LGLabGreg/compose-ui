@@ -28,7 +28,7 @@ import {
   MenubarRoot,
   MenubarSeparator,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 
 export default function DefaultExample() {
   return (
@@ -92,7 +92,7 @@ import {
   MenubarRoot,
   MenubarSeparator,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import {
   Copy,
   EyeIcon,
@@ -213,7 +213,7 @@ import {
   MenubarRoot,
   MenubarSeparator,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 
 export default function WithArrowExample() {
   return (
@@ -268,7 +268,7 @@ import {
   MenubarSubmenuRoot,
   MenubarSubmenuTrigger,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import { ChevronRight } from 'lucide-react'
 
 export default function SubmenuExample() {
@@ -338,7 +338,7 @@ import {
   MenubarRoot,
   MenubarSeparator,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
@@ -430,7 +430,7 @@ import {
   MenubarRoot,
   MenubarSeparator,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
@@ -525,7 +525,7 @@ import {
   MenubarPositioner,
   MenubarRoot,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 
 export default function GhostExample() {
   return (
@@ -580,7 +580,7 @@ import {
   MenubarPositioner,
   MenubarRoot,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import { EyeIcon, FileIcon, SquarePen } from 'lucide-react'
 
 export default function SizesExample() {

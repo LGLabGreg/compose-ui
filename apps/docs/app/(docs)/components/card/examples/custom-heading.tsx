@@ -1,6 +1,6 @@
 'use client'
 
-import { CardDescription, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui'
+import { CardDescription, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function CardWithCustomHeading() {
   return (

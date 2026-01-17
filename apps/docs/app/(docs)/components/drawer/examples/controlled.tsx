@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
   DrawerBackdrop,
   DrawerClose,
@@ -11,8 +12,7 @@ import {
   DrawerPortal,
   DrawerRoot,
   DrawerTitle,
-} from '@lglab/compose-ui'
-import { Button } from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 import { SlidersHorizontal } from 'lucide-react'
 import { useState } from 'react'
 

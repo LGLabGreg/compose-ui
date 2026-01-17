@@ -1,11 +1,11 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   CollapsiblePanel,
   CollapsibleRoot,
   CollapsibleTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/collapsible'
 import { ChevronDown } from 'lucide-react'
 
 export default function DefaultExample() {

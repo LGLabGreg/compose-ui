@@ -25,7 +25,7 @@ import {
   ProgressRoot,
   ProgressTrack,
   ProgressValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/progress'
 import * as React from 'react'
 
 export default function BasicExample() {

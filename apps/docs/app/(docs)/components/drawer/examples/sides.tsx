@@ -10,7 +10,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 const sides = ['top', 'right', 'bottom', 'left'] as const
 

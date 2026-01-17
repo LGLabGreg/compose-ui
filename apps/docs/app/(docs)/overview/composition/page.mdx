@@ -16,7 +16,7 @@ This means you get components that are both ready to use out of the box and easy
 The simplest approach is to use components directly:
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 
 function MyComponent() {
   return <Button variant='outline'>Click me</Button>
@@ -42,7 +42,7 @@ All components accept a `className` prop that merges with the default styles usi
 Compose UI components use the compound component pattern, giving you control over structure while maintaining proper behavior:
 
 ```tsx
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui/tabs'
 
 export function Tabs() {
   return (
@@ -66,7 +66,7 @@ You can rearrange, wrap, or style individual parts as needed. Each sub-component
 For repeated customizations, wrap components to create your own variants:
 
 ```tsx
-import { Button, type ButtonProps } from '@lglab/compose-ui'
+import { Button, type ButtonProps } from '@lglab/compose-ui/button'
 
 function IconButton({ children, ...props }: ButtonProps) {
   return (

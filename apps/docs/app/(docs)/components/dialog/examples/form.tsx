@@ -11,7 +11,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { MailIcon } from 'lucide-react'
 import * as React from 'react'
 

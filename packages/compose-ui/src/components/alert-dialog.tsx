@@ -209,6 +209,9 @@ AlertDialogClose.displayName = 'AlertDialogClose'
 // Exports
 // ============================================================================
 
+// Re-export AlertDialog from Base UI for createHandle() and other utilities
+export { AlertDialog } from '@base-ui/react/alert-dialog'
+
 export {
   AlertDialogRoot,
   AlertDialogTrigger,

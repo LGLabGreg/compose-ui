@@ -13,7 +13,7 @@ import {
   MenubarRoot,
   MenubarSeparator,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 

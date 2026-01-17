@@ -19,7 +19,13 @@ import { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from '@lglab/co
 ### Basic
 
 ```tsx
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
 
 export default function BasicExample() {
   return (
@@ -58,7 +64,13 @@ export default function BasicExample() {
 ### With Icons
 
 ```tsx
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
 import { FolderIcon, SettingsIcon, UserIcon } from 'lucide-react'
 
 export default function WithIconsExample() {
@@ -102,7 +114,7 @@ export default function WithIconsExample() {
 ### Sizes
 
 ```tsx
-import { TabsIndicator, TabsList, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import { TabsIndicator, TabsList, TabsRoot, TabsTab } from '@lglab/compose-ui/tabs'
 
 export default function SizesExample() {
   return (
@@ -160,7 +172,13 @@ export default function SizesExample() {
 ### Disabled Tab
 
 ```tsx
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
 
 export default function DisabledExample() {
   return (
@@ -196,7 +214,13 @@ export default function DisabledExample() {
 ### Vertical Orientation
 
 ```tsx
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
 
 export default function VerticalExample() {
   return (

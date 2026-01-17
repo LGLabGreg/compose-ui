@@ -7,8 +7,8 @@ import {
   AlertDialogPortal,
   AlertDialogRoot,
   AlertDialogTitle,
-  Button,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
+import { Button } from '@lglab/compose-ui/button'
 import {
   DialogBackdrop,
   DialogClose,
@@ -17,7 +17,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { useState } from 'react'
 
 export default function CloseConfirmationExample() {

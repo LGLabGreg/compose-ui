@@ -19,7 +19,7 @@ import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui'
 ### Default
 
 ```tsx
-import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui'
+import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui/switch'
 
 export default function DefaultExample() {
   return (
@@ -33,7 +33,7 @@ export default function DefaultExample() {
 ### Checked
 
 ```tsx
-import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui'
+import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui/switch'
 
 export default function CheckedExample() {
   return (
@@ -47,7 +47,7 @@ export default function CheckedExample() {
 ### Controlled
 
 ```tsx
-import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui'
+import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui/switch'
 import { useState } from 'react'
 
 export default function ControlledExample() {
@@ -69,7 +69,7 @@ export default function ControlledExample() {
 ### Disabled
 
 ```tsx
-import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui'
+import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui/switch'
 
 export default function DisabledExample() {
   return (

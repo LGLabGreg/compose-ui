@@ -27,7 +27,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 
 export default function DefaultExample() {
   return (
@@ -61,7 +61,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Copy, LogOut, PenLine, Settings, Trash2, User } from 'lucide-react'
 
 export default function WithIconsExample() {
@@ -120,7 +120,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Copy, FilePlus, FolderOpen, Save, Settings, User } from 'lucide-react'
 
 export default function GroupsExample() {
@@ -188,7 +188,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
@@ -253,7 +253,7 @@ import {
   ContextMenuRadioItemLabel,
   ContextMenuRoot,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
@@ -312,7 +312,7 @@ import {
   ContextMenuSubmenuRoot,
   ContextMenuSubmenuTrigger,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { ChevronRight } from 'lucide-react'
 
 export default function SubmenuExample() {

@@ -8,7 +8,7 @@ import {
   MenubarPositioner,
   MenubarRoot,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import { EyeIcon, FileIcon, SquarePen } from 'lucide-react'
 
 export default function SizesExample() {

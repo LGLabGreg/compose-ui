@@ -1,4 +1,4 @@
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { Bookmark, Heart, Star } from 'lucide-react'
 
 export default function GhostExample() {

@@ -19,7 +19,7 @@ import { ToggleGroupRoot, ToggleGroupItem } from '@lglab/compose-ui'
 ### Default
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -42,7 +42,7 @@ export default function DefaultExample() {
 ### Multiple Selection
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react'
 
 export default function MultipleExample() {
@@ -65,7 +65,7 @@ export default function MultipleExample() {
 ### Controlled
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 import { useState } from 'react'
 
@@ -96,7 +96,7 @@ export default function ControlledExample() {
 ### Disabled
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 
 export default function DisabledExample() {
@@ -119,7 +119,7 @@ export default function DisabledExample() {
 ### Sizes
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 
 export default function SizesExample() {
@@ -168,7 +168,7 @@ export default function SizesExample() {
 ### Vertical Orientation
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 
 export default function OrientationExample() {
@@ -191,7 +191,7 @@ export default function OrientationExample() {
 ### With Text
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react'
 
 export default function WithTextExample() {
@@ -217,7 +217,7 @@ export default function WithTextExample() {
 ### Ghost
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { Bookmark, Heart, Star } from 'lucide-react'
 
 export default function GhostExample() {

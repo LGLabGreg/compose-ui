@@ -1,4 +1,10 @@
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
 
 export default function VerticalExample() {
   return (

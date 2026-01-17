@@ -7,7 +7,7 @@ import {
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 
 export default function TrackCursorExample() {
   return (

@@ -1,6 +1,6 @@
 'use client'
 
-import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui'
+import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui/avatar'
 
 export default function BasicExample() {
   return (

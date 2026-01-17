@@ -25,7 +25,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 
 export default function VerticalScrollExample() {
   return (
@@ -59,7 +59,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 
 export default function HorizontalScrollExample() {
   return (
@@ -96,7 +96,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 
 export default function BothScrollbarsExample() {
   return (

@@ -10,7 +10,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 
 export default function BasicExample() {
   return (

@@ -1,4 +1,4 @@
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 
 export default function OrientationExample() {

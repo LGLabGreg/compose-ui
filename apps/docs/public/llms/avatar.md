@@ -19,7 +19,7 @@ import { AvatarRoot, AvatarImage, AvatarFallback, AvatarStack } from '@lglab/com
 ### Basic
 
 ```tsx
-import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui'
+import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui/avatar'
 
 export default function BasicExample() {
   return (
@@ -53,7 +53,7 @@ export default function BasicExample() {
 ### Fallback
 
 ```tsx
-import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui'
+import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui/avatar'
 
 export default function FallbackExample() {
   return (
@@ -76,7 +76,12 @@ export default function FallbackExample() {
 ### Stack
 
 ```tsx
-import { AvatarFallback, AvatarImage, AvatarRoot, AvatarStack } from '@lglab/compose-ui'
+import {
+  AvatarFallback,
+  AvatarImage,
+  AvatarRoot,
+  AvatarStack,
+} from '@lglab/compose-ui/avatar'
 
 export default function StackExample() {
   return (
@@ -110,7 +115,12 @@ export default function StackExample() {
 ### Stack with overflow
 
 ```tsx
-import { AvatarFallback, AvatarImage, AvatarRoot, AvatarStack } from '@lglab/compose-ui'
+import {
+  AvatarFallback,
+  AvatarImage,
+  AvatarRoot,
+  AvatarStack,
+} from '@lglab/compose-ui/avatar'
 
 export default function StackOverflowExample() {
   return (

@@ -11,7 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { AlertDialogRoot, AlertDialogTrigger, AlertDialogPortal, AlertDialogBackdrop, AlertDialogViewport, AlertDialogPopup, AlertDialogTitle, AlertDialogDescription, AlertDialogClose } from '@lglab/compose-ui'
+import { AlertDialog } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -28,7 +28,7 @@ import {
   AlertDialogRoot,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
 
 export default function BasicExample() {
   return (
@@ -62,8 +62,8 @@ import {
   AlertDialogPortal,
   AlertDialogRoot,
   AlertDialogTitle,
-  Button,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
+import { Button } from '@lglab/compose-ui/button'
 import {
   DialogBackdrop,
   DialogClose,
@@ -72,7 +72,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { useState } from 'react'
 
 export default function CloseConfirmationExample() {
@@ -157,7 +157,7 @@ import {
   AlertDialogRoot,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
 
 const demoAlertDialog = AlertDialog.createHandle()
 
@@ -198,7 +198,7 @@ import {
   AlertDialogRoot,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
 
 export default function MultipleTriggersExample() {
   return (
@@ -239,7 +239,7 @@ import {
   AlertDialogRoot,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
 import * as React from 'react'
 
 const demoAlertDialog = AlertDialog.createHandle<{ itemName: string }>()

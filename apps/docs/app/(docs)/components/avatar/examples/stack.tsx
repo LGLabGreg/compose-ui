@@ -1,6 +1,11 @@
 'use client'
 
-import { AvatarFallback, AvatarImage, AvatarRoot, AvatarStack } from '@lglab/compose-ui'
+import {
+  AvatarFallback,
+  AvatarImage,
+  AvatarRoot,
+  AvatarStack,
+} from '@lglab/compose-ui/avatar'
 
 export default function StackExample() {
   return (

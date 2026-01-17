@@ -19,15 +19,15 @@ import { CardRoot, CardMedia, CardHeader, CardTitle, CardDescription, CardConten
 ### Basic
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   CardDescription,
   CardFooter,
   CardHeader,
   CardMedia,
   CardRoot,
   CardTitle,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/card'
 
 export default function VerticalMediaCard() {
   return (
@@ -56,15 +56,15 @@ export default function VerticalMediaCard() {
 ### Horizontal Layout
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   CardDescription,
   CardFooter,
   CardHeader,
   CardMedia,
   CardRoot,
   CardTitle,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/card'
 
 export default function HorizontalLayoutCard() {
   return (
@@ -98,13 +98,8 @@ export default function HorizontalLayoutCard() {
 ### Split Layout
 
 ```tsx
-import {
-  Button,
-  CardDescription,
-  CardMedia,
-  CardRoot,
-  CardTitle,
-} from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
+import { CardDescription, CardMedia, CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function SplitLayoutCard() {
   return (
@@ -139,7 +134,7 @@ export default function SplitLayoutCard() {
 ### Grid Stats
 
 ```tsx
-import { CardContent, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui'
+import { CardContent, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function GridStatsCard() {
   const stats = [
@@ -172,15 +167,15 @@ export default function GridStatsCard() {
 ### Multi-Section
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   CardDescription,
   CardFooter,
   CardRoot,
   CardSection,
   CardTitle,
-  Separator,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/card'
+import { Separator } from '@lglab/compose-ui/separator'
 
 export default function MultiSectionCard() {
   return (
@@ -225,7 +220,7 @@ export default function MultiSectionCard() {
 ### Custom Heading Level
 
 ```tsx
-import { CardDescription, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui'
+import { CardDescription, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function CardWithCustomHeading() {
   return (
@@ -244,7 +239,7 @@ export default function CardWithCustomHeading() {
 ### Variants
 
 ```tsx
-import { CardRoot, CardTitle } from '@lglab/compose-ui'
+import { CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function CardVariants() {
   return (

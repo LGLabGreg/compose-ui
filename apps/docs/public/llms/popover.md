@@ -19,8 +19,8 @@ import { PopoverRoot, PopoverTrigger, PopoverPortal, PopoverBackdrop, PopoverPos
 ### Basic
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   PopoverArrow,
   PopoverDescription,
   PopoverPopup,
@@ -29,7 +29,7 @@ import {
   PopoverRoot,
   PopoverTitle,
   PopoverTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/popover'
 import { Bell } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -59,8 +59,8 @@ export default function DefaultExample() {
 ### Open on Hover
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   PopoverArrow,
   PopoverDescription,
   PopoverPopup,
@@ -69,7 +69,7 @@ import {
   PopoverRoot,
   PopoverTitle,
   PopoverTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/popover'
 import { Bell } from 'lucide-react'
 
 export default function OpenOnHoverExample() {
@@ -103,8 +103,8 @@ export default function OpenOnHoverExample() {
 ### With Close Button
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   PopoverArrow,
   PopoverClose,
   PopoverDescription,
@@ -114,7 +114,7 @@ import {
   PopoverRoot,
   PopoverTitle,
   PopoverTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/popover'
 import { Bell } from 'lucide-react'
 
 export default function WithCloseExample() {
@@ -156,8 +156,8 @@ export default function WithCloseExample() {
 ### Sides
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   PopoverArrow,
   PopoverDescription,
   PopoverPopup,
@@ -166,7 +166,7 @@ import {
   PopoverRoot,
   PopoverTitle,
   PopoverTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/popover'
 
 const sides = ['left', 'bottom', 'top', 'right'] as const
 

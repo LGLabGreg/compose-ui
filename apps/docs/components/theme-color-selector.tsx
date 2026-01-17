@@ -1,7 +1,7 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuGroup,
   MenuGroupLabel,
@@ -14,7 +14,7 @@ import {
   MenuRadioItemLabel,
   MenuRoot,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { Check, Palette } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useSyncExternalStore } from 'react'

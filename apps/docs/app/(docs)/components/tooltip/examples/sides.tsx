@@ -1,14 +1,14 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp } from 'lucide-react'
 
 export default function SidesExample() {

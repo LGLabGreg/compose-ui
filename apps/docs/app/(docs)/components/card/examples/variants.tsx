@@ -1,6 +1,6 @@
 'use client'
 
-import { CardRoot, CardTitle } from '@lglab/compose-ui'
+import { CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function CardVariants() {
   return (

@@ -1,4 +1,4 @@
-import { TabsIndicator, TabsList, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import { TabsIndicator, TabsList, TabsRoot, TabsTab } from '@lglab/compose-ui/tabs'
 
 export default function SizesExample() {
   return (
