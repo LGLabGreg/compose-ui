@@ -11,19 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import {
-  DrawerBackdrop,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerPopup,
-  DrawerPortal,
-  DrawerRoot,
-  DrawerTitle,
-  DrawerTrigger,
-} from '@lglab/compose-ui'
+import { DrawerRoot, DrawerTrigger, DrawerPortal, DrawerBackdrop, DrawerPopup, DrawerTitle, DrawerDescription, DrawerClose, DrawerHeader, DrawerContent, DrawerFooter } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -43,7 +31,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 export default function BasicExample() {
   return (
@@ -87,7 +75,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 const sides = ['top', 'right', 'bottom', 'left'] as const
 
@@ -139,7 +127,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 export default function SizeExample() {
   return (
@@ -182,7 +170,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 import { X } from 'lucide-react'
 
 export default function CloseButtonExample() {
@@ -231,14 +219,14 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 import {
   ScrollAreaContent,
   ScrollAreaRoot,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 
 export default function ScrollableExample() {
   return (
@@ -283,6 +271,7 @@ export default function ScrollableExample() {
 ### Controlled
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
   DrawerBackdrop,
   DrawerClose,
@@ -294,8 +283,7 @@ import {
   DrawerPortal,
   DrawerRoot,
   DrawerTitle,
-} from '@lglab/compose-ui'
-import { Button } from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 import { SlidersHorizontal } from 'lucide-react'
 import { useState } from 'react'
 
@@ -348,7 +336,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 export default function NestedExample() {
   return (
@@ -400,6 +388,7 @@ export default function NestedExample() {
 ### Footer
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
   DrawerBackdrop,
   DrawerClose,
@@ -412,8 +401,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
-import { Button } from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 export default function FooterExample() {
   return (

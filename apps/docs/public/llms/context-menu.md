@@ -11,27 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import {
-  ContextMenuArrow,
-  ContextMenuCheckboxItem,
-  ContextMenuCheckboxItemIndicator,
-  ContextMenuCheckboxItemLabel,
-  ContextMenuGroup,
-  ContextMenuGroupLabel,
-  ContextMenuItem,
-  ContextMenuPopup,
-  ContextMenuPortal,
-  ContextMenuPositioner,
-  ContextMenuRadioGroup,
-  ContextMenuRadioItem,
-  ContextMenuRadioItemIndicator,
-  ContextMenuRadioItemLabel,
-  ContextMenuRoot,
-  ContextMenuSeparator,
-  ContextMenuSubmenuRoot,
-  ContextMenuSubmenuTrigger,
-  ContextMenuTrigger,
-} from '@lglab/compose-ui'
+import { ContextMenuRoot, ContextMenuTrigger, ContextMenuPortal, ContextMenuPositioner, ContextMenuPopup, ContextMenuArrow, ContextMenuItem, ContextMenuSeparator, ContextMenuGroup, ContextMenuGroupLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuRadioItemIndicator, ContextMenuRadioItemLabel, ContextMenuCheckboxItem, ContextMenuCheckboxItemIndicator, ContextMenuCheckboxItemLabel, ContextMenuSubmenuTrigger, ContextMenuSubmenuRoot } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -47,7 +27,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 
 export default function DefaultExample() {
   return (
@@ -81,7 +61,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Copy, LogOut, PenLine, Settings, Trash2, User } from 'lucide-react'
 
 export default function WithIconsExample() {
@@ -140,7 +120,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Copy, FilePlus, FolderOpen, Save, Settings, User } from 'lucide-react'
 
 export default function GroupsExample() {
@@ -208,7 +188,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
@@ -273,7 +253,7 @@ import {
   ContextMenuRadioItemLabel,
   ContextMenuRoot,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
@@ -332,7 +312,7 @@ import {
   ContextMenuSubmenuRoot,
   ContextMenuSubmenuTrigger,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { ChevronRight } from 'lucide-react'
 
 export default function SubmenuExample() {

@@ -11,7 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { CollapsiblePanel, CollapsibleRoot, CollapsibleTrigger } from '@lglab/compose-ui'
+import { CollapsibleRoot, CollapsibleTrigger, CollapsiblePanel } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -19,12 +19,12 @@ import { CollapsiblePanel, CollapsibleRoot, CollapsibleTrigger } from '@lglab/co
 ### Basic
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   CollapsiblePanel,
   CollapsibleRoot,
   CollapsibleTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/collapsible'
 import { ChevronDown } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -54,7 +54,11 @@ export default function DefaultExample() {
 ### Sidebar Menu
 
 ```tsx
-import { CollapsiblePanel, CollapsibleRoot, CollapsibleTrigger } from '@lglab/compose-ui'
+import {
+  CollapsiblePanel,
+  CollapsibleRoot,
+  CollapsibleTrigger,
+} from '@lglab/compose-ui/collapsible'
 import { ChevronDown, Settings } from 'lucide-react'
 
 const menuItems = [
@@ -104,7 +108,11 @@ export default function SidebarMenuExample() {
 ### Default Open
 
 ```tsx
-import { CollapsiblePanel, CollapsibleRoot, CollapsibleTrigger } from '@lglab/compose-ui'
+import {
+  CollapsiblePanel,
+  CollapsibleRoot,
+  CollapsibleTrigger,
+} from '@lglab/compose-ui/collapsible'
 import { ChevronDown, Settings } from 'lucide-react'
 
 const menuItems = [

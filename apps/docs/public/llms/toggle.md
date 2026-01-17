@@ -19,7 +19,7 @@ import { Toggle } from '@lglab/compose-ui'
 ### Default
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -34,7 +34,7 @@ export default function DefaultExample() {
 ### Sizes
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 
 export default function SizesExample() {
@@ -57,7 +57,7 @@ export default function SizesExample() {
 ### Pressed
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 
 export default function PressedExample() {
@@ -72,7 +72,7 @@ export default function PressedExample() {
 ### Controlled
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 import { useState } from 'react'
 
@@ -98,7 +98,7 @@ export default function ControlledExample() {
 ### Disabled
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 
 export default function DisabledExample() {
@@ -118,7 +118,7 @@ export default function DisabledExample() {
 ### With Text
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 
 export default function WithTextExample() {
@@ -137,7 +137,7 @@ export default function WithTextExample() {
 ### Ghost
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { Heart } from 'lucide-react'
 
 export default function GhostExample() {

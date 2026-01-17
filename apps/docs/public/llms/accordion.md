@@ -11,13 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import {
-  AccordionHeader,
-  AccordionItem,
-  AccordionPanel,
-  AccordionRoot,
-  AccordionTrigger,
-} from '@lglab/compose-ui'
+import { AccordionRoot, AccordionItem, AccordionHeader, AccordionTrigger, AccordionPanel } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -31,7 +25,7 @@ import {
   AccordionPanel,
   AccordionRoot,
   AccordionTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/accordion'
 import { ChevronDown } from 'lucide-react'
 
 const items = [
@@ -83,7 +77,7 @@ import {
   AccordionPanel,
   AccordionRoot,
   AccordionTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/accordion'
 import { Plus } from 'lucide-react'
 
 const items = [
@@ -135,7 +129,7 @@ import {
   AccordionPanel,
   AccordionRoot,
   AccordionTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/accordion'
 import { ChevronDown } from 'lucide-react'
 
 const items = [

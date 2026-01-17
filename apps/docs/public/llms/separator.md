@@ -19,7 +19,7 @@ import { Separator } from '@lglab/compose-ui'
 ### Basic
 
 ```tsx
-import { Separator } from '@lglab/compose-ui'
+import { Separator } from '@lglab/compose-ui/separator'
 
 export default function DefaultExample() {
   return (

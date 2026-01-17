@@ -50,15 +50,15 @@ import { TooltipProvider, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipPos
 ### Default
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { Plus } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -88,15 +88,15 @@ export default function DefaultExample() {
 ### Variants
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 
 export default function VariantsExample() {
   return (
@@ -156,14 +156,14 @@ export default function VariantsExample() {
 ### No Arrow
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { Info } from 'lucide-react'
 
 export default function NoArrowExample() {
@@ -190,15 +190,15 @@ export default function NoArrowExample() {
 ### Sides
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp } from 'lucide-react'
 
 export default function SidesExample() {
@@ -294,7 +294,7 @@ import {
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 
 export default function TrackCursorExample() {
   return (
@@ -325,15 +325,15 @@ export default function TrackCursorExample() {
 ### Delay
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { Clock } from 'lucide-react'
 
 export default function DelayExample() {
@@ -386,8 +386,8 @@ export default function DelayExample() {
 ### Provider
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
@@ -395,7 +395,7 @@ import {
   TooltipProvider,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { Bold, Italic, Underline } from 'lucide-react'
 
 export default function ProviderExample() {
@@ -467,15 +467,15 @@ export default function ProviderExample() {
 ### Anchor to Another Element
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
   TooltipPositioner,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import * as React from 'react'
 
 export default function AnchorElementExample() {
@@ -539,7 +539,7 @@ import { ToggleGroupRoot, ToggleGroupItem } from '@lglab/compose-ui'
 ### Default
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -562,7 +562,7 @@ export default function DefaultExample() {
 ### Multiple Selection
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react'
 
 export default function MultipleExample() {
@@ -585,7 +585,7 @@ export default function MultipleExample() {
 ### Controlled
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 import { useState } from 'react'
 
@@ -616,7 +616,7 @@ export default function ControlledExample() {
 ### Disabled
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 
 export default function DisabledExample() {
@@ -639,7 +639,7 @@ export default function DisabledExample() {
 ### Sizes
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 
 export default function SizesExample() {
@@ -688,7 +688,7 @@ export default function SizesExample() {
 ### Vertical Orientation
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react'
 
 export default function OrientationExample() {
@@ -711,7 +711,7 @@ export default function OrientationExample() {
 ### With Text
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react'
 
 export default function WithTextExample() {
@@ -737,7 +737,7 @@ export default function WithTextExample() {
 ### Ghost
 
 ```tsx
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { Bookmark, Heart, Star } from 'lucide-react'
 
 export default function GhostExample() {
@@ -803,7 +803,7 @@ import { Toggle } from '@lglab/compose-ui'
 ### Default
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -818,7 +818,7 @@ export default function DefaultExample() {
 ### Sizes
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 
 export default function SizesExample() {
@@ -841,7 +841,7 @@ export default function SizesExample() {
 ### Pressed
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 
 export default function PressedExample() {
@@ -856,7 +856,7 @@ export default function PressedExample() {
 ### Controlled
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 import { useState } from 'react'
 
@@ -882,7 +882,7 @@ export default function ControlledExample() {
 ### Disabled
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 
 export default function DisabledExample() {
@@ -902,7 +902,7 @@ export default function DisabledExample() {
 ### With Text
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 
 export default function WithTextExample() {
@@ -921,7 +921,7 @@ export default function WithTextExample() {
 ### Ghost
 
 ```tsx
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { Heart } from 'lucide-react'
 
 export default function GhostExample() {
@@ -967,7 +967,13 @@ import { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from '@lglab/co
 ### Basic
 
 ```tsx
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
 
 export default function BasicExample() {
   return (
@@ -1006,7 +1012,13 @@ export default function BasicExample() {
 ### With Icons
 
 ```tsx
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
 import { FolderIcon, SettingsIcon, UserIcon } from 'lucide-react'
 
 export default function WithIconsExample() {
@@ -1050,7 +1062,7 @@ export default function WithIconsExample() {
 ### Sizes
 
 ```tsx
-import { TabsIndicator, TabsList, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import { TabsIndicator, TabsList, TabsRoot, TabsTab } from '@lglab/compose-ui/tabs'
 
 export default function SizesExample() {
   return (
@@ -1108,7 +1120,13 @@ export default function SizesExample() {
 ### Disabled Tab
 
 ```tsx
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
 
 export default function DisabledExample() {
   return (
@@ -1144,7 +1162,13 @@ export default function DisabledExample() {
 ### Vertical Orientation
 
 ```tsx
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
 
 export default function VerticalExample() {
   return (
@@ -1223,7 +1247,7 @@ import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui'
 ### Default
 
 ```tsx
-import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui'
+import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui/switch'
 
 export default function DefaultExample() {
   return (
@@ -1237,7 +1261,7 @@ export default function DefaultExample() {
 ### Checked
 
 ```tsx
-import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui'
+import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui/switch'
 
 export default function CheckedExample() {
   return (
@@ -1251,7 +1275,7 @@ export default function CheckedExample() {
 ### Controlled
 
 ```tsx
-import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui'
+import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui/switch'
 import { useState } from 'react'
 
 export default function ControlledExample() {
@@ -1273,7 +1297,7 @@ export default function ControlledExample() {
 ### Disabled
 
 ```tsx
-import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui'
+import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui/switch'
 
 export default function DisabledExample() {
   return (
@@ -1334,7 +1358,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/slider'
 
 export default function DefaultExample() {
   return (
@@ -1368,7 +1392,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/slider'
 
 export default function RangeExample() {
   return (
@@ -1405,7 +1429,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/slider'
 
 export default function StepExample() {
   return (
@@ -1442,7 +1466,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/slider'
 
 export default function VerticalExample() {
   return (
@@ -1491,7 +1515,7 @@ import { Separator } from '@lglab/compose-ui'
 ### Basic
 
 ```tsx
-import { Separator } from '@lglab/compose-ui'
+import { Separator } from '@lglab/compose-ui/separator'
 
 export default function DefaultExample() {
   return (
@@ -1549,7 +1573,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 
 export default function VerticalScrollExample() {
   return (
@@ -1583,7 +1607,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 
 export default function HorizontalScrollExample() {
   return (
@@ -1620,7 +1644,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 
 export default function BothScrollbarsExample() {
   return (
@@ -1684,7 +1708,7 @@ import {
   ProgressRoot,
   ProgressTrack,
   ProgressValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/progress'
 import * as React from 'react'
 
 export default function BasicExample() {
@@ -1741,8 +1765,8 @@ import { PopoverRoot, PopoverTrigger, PopoverPortal, PopoverBackdrop, PopoverPos
 ### Basic
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   PopoverArrow,
   PopoverDescription,
   PopoverPopup,
@@ -1751,7 +1775,7 @@ import {
   PopoverRoot,
   PopoverTitle,
   PopoverTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/popover'
 import { Bell } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -1781,8 +1805,8 @@ export default function DefaultExample() {
 ### Open on Hover
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   PopoverArrow,
   PopoverDescription,
   PopoverPopup,
@@ -1791,7 +1815,7 @@ import {
   PopoverRoot,
   PopoverTitle,
   PopoverTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/popover'
 import { Bell } from 'lucide-react'
 
 export default function OpenOnHoverExample() {
@@ -1825,8 +1849,8 @@ export default function OpenOnHoverExample() {
 ### With Close Button
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   PopoverArrow,
   PopoverClose,
   PopoverDescription,
@@ -1836,7 +1860,7 @@ import {
   PopoverRoot,
   PopoverTitle,
   PopoverTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/popover'
 import { Bell } from 'lucide-react'
 
 export default function WithCloseExample() {
@@ -1878,8 +1902,8 @@ export default function WithCloseExample() {
 ### Sides
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   PopoverArrow,
   PopoverDescription,
   PopoverPopup,
@@ -1888,7 +1912,7 @@ import {
   PopoverRoot,
   PopoverTitle,
   PopoverTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/popover'
 
 const sides = ['left', 'bottom', 'top', 'right'] as const
 
@@ -1956,7 +1980,7 @@ import {
   MeterRoot,
   MeterTrack,
   MeterValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/meter'
 
 export default function BasicExample() {
   return (
@@ -2004,7 +2028,7 @@ import {
   MeterRoot,
   MeterTrack,
   MeterValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/meter'
 
 export default function AnimatedExample() {
   return (
@@ -2052,7 +2076,7 @@ import {
   MeterRoot,
   MeterTrack,
   MeterValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/meter'
 
 export default function CustomFormatExample() {
   return (
@@ -2143,7 +2167,7 @@ import {
   MenubarRoot,
   MenubarSeparator,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 
 export default function DefaultExample() {
   return (
@@ -2207,7 +2231,7 @@ import {
   MenubarRoot,
   MenubarSeparator,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import {
   Copy,
   EyeIcon,
@@ -2328,7 +2352,7 @@ import {
   MenubarRoot,
   MenubarSeparator,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 
 export default function WithArrowExample() {
   return (
@@ -2383,7 +2407,7 @@ import {
   MenubarSubmenuRoot,
   MenubarSubmenuTrigger,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import { ChevronRight } from 'lucide-react'
 
 export default function SubmenuExample() {
@@ -2453,7 +2477,7 @@ import {
   MenubarRoot,
   MenubarSeparator,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
@@ -2545,7 +2569,7 @@ import {
   MenubarRoot,
   MenubarSeparator,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
@@ -2640,7 +2664,7 @@ import {
   MenubarPositioner,
   MenubarRoot,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 
 export default function GhostExample() {
   return (
@@ -2695,7 +2719,7 @@ import {
   MenubarPositioner,
   MenubarRoot,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import { EyeIcon, FileIcon, SquarePen } from 'lucide-react'
 
 export default function SizesExample() {
@@ -2941,8 +2965,8 @@ import { MenuRoot, MenuTrigger, MenuPortal, MenuPositioner, MenuPopup, MenuArrow
 ### Basic
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -2951,7 +2975,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { MoreVertical } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -2985,8 +3009,8 @@ export default function DefaultExample() {
 ### Open on Hover
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -2995,7 +3019,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { MoreVertical } from 'lucide-react'
 
 export default function OpenOnHoverExample() {
@@ -3028,8 +3052,8 @@ export default function OpenOnHoverExample() {
 ### Sides
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -3038,7 +3062,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 
 const sides = ['left', 'bottom', 'top', 'right'] as const
 
@@ -3075,8 +3099,8 @@ export default function SidesExample() {
 ### With Icons
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -3085,7 +3109,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { Copy, LogOut, MoreVertical, PenLine, Settings, Trash2, User } from 'lucide-react'
 
 export default function WithIconsExample() {
@@ -3139,8 +3163,8 @@ export default function WithIconsExample() {
 ### Groups
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuGroup,
   MenuGroupLabel,
@@ -3151,7 +3175,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { Menu } from 'lucide-react'
 
 export default function GroupsExample() {
@@ -3192,8 +3216,8 @@ export default function GroupsExample() {
 ### Checkbox Items
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuCheckboxItem,
   MenuCheckboxItemIndicator,
@@ -3204,7 +3228,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { Check, Settings } from 'lucide-react'
 import * as React from 'react'
 
@@ -3260,8 +3284,8 @@ export default function CheckboxItemsExample() {
 ### Radio Group
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuGroup,
   MenuGroupLabel,
@@ -3274,7 +3298,7 @@ import {
   MenuRadioItemLabel,
   MenuRoot,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { Check, SunMoon } from 'lucide-react'
 import * as React from 'react'
 
@@ -3329,8 +3353,8 @@ export default function RadioGroupExample() {
 ### Submenu
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -3341,7 +3365,7 @@ import {
   MenuSubmenuRoot,
   MenuSubmenuTrigger,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { ChevronRight, Share } from 'lucide-react'
 
 export default function SubmenuExample() {
@@ -3440,7 +3464,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 export default function BasicExample() {
   return (
@@ -3484,7 +3508,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 const sides = ['top', 'right', 'bottom', 'left'] as const
 
@@ -3536,7 +3560,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 export default function SizeExample() {
   return (
@@ -3579,7 +3603,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 import { X } from 'lucide-react'
 
 export default function CloseButtonExample() {
@@ -3628,14 +3652,14 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 import {
   ScrollAreaContent,
   ScrollAreaRoot,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 
 export default function ScrollableExample() {
   return (
@@ -3680,6 +3704,7 @@ export default function ScrollableExample() {
 ### Controlled
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
   DrawerBackdrop,
   DrawerClose,
@@ -3691,8 +3716,7 @@ import {
   DrawerPortal,
   DrawerRoot,
   DrawerTitle,
-} from '@lglab/compose-ui'
-import { Button } from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 import { SlidersHorizontal } from 'lucide-react'
 import { useState } from 'react'
 
@@ -3745,7 +3769,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 export default function NestedExample() {
   return (
@@ -3797,6 +3821,7 @@ export default function NestedExample() {
 ### Footer
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
   DrawerBackdrop,
   DrawerClose,
@@ -3809,8 +3834,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
-import { Button } from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 export default function FooterExample() {
   return (
@@ -3878,7 +3902,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 
 export default function BasicExample() {
   return (
@@ -3913,7 +3937,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 
 export default function VariantsExample() {
   return (
@@ -4002,7 +4026,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 
 export default function SizesExample() {
   return (
@@ -4131,7 +4155,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { MailIcon } from 'lucide-react'
 import * as React from 'react'
 
@@ -4214,7 +4238,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { Trash2Icon } from 'lucide-react'
 
 export default function DestructiveExample() {
@@ -4262,14 +4286,14 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 import {
   ScrollAreaContent,
   ScrollAreaRoot,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 
 export default function ScrollableExample() {
   return (
@@ -4314,8 +4338,8 @@ export default function ScrollableExample() {
 ### Controlled
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   DialogBackdrop,
   DialogClose,
   DialogDescription,
@@ -4325,7 +4349,7 @@ import {
   DialogPortal,
   DialogRoot,
   DialogTitle,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { SettingsIcon } from 'lucide-react'
 import * as React from 'react'
 
@@ -4388,7 +4412,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 
 export default function NestedExample() {
   return (
@@ -4463,7 +4487,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 
 export default function DefaultExample() {
   return (
@@ -4497,7 +4521,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Copy, LogOut, PenLine, Settings, Trash2, User } from 'lucide-react'
 
 export default function WithIconsExample() {
@@ -4556,7 +4580,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Copy, FilePlus, FolderOpen, Save, Settings, User } from 'lucide-react'
 
 export default function GroupsExample() {
@@ -4624,7 +4648,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
@@ -4689,7 +4713,7 @@ import {
   ContextMenuRadioItemLabel,
   ContextMenuRoot,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
@@ -4748,7 +4772,7 @@ import {
   ContextMenuSubmenuRoot,
   ContextMenuSubmenuTrigger,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { ChevronRight } from 'lucide-react'
 
 export default function SubmenuExample() {
@@ -4829,12 +4853,12 @@ import { CollapsibleRoot, CollapsibleTrigger, CollapsiblePanel } from '@lglab/co
 ### Basic
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   CollapsiblePanel,
   CollapsibleRoot,
   CollapsibleTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/collapsible'
 import { ChevronDown } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -4864,7 +4888,11 @@ export default function DefaultExample() {
 ### Sidebar Menu
 
 ```tsx
-import { CollapsiblePanel, CollapsibleRoot, CollapsibleTrigger } from '@lglab/compose-ui'
+import {
+  CollapsiblePanel,
+  CollapsibleRoot,
+  CollapsibleTrigger,
+} from '@lglab/compose-ui/collapsible'
 import { ChevronDown, Settings } from 'lucide-react'
 
 const menuItems = [
@@ -4914,7 +4942,11 @@ export default function SidebarMenuExample() {
 ### Default Open
 
 ```tsx
-import { CollapsiblePanel, CollapsibleRoot, CollapsibleTrigger } from '@lglab/compose-ui'
+import {
+  CollapsiblePanel,
+  CollapsibleRoot,
+  CollapsibleTrigger,
+} from '@lglab/compose-ui/collapsible'
 import { ChevronDown, Settings } from 'lucide-react'
 
 const menuItems = [
@@ -4989,15 +5021,15 @@ import { CardRoot, CardMedia, CardHeader, CardTitle, CardDescription, CardConten
 ### Basic
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   CardDescription,
   CardFooter,
   CardHeader,
   CardMedia,
   CardRoot,
   CardTitle,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/card'
 
 export default function VerticalMediaCard() {
   return (
@@ -5026,15 +5058,15 @@ export default function VerticalMediaCard() {
 ### Horizontal Layout
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   CardDescription,
   CardFooter,
   CardHeader,
   CardMedia,
   CardRoot,
   CardTitle,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/card'
 
 export default function HorizontalLayoutCard() {
   return (
@@ -5068,13 +5100,8 @@ export default function HorizontalLayoutCard() {
 ### Split Layout
 
 ```tsx
-import {
-  Button,
-  CardDescription,
-  CardMedia,
-  CardRoot,
-  CardTitle,
-} from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
+import { CardDescription, CardMedia, CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function SplitLayoutCard() {
   return (
@@ -5109,7 +5136,7 @@ export default function SplitLayoutCard() {
 ### Grid Stats
 
 ```tsx
-import { CardContent, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui'
+import { CardContent, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function GridStatsCard() {
   const stats = [
@@ -5142,15 +5169,15 @@ export default function GridStatsCard() {
 ### Multi-Section
 
 ```tsx
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   CardDescription,
   CardFooter,
   CardRoot,
   CardSection,
   CardTitle,
-  Separator,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/card'
+import { Separator } from '@lglab/compose-ui/separator'
 
 export default function MultiSectionCard() {
   return (
@@ -5195,7 +5222,7 @@ export default function MultiSectionCard() {
 ### Custom Heading Level
 
 ```tsx
-import { CardDescription, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui'
+import { CardDescription, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function CardWithCustomHeading() {
   return (
@@ -5214,7 +5241,7 @@ export default function CardWithCustomHeading() {
 ### Variants
 
 ```tsx
-import { CardRoot, CardTitle } from '@lglab/compose-ui'
+import { CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function CardVariants() {
   return (
@@ -5261,7 +5288,7 @@ import { Button } from '@lglab/compose-ui'
 ### Default
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { TrashIcon } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -5288,7 +5315,7 @@ export default function DefaultExample() {
 ### Secondary
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { TrashIcon } from 'lucide-react'
 
 export default function SecondaryExample() {
@@ -5321,7 +5348,7 @@ export default function SecondaryExample() {
 ### Outline
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { TrashIcon } from 'lucide-react'
 
 export default function OutlineExample() {
@@ -5354,7 +5381,7 @@ export default function OutlineExample() {
 ### Destructive
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { TrashIcon } from 'lucide-react'
 
 export default function DestructiveExample() {
@@ -5387,7 +5414,7 @@ export default function DestructiveExample() {
 ### Ghost
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { TrashIcon } from 'lucide-react'
 
 export default function GhostExample() {
@@ -5420,7 +5447,7 @@ export default function GhostExample() {
 ### Loading
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { LoaderCircle } from 'lucide-react'
 import { useState } from 'react'
 
@@ -5453,7 +5480,7 @@ export default function LoadingExample() {
 ### As Link
 
 ```tsx
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { Github } from 'lucide-react'
 import Link from 'next/link'
 
@@ -5502,7 +5529,7 @@ import { AvatarRoot, AvatarImage, AvatarFallback, AvatarStack } from '@lglab/com
 ### Basic
 
 ```tsx
-import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui'
+import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui/avatar'
 
 export default function BasicExample() {
   return (
@@ -5536,7 +5563,7 @@ export default function BasicExample() {
 ### Fallback
 
 ```tsx
-import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui'
+import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui/avatar'
 
 export default function FallbackExample() {
   return (
@@ -5559,7 +5586,12 @@ export default function FallbackExample() {
 ### Stack
 
 ```tsx
-import { AvatarFallback, AvatarImage, AvatarRoot, AvatarStack } from '@lglab/compose-ui'
+import {
+  AvatarFallback,
+  AvatarImage,
+  AvatarRoot,
+  AvatarStack,
+} from '@lglab/compose-ui/avatar'
 
 export default function StackExample() {
   return (
@@ -5593,7 +5625,12 @@ export default function StackExample() {
 ### Stack with overflow
 
 ```tsx
-import { AvatarFallback, AvatarImage, AvatarRoot, AvatarStack } from '@lglab/compose-ui'
+import {
+  AvatarFallback,
+  AvatarImage,
+  AvatarRoot,
+  AvatarStack,
+} from '@lglab/compose-ui/avatar'
 
 export default function StackOverflowExample() {
   return (
@@ -5653,7 +5690,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { AlertDialogRoot, AlertDialogTrigger, AlertDialogPortal, AlertDialogBackdrop, AlertDialogViewport, AlertDialogPopup, AlertDialogTitle, AlertDialogDescription, AlertDialogClose } from '@lglab/compose-ui'
+import { AlertDialog } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -5670,7 +5707,7 @@ import {
   AlertDialogRoot,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
 
 export default function BasicExample() {
   return (
@@ -5704,8 +5741,8 @@ import {
   AlertDialogPortal,
   AlertDialogRoot,
   AlertDialogTitle,
-  Button,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
+import { Button } from '@lglab/compose-ui/button'
 import {
   DialogBackdrop,
   DialogClose,
@@ -5714,7 +5751,7 @@ import {
   DialogRoot,
   DialogTitle,
   DialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { useState } from 'react'
 
 export default function CloseConfirmationExample() {
@@ -5799,7 +5836,7 @@ import {
   AlertDialogRoot,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
 
 const demoAlertDialog = AlertDialog.createHandle()
 
@@ -5840,7 +5877,7 @@ import {
   AlertDialogRoot,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
 
 export default function MultipleTriggersExample() {
   return (
@@ -5881,7 +5918,7 @@ import {
   AlertDialogRoot,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
 import * as React from 'react'
 
 const demoAlertDialog = AlertDialog.createHandle<{ itemName: string }>()
@@ -5976,7 +6013,7 @@ import {
   AccordionPanel,
   AccordionRoot,
   AccordionTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/accordion'
 import { ChevronDown } from 'lucide-react'
 
 const items = [
@@ -6028,7 +6065,7 @@ import {
   AccordionPanel,
   AccordionRoot,
   AccordionTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/accordion'
 import { Plus } from 'lucide-react'
 
 const items = [
@@ -6080,7 +6117,7 @@ import {
   AccordionPanel,
   AccordionRoot,
   AccordionTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/accordion'
 import { ChevronDown } from 'lucide-react'
 
 const items = [

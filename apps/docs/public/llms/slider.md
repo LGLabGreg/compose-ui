@@ -11,14 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import {
-  SliderControl,
-  SliderIndicator,
-  SliderRoot,
-  SliderThumb,
-  SliderTrack,
-  SliderValue,
-} from '@lglab/compose-ui'
+import { SliderRoot, SliderValue, SliderControl, SliderTrack, SliderIndicator, SliderThumb } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -33,7 +26,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/slider'
 
 export default function DefaultExample() {
   return (
@@ -67,7 +60,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/slider'
 
 export default function RangeExample() {
   return (
@@ -104,7 +97,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/slider'
 
 export default function StepExample() {
   return (
@@ -141,7 +134,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/slider'
 
 export default function VerticalExample() {
   return (
