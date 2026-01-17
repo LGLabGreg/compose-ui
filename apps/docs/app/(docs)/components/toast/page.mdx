@@ -1,0 +1,51 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import PositionsExample from './examples/positions'
+import PromiseExample from './examples/promise'
+import StackedExample from './examples/stacked'
+import WithActionExample from './examples/with-action'
+
+<ComponentPage
+  title="Toast"
+  description="A notification message that appears temporarily to provide feedback."
+  component="toast"
+  baseUiComponent="toast"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/toast/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Action'
+  filePath='app/(docs)/components/toast/examples/with-action.tsx'
+>
+  <WithActionExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Promise Toast'
+  filePath='app/(docs)/components/toast/examples/promise.tsx'
+>
+  <PromiseExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stacked Toasts'
+  filePath='app/(docs)/components/toast/examples/stacked.tsx'
+>
+  <StackedExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Custom Positions'
+  filePath='app/(docs)/components/toast/examples/positions.tsx'
+>
+  <PositionsExample />
+</ExampleLoader>
+
+</ComponentPage>

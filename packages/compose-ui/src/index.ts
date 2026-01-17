@@ -30,6 +30,18 @@ export { SwitchRoot, SwitchThumb } from './components/switch'
 export { Toggle } from './components/toggle'
 export { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from './components/tabs'
 export {
+  Toast,
+  ToastProvider,
+  ToastViewport,
+  ToastRoot,
+  ToastContent,
+  ToastTitle,
+  ToastDescription,
+  ToastAction,
+  ToastClose,
+  ToastPositioner,
+} from './components/toast'
+export {
   DialogRoot,
   DialogTrigger,
   DialogPortal,
@@ -232,6 +244,17 @@ export type {
   TabsIndicatorProps,
   TabsPanelProps,
 } from './components/tabs'
+export type {
+  ToastProviderProps,
+  ToastViewportProps,
+  ToastRootProps,
+  ToastContentProps,
+  ToastTitleProps,
+  ToastDescriptionProps,
+  ToastActionProps,
+  ToastCloseProps,
+  ToastPositionerProps,
+} from './components/toast'
 export type {
   DialogRootProps,
   DialogTriggerProps,

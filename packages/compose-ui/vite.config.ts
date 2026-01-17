@@ -29,6 +29,7 @@ const components = [
   'slider',
   'switch',
   'tabs',
+  'toast',
   'toggle',
   'toggle-group',
   'tooltip',
