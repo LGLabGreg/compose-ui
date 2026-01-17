@@ -22,6 +22,7 @@ const components = [
   'menubar',
   'meter',
   'popover',
+  'preview-card',
   'progress',
   'scroll-area',
   'separator',

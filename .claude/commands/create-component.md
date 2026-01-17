@@ -127,7 +127,34 @@ import { SomeIcon } from 'lucide-react'
 
 Note: The barrel file import (`@lglab/compose-ui`) still works, but subpath imports are recommended for optimal tree-shaking.
 
-### 6. Add to Navigation
+### 6. Add Subpath Export to package.json
+
+**Location**: `packages/compose-ui/package.json`
+
+Add the component to the `exports` field in alphabetical order. This enables subpath imports (e.g., `@lglab/compose-ui/$ARGUMENTS`):
+
+```json
+"./$ARGUMENTS": {
+  "import": "./dist/$ARGUMENTS.js",
+  "types": "./dist/$ARGUMENTS.d.ts"
+},
+```
+
+### 7. Add to Vite Config
+
+**Location**: `packages/compose-ui/vite.config.ts`
+
+Add the component to the `components` array in alphabetical order. This is needed for the build to generate the subpath entry point:
+
+```ts
+const components = [
+  // ... existing components
+  '$ARGUMENTS',
+  // ... rest of components
+]
+```
+
+### 8. Add to Navigation
 
 **Location**: `apps/docs/lib/navigation.ts`
 
@@ -157,6 +184,8 @@ Add the component to the Components section in alphabetical order:
 - [ ] Component file with all parts
 - [ ] Test file with comprehensive tests
 - [ ] Exports added to index.ts
+- [ ] Subpath export added to package.json exports field
+- [ ] Component added to vite.config.ts components array
 - [ ] Documentation page created
 - [ ] At least one example created
 - [ ] Navigation updated
