@@ -180,6 +180,15 @@ export {
   TooltipPopup,
   TooltipArrow,
 } from './components/tooltip'
+export {
+  PreviewCardRoot,
+  PreviewCardTrigger,
+  PreviewCardPortal,
+  PreviewCardBackdrop,
+  PreviewCardPositioner,
+  PreviewCardPopup,
+  PreviewCardArrow,
+} from './components/preview-card'
 
 export type { ButtonProps } from './components/button'
 export type {
@@ -377,3 +386,12 @@ export type {
   TooltipPopupProps,
   TooltipArrowProps,
 } from './components/tooltip'
+export type {
+  PreviewCardRootProps,
+  PreviewCardTriggerProps,
+  PreviewCardPortalProps,
+  PreviewCardBackdropProps,
+  PreviewCardPositionerProps,
+  PreviewCardPopupProps,
+  PreviewCardArrowProps,
+} from './components/preview-card'

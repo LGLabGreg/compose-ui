@@ -1,0 +1,35 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import SidesExample from './examples/sides'
+import WithDelayExample from './examples/with-delay'
+
+<ComponentPage
+  title="Preview Card"
+  description="A card that displays contextual content when hovering a link."
+  component="preview-card"
+  baseUiComponent="preview-card"
+>
+
+<ExampleLoader
+  title='Basic'
+  filePath='app/(docs)/components/preview-card/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Custom Delay'
+  filePath='app/(docs)/components/preview-card/examples/with-delay.tsx'
+>
+  <WithDelayExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Sides'
+  filePath='app/(docs)/components/preview-card/examples/sides.tsx'
+>
+  <SidesExample />
+</ExampleLoader>
+
+</ComponentPage>

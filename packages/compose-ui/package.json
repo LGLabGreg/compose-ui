@@ -81,6 +81,10 @@
       "import": "./dist/popover.js",
       "types": "./dist/popover.d.ts"
     },
+    "./preview-card": {
+      "import": "./dist/preview-card.js",
+      "types": "./dist/preview-card.d.ts"
+    },
     "./progress": {
       "import": "./dist/progress.js",
       "types": "./dist/progress.d.ts"
