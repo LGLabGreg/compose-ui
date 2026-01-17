@@ -11,7 +11,15 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { TooltipProvider, TooltipRoot, TooltipTrigger, TooltipPortal, TooltipPositioner, TooltipPopup, TooltipArrow } from '@lglab/compose-ui'
+import {
+  TooltipArrow,
+  TooltipPopup,
+  TooltipPortal,
+  TooltipPositioner,
+  TooltipProvider,
+  TooltipRoot,
+  TooltipTrigger,
+} from '@lglab/compose-ui'
 ```
 
 ## Examples

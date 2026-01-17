@@ -11,7 +11,28 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { MenubarRoot, MenubarMenu, MenubarTrigger, MenubarPortal, MenubarPositioner, MenubarPopup, MenubarArrow, MenubarItem, MenubarSeparator, MenubarGroup, MenubarGroupLabel, MenubarRadioGroup, MenubarRadioItem, MenubarRadioItemIndicator, MenubarRadioItemLabel, MenubarCheckboxItem, MenubarCheckboxItemIndicator, MenubarCheckboxItemLabel, MenubarSubmenuTrigger, MenubarSubmenuRoot } from '@lglab/compose-ui'
+import {
+  MenubarArrow,
+  MenubarCheckboxItem,
+  MenubarCheckboxItemIndicator,
+  MenubarCheckboxItemLabel,
+  MenubarGroup,
+  MenubarGroupLabel,
+  MenubarItem,
+  MenubarMenu,
+  MenubarPopup,
+  MenubarPortal,
+  MenubarPositioner,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarRadioItemIndicator,
+  MenubarRadioItemLabel,
+  MenubarRoot,
+  MenubarSeparator,
+  MenubarSubmenuRoot,
+  MenubarSubmenuTrigger,
+  MenubarTrigger,
+} from '@lglab/compose-ui'
 ```
 
 ## Examples

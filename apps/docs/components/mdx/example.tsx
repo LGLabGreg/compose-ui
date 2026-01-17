@@ -1,6 +1,12 @@
 'use client'
 
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
 import { CodeIcon, EyeIcon } from 'lucide-react'
 import Link from 'next/link'
 import type { ReactNode } from 'react'

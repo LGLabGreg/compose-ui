@@ -1,23 +1,6 @@
-import { DocPage } from '@/components/mdx/doc-page'
-
-<DocPage
-  title="Composition"
-  description="Composable components built on Base UI primitives that you can use whole or extend with your own styles."
->
-
-## Built on Base UI
-
-Compose UI components are built on top of [Base UI](https://base-ui.com) primitives. Base UI provides the behavioral foundation—state management, keyboard interactions, ARIA attributes—while Compose UI adds the styling layer with Tailwind CSS.
-
-This means you get components that are both ready to use out of the box and easy to customize when you need something different.
-
-## Using Components As-Is
-
-The simplest approach is to use components directly:
-
-```tsx
-import { Button } from '@lglab/compose-ui'
-
+import { Button, Button } from '@lglab/compose-ui/button'
+import type { ButtonProps } from '@lglab/compose-ui/button'
+import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui/tabs'
 function MyComponent() {
   return <Button variant='outline'>Click me</Button>
 }
@@ -42,8 +25,6 @@ All components accept a `className` prop that merges with the default styles usi
 Compose UI components use the compound component pattern, giving you control over structure while maintaining proper behavior:
 
 ```tsx
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
-
 export function Tabs() {
   return (
     <TabsRoot defaultValue='one'>
@@ -66,8 +47,6 @@ You can rearrange, wrap, or style individual parts as needed. Each sub-component
 For repeated customizations, wrap components to create your own variants:
 
 ```tsx
-import { Button, type ButtonProps } from '@lglab/compose-ui'
-
 function IconButton({ children, ...props }: ButtonProps) {
   return (
     <Button size='icon' variant='ghost' {...props}>

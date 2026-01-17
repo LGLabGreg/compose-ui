@@ -11,7 +11,7 @@ import {
   MenubarSubmenuRoot,
   MenubarSubmenuTrigger,
   MenubarTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menubar'
 import { ChevronRight } from 'lucide-react'
 
 export default function SubmenuExample() {

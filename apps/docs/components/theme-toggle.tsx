@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useSyncExternalStore } from 'react'

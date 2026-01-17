@@ -11,7 +11,17 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { AlertDialogRoot, AlertDialogTrigger, AlertDialogPortal, AlertDialogBackdrop, AlertDialogViewport, AlertDialogPopup, AlertDialogTitle, AlertDialogDescription, AlertDialogClose } from '@lglab/compose-ui'
+import {
+  AlertDialogBackdrop,
+  AlertDialogClose,
+  AlertDialogDescription,
+  AlertDialogPopup,
+  AlertDialogPortal,
+  AlertDialogRoot,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+  AlertDialogViewport,
+} from '@lglab/compose-ui'
 ```
 
 ## Examples

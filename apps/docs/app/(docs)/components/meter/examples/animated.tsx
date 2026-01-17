@@ -6,7 +6,7 @@ import {
   MeterRoot,
   MeterTrack,
   MeterValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/meter'
 
 export default function AnimatedExample() {
   return (

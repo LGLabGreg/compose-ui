@@ -11,7 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { AvatarRoot, AvatarImage, AvatarFallback, AvatarStack } from '@lglab/compose-ui'
+import { AvatarFallback, AvatarImage, AvatarRoot, AvatarStack } from '@lglab/compose-ui'
 ```
 
 ## Examples

@@ -1,7 +1,7 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   DialogBackdrop,
   DialogClose,
   DialogDescription,
@@ -11,7 +11,7 @@ import {
   DialogPortal,
   DialogRoot,
   DialogTitle,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/dialog'
 import { SettingsIcon } from 'lucide-react'
 import * as React from 'react'
 

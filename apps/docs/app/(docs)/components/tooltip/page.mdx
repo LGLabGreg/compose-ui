@@ -1,13 +1,13 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
+import AnchorElementExample from './examples/anchor-element'
 import DefaultExample from './examples/default'
-import VariantsExample from './examples/variants'
+import DelayExample from './examples/delay'
 import NoArrowExample from './examples/no-arrow'
+import ProviderExample from './examples/provider'
 import SidesExample from './examples/sides'
 import TrackCursorExample from './examples/track-cursor'
-import DelayExample from './examples/delay'
-import ProviderExample from './examples/provider'
-import AnchorElementExample from './examples/anchor-element'
+import VariantsExample from './examples/variants'
 
 <ComponentPage
   title="Tooltip"
@@ -37,10 +37,7 @@ import AnchorElementExample from './examples/anchor-element'
   <NoArrowExample />
 </ExampleLoader>
 
-<ExampleLoader
-  title='Sides'
-  filePath='app/(docs)/components/tooltip/examples/sides.tsx'
->
+<ExampleLoader title='Sides' filePath='app/(docs)/components/tooltip/examples/sides.tsx'>
   <SidesExample />
 </ExampleLoader>
 
@@ -51,10 +48,7 @@ import AnchorElementExample from './examples/anchor-element'
   <TrackCursorExample />
 </ExampleLoader>
 
-<ExampleLoader
-  title='Delay'
-  filePath='app/(docs)/components/tooltip/examples/delay.tsx'
->
+<ExampleLoader title='Delay' filePath='app/(docs)/components/tooltip/examples/delay.tsx'>
   <DelayExample />
 </ExampleLoader>
 

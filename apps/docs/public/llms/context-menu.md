@@ -11,7 +11,27 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { ContextMenuRoot, ContextMenuTrigger, ContextMenuPortal, ContextMenuPositioner, ContextMenuPopup, ContextMenuArrow, ContextMenuItem, ContextMenuSeparator, ContextMenuGroup, ContextMenuGroupLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuRadioItemIndicator, ContextMenuRadioItemLabel, ContextMenuCheckboxItem, ContextMenuCheckboxItemIndicator, ContextMenuCheckboxItemLabel, ContextMenuSubmenuTrigger, ContextMenuSubmenuRoot } from '@lglab/compose-ui'
+import {
+  ContextMenuArrow,
+  ContextMenuCheckboxItem,
+  ContextMenuCheckboxItemIndicator,
+  ContextMenuCheckboxItemLabel,
+  ContextMenuGroup,
+  ContextMenuGroupLabel,
+  ContextMenuItem,
+  ContextMenuPopup,
+  ContextMenuPortal,
+  ContextMenuPositioner,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
+  ContextMenuRadioItemIndicator,
+  ContextMenuRadioItemLabel,
+  ContextMenuRoot,
+  ContextMenuSeparator,
+  ContextMenuSubmenuRoot,
+  ContextMenuSubmenuTrigger,
+  ContextMenuTrigger,
+} from '@lglab/compose-ui'
 ```
 
 ## Examples

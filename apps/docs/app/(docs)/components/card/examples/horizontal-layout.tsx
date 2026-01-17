@@ -1,14 +1,14 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   CardDescription,
   CardFooter,
   CardHeader,
   CardMedia,
   CardRoot,
   CardTitle,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/card'
 
 export default function HorizontalLayoutCard() {
   return (

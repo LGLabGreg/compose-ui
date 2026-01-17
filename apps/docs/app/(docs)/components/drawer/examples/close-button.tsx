@@ -9,7 +9,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 import { X } from 'lucide-react'
 
 export default function CloseButtonExample() {

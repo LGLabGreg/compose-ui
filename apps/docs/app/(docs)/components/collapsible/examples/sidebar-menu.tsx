@@ -1,6 +1,10 @@
 'use client'
 
-import { CollapsiblePanel, CollapsibleRoot, CollapsibleTrigger } from '@lglab/compose-ui'
+import {
+  CollapsiblePanel,
+  CollapsibleRoot,
+  CollapsibleTrigger,
+} from '@lglab/compose-ui/collapsible'
 import { ChevronDown, Settings } from 'lucide-react'
 
 const menuItems = [

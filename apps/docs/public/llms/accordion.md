@@ -11,7 +11,13 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { AccordionRoot, AccordionItem, AccordionHeader, AccordionTrigger, AccordionPanel } from '@lglab/compose-ui'
+import {
+  AccordionHeader,
+  AccordionItem,
+  AccordionPanel,
+  AccordionRoot,
+  AccordionTrigger,
+} from '@lglab/compose-ui'
 ```
 
 ## Examples

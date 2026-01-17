@@ -10,7 +10,7 @@ import {
   ContextMenuRoot,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { Copy, FilePlus, FolderOpen, Save, Settings, User } from 'lucide-react'
 
 export default function GroupsExample() {

@@ -1,3 +1,4 @@
+import { Button } from '@lglab/compose-ui/button'
 import {
   DrawerBackdrop,
   DrawerClose,
@@ -10,8 +11,7 @@ import {
   DrawerRoot,
   DrawerTitle,
   DrawerTrigger,
-} from '@lglab/compose-ui'
-import { Button } from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 
 export default function FooterExample() {
   return (

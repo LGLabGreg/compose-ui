@@ -1,6 +1,6 @@
 'use client'
 
-import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui'
+import { SwitchRoot, SwitchThumb } from '@lglab/compose-ui/switch'
 import { useState } from 'react'
 
 export default function ControlledExample() {

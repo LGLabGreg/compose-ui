@@ -11,7 +11,18 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { DialogRoot, DialogTrigger, DialogPortal, DialogBackdrop, DialogPopup, DialogTitle, DialogDescription, DialogClose, DialogHeader, DialogFooter } from '@lglab/compose-ui'
+import {
+  DialogBackdrop,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogPopup,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+} from '@lglab/compose-ui'
 ```
 
 ## Examples

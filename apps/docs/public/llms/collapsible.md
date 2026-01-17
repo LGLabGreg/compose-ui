@@ -11,7 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { CollapsibleRoot, CollapsibleTrigger, CollapsiblePanel } from '@lglab/compose-ui'
+import { CollapsiblePanel, CollapsibleRoot, CollapsibleTrigger } from '@lglab/compose-ui'
 ```
 
 ## Examples

@@ -1,4 +1,4 @@
-import { Toggle } from '@lglab/compose-ui'
+import { Toggle } from '@lglab/compose-ui/toggle'
 import { BoldIcon } from 'lucide-react'
 
 export default function WithTextExample() {

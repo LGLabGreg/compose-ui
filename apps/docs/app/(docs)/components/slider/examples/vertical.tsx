@@ -7,7 +7,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValue,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/slider'
 
 export default function VerticalExample() {
   return (

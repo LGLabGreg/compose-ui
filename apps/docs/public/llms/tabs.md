@@ -11,7 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from '@lglab/compose-ui'
+import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
 ```
 
 ## Examples

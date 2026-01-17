@@ -1,4 +1,4 @@
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 

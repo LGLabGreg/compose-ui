@@ -6,7 +6,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/scroll-area'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 

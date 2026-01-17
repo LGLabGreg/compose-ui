@@ -10,7 +10,7 @@ import {
   ContextMenuSubmenuRoot,
   ContextMenuSubmenuTrigger,
   ContextMenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/context-menu'
 import { ChevronRight } from 'lucide-react'
 
 export default function SubmenuExample() {

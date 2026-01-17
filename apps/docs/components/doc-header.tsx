@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
 import {
   DrawerBackdrop,
   DrawerClose,
@@ -8,7 +8,7 @@ import {
   DrawerPortal,
   DrawerRoot,
   DrawerTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/drawer'
 import { Github, Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'

@@ -10,7 +10,7 @@ import {
   AlertDialogRoot,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/alert-dialog'
 
 const demoAlertDialog = AlertDialog.createHandle()
 

@@ -11,7 +11,13 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { MeterRoot, MeterTrack, MeterIndicator, MeterValue, MeterLabel } from '@lglab/compose-ui'
+import {
+  MeterIndicator,
+  MeterLabel,
+  MeterRoot,
+  MeterTrack,
+  MeterValue,
+} from '@lglab/compose-ui'
 ```
 
 ## Examples

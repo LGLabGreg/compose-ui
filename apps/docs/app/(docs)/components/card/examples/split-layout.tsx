@@ -1,12 +1,7 @@
 'use client'
 
-import {
-  Button,
-  CardDescription,
-  CardMedia,
-  CardRoot,
-  CardTitle,
-} from '@lglab/compose-ui'
+import { Button } from '@lglab/compose-ui/button'
+import { CardDescription, CardMedia, CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function SplitLayoutCard() {
   return (

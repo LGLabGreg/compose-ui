@@ -1,7 +1,7 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -10,7 +10,7 @@ import {
   MenuRoot,
   MenuSeparator,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 
 const sides = ['left', 'bottom', 'top', 'right'] as const
 

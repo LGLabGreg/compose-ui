@@ -11,7 +11,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { ToggleGroupRoot, ToggleGroupItem } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
 ```
 
 ## Examples

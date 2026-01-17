@@ -1,4 +1,10 @@
-import { TabsIndicator, TabsList, TabsPanel, TabsRoot, TabsTab } from '@lglab/compose-ui'
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
 import { FolderIcon, SettingsIcon, UserIcon } from 'lucide-react'
 
 export default function WithIconsExample() {

@@ -1,4 +1,4 @@
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
 import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react'
 
 export default function WithTextExample() {

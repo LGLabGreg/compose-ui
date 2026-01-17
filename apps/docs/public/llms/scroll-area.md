@@ -11,7 +11,14 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { ScrollAreaRoot, ScrollAreaViewport, ScrollAreaContent, ScrollAreaScrollbar, ScrollAreaThumb, ScrollAreaCorner } from '@lglab/compose-ui'
+import {
+  ScrollAreaContent,
+  ScrollAreaCorner,
+  ScrollAreaRoot,
+  ScrollAreaScrollbar,
+  ScrollAreaThumb,
+  ScrollAreaViewport,
+} from '@lglab/compose-ui'
 ```
 
 ## Examples

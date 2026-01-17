@@ -1,7 +1,7 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   TooltipArrow,
   TooltipPopup,
   TooltipPortal,
@@ -9,7 +9,7 @@ import {
   TooltipProvider,
   TooltipRoot,
   TooltipTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/tooltip'
 import { Bold, Italic, Underline } from 'lucide-react'
 
 export default function ProviderExample() {

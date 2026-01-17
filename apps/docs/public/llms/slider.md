@@ -11,7 +11,14 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { SliderRoot, SliderValue, SliderControl, SliderTrack, SliderIndicator, SliderThumb } from '@lglab/compose-ui'
+import {
+  SliderControl,
+  SliderIndicator,
+  SliderRoot,
+  SliderThumb,
+  SliderTrack,
+  SliderValue,
+} from '@lglab/compose-ui'
 ```
 
 ## Examples

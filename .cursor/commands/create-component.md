@@ -101,8 +101,10 @@ import DefaultExample from './examples/default'
 
 Create at least a `default.tsx` example. Use `lucide-react` icons in examples (not inline SVGs):
 
+**IMPORTANT**: Use subpath imports for better tree-shaking. Import components from their specific subpath:
+
 ```tsx
-import { ComponentPart, ComponentRoot } from '@lglab/compose-ui'
+import { ComponentPart, ComponentRoot } from '@lglab/compose-ui/$ARGUMENTS'
 import { SomeIcon } from 'lucide-react'
 
 export default function DefaultExample() {
@@ -114,6 +116,16 @@ export default function DefaultExample() {
   )
 }
 ```
+
+If importing from multiple components, use separate import statements:
+
+```tsx
+import { ComponentPart, ComponentRoot } from '@lglab/compose-ui/$ARGUMENTS'
+import { Button } from '@lglab/compose-ui/button'
+import { SomeIcon } from 'lucide-react'
+```
+
+Note: The barrel file import (`@lglab/compose-ui`) still works, but subpath imports are recommended for optimal tree-shaking.
 
 ### 6. Add to Navigation
 

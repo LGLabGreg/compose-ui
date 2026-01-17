@@ -1,7 +1,7 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   PopoverArrow,
   PopoverClose,
   PopoverDescription,
@@ -11,7 +11,7 @@ import {
   PopoverRoot,
   PopoverTitle,
   PopoverTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/popover'
 import { Bell } from 'lucide-react'
 
 export default function WithCloseExample() {

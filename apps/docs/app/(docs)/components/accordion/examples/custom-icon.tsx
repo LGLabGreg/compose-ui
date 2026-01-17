@@ -4,7 +4,7 @@ import {
   AccordionPanel,
   AccordionRoot,
   AccordionTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/accordion'
 import { Plus } from 'lucide-react'
 
 const items = [

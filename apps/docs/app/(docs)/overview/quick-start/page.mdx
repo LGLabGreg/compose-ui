@@ -1,39 +1,4 @@
-import { BetaBanner } from '@/components/beta-banner'
-import { DocPage } from '@/components/mdx/doc-page'
-
-<DocPage
-  title="Quick Start"
-  description="Get started with Compose UI in your React project."
->
-
-<BetaBanner />
-
-## Installation
-
-Install Compose UI using your preferred package manager:
-
-```bash
-npm i @lglab/compose-ui
-```
-
-## CSS
-
-Import the default styles and register Compose UI as a Tailwind source in your main CSS file. The `@source` directive ensures Tailwind scans the package for class names used by components.
-
-**Make sure to update the path to your `node_modules` folder accordingly**
-
-```css
-@import '@lglab/compose-ui/styles/default.css';
-@source "../node_modules/@lglab/compose-ui";
-```
-
-## Usage
-
-Import components directly from the package:
-
-```tsx
-import { Button } from '@lglab/compose-ui'
-
+import { Button } from '@lglab/compose-ui/button'
 export function Example() {
   return <Button>Click me</Button>
 }

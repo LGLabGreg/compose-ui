@@ -1,7 +1,7 @@
 'use client'
 
+import { Button } from '@lglab/compose-ui/button'
 import {
-  Button,
   MenuArrow,
   MenuItem,
   MenuPopup,
@@ -12,7 +12,7 @@ import {
   MenuSubmenuRoot,
   MenuSubmenuTrigger,
   MenuTrigger,
-} from '@lglab/compose-ui'
+} from '@lglab/compose-ui/menu'
 import { ChevronRight, Share } from 'lucide-react'
 
 export default function SubmenuExample() {

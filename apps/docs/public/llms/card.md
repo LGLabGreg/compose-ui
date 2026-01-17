@@ -11,7 +11,16 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { CardRoot, CardMedia, CardHeader, CardTitle, CardDescription, CardContent, CardSection, CardFooter } from '@lglab/compose-ui'
+import {
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardMedia,
+  CardRoot,
+  CardSection,
+  CardTitle,
+} from '@lglab/compose-ui'
 ```
 
 ## Examples

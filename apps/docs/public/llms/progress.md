@@ -11,7 +11,13 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { ProgressRoot, ProgressTrack, ProgressIndicator, ProgressValue, ProgressLabel } from '@lglab/compose-ui'
+import {
+  ProgressIndicator,
+  ProgressLabel,
+  ProgressRoot,
+  ProgressTrack,
+  ProgressValue,
+} from '@lglab/compose-ui'
 ```
 
 ## Examples

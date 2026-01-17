@@ -1,6 +1,6 @@
 'use client'
 
-import { CardContent, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui'
+import { CardContent, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui/card'
 
 export default function GridStatsCard() {
   const stats = [
