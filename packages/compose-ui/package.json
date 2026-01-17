@@ -109,6 +109,10 @@
       "import": "./dist/tabs.js",
       "types": "./dist/tabs.d.ts"
     },
+    "./toast": {
+      "import": "./dist/toast.js",
+      "types": "./dist/toast.d.ts"
+    },
     "./toggle": {
       "import": "./dist/toggle.js",
       "types": "./dist/toggle.d.ts"
