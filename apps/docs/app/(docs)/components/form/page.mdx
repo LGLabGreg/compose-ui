@@ -1,0 +1,35 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import ActionStateExample from './examples/action-state'
+import WithZodExample from './examples/with-zod'
+
+<ComponentPage
+  title="Form"
+  description="A native form element with consolidated error handling."
+  component="form"
+  baseUiComponent="form"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/form/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Server Action'
+  filePath='app/(docs)/components/form/examples/action-state.tsx'
+>
+  <ActionStateExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Zod Validation'
+  filePath='app/(docs)/components/form/examples/with-zod.tsx'
+>
+  <WithZodExample />
+</ExampleLoader>
+
+</ComponentPage>
