@@ -9,7 +9,7 @@ const fruits = ['fuji', 'gala', 'granny-smith']
 
 export default function ParentCheckboxExample() {
   const id = React.useId()
-  const [value, setValue] = React.useState<string[]>([])
+  const [value, setValue] = React.useState<string[]>(['fuji'])
 
   return (
     <CheckboxGroupRoot

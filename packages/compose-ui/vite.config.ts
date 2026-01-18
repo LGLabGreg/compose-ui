@@ -21,6 +21,7 @@ const components = [
   'dialog',
   'drawer',
   'field',
+  'fieldset',
   'form',
   'input',
   'menu',

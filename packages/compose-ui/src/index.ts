@@ -79,6 +79,7 @@ export {
   FieldItem,
   FieldValidity,
 } from './components/field'
+export { FieldsetRoot, FieldsetLegend } from './components/fieldset'
 export { FormRoot } from './components/form'
 export {
   AccordionRoot,
@@ -322,6 +323,7 @@ export type {
   FieldItemProps,
   FieldValidityProps,
 } from './components/field'
+export type { FieldsetRootProps, FieldsetLegendProps } from './components/fieldset'
 export type { FormRootProps } from './components/form'
 export type {
   AccordionRootProps,

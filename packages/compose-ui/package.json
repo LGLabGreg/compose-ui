@@ -77,6 +77,10 @@
       "import": "./dist/field.js",
       "types": "./dist/field.d.ts"
     },
+    "./fieldset": {
+      "import": "./dist/fieldset.js",
+      "types": "./dist/fieldset.d.ts"
+    },
     "./form": {
       "import": "./dist/form.js",
       "types": "./dist/form.d.ts"

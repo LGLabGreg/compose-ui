@@ -1,9 +1,19 @@
 'use client'
 
 import { Button } from '@lglab/compose-ui/button'
-import { FieldControl, FieldError, FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { CheckboxIndicator, CheckboxRoot } from '@lglab/compose-ui/checkbox'
+import { CheckboxGroupRoot } from '@lglab/compose-ui/checkbox-group'
+import { FieldControl, FieldError, FieldItem, FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { FieldsetLegend, FieldsetRoot } from '@lglab/compose-ui/fieldset'
 import { FormRoot } from '@lglab/compose-ui/form'
+import { Check } from 'lucide-react'
 import * as React from 'react'
+
+const notificationOptions = [
+  { value: 'email', label: 'Email' },
+  { value: 'sms', label: 'SMS' },
+  { value: 'push', label: 'Push' },
+]
 
 export default function DefaultExample() {
   const [errors, setErrors] = React.useState({})
@@ -16,14 +26,11 @@ export default function DefaultExample() {
       onSubmit={async (event) => {
         event.preventDefault()
         const formData = new FormData(event.currentTarget)
-        const value = formData.get('url') as string
+        const url = formData.get('url') as string
+        const notifications = formData.getAll('notifications') as string[]
 
         setLoading(true)
-        const response = await submitForm(value)
-        const serverErrors = {
-          url: response.error,
-        }
-
+        const serverErrors = await submitForm(url, notifications)
         setErrors(serverErrors)
         setLoading(false)
       }}
@@ -39,6 +46,24 @@ export default function DefaultExample() {
         />
         <FieldError />
       </FieldRoot>
+      <FieldRoot name='notifications'>
+        <FieldsetRoot render={<CheckboxGroupRoot />}>
+          <FieldsetLegend>Notifications</FieldsetLegend>
+          {notificationOptions.map((option) => (
+            <FieldItem key={option.value}>
+              <FieldLabel>
+                <CheckboxRoot name='notifications' value={option.value}>
+                  <CheckboxIndicator>
+                    <Check className='size-3.5' />
+                  </CheckboxIndicator>
+                </CheckboxRoot>
+                {option.label}
+              </FieldLabel>
+            </FieldItem>
+          ))}
+        </FieldsetRoot>
+        <FieldError />
+      </FieldRoot>
       <Button disabled={loading} focusableWhenDisabled type='submit'>
         Submit
       </Button>
@@ -46,20 +71,21 @@ export default function DefaultExample() {
   )
 }
 
-async function submitForm(value: string) {
+async function submitForm(url: string, notifications: string[]) {
   await new Promise((resolve) => {
     setTimeout(resolve, 1000)
   })
 
-  try {
-    const url = new URL(value)
+  const errors: Record<string, string> = {}
 
-    if (url.hostname.endsWith('example.com')) {
-      return { error: 'The example domain is not allowed' }
+  try {
+    const parsedUrl = new URL(url)
+    if (parsedUrl.hostname.endsWith('example.com')) {
+      errors.url = 'The example domain is not allowed'
     }
   } catch {
-    return { error: 'This is not a valid URL' }
+    errors.url = 'This is not a valid URL'
   }
 
-  return { success: true }
+  return errors
 }

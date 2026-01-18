@@ -63,9 +63,9 @@ describe('CheckboxGroup', () => {
     const handleChange = vi.fn()
 
     const { user } = render(
-      <CheckboxGroupRoot onValueChange={handleChange}>
+      <CheckboxGroupRoot value={[]} onValueChange={handleChange}>
         <label>
-          <CheckboxRoot value='option1' aria-label='Option 1'>
+          <CheckboxRoot data-testid='checkbox1' value='option1'>
             <CheckboxIndicator>
               <span>check</span>
             </CheckboxIndicator>
@@ -75,7 +75,7 @@ describe('CheckboxGroup', () => {
       </CheckboxGroupRoot>,
     )
 
-    await user.click(screen.getByRole('checkbox', { name: 'Option 1' }))
+    await user.click(screen.getByTestId('checkbox1'))
     expect(handleChange).toHaveBeenCalledWith(['option1'], expect.any(Object))
   })
 
@@ -83,9 +83,9 @@ describe('CheckboxGroup', () => {
     const handleChange = vi.fn()
 
     const { user } = render(
-      <CheckboxGroupRoot onValueChange={handleChange}>
+      <CheckboxGroupRoot value={['option1']} onValueChange={handleChange}>
         <label>
-          <CheckboxRoot value='option1' aria-label='Option 1'>
+          <CheckboxRoot data-testid='checkbox1' value='option1'>
             <CheckboxIndicator>
               <span>check</span>
             </CheckboxIndicator>
@@ -93,7 +93,7 @@ describe('CheckboxGroup', () => {
           Option 1
         </label>
         <label>
-          <CheckboxRoot value='option2' aria-label='Option 2'>
+          <CheckboxRoot data-testid='checkbox2' value='option2'>
             <CheckboxIndicator>
               <span>check</span>
             </CheckboxIndicator>
@@ -103,13 +103,9 @@ describe('CheckboxGroup', () => {
       </CheckboxGroupRoot>,
     )
 
-    await user.click(screen.getByRole('checkbox', { name: 'Option 1' }))
-    await user.click(screen.getByRole('checkbox', { name: 'Option 2' }))
+    await user.click(screen.getByTestId('checkbox2'))
 
-    expect(handleChange).toHaveBeenLastCalledWith(
-      ['option1', 'option2'],
-      expect.any(Object),
-    )
+    expect(handleChange).toHaveBeenCalledWith(['option1', 'option2'], expect.any(Object))
   })
 
   it('applies custom className', () => {

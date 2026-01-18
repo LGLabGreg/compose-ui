@@ -7,9 +7,10 @@ import * as React from 'react'
 
 export default function DefaultExample() {
   const id = React.useId()
+  const [value, setValue] = React.useState<string[]>(['fuji'])
 
   return (
-    <CheckboxGroupRoot aria-labelledby={id} defaultValue={['fuji']}>
+    <CheckboxGroupRoot aria-labelledby={id} value={value} onValueChange={setValue}>
       <div className='text-sm font-medium text-foreground' id={id}>
         Favorite apples
       </div>
