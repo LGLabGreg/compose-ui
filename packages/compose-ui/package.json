@@ -65,6 +65,10 @@
       "import": "./dist/drawer.js",
       "types": "./dist/drawer.d.ts"
     },
+    "./input": {
+      "import": "./dist/input.js",
+      "types": "./dist/input.d.ts"
+    },
     "./menu": {
       "import": "./dist/menu.js",
       "types": "./dist/menu.d.ts"

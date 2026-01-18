@@ -66,6 +66,7 @@ export {
   DrawerContent,
   DrawerFooter,
 } from './components/drawer'
+export { Input } from './components/input'
 export {
   AccordionRoot,
   AccordionItem,
@@ -295,6 +296,7 @@ export type {
   DrawerContentProps,
   DrawerFooterProps,
 } from './components/drawer'
+export type { InputProps } from './components/input'
 export type {
   AccordionRootProps,
   AccordionItemProps,
