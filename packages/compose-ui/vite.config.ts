@@ -21,6 +21,7 @@ const components = [
   'menu',
   'menubar',
   'meter',
+  'navigation-menu',
   'popover',
   'preview-card',
   'progress',
