@@ -191,3 +191,4 @@ Add the component to the Components section in alphabetical order:
 - [ ] Navigation updated
 - [ ] Fix all Tailwind lint errors (use cleaner syntax: `data-ending-style:` instead of `data-[ending-style]:`, `origin-(--var)` instead of `origin-[var(--var)]`)
 - [ ] Run tests to verify: `pnpm test`
+- [ ] No lint errors in any file

@@ -77,6 +77,10 @@
       "import": "./dist/meter.js",
       "types": "./dist/meter.d.ts"
     },
+    "./navigation-menu": {
+      "import": "./dist/navigation-menu.js",
+      "types": "./dist/navigation-menu.d.ts"
+    },
     "./popover": {
       "import": "./dist/popover.js",
       "types": "./dist/popover.d.ts"

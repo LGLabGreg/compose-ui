@@ -81,6 +81,21 @@ export {
   MeterLabel,
 } from './components/meter'
 export {
+  NavigationMenuRoot,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuIcon,
+  NavigationMenuContent,
+  NavigationMenuLink,
+  NavigationMenuPortal,
+  NavigationMenuPositioner,
+  NavigationMenuPopup,
+  NavigationMenuViewport,
+  NavigationMenuArrow,
+  NavigationMenuBackdrop,
+} from './components/navigation-menu'
+export {
   MenuRoot,
   MenuTrigger,
   MenuPortal,
@@ -294,6 +309,21 @@ export type {
   MeterValueProps,
   MeterLabelProps,
 } from './components/meter'
+export type {
+  NavigationMenuRootProps,
+  NavigationMenuListProps,
+  NavigationMenuItemProps,
+  NavigationMenuTriggerProps,
+  NavigationMenuIconProps,
+  NavigationMenuContentProps,
+  NavigationMenuLinkProps,
+  NavigationMenuPortalProps,
+  NavigationMenuPositionerProps,
+  NavigationMenuPopupProps,
+  NavigationMenuViewportProps,
+  NavigationMenuArrowProps,
+  NavigationMenuBackdropProps,
+} from './components/navigation-menu'
 export type {
   MenuRootProps,
   MenuTriggerProps,
