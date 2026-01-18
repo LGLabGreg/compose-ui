@@ -9,11 +9,25 @@ import DefaultExample from './examples/default'
   baseUiComponent="input"
 >
 
+<div className="col-span-full">
+  ## Accessibility
+
+  For accessibility, inputs must always be associated with a label. This allows screen readers to announce the input's purpose and enables users to click the label to focus the input. Inputs without labels are inaccessible to many users.
+
+  ## Recommendation
+
+  For most use cases, we recommend using the [Field](/components/field) component instead of the Input component directly. Field provides built-in label association, description text, error handling, and validation states out of the box.
+
+  The Input component is exported primarily for cases where you need a standalone styled input without the Field wrapper, such as custom search bars or inline editing interfaces.
+</div>
+
 <ExampleLoader
   title='Default'
   filePath='app/(docs)/components/input/examples/default.tsx'
 >
   <DefaultExample />
 </ExampleLoader>
+
+
 
 </ComponentPage>
