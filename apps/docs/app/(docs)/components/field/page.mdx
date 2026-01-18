@@ -1,0 +1,36 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import WithDescriptionExample from './examples/with-description'
+import WithErrorExample from './examples/with-error'
+import WithValidationExample from './examples/with-validation'
+
+<ComponentPage
+  title="Field"
+  description="Provides accessible labeling and validation for form controls."
+  component="field"
+  baseUiComponent="field"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/field/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Description'
+  filePath='app/(docs)/components/field/examples/with-description.tsx'
+>
+  <WithDescriptionExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Error'
+  filePath='app/(docs)/components/field/examples/with-error.tsx'
+>
+  <WithErrorExample />
+</ExampleLoader>
+
+</ComponentPage>

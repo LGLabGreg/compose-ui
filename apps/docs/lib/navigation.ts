@@ -32,6 +32,7 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Context Menu', href: '/components/context-menu' },
       { name: 'Dialog', href: '/components/dialog' },
       { name: 'Drawer', href: '/components/drawer' },
+      { name: 'Field', href: '/components/field' },
       { name: 'Input', href: '/components/input' },
       { name: 'Menu', href: '/components/menu' },
       { name: 'Menubar', href: '/components/menubar' },

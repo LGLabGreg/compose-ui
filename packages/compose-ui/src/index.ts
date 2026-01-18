@@ -68,6 +68,15 @@ export {
 } from './components/drawer'
 export { Input } from './components/input'
 export {
+  FieldRoot,
+  FieldLabel,
+  FieldControl,
+  FieldDescription,
+  FieldError,
+  FieldItem,
+  FieldValidity,
+} from './components/field'
+export {
   AccordionRoot,
   AccordionItem,
   AccordionHeader,
@@ -297,6 +306,15 @@ export type {
   DrawerFooterProps,
 } from './components/drawer'
 export type { InputProps } from './components/input'
+export type {
+  FieldRootProps,
+  FieldLabelProps,
+  FieldControlProps,
+  FieldDescriptionProps,
+  FieldErrorProps,
+  FieldItemProps,
+  FieldValidityProps,
+} from './components/field'
 export type {
   AccordionRootProps,
   AccordionItemProps,

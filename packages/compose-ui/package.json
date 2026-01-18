@@ -65,6 +65,10 @@
       "import": "./dist/drawer.js",
       "types": "./dist/drawer.d.ts"
     },
+    "./field": {
+      "import": "./dist/field.js",
+      "types": "./dist/field.d.ts"
+    },
     "./input": {
       "import": "./dist/input.js",
       "types": "./dist/input.d.ts"

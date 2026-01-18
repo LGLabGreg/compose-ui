@@ -18,6 +18,7 @@ const components = [
   'context-menu',
   'dialog',
   'drawer',
+  'field',
   'input',
   'menu',
   'menubar',
