@@ -28,6 +28,7 @@ Structure:
 - Add `'use client'` directive at the top (if using React hooks or client features)
 - Import from Base UI: `import { Component } from '@base-ui/react/$ARGUMENTS'`
 - Import `cn` utility: `import { cn } from '../lib/utils'`
+- **NEVER import icon libraries** (like `lucide-react`) in component files - users may use different icon libraries. Icons should only be used in documentation examples.
 - Create each sub-component with proper typing, styling, and displayName
 - Export all components and types at the bottom
 

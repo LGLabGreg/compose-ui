@@ -1,4 +1,6 @@
 export { Button } from './components/button'
+export { CheckboxRoot, CheckboxIndicator } from './components/checkbox'
+export { CheckboxGroupRoot } from './components/checkbox-group'
 export {
   CollapsibleRoot,
   CollapsibleTrigger,
@@ -77,6 +79,7 @@ export {
   FieldItem,
   FieldValidity,
 } from './components/field'
+export { FormRoot } from './components/form'
 export {
   AccordionRoot,
   AccordionItem,
@@ -229,6 +232,8 @@ export {
 } from './components/preview-card'
 
 export type { ButtonProps } from './components/button'
+export type { CheckboxRootProps, CheckboxIndicatorProps } from './components/checkbox'
+export type { CheckboxGroupRootProps } from './components/checkbox-group'
 export type {
   CollapsibleRootProps,
   CollapsibleTriggerProps,
@@ -317,6 +322,7 @@ export type {
   FieldItemProps,
   FieldValidityProps,
 } from './components/field'
+export type { FormRootProps } from './components/form'
 export type {
   AccordionRootProps,
   AccordionItemProps,

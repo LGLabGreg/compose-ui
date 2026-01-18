@@ -28,6 +28,8 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Avatar', href: '/components/avatar' },
       { name: 'Button', href: '/components/button' },
       { name: 'Card', href: '/components/card' },
+      { name: 'Checkbox', href: '/components/checkbox' },
+      { name: 'Checkbox Group', href: '/components/checkbox-group' },
       { name: 'Collapsible', href: '/components/collapsible' },
       { name: 'Context Menu', href: '/components/context-menu' },
       { name: 'Dialog', href: '/components/dialog' },

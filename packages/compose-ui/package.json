@@ -49,6 +49,14 @@
       "import": "./dist/card.js",
       "types": "./dist/card.d.ts"
     },
+    "./checkbox": {
+      "import": "./dist/checkbox.js",
+      "types": "./dist/checkbox.d.ts"
+    },
+    "./checkbox-group": {
+      "import": "./dist/checkbox-group.js",
+      "types": "./dist/checkbox-group.d.ts"
+    },
     "./collapsible": {
       "import": "./dist/collapsible.js",
       "types": "./dist/collapsible.d.ts"
@@ -68,6 +76,10 @@
     "./field": {
       "import": "./dist/field.js",
       "types": "./dist/field.d.ts"
+    },
+    "./form": {
+      "import": "./dist/form.js",
+      "types": "./dist/form.d.ts"
     },
     "./input": {
       "import": "./dist/input.js",
