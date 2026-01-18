@@ -8,6 +8,7 @@
 - Toggle Group
 - Toggle
 - Toast
+- Textarea
 - Tabs
 - Switch
 - Slider
@@ -20,10 +21,15 @@
 - Meter
 - Menubar
 - Menu
+- Input
+- Form
+- Field
 - Drawer
 - Dialog
 - Context Menu
 - Collapsible
+- Checkbox Group
+- Checkbox
 - Card
 - Button
 - Avatar
@@ -1298,6 +1304,47 @@ export default function PositionsExample() {
 
 - [Base UI Toast Documentation](https://base-ui.com/react/components/toast)
 - [API Reference](https://base-ui.com/react/components/toast#api-reference)
+
+---
+
+# Textarea
+
+A multi-line text input element.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { Textarea } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { Textarea } from '@lglab/compose-ui/textarea'
+
+export default function DefaultExample() {
+  return (
+    <FieldRoot name='message'>
+      <FieldLabel>Message</FieldLabel>
+      <Textarea placeholder='Enter your message' />
+    </FieldRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Textarea Documentation](https://base-ui.com/react/components/textarea)
+- [API Reference](https://base-ui.com/react/components/textarea#api-reference)
 
 ---
 
@@ -4125,6 +4172,372 @@ export default function SubmenuExample() {
 
 ---
 
+# Input
+
+A single-line text input element.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { Input } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { Input } from '@lglab/compose-ui/input'
+
+export default function DefaultExample() {
+  return (
+    <div className='flex flex-col gap-4'>
+      <label className='flex flex-col gap-1'>
+        <span className='text-sm font-medium text-foreground'>Name</span>
+        <Input placeholder='Enter your name' />
+      </label>
+      <label className='flex flex-col gap-1'>
+        <span className='text-sm font-medium text-foreground'>Email</span>
+        <Input type='email' placeholder='Enter your email' />
+      </label>
+      <label className='flex flex-col gap-1'>
+        <span className='text-sm font-medium text-foreground'>Password</span>
+        <Input type='password' placeholder='Enter your password' />
+      </label>
+    </div>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Input Documentation](https://base-ui.com/react/components/input)
+- [API Reference](https://base-ui.com/react/components/input#api-reference)
+
+---
+
+# Form
+
+A native form element with consolidated error handling.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { FormRoot } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { Button } from '@lglab/compose-ui/button'
+import { CheckboxIndicator, CheckboxRoot } from '@lglab/compose-ui/checkbox'
+import { CheckboxGroupRoot } from '@lglab/compose-ui/checkbox-group'
+import { FieldControl, FieldError, FieldItem, FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { FieldsetLegend, FieldsetRoot } from '@lglab/compose-ui/fieldset'
+import { FormRoot } from '@lglab/compose-ui/form'
+import { Check } from 'lucide-react'
+import * as React from 'react'
+
+const notificationOptions = [
+  { value: 'email', label: 'Email' },
+  { value: 'sms', label: 'SMS' },
+  { value: 'push', label: 'Push' },
+]
+
+export default function DefaultExample() {
+  const [errors, setErrors] = React.useState({})
+  const [loading, setLoading] = React.useState(false)
+
+  return (
+    <FormRoot
+      className='w-full max-w-64'
+      errors={errors}
+      onSubmit={async (event) => {
+        event.preventDefault()
+        const formData = new FormData(event.currentTarget)
+        const url = formData.get('url') as string
+        const notifications = formData.getAll('notifications') as string[]
+
+        setLoading(true)
+        const serverErrors = await submitForm(url, notifications)
+        setErrors(serverErrors)
+        setLoading(false)
+      }}
+    >
+      <FieldRoot name='url'>
+        <FieldLabel>Homepage</FieldLabel>
+        <FieldControl
+          type='url'
+          required
+          defaultValue='https://example.com'
+          placeholder='https://example.com'
+          pattern='https?://.*'
+        />
+        <FieldError />
+      </FieldRoot>
+      <FieldRoot name='notifications'>
+        <FieldsetRoot render={<CheckboxGroupRoot />}>
+          <FieldsetLegend>Notifications</FieldsetLegend>
+          {notificationOptions.map((option) => (
+            <FieldItem key={option.value}>
+              <FieldLabel>
+                <CheckboxRoot name='notifications' value={option.value}>
+                  <CheckboxIndicator>
+                    <Check className='size-3.5' />
+                  </CheckboxIndicator>
+                </CheckboxRoot>
+                {option.label}
+              </FieldLabel>
+            </FieldItem>
+          ))}
+        </FieldsetRoot>
+        <FieldError />
+      </FieldRoot>
+      <Button disabled={loading} focusableWhenDisabled type='submit'>
+        Submit
+      </Button>
+    </FormRoot>
+  )
+}
+
+async function submitForm(url: string, notifications: string[]) {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 1000)
+  })
+
+  const errors: Record<string, string> = {}
+
+  try {
+    const parsedUrl = new URL(url)
+    if (parsedUrl.hostname.endsWith('example.com')) {
+      errors.url = 'The example domain is not allowed'
+    }
+  } catch {
+    errors.url = 'This is not a valid URL'
+  }
+
+  return errors
+}
+```
+
+### Server Action
+
+```tsx
+import { Button } from '@lglab/compose-ui/button'
+import { FieldControl, FieldError, FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { FormRoot, type FormRootProps } from '@lglab/compose-ui/form'
+import * as React from 'react'
+
+interface FormState {
+  serverErrors?: FormRootProps['errors']
+}
+
+export default function ActionStateExample() {
+  const [state, formAction, loading] = React.useActionState<FormState, FormData>(
+    submitForm,
+    {},
+  )
+
+  return (
+    <FormRoot action={formAction} errors={state.serverErrors} className='w-full max-w-64'>
+      <FieldRoot name='username'>
+        <FieldLabel>Username</FieldLabel>
+        <FieldControl required defaultValue='admin' placeholder='e.g. alice132' />
+        <FieldError />
+      </FieldRoot>
+      <Button type='submit' disabled={loading} focusableWhenDisabled>
+        Submit
+      </Button>
+    </FormRoot>
+  )
+}
+
+async function submitForm(_previousState: FormState, formData: FormData) {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 1000)
+  })
+
+  try {
+    const username = formData.get('username') as string | null
+
+    if (username === 'admin') {
+      return {
+        success: false,
+        serverErrors: { username: "'admin' is reserved for system use" },
+      }
+    }
+
+    const success = Math.random() > 0.5
+
+    if (!success) {
+      return {
+        serverErrors: { username: `${username} is unavailable` },
+      }
+    }
+  } catch {
+    return { serverErrors: { username: 'A server error has occurred' } }
+  }
+
+  return {}
+}
+```
+
+### With Zod Validation
+
+```tsx
+import { Button } from '@lglab/compose-ui/button'
+import { FieldControl, FieldError, FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { FormRoot, type FormRootProps } from '@lglab/compose-ui/form'
+import * as React from 'react'
+import { z } from 'zod'
+
+const schema = z.object({
+  name: z.string().min(1, 'Name is required'),
+  age: z.coerce
+    .number({ message: 'Age must be a number' })
+    .positive('Age must be a positive number'),
+})
+
+async function submitForm(formValues: Record<string, unknown>) {
+  const result = schema.safeParse(formValues)
+
+  if (!result.success) {
+    return {
+      errors: z.flattenError(result.error).fieldErrors,
+    }
+  }
+
+  return {
+    errors: {},
+  }
+}
+
+export default function WithZodExample() {
+  const [errors, setErrors] = React.useState<FormRootProps['errors']>({})
+
+  return (
+    <FormRoot
+      className='w-full max-w-64'
+      errors={errors}
+      onFormSubmit={async (formValues) => {
+        const response = await submitForm(formValues)
+        setErrors(response.errors)
+      }}
+    >
+      <FieldRoot name='name'>
+        <FieldLabel>Name</FieldLabel>
+        <FieldControl placeholder='Enter name' />
+        <FieldError />
+      </FieldRoot>
+      <FieldRoot name='age'>
+        <FieldLabel>Age</FieldLabel>
+        <FieldControl placeholder='Enter age' />
+        <FieldError />
+      </FieldRoot>
+      <Button type='submit'>Submit</Button>
+    </FormRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Form Documentation](https://base-ui.com/react/components/form)
+- [API Reference](https://base-ui.com/react/components/form#api-reference)
+
+---
+
+# Field
+
+Provides accessible labeling and validation for form controls.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { FieldRoot, FieldLabel, FieldControl, FieldDescription, FieldError, FieldItem, FieldValidity } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { FieldControl, FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+
+export default function DefaultExample() {
+  return (
+    <FieldRoot name='name'>
+      <FieldLabel>Name</FieldLabel>
+      <FieldControl placeholder='Enter your name' />
+    </FieldRoot>
+  )
+}
+```
+
+### With Description
+
+```tsx
+import {
+  FieldControl,
+  FieldDescription,
+  FieldLabel,
+  FieldRoot,
+} from '@lglab/compose-ui/field'
+
+export default function WithDescriptionExample() {
+  return (
+    <FieldRoot name='email'>
+      <FieldLabel>Email</FieldLabel>
+      <FieldControl type='email' placeholder='Enter your email' />
+      <FieldDescription>We will never share your email with anyone.</FieldDescription>
+    </FieldRoot>
+  )
+}
+```
+
+### With Error
+
+```tsx
+import { FieldControl, FieldError, FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+
+export default function WithErrorExample() {
+  return (
+    <FieldRoot name='username' invalid>
+      <FieldLabel>Username</FieldLabel>
+      <FieldControl defaultValue='@ComposeUI' placeholder='Enter username' />
+      <FieldError match={true}>Username is already taken.</FieldError>
+    </FieldRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Field Documentation](https://base-ui.com/react/components/field)
+- [API Reference](https://base-ui.com/react/components/field#api-reference)
+
+---
+
 # Drawer
 
 A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
@@ -5691,6 +6104,275 @@ export default function SidebarMenuDefaultOpenExample() {
 
 - [Base UI Collapsible Documentation](https://base-ui.com/react/components/collapsible)
 - [API Reference](https://base-ui.com/react/components/collapsible#api-reference)
+
+---
+
+# Checkbox Group
+
+Provides shared state to a series of checkboxes.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { CheckboxGroupRoot } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { CheckboxIndicator, CheckboxRoot } from '@lglab/compose-ui/checkbox'
+import { CheckboxGroupRoot } from '@lglab/compose-ui/checkbox-group'
+import { Check } from 'lucide-react'
+import * as React from 'react'
+
+export default function DefaultExample() {
+  const id = React.useId()
+  const [value, setValue] = React.useState<string[]>(['fuji'])
+
+  return (
+    <CheckboxGroupRoot aria-labelledby={id} value={value} onValueChange={setValue}>
+      <div className='text-sm font-medium text-foreground' id={id}>
+        Favorite apples
+      </div>
+
+      <label className='flex items-center gap-2 text-sm'>
+        <CheckboxRoot name='apple' value='fuji'>
+          <CheckboxIndicator>
+            <Check className='size-3.5' />
+          </CheckboxIndicator>
+        </CheckboxRoot>
+        Fuji
+      </label>
+
+      <label className='flex items-center gap-2 text-sm'>
+        <CheckboxRoot name='apple' value='gala'>
+          <CheckboxIndicator>
+            <Check className='size-3.5' />
+          </CheckboxIndicator>
+        </CheckboxRoot>
+        Gala
+      </label>
+
+      <label className='flex items-center gap-2 text-sm'>
+        <CheckboxRoot name='apple' value='granny-smith'>
+          <CheckboxIndicator>
+            <Check className='size-3.5' />
+          </CheckboxIndicator>
+        </CheckboxRoot>
+        Granny Smith
+      </label>
+    </CheckboxGroupRoot>
+  )
+}
+```
+
+### Parent Checkbox
+
+```tsx
+import { CheckboxIndicator, CheckboxRoot } from '@lglab/compose-ui/checkbox'
+import { CheckboxGroupRoot } from '@lglab/compose-ui/checkbox-group'
+import { Check, Minus } from 'lucide-react'
+import * as React from 'react'
+
+const fruits = ['fuji', 'gala', 'granny-smith']
+
+export default function ParentCheckboxExample() {
+  const id = React.useId()
+  const [value, setValue] = React.useState<string[]>(['fuji'])
+
+  return (
+    <CheckboxGroupRoot
+      aria-labelledby={id}
+      value={value}
+      onValueChange={setValue}
+      allValues={fruits}
+      className='pl-4'
+    >
+      <label className='-ml-4 flex items-center gap-2 text-sm font-medium' id={id}>
+        <CheckboxRoot name='apples' parent>
+          <CheckboxIndicator
+            render={(props, state) => (
+              <span {...props}>
+                {state.indeterminate ? (
+                  <Minus className='size-3.5' />
+                ) : (
+                  <Check className='size-3.5' />
+                )}
+              </span>
+            )}
+          />
+        </CheckboxRoot>
+        Apples
+      </label>
+
+      <label className='flex items-center gap-2 text-sm'>
+        <CheckboxRoot value='fuji'>
+          <CheckboxIndicator>
+            <Check className='size-3.5' />
+          </CheckboxIndicator>
+        </CheckboxRoot>
+        Fuji
+      </label>
+
+      <label className='flex items-center gap-2 text-sm'>
+        <CheckboxRoot value='gala'>
+          <CheckboxIndicator>
+            <Check className='size-3.5' />
+          </CheckboxIndicator>
+        </CheckboxRoot>
+        Gala
+      </label>
+
+      <label className='flex items-center gap-2 text-sm'>
+        <CheckboxRoot value='granny-smith'>
+          <CheckboxIndicator>
+            <Check className='size-3.5' />
+          </CheckboxIndicator>
+        </CheckboxRoot>
+        Granny Smith
+      </label>
+    </CheckboxGroupRoot>
+  )
+}
+```
+
+### With Field
+
+```tsx
+import { CheckboxIndicator, CheckboxRoot } from '@lglab/compose-ui/checkbox'
+import { CheckboxGroupRoot } from '@lglab/compose-ui/checkbox-group'
+import { FieldDescription, FieldItem, FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { FieldsetLegend, FieldsetRoot } from '@lglab/compose-ui/fieldset'
+import { Check } from 'lucide-react'
+
+const fruits = [
+  { value: 'apple', label: 'Apple' },
+  { value: 'banana', label: 'Banana' },
+  { value: 'orange', label: 'Orange' },
+]
+
+export default function WithFieldExample() {
+  return (
+    <FieldRoot name='fruits'>
+      <FieldsetRoot render={<CheckboxGroupRoot />}>
+        <FieldsetLegend>Favorite Fruits</FieldsetLegend>
+        {fruits.map((fruit) => (
+          <FieldItem key={fruit.value}>
+            <FieldLabel>
+              <CheckboxRoot value={fruit.value}>
+                <CheckboxIndicator>
+                  <Check className='size-3.5' />
+                </CheckboxIndicator>
+              </CheckboxRoot>
+              {fruit.label}
+            </FieldLabel>
+          </FieldItem>
+        ))}
+      </FieldsetRoot>
+      <FieldDescription>Select your favorite fruits.</FieldDescription>
+    </FieldRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Checkbox Group Documentation](https://base-ui.com/react/components/checkbox-group)
+- [API Reference](https://base-ui.com/react/components/checkbox-group#api-reference)
+
+---
+
+# Checkbox
+
+A control that allows the user to toggle between checked and unchecked states.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { CheckboxRoot, CheckboxIndicator } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { CheckboxIndicator, CheckboxRoot } from '@lglab/compose-ui/checkbox'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { Check } from 'lucide-react'
+
+export default function DefaultExample() {
+  return (
+    <FieldRoot>
+      <FieldLabel className='flex items-center gap-2'>
+        <CheckboxRoot defaultChecked>
+          <CheckboxIndicator>
+            <Check className='size-3.5' />
+          </CheckboxIndicator>
+        </CheckboxRoot>
+        Accept terms and conditions
+      </FieldLabel>
+    </FieldRoot>
+  )
+}
+```
+
+### Indeterminate
+
+```tsx
+import { CheckboxIndicator, CheckboxRoot } from '@lglab/compose-ui/checkbox'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { Check, Minus } from 'lucide-react'
+import * as React from 'react'
+
+export default function IndeterminateExample() {
+  const [checked, setChecked] = React.useState<boolean | 'indeterminate'>('indeterminate')
+
+  return (
+    <FieldRoot>
+      <FieldLabel className='flex items-center gap-2'>
+        <CheckboxRoot
+          checked={checked === true}
+          indeterminate={checked === 'indeterminate'}
+          onCheckedChange={(newChecked) => setChecked(newChecked)}
+        >
+          <CheckboxIndicator
+            render={(props, state) => (
+              <span {...props}>
+                {state.indeterminate ? (
+                  <Minus className='size-3.5' />
+                ) : (
+                  <Check className='size-3.5' />
+                )}
+              </span>
+            )}
+          />
+        </CheckboxRoot>
+        Select all items
+      </FieldLabel>
+    </FieldRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Checkbox Documentation](https://base-ui.com/react/components/checkbox)
+- [API Reference](https://base-ui.com/react/components/checkbox#api-reference)
 
 ---
 

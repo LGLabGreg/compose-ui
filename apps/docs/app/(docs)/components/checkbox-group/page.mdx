@@ -1,0 +1,35 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import ParentCheckboxExample from './examples/parent-checkbox'
+import WithFieldExample from './examples/with-field'
+
+<ComponentPage
+  title="Checkbox Group"
+  description="Provides shared state to a series of checkboxes."
+  component="checkbox-group"
+  baseUiComponent="checkbox-group"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/checkbox-group/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Parent Checkbox'
+  filePath='app/(docs)/components/checkbox-group/examples/parent-checkbox.tsx'
+>
+  <ParentCheckboxExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Field'
+  filePath='app/(docs)/components/checkbox-group/examples/with-field.tsx'
+>
+  <WithFieldExample />
+</ExampleLoader>
+
+</ComponentPage>

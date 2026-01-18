@@ -1,4 +1,6 @@
 export { Button } from './components/button'
+export { CheckboxRoot, CheckboxIndicator } from './components/checkbox'
+export { CheckboxGroupRoot } from './components/checkbox-group'
 export {
   CollapsibleRoot,
   CollapsibleTrigger,
@@ -66,6 +68,19 @@ export {
   DrawerContent,
   DrawerFooter,
 } from './components/drawer'
+export { Input } from './components/input'
+export { Textarea } from './components/textarea'
+export {
+  FieldRoot,
+  FieldLabel,
+  FieldControl,
+  FieldDescription,
+  FieldError,
+  FieldItem,
+  FieldValidity,
+} from './components/field'
+export { FieldsetRoot, FieldsetLegend } from './components/fieldset'
+export { FormRoot } from './components/form'
 export {
   AccordionRoot,
   AccordionItem,
@@ -218,6 +233,8 @@ export {
 } from './components/preview-card'
 
 export type { ButtonProps } from './components/button'
+export type { CheckboxRootProps, CheckboxIndicatorProps } from './components/checkbox'
+export type { CheckboxGroupRootProps } from './components/checkbox-group'
 export type {
   CollapsibleRootProps,
   CollapsibleTriggerProps,
@@ -295,6 +312,19 @@ export type {
   DrawerContentProps,
   DrawerFooterProps,
 } from './components/drawer'
+export type { InputProps } from './components/input'
+export type { TextareaProps } from './components/textarea'
+export type {
+  FieldRootProps,
+  FieldLabelProps,
+  FieldControlProps,
+  FieldDescriptionProps,
+  FieldErrorProps,
+  FieldItemProps,
+  FieldValidityProps,
+} from './components/field'
+export type { FieldsetRootProps, FieldsetLegendProps } from './components/fieldset'
+export type { FormRootProps } from './components/form'
 export type {
   AccordionRootProps,
   AccordionItemProps,

@@ -1,0 +1,27 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import IndeterminateExample from './examples/indeterminate'
+
+<ComponentPage
+  title="Checkbox"
+  description="A control that allows the user to toggle between checked and unchecked states."
+  component="checkbox"
+  baseUiComponent="checkbox"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/checkbox/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Indeterminate'
+  filePath='app/(docs)/components/checkbox/examples/indeterminate.tsx'
+>
+  <IndeterminateExample />
+</ExampleLoader>
+
+</ComponentPage>

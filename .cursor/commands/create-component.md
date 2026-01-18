@@ -28,6 +28,7 @@ Structure:
 - Add `'use client'` directive at the top (if using React hooks or client features)
 - Import from Base UI: `import { Component } from '@base-ui/react/$ARGUMENTS'`
 - Import `cn` utility: `import { cn } from '../lib/utils'`
+- **NEVER import icon libraries** (like `lucide-react`) in component files - users may use different icon libraries. Icons should only be used in documentation examples.
 - Create each sub-component with proper typing, styling, and displayName
 - Export all components and types at the bottom
 
@@ -99,7 +100,9 @@ import DefaultExample from './examples/default'
 
 **Location**: `apps/docs/app/(docs)/components/$ARGUMENTS/examples/`
 
-Create at least a `default.tsx` example. Use `lucide-react` icons in examples (not inline SVGs):
+Create at least a `default.tsx` example. Use `lucide-react` icons in examples (not inline SVGs).
+
+**IMPORTANT**: For form input components (Input, Textarea, Select, etc.), always use the Field component (`FieldRoot`, `FieldLabel`, `FieldDescription`, `FieldError`) to build examples instead of raw HTML labels. This ensures proper accessibility and consistent styling.
 
 **IMPORTANT**: Use subpath imports for better tree-shaking. Import components from their specific subpath:
 
