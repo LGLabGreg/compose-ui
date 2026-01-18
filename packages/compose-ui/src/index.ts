@@ -67,6 +67,7 @@ export {
   DrawerFooter,
 } from './components/drawer'
 export { Input } from './components/input'
+export { Textarea } from './components/textarea'
 export {
   FieldRoot,
   FieldLabel,
@@ -306,6 +307,7 @@ export type {
   DrawerFooterProps,
 } from './components/drawer'
 export type { InputProps } from './components/input'
+export type { TextareaProps } from './components/textarea'
 export type {
   FieldRootProps,
   FieldLabelProps,
