@@ -21,6 +21,7 @@ Key features:
 - [Toggle Group](https://compose-ui.dev/components/toggle-group.md): Provides a shared state to a series of toggle buttons.
 - [Toggle](https://compose-ui.dev/components/toggle.md): A two-state button that can be on or off.
 - [Toast](https://compose-ui.dev/components/toast.md): A notification message that appears temporarily to provide feedback.
+- [Textarea](https://compose-ui.dev/components/textarea.md): A multi-line text input element.
 - [Tabs](https://compose-ui.dev/components/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
 - [Switch](https://compose-ui.dev/components/switch.md): A control that indicates whether a setting is on or off.
 - [Slider](https://compose-ui.dev/components/slider.md): A control for selecting a value or range from a continuous or discrete set of values.
@@ -33,10 +34,15 @@ Key features:
 - [Meter](https://compose-ui.dev/components/meter.md): A graphical display of a numeric value within a defined range.
 - [Menubar](https://compose-ui.dev/components/menubar.md): A horizontal menu bar with dropdown menus for application commands and options.
 - [Menu](https://compose-ui.dev/components/menu.md): A component that displays a list of options on a temporary surface.
+- [Input](https://compose-ui.dev/components/input.md): A single-line text input element.
+- [Form](https://compose-ui.dev/components/form.md): A native form element with consolidated error handling.
+- [Field](https://compose-ui.dev/components/field.md): Provides accessible labeling and validation for form controls.
 - [Drawer](https://compose-ui.dev/components/drawer.md): A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
 - [Dialog](https://compose-ui.dev/components/dialog.md): A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
 - [Context Menu](https://compose-ui.dev/components/context-menu.md): A menu triggered by right-click or long press, rendering at the pointer position.
 - [Collapsible](https://compose-ui.dev/components/collapsible.md): A component that allows content to be expanded or collapsed.
+- [Checkbox Group](https://compose-ui.dev/components/checkbox-group.md): Provides shared state to a series of checkboxes.
+- [Checkbox](https://compose-ui.dev/components/checkbox.md): A control that allows the user to toggle between checked and unchecked states.
 - [Card](https://compose-ui.dev/components/card.md): A flexible card component with support for media, headers, content sections, and footers. Supports both vertical and horizontal layouts with multiple variants.
 - [Button](https://compose-ui.dev/components/button.md): A versatile button component with multiple variants, sizes, and states including loading indicators.
 - [Avatar](https://compose-ui.dev/components/avatar.md): An easily stylable avatar component for displaying user profile pictures, initials, or fallback content.

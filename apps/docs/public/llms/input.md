@@ -1,0 +1,47 @@
+# Input
+
+A single-line text input element.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { Input } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { Input } from '@lglab/compose-ui/input'
+
+export default function DefaultExample() {
+  return (
+    <div className='flex flex-col gap-4'>
+      <label className='flex flex-col gap-1'>
+        <span className='text-sm font-medium text-foreground'>Name</span>
+        <Input placeholder='Enter your name' />
+      </label>
+      <label className='flex flex-col gap-1'>
+        <span className='text-sm font-medium text-foreground'>Email</span>
+        <Input type='email' placeholder='Enter your email' />
+      </label>
+      <label className='flex flex-col gap-1'>
+        <span className='text-sm font-medium text-foreground'>Password</span>
+        <Input type='password' placeholder='Enter your password' />
+      </label>
+    </div>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Input Documentation](https://base-ui.com/react/components/input)
+- [API Reference](https://base-ui.com/react/components/input#api-reference)
