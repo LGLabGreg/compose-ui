@@ -1,0 +1,35 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import MultipleExample from './examples/multiple'
+import ObjectValuesExample from './examples/object-values'
+
+<ComponentPage
+  title="Select"
+  description="A common form component for choosing a predefined value in a dropdown menu."
+  component="select"
+  baseUiComponent="select"
+>
+
+<ExampleLoader
+  title="Default"
+  filePath="app/(docs)/components/select/examples/default.tsx"
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title="Multiple Selection"
+  filePath="app/(docs)/components/select/examples/multiple.tsx"
+>
+  <MultipleExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title="Object Values"
+  filePath="app/(docs)/components/select/examples/object-values.tsx"
+>
+  <ObjectValuesExample />
+</ExampleLoader>
+
+</ComponentPage>

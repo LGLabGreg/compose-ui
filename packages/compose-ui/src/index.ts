@@ -27,6 +27,26 @@ export {
   ScrollAreaThumb,
   ScrollAreaCorner,
 } from './components/scroll-area'
+export {
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+  SelectIcon,
+  SelectBackdrop,
+  SelectPortal,
+  SelectPositioner,
+  SelectPopup,
+  SelectList,
+  SelectArrow,
+  SelectItem,
+  SelectItemText,
+  SelectItemIndicator,
+  SelectGroup,
+  SelectGroupLabel,
+  SelectScrollUpArrow,
+  SelectScrollDownArrow,
+  SelectSeparator,
+} from './components/select'
 export { Separator } from './components/separator'
 export { SwitchRoot, SwitchThumb } from './components/switch'
 export { Toggle } from './components/toggle'
@@ -132,6 +152,15 @@ export {
   MenuSubmenuRoot,
 } from './components/menu'
 export {
+  NumberFieldRoot,
+  NumberFieldScrubArea,
+  NumberFieldScrubAreaCursor,
+  NumberFieldGroup,
+  NumberFieldInput,
+  NumberFieldDecrement,
+  NumberFieldIncrement,
+} from './components/number-field'
+export {
   PopoverRoot,
   PopoverTrigger,
   PopoverPortal,
@@ -151,6 +180,8 @@ export {
   ProgressValue,
   ProgressLabel,
 } from './components/progress'
+export { RadioRoot, RadioIndicator } from './components/radio'
+export { RadioGroupRoot } from './components/radio-group'
 export { ToggleGroupRoot, ToggleGroupItem } from './components/toggle-group'
 export {
   CardRoot,
@@ -265,6 +296,26 @@ export type {
   ScrollAreaThumbProps,
   ScrollAreaCornerProps,
 } from './components/scroll-area'
+export type {
+  SelectRootProps,
+  SelectTriggerProps,
+  SelectValueProps,
+  SelectIconProps,
+  SelectBackdropProps,
+  SelectPortalProps,
+  SelectPositionerProps,
+  SelectPopupProps,
+  SelectListProps,
+  SelectArrowProps,
+  SelectItemProps,
+  SelectItemTextProps,
+  SelectItemIndicatorProps,
+  SelectGroupProps,
+  SelectGroupLabelProps,
+  SelectScrollUpArrowProps,
+  SelectScrollDownArrowProps,
+  SelectSeparatorProps,
+} from './components/select'
 export type { SeparatorProps } from './components/separator'
 export type { SwitchRootProps, SwitchThumbProps } from './components/switch'
 export type { ToggleProps } from './components/toggle'
@@ -376,6 +427,15 @@ export type {
   MenuSubmenuRootProps,
 } from './components/menu'
 export type {
+  NumberFieldRootProps,
+  NumberFieldScrubAreaProps,
+  NumberFieldScrubAreaCursorProps,
+  NumberFieldGroupProps,
+  NumberFieldInputProps,
+  NumberFieldDecrementProps,
+  NumberFieldIncrementProps,
+} from './components/number-field'
+export type {
   PopoverRootProps,
   PopoverTriggerProps,
   PopoverPortalProps,
@@ -395,6 +455,8 @@ export type {
   ProgressValueProps,
   ProgressLabelProps,
 } from './components/progress'
+export type { RadioRootProps, RadioIndicatorProps } from './components/radio'
+export type { RadioGroupRootProps } from './components/radio-group'
 export type {
   ToggleGroupRootProps,
   ToggleGroupItemProps,

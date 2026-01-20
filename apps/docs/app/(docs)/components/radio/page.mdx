@@ -1,0 +1,27 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import WithFieldExample from './examples/with-field'
+
+<ComponentPage
+  title="Radio"
+  description="A control that allows the user to select a single option from a group."
+  component="radio"
+  baseUiComponent="radio"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/radio/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Field'
+  filePath='app/(docs)/components/radio/examples/with-field.tsx'
+>
+  <WithFieldExample />
+</ExampleLoader>
+
+</ComponentPage>
