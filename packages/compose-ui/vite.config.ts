@@ -31,6 +31,8 @@ const components = [
   'popover',
   'preview-card',
   'progress',
+  'radio',
+  'radio-group',
   'scroll-area',
   'separator',
   'slider',

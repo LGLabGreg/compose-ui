@@ -5,7 +5,11 @@ import { CheckboxGroupRoot } from '@lglab/compose-ui/checkbox-group'
 import { Check, Minus } from 'lucide-react'
 import * as React from 'react'
 
-const fruits = ['fuji', 'gala', 'granny-smith']
+const apples = [
+  { value: 'fuji', label: 'Fuji' },
+  { value: 'gala', label: 'Gala' },
+  { value: 'granny-smith', label: 'Granny Smith' },
+]
 
 export default function ParentCheckboxExample() {
   const id = React.useId()
@@ -16,7 +20,7 @@ export default function ParentCheckboxExample() {
       aria-labelledby={id}
       value={value}
       onValueChange={setValue}
-      allValues={fruits}
+      allValues={apples.map((apple) => apple.value)}
       className='pl-4'
     >
       <label className='-ml-4 flex items-center gap-2 text-sm font-medium' id={id}>
@@ -36,32 +40,16 @@ export default function ParentCheckboxExample() {
         Apples
       </label>
 
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot value='fuji'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Fuji
-      </label>
-
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot value='gala'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Gala
-      </label>
-
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot value='granny-smith'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Granny Smith
-      </label>
+      {apples.map((apple) => (
+        <label key={apple.value} className='flex items-center gap-2 text-sm'>
+          <CheckboxRoot value={apple.value}>
+            <CheckboxIndicator>
+              <Check className='size-3.5' />
+            </CheckboxIndicator>
+          </CheckboxRoot>
+          {apple.label}
+        </label>
+      ))}
     </CheckboxGroupRoot>
   )
 }

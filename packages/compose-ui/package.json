@@ -117,6 +117,14 @@
       "import": "./dist/progress.js",
       "types": "./dist/progress.d.ts"
     },
+    "./radio": {
+      "import": "./dist/radio.js",
+      "types": "./dist/radio.d.ts"
+    },
+    "./radio-group": {
+      "import": "./dist/radio-group.js",
+      "types": "./dist/radio-group.d.ts"
+    },
     "./scroll-area": {
       "import": "./dist/scroll-area.js",
       "types": "./dist/scroll-area.d.ts"

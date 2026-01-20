@@ -5,6 +5,12 @@ import { CheckboxGroupRoot } from '@lglab/compose-ui/checkbox-group'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
+const apples = [
+  { value: 'fuji', label: 'Fuji' },
+  { value: 'gala', label: 'Gala' },
+  { value: 'granny-smith', label: 'Granny Smith' },
+]
+
 export default function DefaultExample() {
   const id = React.useId()
   const [value, setValue] = React.useState<string[]>(['fuji'])
@@ -15,32 +21,16 @@ export default function DefaultExample() {
         Favorite apples
       </div>
 
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot name='apple' value='fuji'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Fuji
-      </label>
-
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot name='apple' value='gala'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Gala
-      </label>
-
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot name='apple' value='granny-smith'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Granny Smith
-      </label>
+      {apples.map((apple) => (
+        <label key={apple.value} className='flex items-center gap-2 text-sm'>
+          <CheckboxRoot name='apple' value={apple.value}>
+            <CheckboxIndicator>
+              <Check className='size-3.5' />
+            </CheckboxIndicator>
+          </CheckboxRoot>
+          {apple.label}
+        </label>
+      ))}
     </CheckboxGroupRoot>
   )
 }

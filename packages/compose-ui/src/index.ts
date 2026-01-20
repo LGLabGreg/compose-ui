@@ -151,6 +151,8 @@ export {
   ProgressValue,
   ProgressLabel,
 } from './components/progress'
+export { RadioRoot, RadioIndicator } from './components/radio'
+export { RadioGroupRoot } from './components/radio-group'
 export { ToggleGroupRoot, ToggleGroupItem } from './components/toggle-group'
 export {
   CardRoot,
@@ -395,6 +397,8 @@ export type {
   ProgressValueProps,
   ProgressLabelProps,
 } from './components/progress'
+export type { RadioRootProps, RadioIndicatorProps } from './components/radio'
+export type { RadioGroupRootProps } from './components/radio-group'
 export type {
   ToggleGroupRootProps,
   ToggleGroupItemProps,
