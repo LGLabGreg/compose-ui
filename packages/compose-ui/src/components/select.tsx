@@ -36,7 +36,7 @@ const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
   return (
     <BaseSelect.Trigger
       className={cn(
-        'flex min-h-10 min-w-40 items-center justify-between gap-3 rounded-md border border-border bg-background px-3.5 pr-3 text-base text-foreground select-none hover:bg-muted data-popup-open:bg-muted',
+        'flex min-h-9 min-w-40 items-center justify-between gap-3 rounded-md border border-border bg-background px-3.5 pr-3 text-base text-foreground select-none hover:bg-muted data-popup-open:bg-muted',
         className,
       )}
       {...props}

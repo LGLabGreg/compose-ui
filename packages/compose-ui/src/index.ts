@@ -152,6 +152,15 @@ export {
   MenuSubmenuRoot,
 } from './components/menu'
 export {
+  NumberFieldRoot,
+  NumberFieldScrubArea,
+  NumberFieldScrubAreaCursor,
+  NumberFieldGroup,
+  NumberFieldInput,
+  NumberFieldDecrement,
+  NumberFieldIncrement,
+} from './components/number-field'
+export {
   PopoverRoot,
   PopoverTrigger,
   PopoverPortal,
@@ -417,6 +426,15 @@ export type {
   MenuSubmenuTriggerProps,
   MenuSubmenuRootProps,
 } from './components/menu'
+export type {
+  NumberFieldRootProps,
+  NumberFieldScrubAreaProps,
+  NumberFieldScrubAreaCursorProps,
+  NumberFieldGroupProps,
+  NumberFieldInputProps,
+  NumberFieldDecrementProps,
+  NumberFieldIncrementProps,
+} from './components/number-field'
 export type {
   PopoverRootProps,
   PopoverTriggerProps,

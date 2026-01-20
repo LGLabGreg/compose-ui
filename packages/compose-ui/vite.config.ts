@@ -28,6 +28,7 @@ const components = [
   'menubar',
   'meter',
   'navigation-menu',
+  'number-field',
   'popover',
   'preview-card',
   'progress',

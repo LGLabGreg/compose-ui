@@ -1,0 +1,51 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import ControlledExample from './examples/controlled'
+import DefaultExample from './examples/default'
+import FormatExample from './examples/format'
+import MinMaxExample from './examples/min-max'
+import StepExample from './examples/step'
+
+<ComponentPage
+  title="Number Field"
+  description="A numeric input element with increment and decrement buttons, and a scrub area."
+  component="number-field"
+  baseUiComponent="number-field"
+>
+
+<ExampleLoader
+  title="Default"
+  filePath="app/(docs)/components/number-field/examples/default.tsx"
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title="Min/Max"
+  filePath="app/(docs)/components/number-field/examples/min-max.tsx"
+>
+  <MinMaxExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title="Step"
+  filePath="app/(docs)/components/number-field/examples/step.tsx"
+>
+  <StepExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title="Controlled"
+  filePath="app/(docs)/components/number-field/examples/controlled.tsx"
+>
+  <ControlledExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title="Format"
+  filePath="app/(docs)/components/number-field/examples/format.tsx"
+>
+  <FormatExample />
+</ExampleLoader>
+
+</ComponentPage>

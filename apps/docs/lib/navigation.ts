@@ -41,6 +41,7 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Menubar', href: '/components/menubar' },
       { name: 'Meter', href: '/components/meter' },
       { name: 'Navigation Menu', href: '/components/navigation-menu' },
+      { name: 'Number Field', href: '/components/number-field' },
       { name: 'Popover', href: '/components/popover' },
       { name: 'Preview Card', href: '/components/preview-card' },
       { name: 'Progress', href: '/components/progress' },
