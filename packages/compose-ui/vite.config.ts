@@ -34,6 +34,7 @@ const components = [
   'radio',
   'radio-group',
   'scroll-area',
+  'select',
   'separator',
   'slider',
   'switch',

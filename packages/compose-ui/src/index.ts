@@ -27,6 +27,26 @@ export {
   ScrollAreaThumb,
   ScrollAreaCorner,
 } from './components/scroll-area'
+export {
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+  SelectIcon,
+  SelectBackdrop,
+  SelectPortal,
+  SelectPositioner,
+  SelectPopup,
+  SelectList,
+  SelectArrow,
+  SelectItem,
+  SelectItemText,
+  SelectItemIndicator,
+  SelectGroup,
+  SelectGroupLabel,
+  SelectScrollUpArrow,
+  SelectScrollDownArrow,
+  SelectSeparator,
+} from './components/select'
 export { Separator } from './components/separator'
 export { SwitchRoot, SwitchThumb } from './components/switch'
 export { Toggle } from './components/toggle'
@@ -267,6 +287,26 @@ export type {
   ScrollAreaThumbProps,
   ScrollAreaCornerProps,
 } from './components/scroll-area'
+export type {
+  SelectRootProps,
+  SelectTriggerProps,
+  SelectValueProps,
+  SelectIconProps,
+  SelectBackdropProps,
+  SelectPortalProps,
+  SelectPositionerProps,
+  SelectPopupProps,
+  SelectListProps,
+  SelectArrowProps,
+  SelectItemProps,
+  SelectItemTextProps,
+  SelectItemIndicatorProps,
+  SelectGroupProps,
+  SelectGroupLabelProps,
+  SelectScrollUpArrowProps,
+  SelectScrollDownArrowProps,
+  SelectSeparatorProps,
+} from './components/select'
 export type { SeparatorProps } from './components/separator'
 export type { SwitchRootProps, SwitchThumbProps } from './components/switch'
 export type { ToggleProps } from './components/toggle'

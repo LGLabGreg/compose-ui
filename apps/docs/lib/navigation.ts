@@ -47,6 +47,7 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Radio', href: '/components/radio' },
       { name: 'Radio Group', href: '/components/radio-group' },
       { name: 'Scroll Area', href: '/components/scroll-area' },
+      { name: 'Select', href: '/components/select' },
       { name: 'Separator', href: '/components/separator' },
       { name: 'Slider', href: '/components/slider' },
       { name: 'Switch', href: '/components/switch' },

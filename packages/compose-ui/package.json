@@ -129,6 +129,10 @@
       "import": "./dist/scroll-area.js",
       "types": "./dist/scroll-area.d.ts"
     },
+    "./select": {
+      "import": "./dist/select.js",
+      "types": "./dist/select.d.ts"
+    },
     "./separator": {
       "import": "./dist/separator.js",
       "types": "./dist/separator.d.ts"
