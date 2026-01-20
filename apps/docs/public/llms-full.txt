@@ -13,10 +13,14 @@
 - Switch
 - Slider
 - Separator
+- Select
 - Scroll Area
+- Radio Group
+- Radio
 - Progress
 - Preview Card
 - Popover
+- Number Field
 - Navigation Menu
 - Meter
 - Menubar
@@ -1948,6 +1952,285 @@ export default function DefaultExample() {
 
 ---
 
+# Select
+
+A common form component for choosing a predefined value in a dropdown menu.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { SelectRoot, SelectTrigger, SelectValue, SelectIcon, SelectBackdrop, SelectPortal, SelectPositioner, SelectPopup, SelectList, SelectArrow, SelectItem, SelectItemText, SelectItemIndicator, SelectGroup, SelectGroupLabel, SelectScrollUpArrow, SelectScrollDownArrow, SelectSeparator } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import {
+  SelectIcon,
+  SelectItem,
+  SelectItemIndicator,
+  SelectItemText,
+  SelectList,
+  SelectPopup,
+  SelectPortal,
+  SelectPositioner,
+  SelectRoot,
+  SelectScrollDownArrow,
+  SelectScrollUpArrow,
+  SelectTrigger,
+  SelectValue,
+} from '@lglab/compose-ui/select'
+import { Check, ChevronsUpDown } from 'lucide-react'
+
+const apples = [
+  { label: 'Gala', value: 'gala' },
+  { label: 'Fuji', value: 'fuji' },
+  { label: 'Honeycrisp', value: 'honeycrisp' },
+  { label: 'Granny Smith', value: 'granny-smith' },
+  { label: 'Pink Lady', value: 'pink-lady' },
+]
+
+export default function DefaultExample() {
+  return (
+    <FieldRoot className='flex flex-col gap-1'>
+      <FieldLabel nativeLabel={false} render={<div />}>
+        Apple
+      </FieldLabel>
+      <SelectRoot items={apples}>
+        <SelectTrigger>
+          <SelectValue placeholder='Select apple' />
+          <SelectIcon>
+            <ChevronsUpDown className='size-4' />
+          </SelectIcon>
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectPositioner>
+            <SelectPopup>
+              <SelectScrollUpArrow />
+              <SelectList>
+                {apples.map(({ label, value }) => (
+                  <SelectItem key={label} value={value}>
+                    <SelectItemIndicator>
+                      <Check className='size-3.5' />
+                    </SelectItemIndicator>
+                    <SelectItemText>{label}</SelectItemText>
+                  </SelectItem>
+                ))}
+              </SelectList>
+              <SelectScrollDownArrow />
+            </SelectPopup>
+          </SelectPositioner>
+        </SelectPortal>
+      </SelectRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Multiple Selection
+
+```tsx
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import {
+  SelectIcon,
+  SelectItem,
+  SelectItemIndicator,
+  SelectItemText,
+  SelectList,
+  SelectPopup,
+  SelectPortal,
+  SelectPositioner,
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+} from '@lglab/compose-ui/select'
+import { Check, ChevronsUpDown } from 'lucide-react'
+
+const languages = {
+  javascript: 'JavaScript',
+  typescript: 'TypeScript',
+  python: 'Python',
+  java: 'Java',
+  csharp: 'C#',
+  php: 'PHP',
+  cpp: 'C++',
+  rust: 'Rust',
+  go: 'Go',
+  swift: 'Swift',
+}
+
+type Language = keyof typeof languages
+
+const values = Object.keys(languages) as Language[]
+
+function renderValue(value: Language[]) {
+  if (value.length === 0) {
+    return 'Select languages…'
+  }
+
+  const firstLanguage = languages[value[0]]
+  const additionalLanguages = value.length > 1 ? ` (+${value.length - 1} more)` : ''
+  return firstLanguage + additionalLanguages
+}
+
+export default function MultipleExample() {
+  return (
+    <FieldRoot className='flex flex-col gap-1'>
+      <FieldLabel nativeLabel={false} render={<div />}>
+        Languages
+      </FieldLabel>
+      <SelectRoot multiple defaultValue={['javascript', 'typescript']}>
+        <SelectTrigger>
+          <SelectValue>{renderValue}</SelectValue>
+          <SelectIcon>
+            <ChevronsUpDown className='size-4' />
+          </SelectIcon>
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectPositioner alignItemWithTrigger={false}>
+            <SelectPopup>
+              <SelectList>
+                {values.map((value) => (
+                  <SelectItem key={value} value={value}>
+                    <SelectItemIndicator>
+                      <Check className='size-3.5' />
+                    </SelectItemIndicator>
+                    <SelectItemText>{languages[value]}</SelectItemText>
+                  </SelectItem>
+                ))}
+              </SelectList>
+            </SelectPopup>
+          </SelectPositioner>
+        </SelectPortal>
+      </SelectRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Object Values
+
+```tsx
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import {
+  SelectIcon,
+  SelectItem,
+  SelectItemIndicator,
+  SelectItemText,
+  SelectList,
+  SelectPopup,
+  SelectPortal,
+  SelectPositioner,
+  SelectRoot,
+  SelectScrollDownArrow,
+  SelectScrollUpArrow,
+  SelectTrigger,
+  SelectValue,
+} from '@lglab/compose-ui/select'
+import { Check, ChevronsUpDown } from 'lucide-react'
+
+interface ShippingMethod {
+  id: string
+  name: string
+  duration: string
+  price: string
+}
+
+const shippingMethods: ShippingMethod[] = [
+  {
+    id: 'standard',
+    name: 'Standard',
+    duration: 'Delivers in 4-6 business days',
+    price: '$4.99',
+  },
+  {
+    id: 'express',
+    name: 'Express',
+    duration: 'Delivers in 2-3 business days',
+    price: '$9.99',
+  },
+  {
+    id: 'overnight',
+    name: 'Overnight',
+    duration: 'Delivers next business day',
+    price: '$19.99',
+  },
+]
+
+export default function ObjectValuesExample() {
+  return (
+    <FieldRoot className='flex flex-col gap-1'>
+      <FieldLabel nativeLabel={false} render={<div />}>
+        Shipping method
+      </FieldLabel>
+      <SelectRoot<ShippingMethod>
+        defaultValue={shippingMethods[0]}
+        itemToStringValue={(item) => item.id}
+      >
+        <SelectTrigger className='min-h-10 items-start py-2'>
+          <SelectValue>
+            {(method: ShippingMethod) => (
+              <span className='flex flex-col items-start text-left'>
+                <span className='text-base font-medium'>{method.name}</span>
+                <span className='text-sm'>
+                  {method.duration} ({method.price})
+                </span>
+              </span>
+            )}
+          </SelectValue>
+          <SelectIcon className='self-center'>
+            <ChevronsUpDown className='size-4' />
+          </SelectIcon>
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectPositioner>
+            <SelectPopup>
+              <SelectScrollUpArrow />
+              <SelectList>
+                {shippingMethods.map((method) => (
+                  <SelectItem
+                    key={method.id}
+                    value={method}
+                    className='items-start py-2.5'
+                  >
+                    <SelectItemIndicator className='relative top-[0.4em]'>
+                      <Check className='size-3.5' />
+                    </SelectItemIndicator>
+                    <SelectItemText className='flex flex-col items-start text-left'>
+                      <span className='text-base font-medium'>{method.name}</span>
+                      <span className='text-sm'>
+                        {method.duration} ({method.price})
+                      </span>
+                    </SelectItemText>
+                  </SelectItem>
+                ))}
+              </SelectList>
+              <SelectScrollDownArrow />
+            </SelectPopup>
+          </SelectPositioner>
+        </SelectPortal>
+      </SelectRoot>
+    </FieldRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Select Documentation](https://base-ui.com/react/components/select)
+- [API Reference](https://base-ui.com/react/components/select#api-reference)
+
+---
+
 # Scroll Area
 
 A native scroll container with custom scrollbars for consistent styling across browsers.
@@ -2080,6 +2363,175 @@ export default function BothScrollbarsExample() {
 
 - [Base UI Scroll Area Documentation](https://base-ui.com/react/components/scroll-area)
 - [API Reference](https://base-ui.com/react/components/scroll-area#api-reference)
+
+---
+
+# Radio Group
+
+Provides shared state to a series of radio buttons.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { RadioGroupRoot } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { RadioIndicator, RadioRoot } from '@lglab/compose-ui/radio'
+import { RadioGroupRoot } from '@lglab/compose-ui/radio-group'
+import * as React from 'react'
+
+export default function DefaultExample() {
+  const id = React.useId()
+  const [value, setValue] = React.useState<string>('fuji')
+
+  return (
+    <RadioGroupRoot aria-labelledby={id} value={value} onValueChange={setValue}>
+      <div className='text-sm font-medium text-foreground' id={id}>
+        Best apple
+      </div>
+
+      <label className='flex items-center gap-2 text-sm'>
+        <RadioRoot value='fuji'>
+          <RadioIndicator />
+        </RadioRoot>
+        Fuji
+      </label>
+
+      <label className='flex items-center gap-2 text-sm'>
+        <RadioRoot value='gala'>
+          <RadioIndicator />
+        </RadioRoot>
+        Gala
+      </label>
+
+      <label className='flex items-center gap-2 text-sm'>
+        <RadioRoot value='granny-smith'>
+          <RadioIndicator />
+        </RadioRoot>
+        Granny Smith
+      </label>
+    </RadioGroupRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Radio Group Documentation](https://base-ui.com/react/components/radio-group)
+- [API Reference](https://base-ui.com/react/components/radio-group#api-reference)
+
+---
+
+# Radio
+
+A control that allows the user to select a single option from a group.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { RadioRoot, RadioIndicator } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { RadioIndicator, RadioRoot } from '@lglab/compose-ui/radio'
+import { RadioGroupRoot } from '@lglab/compose-ui/radio-group'
+import * as React from 'react'
+
+const apples = [
+  { value: 'fuji', label: 'Fuji' },
+  { value: 'gala', label: 'Gala' },
+  { value: 'granny-smith', label: 'Granny Smith' },
+]
+
+export default function DefaultExample() {
+  const id = React.useId()
+  const [value, setValue] = React.useState<string>('fuji')
+
+  return (
+    <RadioGroupRoot aria-labelledby={id} value={value} onValueChange={setValue}>
+      <div className='text-sm font-medium text-foreground' id={id}>
+        Best apple
+      </div>
+
+      {apples.map((apple) => (
+        <label key={apple.value} className='flex items-center gap-2 text-sm'>
+          <RadioRoot value={apple.value}>
+            <RadioIndicator />
+          </RadioRoot>
+          {apple.label}
+        </label>
+      ))}
+    </RadioGroupRoot>
+  )
+}
+```
+
+### With Field
+
+```tsx
+import {
+  FieldDescription,
+  FieldItem,
+  FieldLabel,
+  FieldRoot,
+} from '@lglab/compose-ui/field'
+import { FieldsetLegend, FieldsetRoot } from '@lglab/compose-ui/fieldset'
+import { RadioIndicator, RadioRoot } from '@lglab/compose-ui/radio'
+import { RadioGroupRoot } from '@lglab/compose-ui/radio-group'
+
+const fruits = [
+  { value: 'apple', label: 'Apple' },
+  { value: 'banana', label: 'Banana' },
+  { value: 'orange', label: 'Orange' },
+]
+
+export default function WithFieldExample() {
+  return (
+    <FieldRoot name='fruit'>
+      <FieldsetRoot render={<RadioGroupRoot />}>
+        <FieldsetLegend>Favorite Fruit</FieldsetLegend>
+        {fruits.map((fruit) => (
+          <FieldItem key={fruit.value}>
+            <FieldLabel>
+              <RadioRoot value={fruit.value}>
+                <RadioIndicator />
+              </RadioRoot>
+              {fruit.label}
+            </FieldLabel>
+          </FieldItem>
+        ))}
+      </FieldsetRoot>
+      <FieldDescription>Select your favorite fruit.</FieldDescription>
+    </FieldRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Radio Documentation](https://base-ui.com/react/components/radio)
+- [API Reference](https://base-ui.com/react/components/radio#api-reference)
 
 ---
 
@@ -2501,6 +2953,252 @@ export default function SidesExample() {
 
 - [Base UI Popover Documentation](https://base-ui.com/react/components/popover)
 - [API Reference](https://base-ui.com/react/components/popover#api-reference)
+
+---
+
+# Number Field
+
+A numeric input element with increment and decrement buttons, and a scrub area.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { NumberFieldRoot, NumberFieldScrubArea, NumberFieldScrubAreaCursor, NumberFieldGroup, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import {
+  NumberFieldDecrement,
+  NumberFieldGroup,
+  NumberFieldIncrement,
+  NumberFieldInput,
+  NumberFieldRoot,
+  NumberFieldScrubArea,
+  NumberFieldScrubAreaCursor,
+} from '@lglab/compose-ui/number-field'
+import { Minus, MoveHorizontal, Plus } from 'lucide-react'
+
+export default function DefaultExample() {
+  return (
+    <FieldRoot>
+      <NumberFieldRoot defaultValue={100}>
+        <NumberFieldScrubArea>
+          <FieldLabel>Amount</FieldLabel>
+          <NumberFieldScrubAreaCursor>
+            <MoveHorizontal className='size-4' />
+          </NumberFieldScrubAreaCursor>
+        </NumberFieldScrubArea>
+
+        <NumberFieldGroup>
+          <NumberFieldDecrement>
+            <Minus className='size-4' />
+          </NumberFieldDecrement>
+          <NumberFieldInput />
+          <NumberFieldIncrement>
+            <Plus className='size-4' />
+          </NumberFieldIncrement>
+        </NumberFieldGroup>
+      </NumberFieldRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Min/Max
+
+```tsx
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import {
+  NumberFieldDecrement,
+  NumberFieldGroup,
+  NumberFieldIncrement,
+  NumberFieldInput,
+  NumberFieldRoot,
+  NumberFieldScrubArea,
+  NumberFieldScrubAreaCursor,
+} from '@lglab/compose-ui/number-field'
+import { Minus, MoveHorizontal, Plus } from 'lucide-react'
+
+export default function MinMaxExample() {
+  return (
+    <FieldRoot>
+      <NumberFieldRoot defaultValue={50} min={0} max={100}>
+        <NumberFieldScrubArea>
+          <FieldLabel>Percentage (0-100)</FieldLabel>
+          <NumberFieldScrubAreaCursor>
+            <MoveHorizontal className='size-4' />
+          </NumberFieldScrubAreaCursor>
+        </NumberFieldScrubArea>
+
+        <NumberFieldGroup>
+          <NumberFieldDecrement>
+            <Minus className='size-4' />
+          </NumberFieldDecrement>
+          <NumberFieldInput />
+          <NumberFieldIncrement>
+            <Plus className='size-4' />
+          </NumberFieldIncrement>
+        </NumberFieldGroup>
+      </NumberFieldRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Step
+
+```tsx
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import {
+  NumberFieldDecrement,
+  NumberFieldGroup,
+  NumberFieldIncrement,
+  NumberFieldInput,
+  NumberFieldRoot,
+  NumberFieldScrubArea,
+  NumberFieldScrubAreaCursor,
+} from '@lglab/compose-ui/number-field'
+import { Minus, MoveHorizontal, Plus } from 'lucide-react'
+
+export default function StepExample() {
+  return (
+    <FieldRoot>
+      <NumberFieldRoot defaultValue={0} step={5}>
+        <NumberFieldScrubArea>
+          <FieldLabel>Quantity (step: 5)</FieldLabel>
+          <NumberFieldScrubAreaCursor>
+            <MoveHorizontal className='size-4' />
+          </NumberFieldScrubAreaCursor>
+        </NumberFieldScrubArea>
+
+        <NumberFieldGroup>
+          <NumberFieldDecrement>
+            <Minus className='size-4' />
+          </NumberFieldDecrement>
+          <NumberFieldInput />
+          <NumberFieldIncrement>
+            <Plus className='size-4' />
+          </NumberFieldIncrement>
+        </NumberFieldGroup>
+      </NumberFieldRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Controlled
+
+```tsx
+import { Button } from '@lglab/compose-ui/button'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import {
+  NumberFieldDecrement,
+  NumberFieldGroup,
+  NumberFieldIncrement,
+  NumberFieldInput,
+  NumberFieldRoot,
+  NumberFieldScrubArea,
+  NumberFieldScrubAreaCursor,
+} from '@lglab/compose-ui/number-field'
+import { Minus, MoveHorizontal, Plus } from 'lucide-react'
+import * as React from 'react'
+
+export default function ControlledExample() {
+  const [value, setValue] = React.useState<number | null>(50)
+
+  return (
+    <div className='flex flex-col gap-4'>
+      <FieldRoot>
+        <NumberFieldRoot value={value} onValueChange={setValue}>
+          <NumberFieldScrubArea>
+            <FieldLabel>Controlled Value</FieldLabel>
+            <NumberFieldScrubAreaCursor>
+              <MoveHorizontal className='size-4' />
+            </NumberFieldScrubAreaCursor>
+          </NumberFieldScrubArea>
+
+          <NumberFieldGroup>
+            <NumberFieldDecrement>
+              <Minus className='size-4' />
+            </NumberFieldDecrement>
+            <NumberFieldInput />
+            <NumberFieldIncrement>
+              <Plus className='size-4' />
+            </NumberFieldIncrement>
+          </NumberFieldGroup>
+        </NumberFieldRoot>
+      </FieldRoot>
+
+      <div className='flex gap-2'>
+        <Button onClick={() => setValue(0)}>Set to 0</Button>
+        <Button onClick={() => setValue(100)}>Set to 100</Button>
+        <Button onClick={() => setValue(50)}>Reset to 50</Button>
+      </div>
+    </div>
+  )
+}
+```
+
+### Format
+
+```tsx
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import {
+  NumberFieldDecrement,
+  NumberFieldGroup,
+  NumberFieldIncrement,
+  NumberFieldInput,
+  NumberFieldRoot,
+  NumberFieldScrubArea,
+  NumberFieldScrubAreaCursor,
+} from '@lglab/compose-ui/number-field'
+import { Minus, MoveHorizontal, Plus } from 'lucide-react'
+
+export default function FormatExample() {
+  return (
+    <FieldRoot>
+      <NumberFieldRoot
+        defaultValue={1234.56}
+        locale='ja-JP'
+        format={{ style: 'currency', currency: 'JPY' }}
+      >
+        <NumberFieldScrubArea>
+          <FieldLabel>Japanese Yen (ja-JP)</FieldLabel>
+          <NumberFieldScrubAreaCursor>
+            <MoveHorizontal className='size-4' />
+          </NumberFieldScrubAreaCursor>
+        </NumberFieldScrubArea>
+
+        <NumberFieldGroup>
+          <NumberFieldDecrement>
+            <Minus className='size-4' />
+          </NumberFieldDecrement>
+          <NumberFieldInput />
+          <NumberFieldIncrement>
+            <Plus className='size-4' />
+          </NumberFieldIncrement>
+        </NumberFieldGroup>
+      </NumberFieldRoot>
+    </FieldRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Number Field Documentation](https://base-ui.com/react/components/number-field)
+- [API Reference](https://base-ui.com/react/components/number-field#api-reference)
 
 ---
 
@@ -6133,6 +6831,12 @@ import { CheckboxGroupRoot } from '@lglab/compose-ui/checkbox-group'
 import { Check } from 'lucide-react'
 import * as React from 'react'
 
+const apples = [
+  { value: 'fuji', label: 'Fuji' },
+  { value: 'gala', label: 'Gala' },
+  { value: 'granny-smith', label: 'Granny Smith' },
+]
+
 export default function DefaultExample() {
   const id = React.useId()
   const [value, setValue] = React.useState<string[]>(['fuji'])
@@ -6143,32 +6847,16 @@ export default function DefaultExample() {
         Favorite apples
       </div>
 
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot name='apple' value='fuji'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Fuji
-      </label>
-
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot name='apple' value='gala'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Gala
-      </label>
-
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot name='apple' value='granny-smith'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Granny Smith
-      </label>
+      {apples.map((apple) => (
+        <label key={apple.value} className='flex items-center gap-2 text-sm'>
+          <CheckboxRoot name='apple' value={apple.value}>
+            <CheckboxIndicator>
+              <Check className='size-3.5' />
+            </CheckboxIndicator>
+          </CheckboxRoot>
+          {apple.label}
+        </label>
+      ))}
     </CheckboxGroupRoot>
   )
 }
@@ -6182,7 +6870,11 @@ import { CheckboxGroupRoot } from '@lglab/compose-ui/checkbox-group'
 import { Check, Minus } from 'lucide-react'
 import * as React from 'react'
 
-const fruits = ['fuji', 'gala', 'granny-smith']
+const apples = [
+  { value: 'fuji', label: 'Fuji' },
+  { value: 'gala', label: 'Gala' },
+  { value: 'granny-smith', label: 'Granny Smith' },
+]
 
 export default function ParentCheckboxExample() {
   const id = React.useId()
@@ -6193,7 +6885,7 @@ export default function ParentCheckboxExample() {
       aria-labelledby={id}
       value={value}
       onValueChange={setValue}
-      allValues={fruits}
+      allValues={apples.map((apple) => apple.value)}
       className='pl-4'
     >
       <label className='-ml-4 flex items-center gap-2 text-sm font-medium' id={id}>
@@ -6213,32 +6905,16 @@ export default function ParentCheckboxExample() {
         Apples
       </label>
 
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot value='fuji'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Fuji
-      </label>
-
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot value='gala'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Gala
-      </label>
-
-      <label className='flex items-center gap-2 text-sm'>
-        <CheckboxRoot value='granny-smith'>
-          <CheckboxIndicator>
-            <Check className='size-3.5' />
-          </CheckboxIndicator>
-        </CheckboxRoot>
-        Granny Smith
-      </label>
+      {apples.map((apple) => (
+        <label key={apple.value} className='flex items-center gap-2 text-sm'>
+          <CheckboxRoot value={apple.value}>
+            <CheckboxIndicator>
+              <Check className='size-3.5' />
+            </CheckboxIndicator>
+          </CheckboxRoot>
+          {apple.label}
+        </label>
+      ))}
     </CheckboxGroupRoot>
   )
 }
