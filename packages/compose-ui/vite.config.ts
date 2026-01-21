@@ -17,6 +17,7 @@ const components = [
   'checkbox',
   'checkbox-group',
   'collapsible',
+  'combobox',
   'context-menu',
   'dialog',
   'drawer',
