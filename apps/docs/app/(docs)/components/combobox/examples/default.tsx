@@ -7,6 +7,7 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxItemIndicator,
+  ComboboxItemText,
   ComboboxList,
   ComboboxPopup,
   ComboboxPortal,
@@ -72,9 +73,9 @@ export default function DefaultExample() {
                 {(item: Fruit) => (
                   <ComboboxItem key={item.value} value={item}>
                     <ComboboxItemIndicator>
-                      <Check className='size-3' />
+                      <Check className='size-3.5' />
                     </ComboboxItemIndicator>
-                    <div className='col-start-2'>{item.label}</div>
+                    <ComboboxItemText>{item.label}</ComboboxItemText>
                   </ComboboxItem>
                 )}
               </ComboboxList>

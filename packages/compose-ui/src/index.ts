@@ -21,10 +21,14 @@ export {
   ComboboxList,
   ComboboxEmpty,
   ComboboxItem,
+  ComboboxItemText,
   ComboboxItemIndicator,
   ComboboxGroup,
   ComboboxGroupLabel,
   ComboboxSeparator,
+  ComboboxChips,
+  ComboboxChip,
+  ComboboxChipRemove,
   ComboboxArrow,
 } from './components/combobox'
 export {
@@ -307,10 +311,14 @@ export type {
   ComboboxListProps,
   ComboboxEmptyProps,
   ComboboxItemProps,
+  ComboboxItemTextProps,
   ComboboxItemIndicatorProps,
   ComboboxGroupProps,
   ComboboxGroupLabelProps,
   ComboboxSeparatorProps,
+  ComboboxChipsProps,
+  ComboboxChipProps,
+  ComboboxChipRemoveProps,
   ComboboxArrowProps,
 } from './components/combobox'
 export type {

@@ -61,8 +61,8 @@ const ComboboxInput = ({ className, ...props }: ComboboxInputProps) => {
     <BaseCombobox.Input
       className={cn(
         inputBaseStyles,
-        // When inside ComboboxControl, remove standalone styles
         'group-[&]/control:w-auto group-[&]/control:flex-1 group-[&]/control:border-0 group-[&]/control:bg-transparent',
+        'group-[&]/chips:w-auto group-[&]/chips:min-w-12 group-[&]/chips:flex-1 group-[&]/chips:border-0 group-[&]/chips:bg-transparent group-[&]/chips:h-7',
         className,
       )}
       {...props}
@@ -271,6 +271,18 @@ const ComboboxItem = ({ className, ...props }: ComboboxItemProps) => {
 ComboboxItem.displayName = 'ComboboxItem'
 
 // ============================================================================
+// ComboboxItemText
+// ============================================================================
+
+type ComboboxItemTextProps = React.ComponentProps<'span'>
+
+const ComboboxItemText = ({ className, ...props }: ComboboxItemTextProps) => {
+  return <span className={cn('col-start-2 text-sm', className)} {...props} />
+}
+
+ComboboxItemText.displayName = 'ComboboxItemText'
+
+// ============================================================================
 // ComboboxItemIndicator
 // ============================================================================
 
@@ -331,6 +343,72 @@ const ComboboxSeparator = ({ className, ...props }: ComboboxSeparatorProps) => {
 ComboboxSeparator.displayName = 'ComboboxSeparator'
 
 // ============================================================================
+// ComboboxChips
+// ============================================================================
+
+type ComboboxChipsProps = React.ComponentProps<typeof BaseCombobox.Chips>
+
+const ComboboxChips = React.forwardRef<HTMLDivElement, ComboboxChipsProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <BaseCombobox.Chips
+        ref={ref}
+        className={cn(
+          inputBaseStyles,
+          'group/chips flex flex-wrap items-center gap-x-1 px-1 py-1 h-auto',
+          className,
+        )}
+        {...props}
+      />
+    )
+  },
+)
+
+ComboboxChips.displayName = 'ComboboxChips'
+
+// ============================================================================
+// ComboboxChip
+// ============================================================================
+
+type ComboboxChipProps = React.ComponentProps<typeof BaseCombobox.Chip>
+
+const ComboboxChip = ({ className, ...props }: ComboboxChipProps) => {
+  return (
+    <BaseCombobox.Chip
+      className={cn(
+        'flex items-center gap-1 rounded-md bg-muted px-1.5 py-0.5 text-sm text-foreground outline-none cursor-default',
+        'data-highlighted:bg-primary data-highlighted:text-primary-foreground',
+        'focus-within:bg-primary focus-within:text-primary-foreground',
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
+ComboboxChip.displayName = 'ComboboxChip'
+
+// ============================================================================
+// ComboboxChipRemove
+// ============================================================================
+
+type ComboboxChipRemoveProps = React.ComponentProps<typeof BaseCombobox.ChipRemove>
+
+const ComboboxChipRemove = ({ className, ...props }: ComboboxChipRemoveProps) => {
+  return (
+    <BaseCombobox.ChipRemove
+      className={cn(
+        'rounded-md p-0.5 text-inherit hover:bg-muted-foreground/20',
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
+ComboboxChipRemove.displayName = 'ComboboxChipRemove'
+
+// ============================================================================
 // ComboboxArrow
 // ============================================================================
 
@@ -369,10 +447,14 @@ export {
   ComboboxList,
   ComboboxEmpty,
   ComboboxItem,
+  ComboboxItemText,
   ComboboxItemIndicator,
   ComboboxGroup,
   ComboboxGroupLabel,
   ComboboxSeparator,
+  ComboboxChips,
+  ComboboxChip,
+  ComboboxChipRemove,
   ComboboxArrow,
 }
 
@@ -391,9 +473,13 @@ export type {
   ComboboxListProps,
   ComboboxEmptyProps,
   ComboboxItemProps,
+  ComboboxItemTextProps,
   ComboboxItemIndicatorProps,
   ComboboxGroupProps,
   ComboboxGroupLabelProps,
   ComboboxSeparatorProps,
+  ComboboxChipsProps,
+  ComboboxChipProps,
+  ComboboxChipRemoveProps,
   ComboboxArrowProps,
 }
