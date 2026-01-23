@@ -70,10 +70,10 @@ export default function MultiselectExample() {
               <ComboboxList>
                 {(language: ProgrammingLanguage) => (
                   <ComboboxItem key={language.id} value={language}>
+                    <ComboboxItemText>{language.value}</ComboboxItemText>
                     <ComboboxItemIndicator>
                       <Check className='size-3.5' />
                     </ComboboxItemIndicator>
-                    <ComboboxItemText>{language.value}</ComboboxItemText>
                   </ComboboxItem>
                 )}
               </ComboboxList>

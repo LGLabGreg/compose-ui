@@ -123,7 +123,7 @@ const ComboboxTrigger = ({ className, ...props }: ComboboxTriggerProps) => {
   return (
     <BaseCombobox.Trigger
       className={cn(
-        'flex h-10 w-6 items-center justify-center rounded bg-transparent p-0 text-muted-foreground hover:text-foreground',
+        'flex h-10 w-fit min-w-6 items-center justify-center rounded bg-transparent p-0 text-muted-foreground hover:text-foreground',
         className,
       )}
       {...props}
@@ -195,7 +195,7 @@ const ComboboxPopup = ({ className, ...props }: ComboboxPopupProps) => {
   return (
     <BaseCombobox.Popup
       className={cn(
-        'group w-(--anchor-width) max-h-[23rem] max-w-(--available-width) origin-(--transform-origin) rounded-md bg-background text-foreground shadow-lg shadow-gray-200 border border-border transition-[transform,scale,opacity] duration-100',
+        'group min-w-(--anchor-width) max-h-[23rem] max-w-(--available-width) origin-(--transform-origin) rounded-md bg-background text-foreground shadow-lg shadow-gray-200 border border-border transition-[transform,scale,opacity] duration-100',
         'data-ending-style:scale-95 data-ending-style:opacity-0',
         'data-starting-style:scale-95 data-starting-style:opacity-0',
         'dark:shadow-none',
@@ -258,9 +258,8 @@ const ComboboxItem = ({ className, ...props }: ComboboxItemProps) => {
   return (
     <BaseCombobox.Item
       className={cn(
-        'grid cursor-default grid-cols-[0.75rem_1fr] items-center gap-2 py-2 pr-8 pl-4 text-sm leading-4 outline-none select-none',
-        'data-highlighted:relative data-highlighted:z-0 data-highlighted:text-background',
-        'data-highlighted:before:absolute data-highlighted:before:inset-x-2 data-highlighted:before:inset-y-0 data-highlighted:before:z-[-1] data-highlighted:before:rounded-sm data-highlighted:before:bg-foreground',
+        'flex items-center justify-between gap-2 py-2 px-4 text-sm leading-4 outline-none select-none',
+        'data-selected:bg-accent data-selected:text-accent-foreground',
         className,
       )}
       {...props}
@@ -277,7 +276,7 @@ ComboboxItem.displayName = 'ComboboxItem'
 type ComboboxItemTextProps = React.ComponentProps<'span'>
 
 const ComboboxItemText = ({ className, ...props }: ComboboxItemTextProps) => {
-  return <span className={cn('col-start-2 text-sm', className)} {...props} />
+  return <span className={cn('text-sm', className)} {...props} />
 }
 
 ComboboxItemText.displayName = 'ComboboxItemText'
@@ -289,9 +288,7 @@ ComboboxItemText.displayName = 'ComboboxItemText'
 type ComboboxItemIndicatorProps = React.ComponentProps<typeof BaseCombobox.ItemIndicator>
 
 const ComboboxItemIndicator = ({ className, ...props }: ComboboxItemIndicatorProps) => {
-  return (
-    <BaseCombobox.ItemIndicator className={cn('col-start-1', className)} {...props} />
-  )
+  return <BaseCombobox.ItemIndicator className={className} {...props} />
 }
 
 ComboboxItemIndicator.displayName = 'ComboboxItemIndicator'
@@ -355,7 +352,7 @@ const ComboboxChips = React.forwardRef<HTMLDivElement, ComboboxChipsProps>(
         ref={ref}
         className={cn(
           inputBaseStyles,
-          'group/chips flex flex-wrap items-center gap-x-1 px-1 py-1 h-auto',
+          'group/chips flex flex-wrap items-center gap-1 px-1 py-1 h-auto',
           className,
         )}
         {...props}

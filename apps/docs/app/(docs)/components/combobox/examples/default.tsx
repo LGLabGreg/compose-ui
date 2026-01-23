@@ -72,10 +72,10 @@ export default function DefaultExample() {
               <ComboboxList>
                 {(item: Fruit) => (
                   <ComboboxItem key={item.value} value={item}>
+                    <ComboboxItemText>{item.label}</ComboboxItemText>
                     <ComboboxItemIndicator>
                       <Check className='size-3.5' />
                     </ComboboxItemIndicator>
-                    <ComboboxItemText>{item.label}</ComboboxItemText>
                   </ComboboxItem>
                 )}
               </ComboboxList>

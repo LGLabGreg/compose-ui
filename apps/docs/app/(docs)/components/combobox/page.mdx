@@ -1,6 +1,7 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import DefaultExample from './examples/default'
+import InputInsidePopupExample from './examples/input-inside-popup'
 import MultiselectExample from './examples/multiselect'
 
 <ComponentPage
@@ -11,17 +12,24 @@ import MultiselectExample from './examples/multiselect'
 >
 
 <ExampleLoader
-  title="Default"
-  filePath="app/(docs)/components/combobox/examples/default.tsx"
+  title='Default'
+  filePath='app/(docs)/components/combobox/examples/default.tsx'
 >
   <DefaultExample />
 </ExampleLoader>
 
 <ExampleLoader
-  title="Multiselect"
-  filePath="app/(docs)/components/combobox/examples/multiselect.tsx"
+  title='Multiselect'
+  filePath='app/(docs)/components/combobox/examples/multiselect.tsx'
 >
   <MultiselectExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Input inside popup'
+  filePath='app/(docs)/components/combobox/examples/input-inside-popup.tsx'
+>
+  <InputInsidePopupExample />
 </ExampleLoader>
 
 </ComponentPage>
