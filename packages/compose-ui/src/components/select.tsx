@@ -204,11 +204,8 @@ const SelectItem = ({ className, ...props }: SelectItemProps) => {
   return (
     <BaseSelect.Item
       className={cn(
-        'grid cursor-default grid-cols-[0.75rem_1fr] items-center gap-2 py-1.5 pr-4 pl-2.5 text-sm outline-none select-none',
-        'group-data-[side=none]:pr-12 group-data-[side=none]:text-base group-data-[side=none]:leading-4',
-        'data-highlighted:relative data-highlighted:z-0 data-highlighted:text-background',
-        'data-highlighted:before:absolute data-highlighted:before:inset-x-1 data-highlighted:before:inset-y-0 data-highlighted:before:z-[-1] data-highlighted:before:rounded-sm data-highlighted:before:bg-foreground',
-        'pointer-coarse:py-2.5 pointer-coarse:text-[0.925rem]',
+        'flex items-center justify-between gap-2 py-1.5 px-4 text-sm outline-none select-none',
+        'data-selected:bg-accent data-selected:text-accent-foreground',
         className,
       )}
       {...props}
