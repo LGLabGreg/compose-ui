@@ -53,7 +53,7 @@ const fruits: Fruit[] = [
 
 export default function DefaultExample() {
   return (
-    <FieldRoot className='flex flex-col gap-1'>
+    <FieldRoot>
       <FieldLabel>Choose a fruit</FieldLabel>
       <ComboboxRoot items={fruits}>
         <ComboboxControl>

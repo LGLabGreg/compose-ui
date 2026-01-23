@@ -48,21 +48,17 @@ const countries: Country[] = [
 
 export default function InputInsidePopupExample() {
   return (
-    <FieldRoot className='flex flex-col gap-1'>
+    <FieldRoot className='w-64'>
       <FieldLabel render={<div />} nativeLabel={false}>
         Country
       </FieldLabel>
       <ComboboxRoot items={countries}>
         <ComboboxTrigger
           render={(props) => (
-            <Button
-              {...props}
-              className='w-64 justify-between font-normal'
-              variant='outline'
-            >
+            <Button {...props} className='justify-between font-normal' variant='outline'>
               <ComboboxValue placeholder='Select a country' />
               <ComboboxIcon>
-                <ChevronsUpDown className='size-4 text-muted-foreground' />
+                <ChevronsUpDown className='size-4' />
               </ComboboxIcon>
             </Button>
           )}
@@ -70,12 +66,10 @@ export default function InputInsidePopupExample() {
 
         <ComboboxPortal>
           <ComboboxPositioner align='start'>
-            <ComboboxPopup className='[--input-height:3rem]'>
-              <div className='w-72 h-(--input-height) p-2'>
-                <ComboboxInput placeholder='e.g. United Kingdom' className='h-9' />
-              </div>
+            <ComboboxPopup>
+              <ComboboxInput placeholder='e.g. United Kingdom' />
               <ComboboxEmpty>No countries found.</ComboboxEmpty>
-              <ComboboxList className='max-h-[min(calc(23rem-var(--input-height)),calc(var(--available-height)-var(--input-height)))]'>
+              <ComboboxList>
                 {(item: Country) => (
                   <ComboboxItem key={item.value} value={item}>
                     <ComboboxItemText>{item.label}</ComboboxItemText>

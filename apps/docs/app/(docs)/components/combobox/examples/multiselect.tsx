@@ -43,10 +43,10 @@ export default function MultiselectExample() {
   const containerRef = React.useRef<HTMLDivElement | null>(null)
 
   return (
-    <FieldRoot className='flex flex-col gap-1 max-w-md'>
+    <FieldRoot>
       <FieldLabel>Programming languages</FieldLabel>
       <ComboboxRoot items={langs} multiple>
-        <ComboboxChips ref={containerRef}>
+        <ComboboxChips ref={containerRef} className='max-w-xs'>
           <ComboboxValue>
             {(value: ProgrammingLanguage[]) => (
               <React.Fragment>

@@ -61,6 +61,7 @@ const ComboboxInput = ({ className, ...props }: ComboboxInputProps) => {
     <BaseCombobox.Input
       className={cn(
         inputBaseStyles,
+        'shrink-0',
         'group-[&]/control:w-auto group-[&]/control:flex-1 group-[&]/control:border-0 group-[&]/control:bg-transparent',
         'group-[&]/chips:w-auto group-[&]/chips:min-w-12 group-[&]/chips:flex-1 group-[&]/chips:border-0 group-[&]/chips:bg-transparent group-[&]/chips:h-7',
         className,
@@ -103,7 +104,7 @@ const ComboboxClear = ({ className, ...props }: ComboboxClearProps) => {
   return (
     <BaseCombobox.Clear
       className={cn(
-        'flex h-10 w-6 items-center justify-center rounded bg-transparent p-0 text-muted-foreground hover:text-foreground',
+        'flex h-9 w-6 items-center justify-center rounded bg-transparent p-0 text-muted-foreground hover:text-foreground',
         className,
       )}
       {...props}
@@ -123,7 +124,7 @@ const ComboboxTrigger = ({ className, ...props }: ComboboxTriggerProps) => {
   return (
     <BaseCombobox.Trigger
       className={cn(
-        'flex h-10 w-fit min-w-6 items-center justify-center rounded bg-transparent p-0 text-muted-foreground hover:text-foreground',
+        'flex h-9 w-fit min-w-6 items-center justify-center rounded bg-transparent p-0 text-muted-foreground hover:text-foreground',
         className,
       )}
       {...props}
@@ -195,7 +196,7 @@ const ComboboxPopup = ({ className, ...props }: ComboboxPopupProps) => {
   return (
     <BaseCombobox.Popup
       className={cn(
-        'group min-w-(--anchor-width) max-h-[23rem] max-w-(--available-width) origin-(--transform-origin) rounded-md bg-background text-foreground shadow-lg shadow-gray-200 border border-border transition-[transform,scale,opacity] duration-100',
+        'group flex flex-col min-w-(--anchor-width) max-h-[min(23rem,var(--available-height))] max-w-(--available-width) origin-(--transform-origin) rounded-md bg-background text-foreground shadow-lg shadow-gray-200 border border-border transition-[transform,scale,opacity] duration-100',
         'data-ending-style:scale-95 data-ending-style:opacity-0',
         'data-starting-style:scale-95 data-starting-style:opacity-0',
         'dark:shadow-none',
@@ -218,7 +219,7 @@ const ComboboxList = ({ className, ...props }: ComboboxListProps) => {
   return (
     <BaseCombobox.List
       className={cn(
-        'outline-0 overflow-y-auto scroll-py-2 py-2 overscroll-contain max-h-[min(23rem,var(--available-height))] data-empty:p-0',
+        'outline-0 overflow-y-auto scroll-py-2 overscroll-contain flex-1 min-h-0 data-empty:p-0',
         className,
       )}
       {...props}
@@ -238,7 +239,7 @@ const ComboboxEmpty = ({ className, ...props }: ComboboxEmptyProps) => {
   return (
     <BaseCombobox.Empty
       className={cn(
-        'p-4 text-sm leading-4 text-muted-foreground empty:m-0 empty:p-0',
+        'shrink-0 p-4 text-sm leading-4 text-muted-foreground empty:m-0 empty:p-0',
         className,
       )}
       {...props}
@@ -260,6 +261,7 @@ const ComboboxItem = ({ className, ...props }: ComboboxItemProps) => {
       className={cn(
         'flex items-center justify-between gap-2 py-2 px-4 text-sm leading-4 outline-none select-none',
         'data-selected:bg-accent data-selected:text-accent-foreground',
+        'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
         className,
       )}
       {...props}
@@ -276,7 +278,7 @@ ComboboxItem.displayName = 'ComboboxItem'
 type ComboboxItemTextProps = React.ComponentProps<'span'>
 
 const ComboboxItemText = ({ className, ...props }: ComboboxItemTextProps) => {
-  return <span className={cn('text-sm', className)} {...props} />
+  return <span className={className} {...props} />
 }
 
 ComboboxItemText.displayName = 'ComboboxItemText'
@@ -300,7 +302,7 @@ ComboboxItemIndicator.displayName = 'ComboboxItemIndicator'
 type ComboboxGroupProps = React.ComponentProps<typeof BaseCombobox.Group>
 
 const ComboboxGroup = ({ className, ...props }: ComboboxGroupProps) => {
-  return <BaseCombobox.Group className={cn(className)} {...props} />
+  return <BaseCombobox.Group className={className} {...props} />
 }
 
 ComboboxGroup.displayName = 'ComboboxGroup'
@@ -314,13 +316,28 @@ type ComboboxGroupLabelProps = React.ComponentProps<typeof BaseCombobox.GroupLab
 const ComboboxGroupLabel = ({ className, ...props }: ComboboxGroupLabelProps) => {
   return (
     <BaseCombobox.GroupLabel
-      className={cn('px-3 py-1.5 text-sm font-semibold', className)}
+      className={cn(
+        'px-4 py-1.5 text-sm font-semibold sticky top-0 z-1 bg-background',
+        className,
+      )}
       {...props}
     />
   )
 }
 
 ComboboxGroupLabel.displayName = 'ComboboxGroupLabel'
+
+// ============================================================================
+// ComboboxCollection
+// ============================================================================
+
+type ComboboxCollectionProps = React.ComponentProps<typeof BaseCombobox.Collection>
+
+const ComboboxCollection = (props: ComboboxCollectionProps) => {
+  return <BaseCombobox.Collection {...props} />
+}
+
+ComboboxCollection.displayName = 'ComboboxCollection'
 
 // ============================================================================
 // ComboboxSeparator
@@ -331,7 +348,7 @@ type ComboboxSeparatorProps = React.ComponentProps<typeof BaseCombobox.Separator
 const ComboboxSeparator = ({ className, ...props }: ComboboxSeparatorProps) => {
   return (
     <BaseCombobox.Separator
-      className={cn('-mx-1 my-1 h-px bg-border', className)}
+      className={cn('my-1 border-t border-border', className)}
       {...props}
     />
   )
@@ -448,6 +465,7 @@ export {
   ComboboxItemIndicator,
   ComboboxGroup,
   ComboboxGroupLabel,
+  ComboboxCollection,
   ComboboxSeparator,
   ComboboxChips,
   ComboboxChip,
@@ -474,6 +492,7 @@ export type {
   ComboboxItemIndicatorProps,
   ComboboxGroupProps,
   ComboboxGroupLabelProps,
+  ComboboxCollectionProps,
   ComboboxSeparatorProps,
   ComboboxChipsProps,
   ComboboxChipProps,
