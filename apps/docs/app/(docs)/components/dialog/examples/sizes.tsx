@@ -21,10 +21,12 @@ export default function SizesExample() {
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup size='sm'>
-            <DialogTitle>Small Dialog</DialogTitle>
-            <DialogDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-            </DialogDescription>
+            <DialogHeader>
+              <DialogTitle>Small Dialog</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+              </DialogDescription>
+            </DialogHeader>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
@@ -37,10 +39,12 @@ export default function SizesExample() {
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup>
-            <DialogTitle>Default Dialog</DialogTitle>
-            <DialogDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-            </DialogDescription>
+            <DialogHeader>
+              <DialogTitle>Default Dialog</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+              </DialogDescription>
+            </DialogHeader>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
@@ -53,10 +57,12 @@ export default function SizesExample() {
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup size='lg'>
-            <DialogTitle>Large Dialog</DialogTitle>
-            <DialogDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-            </DialogDescription>
+            <DialogHeader>
+              <DialogTitle>Large Dialog</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+              </DialogDescription>
+            </DialogHeader>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
@@ -69,10 +75,12 @@ export default function SizesExample() {
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup size='xl'>
-            <DialogTitle>Extra Large Dialog</DialogTitle>
-            <DialogDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-            </DialogDescription>
+            <DialogHeader>
+              <DialogTitle>Extra Large Dialog</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+              </DialogDescription>
+            </DialogHeader>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
@@ -91,12 +99,6 @@ export default function SizesExample() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
               </DialogDescription>
             </DialogHeader>
-            <DialogDescription>
-              Nam sed enim a eros eleifend accumsan. Morbi ac risus enim. Praesent in ante
-              euismod, laoreet nisl quis, maximus nisl. Maecenas congue placerat aliquet.
-              Praesent sit amet orci sed purus volutpat viverra vel vitae quam. Nulla a
-              varius lectus. Aenean in facilisis justo.
-            </DialogDescription>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
