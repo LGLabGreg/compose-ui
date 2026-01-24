@@ -357,6 +357,26 @@ const ComboboxSeparator = ({ className, ...props }: ComboboxSeparatorProps) => {
 ComboboxSeparator.displayName = 'ComboboxSeparator'
 
 // ============================================================================
+// ComboboxStatus
+// ============================================================================
+
+type ComboboxStatusProps = React.ComponentProps<typeof BaseCombobox.Status>
+
+const ComboboxStatus = ({ className, ...props }: ComboboxStatusProps) => {
+  return (
+    <BaseCombobox.Status
+      className={cn(
+        'flex items-center gap-2 py-1 px-4 text-sm text-muted-foreground empty:hidden',
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
+ComboboxStatus.displayName = 'ComboboxStatus'
+
+// ============================================================================
 // ComboboxChips
 // ============================================================================
 
@@ -447,6 +467,7 @@ ComboboxArrow.displayName = 'ComboboxArrow'
 // ============================================================================
 
 export {
+  BaseCombobox as Combobox,
   ComboboxRoot,
   ComboboxValue,
   ComboboxIcon,
@@ -467,6 +488,7 @@ export {
   ComboboxGroupLabel,
   ComboboxCollection,
   ComboboxSeparator,
+  ComboboxStatus,
   ComboboxChips,
   ComboboxChip,
   ComboboxChipRemove,
@@ -494,6 +516,7 @@ export type {
   ComboboxGroupLabelProps,
   ComboboxCollectionProps,
   ComboboxSeparatorProps,
+  ComboboxStatusProps,
   ComboboxChipsProps,
   ComboboxChipProps,
   ComboboxChipRemoveProps,

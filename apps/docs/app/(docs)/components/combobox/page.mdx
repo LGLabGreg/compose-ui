@@ -1,5 +1,6 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
+import AsyncSearchExample from './examples/async-search.tsx'
 import DefaultExample from './examples/default'
 import GroupedExample from './examples/grouped'
 import InputInsidePopupExample from './examples/input-inside-popup'
@@ -34,10 +35,17 @@ import MultiselectExample from './examples/multiselect'
 </ExampleLoader>
 
 <ExampleLoader
-  title='Input inside popup'
+  title='Popup'
   filePath='app/(docs)/components/combobox/examples/input-inside-popup.tsx'
 >
   <InputInsidePopupExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Async search'
+  filePath='app/(docs)/components/combobox/examples/async-search.tsx'
+>
+  <AsyncSearchExample />
 </ExampleLoader>
 
 </ComponentPage>
