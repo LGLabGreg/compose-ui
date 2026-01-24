@@ -153,6 +153,10 @@
       "import": "./dist/separator.js",
       "types": "./dist/separator.d.ts"
     },
+    "./skeleton": {
+      "import": "./dist/skeleton.js",
+      "types": "./dist/skeleton.d.ts"
+    },
     "./slider": {
       "import": "./dist/slider.js",
       "types": "./dist/slider.d.ts"

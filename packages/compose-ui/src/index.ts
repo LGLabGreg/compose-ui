@@ -74,6 +74,7 @@ export {
   SelectSeparator,
 } from './components/select'
 export { Separator } from './components/separator'
+export { Skeleton } from './components/skeleton'
 export { SwitchRoot, SwitchThumb } from './components/switch'
 export { Toggle } from './components/toggle'
 export { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from './components/tabs'
@@ -387,6 +388,7 @@ export type {
   SelectSeparatorProps,
 } from './components/select'
 export type { SeparatorProps } from './components/separator'
+export type { SkeletonProps } from './components/skeleton'
 export type { SwitchRootProps, SwitchThumbProps } from './components/switch'
 export type { ToggleProps } from './components/toggle'
 export type { ControlSize } from './lib/control-variants'

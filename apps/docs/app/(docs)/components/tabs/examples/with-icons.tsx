@@ -26,17 +26,17 @@ export default function WithIconsExample() {
         <TabsIndicator />
       </TabsList>
       <TabsPanel value='account'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>Manage your account details and profile information.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='projects'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>Browse and manage all your projects in one place.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='settings'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>Customize your experience with various settings options.</p>
         </div>
       </TabsPanel>

@@ -12,7 +12,7 @@ import { cn } from '../lib/utils'
 const cardVariants = cva('rounded-lg bg-card text-card-foreground transition-colors', {
   variants: {
     variant: {
-      default: 'border shadow-sm',
+      default: 'border shadow-xs',
       outline: 'border',
       elevated: 'shadow-md',
     },

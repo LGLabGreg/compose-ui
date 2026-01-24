@@ -1,0 +1,42 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import ShimmerExample from './examples/shimmer'
+import CardExample from './examples/card'
+import NoAnimationExample from './examples/no-animation'
+
+<ComponentPage
+  title="Skeleton"
+  description="A placeholder component for content that is loading. Use className to define custom shapes and sizes."
+  component="skeleton"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/skeleton/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Shimmer Animation'
+  filePath='app/(docs)/components/skeleton/examples/shimmer.tsx'
+>
+  <ShimmerExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Card'
+  filePath='app/(docs)/components/skeleton/examples/card.tsx'
+>
+  <CardExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='No Animation'
+  filePath='app/(docs)/components/skeleton/examples/no-animation.tsx'
+>
+  <NoAnimationExample />
+</ExampleLoader>
+
+</ComponentPage>
