@@ -143,9 +143,9 @@ Add the component to the `exports` field in alphabetical order. This enables sub
 },
 ```
 
-### 7. Add to Vite Config
+### 7. Add to tsdown Config
 
-**Location**: `packages/compose-ui/vite.config.ts`
+**Location**: `packages/compose-ui/tsdown.config.ts`
 
 Add the component to the `components` array in alphabetical order. This is needed for the build to generate the subpath entry point:
 
@@ -188,7 +188,7 @@ Add the component to the Components section in alphabetical order:
 - [ ] Test file with comprehensive tests
 - [ ] Exports added to index.ts
 - [ ] Subpath export added to package.json exports field
-- [ ] Component added to vite.config.ts components array
+- [ ] Component added to tsdown.config.ts components array
 - [ ] Documentation page created
 - [ ] At least one example created
 - [ ] Navigation updated
