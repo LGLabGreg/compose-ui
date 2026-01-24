@@ -24,9 +24,9 @@ Key features:
 - [Toast](https://compose-ui.dev/components/toast.md): A notification message that appears temporarily to provide feedback.
 - [Textarea](https://compose-ui.dev/components/textarea.md): A multi-line text input element.
 - [Tabs](https://compose-ui.dev/components/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
-- [Switch](https://compose-ui.dev/components/switch.md): A control that indicates whether a setting is on or off.
 - [Slider](https://compose-ui.dev/components/slider.md): A control for selecting a value or range from a continuous or discrete set of values.
 - [Separator](https://compose-ui.dev/components/separator.md): A separator element accessible to screen readers.
+- [Switch](https://compose-ui.dev/components/switch.md): A control that indicates whether a setting is on or off.
 - [Select](https://compose-ui.dev/components/select.md): A common form component for choosing a predefined value in a dropdown menu.
 - [Scroll Area](https://compose-ui.dev/components/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
 - [Radio Group](https://compose-ui.dev/components/radio-group.md): Provides shared state to a series of radio buttons.
