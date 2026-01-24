@@ -1,0 +1,69 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import AppearancesExample from './examples/appearances'
+import CustomColorsExample from './examples/custom-colors'
+import DefaultExample from './examples/default'
+import ShapesExample from './examples/shapes'
+import SizesExample from './examples/sizes'
+import WithButtonExample from './examples/with-button'
+import WithDotExample from './examples/with-dot'
+import WithIconExample from './examples/with-icon'
+
+<ComponentPage
+  title="Badge"
+  description="A versatile badge component for displaying labels, status indicators, and tags with multiple variants, sizes, and shapes."
+  component="badge"
+  baseUiComponent="badge"
+>
+
+<ExampleLoader
+  title='Variants'
+  filePath='app/(docs)/components/badge/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader title='Sizes' filePath='app/(docs)/components/badge/examples/sizes.tsx'>
+  <SizesExample />
+</ExampleLoader>
+
+<ExampleLoader title='Shapes' filePath='app/(docs)/components/badge/examples/shapes.tsx'>
+  <ShapesExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Dot'
+  filePath='app/(docs)/components/badge/examples/with-dot.tsx'
+>
+  <WithDotExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Icon'
+  filePath='app/(docs)/components/badge/examples/with-icon.tsx'
+>
+  <WithIconExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Button'
+  filePath='app/(docs)/components/badge/examples/with-button.tsx'
+>
+  <WithButtonExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Appearances'
+  filePath='app/(docs)/components/badge/examples/appearances.tsx'
+>
+  <AppearancesExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Custom Colors'
+  filePath='app/(docs)/components/badge/examples/custom-colors.tsx'
+>
+  <CustomColorsExample />
+</ExampleLoader>
+
+</ComponentPage>
