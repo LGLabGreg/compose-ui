@@ -5,6 +5,7 @@ import {
   DialogClose,
   DialogDescription,
   DialogFooter,
+  DialogHeader,
   DialogPopup,
   DialogPortal,
   DialogRoot,
@@ -19,10 +20,12 @@ export default function NestedExample() {
       <DialogPortal>
         <DialogBackdrop />
         <DialogPopup>
-          <DialogTitle>Notifications</DialogTitle>
-          <DialogDescription>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-          </DialogDescription>
+          <DialogHeader>
+            <DialogTitle>Notifications</DialogTitle>
+            <DialogDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            </DialogDescription>
+          </DialogHeader>
           <DialogFooter>
             <DialogRoot>
               <DialogTrigger>Nested Dialog</DialogTrigger>

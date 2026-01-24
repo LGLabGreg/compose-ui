@@ -11,12 +11,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const components = [
   'accordion',
   'alert-dialog',
+  'autocomplete',
   'avatar',
   'button',
   'card',
   'checkbox',
   'checkbox-group',
   'collapsible',
+  'combobox',
   'context-menu',
   'dialog',
   'drawer',
@@ -44,6 +46,7 @@ const components = [
   'toast',
   'toggle',
   'toggle-group',
+  'toolbar',
   'tooltip',
 ]
 

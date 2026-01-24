@@ -7,6 +7,31 @@ export {
   CollapsiblePanel,
 } from './components/collapsible'
 export {
+  ComboboxRoot,
+  ComboboxValue,
+  ComboboxIcon,
+  ComboboxInput,
+  ComboboxControl,
+  ComboboxClear,
+  ComboboxTrigger,
+  ComboboxBackdrop,
+  ComboboxPortal,
+  ComboboxPositioner,
+  ComboboxPopup,
+  ComboboxList,
+  ComboboxEmpty,
+  ComboboxItem,
+  ComboboxItemText,
+  ComboboxItemIndicator,
+  ComboboxGroup,
+  ComboboxGroupLabel,
+  ComboboxSeparator,
+  ComboboxChips,
+  ComboboxChip,
+  ComboboxChipRemove,
+  ComboboxArrow,
+} from './components/combobox'
+export {
   AlertDialogRoot,
   AlertDialogTrigger,
   AlertDialogPortal,
@@ -109,6 +134,16 @@ export {
   AccordionPanel,
 } from './components/accordion'
 export {
+  AutocompleteRoot,
+  AutocompleteInput,
+  AutocompletePortal,
+  AutocompletePositioner,
+  AutocompletePopup,
+  AutocompleteEmpty,
+  AutocompleteList,
+  AutocompleteItem,
+} from './components/autocomplete'
+export {
   MeterRoot,
   MeterTrack,
   MeterIndicator,
@@ -183,6 +218,14 @@ export {
 export { RadioRoot, RadioIndicator } from './components/radio'
 export { RadioGroupRoot } from './components/radio-group'
 export { ToggleGroupRoot, ToggleGroupItem } from './components/toggle-group'
+export {
+  ToolbarRoot,
+  ToolbarButton,
+  ToolbarLink,
+  ToolbarInput,
+  ToolbarGroup,
+  ToolbarSeparator,
+} from './components/toolbar'
 export {
   CardRoot,
   CardMedia,
@@ -271,6 +314,31 @@ export type {
   CollapsibleTriggerProps,
   CollapsiblePanelProps,
 } from './components/collapsible'
+export type {
+  ComboboxRootProps,
+  ComboboxValueProps,
+  ComboboxIconProps,
+  ComboboxInputProps,
+  ComboboxControlProps,
+  ComboboxClearProps,
+  ComboboxTriggerProps,
+  ComboboxBackdropProps,
+  ComboboxPortalProps,
+  ComboboxPositionerProps,
+  ComboboxPopupProps,
+  ComboboxListProps,
+  ComboboxEmptyProps,
+  ComboboxItemProps,
+  ComboboxItemTextProps,
+  ComboboxItemIndicatorProps,
+  ComboboxGroupProps,
+  ComboboxGroupLabelProps,
+  ComboboxSeparatorProps,
+  ComboboxChipsProps,
+  ComboboxChipProps,
+  ComboboxChipRemoveProps,
+  ComboboxArrowProps,
+} from './components/combobox'
 export type {
   AlertDialogRootProps,
   AlertDialogTriggerProps,
@@ -384,6 +452,16 @@ export type {
   AccordionPanelProps,
 } from './components/accordion'
 export type {
+  AutocompleteRootProps,
+  AutocompleteInputProps,
+  AutocompletePortalProps,
+  AutocompletePositionerProps,
+  AutocompletePopupProps,
+  AutocompleteEmptyProps,
+  AutocompleteListProps,
+  AutocompleteItemProps,
+} from './components/autocomplete'
+export type {
   MeterRootProps,
   MeterTrackProps,
   MeterIndicatorProps,
@@ -461,6 +539,14 @@ export type {
   ToggleGroupRootProps,
   ToggleGroupItemProps,
 } from './components/toggle-group'
+export type {
+  ToolbarRootProps,
+  ToolbarButtonProps,
+  ToolbarLinkProps,
+  ToolbarInputProps,
+  ToolbarGroupProps,
+  ToolbarSeparatorProps,
+} from './components/toolbar'
 export type {
   CardRootProps,
   CardMediaProps,

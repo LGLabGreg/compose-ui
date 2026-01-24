@@ -134,7 +134,7 @@ type DialogTitleProps = React.ComponentProps<typeof BaseDialog.Title>
 const DialogTitle = ({ className, ...props }: DialogTitleProps) => {
   return (
     <BaseDialog.Title
-      className={cn('text-lg font-semibold leading-none tracking-tight', className)}
+      className={cn('text-lg font-medium leading-none tracking-tight', className)}
       {...props}
     />
   )
@@ -149,7 +149,7 @@ DialogTitle.displayName = 'DialogTitle'
 type DialogDescriptionProps = React.ComponentProps<typeof BaseDialog.Description>
 
 const DialogDescription = ({ className, ...props }: DialogDescriptionProps) => {
-  return <BaseDialog.Description className={cn('mt-2', className)} {...props} />
+  return <BaseDialog.Description className={cn('text-sm', className)} {...props} />
 }
 
 DialogDescription.displayName = 'DialogDescription'
@@ -183,7 +183,7 @@ DialogClose.displayName = 'DialogClose'
 type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
 const DialogHeader = ({ className, ...props }: DialogHeaderProps) => {
-  return <div className={cn('flex flex-col space-y-1 mb-5', className)} {...props} />
+  return <div className={cn('flex flex-col gap-1 mb-5', className)} {...props} />
 }
 
 DialogHeader.displayName = 'DialogHeader'

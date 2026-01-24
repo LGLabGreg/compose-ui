@@ -5,6 +5,7 @@ import {
   DialogClose,
   DialogDescription,
   DialogFooter,
+  DialogHeader,
   DialogPopup,
   DialogPortal,
   DialogRoot,
@@ -19,8 +20,10 @@ export default function BasicExample() {
       <DialogPortal>
         <DialogBackdrop />
         <DialogPopup>
-          <DialogTitle>Notifications</DialogTitle>
-          <DialogDescription>You are all caught up. Good job!</DialogDescription>
+          <DialogHeader>
+            <DialogTitle>Notifications</DialogTitle>
+            <DialogDescription>You are all caught up. Good job!</DialogDescription>
+          </DialogHeader>
           <DialogFooter>
             <DialogClose>Close</DialogClose>
           </DialogFooter>

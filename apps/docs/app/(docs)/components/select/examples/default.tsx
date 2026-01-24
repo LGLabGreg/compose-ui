@@ -46,10 +46,10 @@ export default function DefaultExample() {
               <SelectList>
                 {apples.map(({ label, value }) => (
                   <SelectItem key={label} value={value}>
+                    <SelectItemText>{label}</SelectItemText>
                     <SelectItemIndicator>
                       <Check className='size-3.5' />
                     </SelectItemIndicator>
-                    <SelectItemText>{label}</SelectItemText>
                   </SelectItem>
                 ))}
               </SelectList>

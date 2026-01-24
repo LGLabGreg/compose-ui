@@ -62,10 +62,10 @@ export default function MultipleExample() {
               <SelectList>
                 {values.map((value) => (
                   <SelectItem key={value} value={value}>
+                    <SelectItemText>{languages[value]}</SelectItemText>
                     <SelectItemIndicator>
                       <Check className='size-3.5' />
                     </SelectItemIndicator>
-                    <SelectItemText>{languages[value]}</SelectItemText>
                   </SelectItem>
                 ))}
               </SelectList>

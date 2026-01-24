@@ -65,10 +65,10 @@ export default function DefaultExample() {
               <SelectList>
                 {apples.map(({ label, value }) => (
                   <SelectItem key={label} value={value}>
+                    <SelectItemText>{label}</SelectItemText>
                     <SelectItemIndicator>
                       <Check className='size-3.5' />
                     </SelectItemIndicator>
-                    <SelectItemText>{label}</SelectItemText>
                   </SelectItem>
                 ))}
               </SelectList>
@@ -147,10 +147,10 @@ export default function MultipleExample() {
               <SelectList>
                 {values.map((value) => (
                   <SelectItem key={value} value={value}>
+                    <SelectItemText>{languages[value]}</SelectItemText>
                     <SelectItemIndicator>
                       <Check className='size-3.5' />
                     </SelectItemIndicator>
-                    <SelectItemText>{languages[value]}</SelectItemText>
                   </SelectItem>
                 ))}
               </SelectList>
@@ -248,15 +248,15 @@ export default function ObjectValuesExample() {
                     value={method}
                     className='items-start py-2.5'
                   >
-                    <SelectItemIndicator className='relative top-[0.4em]'>
-                      <Check className='size-3.5' />
-                    </SelectItemIndicator>
                     <SelectItemText className='flex flex-col items-start text-left'>
                       <span className='text-base font-medium'>{method.name}</span>
                       <span className='text-sm'>
                         {method.duration} ({method.price})
                       </span>
                     </SelectItemText>
+                    <SelectItemIndicator className='relative top-[0.4em]'>
+                      <Check className='size-3.5' />
+                    </SelectItemIndicator>
                   </SelectItem>
                 ))}
               </SelectList>
