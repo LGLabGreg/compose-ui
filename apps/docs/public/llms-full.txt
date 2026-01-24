@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - Tooltip
+- Toolbar
 - Toggle Group
 - Toggle
 - Toast
@@ -31,12 +32,14 @@
 - Drawer
 - Dialog
 - Context Menu
+- Combobox
 - Collapsible
 - Checkbox Group
 - Checkbox
 - Card
 - Button
 - Avatar
+- Autocomplete
 - Alert Dialog
 - Accordion
 
@@ -528,6 +531,161 @@ export default function AnchorElementExample() {
 
 - [Base UI Tooltip Documentation](https://base-ui.com/react/components/tooltip)
 - [API Reference](https://base-ui.com/react/components/tooltip#api-reference)
+
+---
+
+# Toolbar
+
+A container for grouping a set of buttons and controls.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { ToolbarRoot, ToolbarButton, ToolbarLink, ToolbarInput, ToolbarGroup, ToolbarSeparator } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Rich Text Editor
+
+```tsx
+import {
+  SelectIcon,
+  SelectItem,
+  SelectItemIndicator,
+  SelectItemText,
+  SelectList,
+  SelectPopup,
+  SelectPortal,
+  SelectPositioner,
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+} from '@lglab/compose-ui/select'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
+import {
+  ToolbarButton,
+  ToolbarGroup,
+  ToolbarRoot,
+  ToolbarSeparator,
+} from '@lglab/compose-ui/toolbar'
+import {
+  AlignCenterIcon,
+  AlignLeftIcon,
+  AlignRightIcon,
+  BoldIcon,
+  CheckIcon,
+  ChevronsUpDownIcon,
+  ItalicIcon,
+  UnderlineIcon,
+} from 'lucide-react'
+
+const fontFaces = [
+  { label: 'Helvetica', value: 'helvetica' },
+  { label: 'Arial', value: 'arial' },
+  { label: 'Times New Roman', value: 'times' },
+  { label: 'Georgia', value: 'georgia' },
+]
+
+export default function DefaultExample() {
+  return (
+    <ToolbarRoot>
+      <ToggleGroupRoot className='flex gap-0.5' multiple>
+        <ToolbarButton
+          render={<ToggleGroupItem value='bold' size='icon-sm' variant='ghost' />}
+          aria-label='Bold'
+        >
+          <BoldIcon className='size-4' />
+        </ToolbarButton>
+        <ToolbarButton
+          render={<ToggleGroupItem value='italic' size='icon-sm' variant='ghost' />}
+          aria-label='Italic'
+        >
+          <ItalicIcon className='size-4' />
+        </ToolbarButton>
+        <ToolbarButton
+          render={<ToggleGroupItem value='underline' size='icon-sm' variant='ghost' />}
+          aria-label='Underline'
+        >
+          <UnderlineIcon className='size-4' />
+        </ToolbarButton>
+      </ToggleGroupRoot>
+
+      <ToolbarSeparator />
+
+      <ToggleGroupRoot defaultValue={['left']} className='flex gap-0.5'>
+        <ToolbarButton
+          render={<ToggleGroupItem value='left' size='icon-sm' variant='ghost' />}
+          aria-label='Align left'
+        >
+          <AlignLeftIcon className='size-4' />
+        </ToolbarButton>
+        <ToolbarButton
+          render={<ToggleGroupItem value='center' size='icon-sm' variant='ghost' />}
+          aria-label='Align center'
+        >
+          <AlignCenterIcon className='size-4' />
+        </ToolbarButton>
+        <ToolbarButton
+          render={<ToggleGroupItem value='right' size='icon-sm' variant='ghost' />}
+          aria-label='Align right'
+        >
+          <AlignRightIcon className='size-4' />
+        </ToolbarButton>
+      </ToggleGroupRoot>
+
+      <ToolbarSeparator />
+
+      <ToolbarGroup aria-label='Format'>
+        <ToolbarButton size='sm' variant='ghost'>
+          $
+        </ToolbarButton>
+        <ToolbarButton size='sm' variant='ghost'>
+          %
+        </ToolbarButton>
+      </ToolbarGroup>
+
+      <ToolbarSeparator />
+
+      <SelectRoot items={fontFaces} defaultValue='helvetica'>
+        <ToolbarButton render={<SelectTrigger />}>
+          <SelectValue />
+          <SelectIcon>
+            <ChevronsUpDownIcon className='size-4 opacity-50' />
+          </SelectIcon>
+        </ToolbarButton>
+        <SelectPortal>
+          <SelectPositioner>
+            <SelectPopup>
+              <SelectList>
+                {fontFaces.map((fontFace) => (
+                  <SelectItem key={fontFace.value} value={fontFace.value}>
+                    <SelectItemText>{fontFace.label}</SelectItemText>
+                    <SelectItemIndicator>
+                      <CheckIcon className='size-4' />
+                    </SelectItemIndicator>
+                  </SelectItem>
+                ))}
+              </SelectList>
+            </SelectPopup>
+          </SelectPositioner>
+        </SelectPortal>
+      </SelectRoot>
+    </ToolbarRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Toolbar Documentation](https://base-ui.com/react/components/toolbar)
+- [API Reference](https://base-ui.com/react/components/toolbar#api-reference)
 
 ---
 
@@ -2019,10 +2177,10 @@ export default function DefaultExample() {
               <SelectList>
                 {apples.map(({ label, value }) => (
                   <SelectItem key={label} value={value}>
+                    <SelectItemText>{label}</SelectItemText>
                     <SelectItemIndicator>
                       <Check className='size-3.5' />
                     </SelectItemIndicator>
-                    <SelectItemText>{label}</SelectItemText>
                   </SelectItem>
                 ))}
               </SelectList>
@@ -2101,10 +2259,10 @@ export default function MultipleExample() {
               <SelectList>
                 {values.map((value) => (
                   <SelectItem key={value} value={value}>
+                    <SelectItemText>{languages[value]}</SelectItemText>
                     <SelectItemIndicator>
                       <Check className='size-3.5' />
                     </SelectItemIndicator>
-                    <SelectItemText>{languages[value]}</SelectItemText>
                   </SelectItem>
                 ))}
               </SelectList>
@@ -2202,15 +2360,15 @@ export default function ObjectValuesExample() {
                     value={method}
                     className='items-start py-2.5'
                   >
-                    <SelectItemIndicator className='relative top-[0.4em]'>
-                      <Check className='size-3.5' />
-                    </SelectItemIndicator>
                     <SelectItemText className='flex flex-col items-start text-left'>
                       <span className='text-base font-medium'>{method.name}</span>
                       <span className='text-sm'>
                         {method.duration} ({method.price})
                       </span>
                     </SelectItemText>
+                    <SelectItemIndicator className='relative top-[0.4em]'>
+                      <Check className='size-3.5' />
+                    </SelectItemIndicator>
                   </SelectItem>
                 ))}
               </SelectList>
@@ -5702,6 +5860,7 @@ import {
   DialogClose,
   DialogDescription,
   DialogFooter,
+  DialogHeader,
   DialogPopup,
   DialogPortal,
   DialogRoot,
@@ -5716,8 +5875,10 @@ export default function BasicExample() {
       <DialogPortal>
         <DialogBackdrop />
         <DialogPopup>
-          <DialogTitle>Notifications</DialogTitle>
-          <DialogDescription>You are all caught up. Good job!</DialogDescription>
+          <DialogHeader>
+            <DialogTitle>Notifications</DialogTitle>
+            <DialogDescription>You are all caught up. Good job!</DialogDescription>
+          </DialogHeader>
           <DialogFooter>
             <DialogClose>Close</DialogClose>
           </DialogFooter>
@@ -5841,10 +6002,12 @@ export default function SizesExample() {
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup size='sm'>
-            <DialogTitle>Small Dialog</DialogTitle>
-            <DialogDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-            </DialogDescription>
+            <DialogHeader>
+              <DialogTitle>Small Dialog</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+              </DialogDescription>
+            </DialogHeader>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
@@ -5857,10 +6020,12 @@ export default function SizesExample() {
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup>
-            <DialogTitle>Default Dialog</DialogTitle>
-            <DialogDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-            </DialogDescription>
+            <DialogHeader>
+              <DialogTitle>Default Dialog</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+              </DialogDescription>
+            </DialogHeader>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
@@ -5873,10 +6038,12 @@ export default function SizesExample() {
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup size='lg'>
-            <DialogTitle>Large Dialog</DialogTitle>
-            <DialogDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-            </DialogDescription>
+            <DialogHeader>
+              <DialogTitle>Large Dialog</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+              </DialogDescription>
+            </DialogHeader>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
@@ -5889,10 +6056,12 @@ export default function SizesExample() {
         <DialogPortal>
           <DialogBackdrop />
           <DialogPopup size='xl'>
-            <DialogTitle>Extra Large Dialog</DialogTitle>
-            <DialogDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-            </DialogDescription>
+            <DialogHeader>
+              <DialogTitle>Extra Large Dialog</DialogTitle>
+              <DialogDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+              </DialogDescription>
+            </DialogHeader>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
@@ -5911,12 +6080,6 @@ export default function SizesExample() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
               </DialogDescription>
             </DialogHeader>
-            <DialogDescription>
-              Nam sed enim a eros eleifend accumsan. Morbi ac risus enim. Praesent in ante
-              euismod, laoreet nisl quis, maximus nisl. Maecenas congue placerat aliquet.
-              Praesent sit amet orci sed purus volutpat viverra vel vitae quam. Nulla a
-              varius lectus. Aenean in facilisis justo.
-            </DialogDescription>
             <DialogFooter>
               <DialogClose>Close</DialogClose>
             </DialogFooter>
@@ -6212,6 +6375,7 @@ import {
   DialogClose,
   DialogDescription,
   DialogFooter,
+  DialogHeader,
   DialogPopup,
   DialogPortal,
   DialogRoot,
@@ -6226,10 +6390,12 @@ export default function NestedExample() {
       <DialogPortal>
         <DialogBackdrop />
         <DialogPopup>
-          <DialogTitle>Notifications</DialogTitle>
-          <DialogDescription>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-          </DialogDescription>
+          <DialogHeader>
+            <DialogTitle>Notifications</DialogTitle>
+            <DialogDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+            </DialogDescription>
+          </DialogHeader>
           <DialogFooter>
             <DialogRoot>
               <DialogTrigger>Nested Dialog</DialogTrigger>
@@ -6634,6 +6800,1264 @@ export default function SubmenuExample() {
 
 - [Base UI Context Menu Documentation](https://base-ui.com/react/components/context-menu)
 - [API Reference](https://base-ui.com/react/components/context-menu#api-reference)
+
+---
+
+# Combobox
+
+An input combined with a list of predefined items to select, with filtering support.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { BaseCombobox as Combobox, ComboboxRoot, ComboboxValue, ComboboxIcon, ComboboxInput, ComboboxControl, ComboboxClear, ComboboxTrigger, ComboboxBackdrop, ComboboxPortal, ComboboxPositioner, ComboboxPopup, ComboboxList, ComboboxEmpty, ComboboxItem, ComboboxItemText, ComboboxItemIndicator, ComboboxGroup, ComboboxGroupLabel, ComboboxCollection, ComboboxSeparator, ComboboxStatus, ComboboxChips, ComboboxChip, ComboboxChipRemove, ComboboxArrow } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import {
+  ComboboxClear,
+  ComboboxControl,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxItemIndicator,
+  ComboboxItemText,
+  ComboboxList,
+  ComboboxPopup,
+  ComboboxPortal,
+  ComboboxPositioner,
+  ComboboxRoot,
+  ComboboxTrigger,
+} from '@lglab/compose-ui/combobox'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { Check, ChevronDown, X } from 'lucide-react'
+
+interface Fruit {
+  label: string
+  value: string
+}
+
+const fruits: Fruit[] = [
+  { label: 'Apple', value: 'apple' },
+  { label: 'Banana', value: 'banana' },
+  { label: 'Orange', value: 'orange' },
+  { label: 'Pineapple', value: 'pineapple' },
+  { label: 'Grape', value: 'grape' },
+  { label: 'Mango', value: 'mango' },
+  { label: 'Strawberry', value: 'strawberry' },
+  { label: 'Blueberry', value: 'blueberry' },
+  { label: 'Raspberry', value: 'raspberry' },
+  { label: 'Blackberry', value: 'blackberry' },
+  { label: 'Cherry', value: 'cherry' },
+  { label: 'Peach', value: 'peach' },
+  { label: 'Pear', value: 'pear' },
+  { label: 'Plum', value: 'plum' },
+  { label: 'Kiwi', value: 'kiwi' },
+  { label: 'Watermelon', value: 'watermelon' },
+  { label: 'Cantaloupe', value: 'cantaloupe' },
+  { label: 'Honeydew', value: 'honeydew' },
+  { label: 'Papaya', value: 'papaya' },
+  { label: 'Guava', value: 'guava' },
+  { label: 'Lychee', value: 'lychee' },
+  { label: 'Pomegranate', value: 'pomegranate' },
+  { label: 'Apricot', value: 'apricot' },
+  { label: 'Grapefruit', value: 'grapefruit' },
+  { label: 'Passionfruit', value: 'passionfruit' },
+]
+
+export default function DefaultExample() {
+  return (
+    <FieldRoot>
+      <FieldLabel>Choose a fruit</FieldLabel>
+      <ComboboxRoot items={fruits}>
+        <ComboboxControl>
+          <ComboboxInput placeholder='e.g. Apple' />
+          <ComboboxClear aria-label='Clear selection'>
+            <X className='size-4' />
+          </ComboboxClear>
+          <ComboboxTrigger aria-label='Open popup'>
+            <ChevronDown className='size-4' />
+          </ComboboxTrigger>
+        </ComboboxControl>
+        <ComboboxPortal>
+          <ComboboxPositioner>
+            <ComboboxPopup>
+              <ComboboxEmpty>No fruits found.</ComboboxEmpty>
+              <ComboboxList>
+                {(item: Fruit) => (
+                  <ComboboxItem key={item.value} value={item}>
+                    <ComboboxItemText>{item.label}</ComboboxItemText>
+                    <ComboboxItemIndicator>
+                      <Check className='size-3.5' />
+                    </ComboboxItemIndicator>
+                  </ComboboxItem>
+                )}
+              </ComboboxList>
+            </ComboboxPopup>
+          </ComboboxPositioner>
+        </ComboboxPortal>
+      </ComboboxRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Multiselect
+
+```tsx
+import {
+  ComboboxChip,
+  ComboboxChipRemove,
+  ComboboxChips,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxItemIndicator,
+  ComboboxItemText,
+  ComboboxList,
+  ComboboxPopup,
+  ComboboxPortal,
+  ComboboxPositioner,
+  ComboboxRoot,
+  ComboboxValue,
+} from '@lglab/compose-ui/combobox'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { Check, X } from 'lucide-react'
+import * as React from 'react'
+
+interface ProgrammingLanguage {
+  id: string
+  value: string
+}
+
+const langs: ProgrammingLanguage[] = [
+  { id: 'js', value: 'JavaScript' },
+  { id: 'ts', value: 'TypeScript' },
+  { id: 'py', value: 'Python' },
+  { id: 'java', value: 'Java' },
+  { id: 'cpp', value: 'C++' },
+  { id: 'cs', value: 'C#' },
+  { id: 'php', value: 'PHP' },
+  { id: 'ruby', value: 'Ruby' },
+  { id: 'go', value: 'Go' },
+  { id: 'rust', value: 'Rust' },
+  { id: 'swift', value: 'Swift' },
+]
+
+export default function MultiselectExample() {
+  const containerRef = React.useRef<HTMLDivElement | null>(null)
+
+  return (
+    <FieldRoot>
+      <FieldLabel>Programming languages</FieldLabel>
+      <ComboboxRoot items={langs} multiple>
+        <ComboboxChips ref={containerRef} className='max-w-xs'>
+          <ComboboxValue>
+            {(value: ProgrammingLanguage[]) => (
+              <React.Fragment>
+                {value.map((language) => (
+                  <ComboboxChip key={language.id} aria-label={language.value}>
+                    {language.value}
+                    <ComboboxChipRemove aria-label='Remove'>
+                      <X className='size-3' />
+                    </ComboboxChipRemove>
+                  </ComboboxChip>
+                ))}
+                <ComboboxInput placeholder={value.length > 0 ? '' : 'e.g. TypeScript'} />
+              </React.Fragment>
+            )}
+          </ComboboxValue>
+        </ComboboxChips>
+        <ComboboxPortal>
+          <ComboboxPositioner sideOffset={4} anchor={containerRef}>
+            <ComboboxPopup>
+              <ComboboxEmpty>No languages found.</ComboboxEmpty>
+              <ComboboxList>
+                {(language: ProgrammingLanguage) => (
+                  <ComboboxItem key={language.id} value={language}>
+                    <ComboboxItemText>{language.value}</ComboboxItemText>
+                    <ComboboxItemIndicator>
+                      <Check className='size-3.5' />
+                    </ComboboxItemIndicator>
+                  </ComboboxItem>
+                )}
+              </ComboboxList>
+            </ComboboxPopup>
+          </ComboboxPositioner>
+        </ComboboxPortal>
+      </ComboboxRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Grouped
+
+```tsx
+import {
+  ComboboxClear,
+  ComboboxCollection,
+  ComboboxControl,
+  ComboboxEmpty,
+  ComboboxGroup,
+  ComboboxGroupLabel,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxItemIndicator,
+  ComboboxItemText,
+  ComboboxList,
+  ComboboxPopup,
+  ComboboxPortal,
+  ComboboxPositioner,
+  ComboboxRoot,
+  ComboboxSeparator,
+  ComboboxTrigger,
+} from '@lglab/compose-ui/combobox'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { Check, ChevronDown, X } from 'lucide-react'
+import * as React from 'react'
+
+interface Produce {
+  id: string
+  label: string
+  group: 'Fruits' | 'Vegetables' | 'Grains'
+}
+
+interface ProduceGroup {
+  value: string
+  items: Produce[]
+}
+
+const produceData: Produce[] = [
+  { id: 'fruit-apple', label: 'Apple', group: 'Fruits' },
+  { id: 'fruit-banana', label: 'Banana', group: 'Fruits' },
+  { id: 'fruit-mango', label: 'Mango', group: 'Fruits' },
+  { id: 'fruit-kiwi', label: 'Kiwi', group: 'Fruits' },
+  { id: 'veg-broccoli', label: 'Broccoli', group: 'Vegetables' },
+  { id: 'veg-carrot', label: 'Carrot', group: 'Vegetables' },
+  { id: 'veg-cauliflower', label: 'Cauliflower', group: 'Vegetables' },
+  { id: 'veg-cucumber', label: 'Cucumber', group: 'Vegetables' },
+  { id: 'veg-kale', label: 'Kale', group: 'Vegetables' },
+  { id: 'veg-pepper', label: 'Bell pepper', group: 'Vegetables' },
+  { id: 'veg-spinach', label: 'Spinach', group: 'Vegetables' },
+  { id: 'veg-zucchini', label: 'Zucchini', group: 'Vegetables' },
+  { id: 'grain-rice', label: 'Rice', group: 'Grains' },
+  { id: 'grain-wheat', label: 'Wheat', group: 'Grains' },
+  { id: 'grain-oats', label: 'Oats', group: 'Grains' },
+  { id: 'grain-barley', label: 'Barley', group: 'Grains' },
+  { id: 'grain-quinoa', label: 'Quinoa', group: 'Grains' },
+]
+
+function groupProduce(items: Produce[]): ProduceGroup[] {
+  const groups: Record<string, Produce[]> = {}
+  items.forEach((item) => {
+    ;(groups[item.group] ??= []).push(item)
+  })
+  const order = ['Fruits', 'Vegetables', 'Grains']
+  return order.map((value) => ({ value, items: groups[value] ?? [] }))
+}
+
+const groupedProduce: ProduceGroup[] = groupProduce(produceData)
+
+export default function GroupedExample() {
+  return (
+    <FieldRoot>
+      <FieldLabel>Select produce</FieldLabel>
+      <ComboboxRoot items={groupedProduce}>
+        <ComboboxControl>
+          <ComboboxInput placeholder='e.g. Mango' />
+          <ComboboxClear aria-label='Clear selection'>
+            <X className='size-4' />
+          </ComboboxClear>
+          <ComboboxTrigger aria-label='Open popup'>
+            <ChevronDown className='size-4' />
+          </ComboboxTrigger>
+        </ComboboxControl>
+        <ComboboxPortal>
+          <ComboboxPositioner>
+            <ComboboxPopup>
+              <ComboboxEmpty>No produce found.</ComboboxEmpty>
+              <ComboboxList>
+                {(group: ProduceGroup, index: number) => (
+                  <React.Fragment key={group.value}>
+                    <ComboboxGroup items={group.items}>
+                      <ComboboxGroupLabel>{group.value}</ComboboxGroupLabel>
+                      <ComboboxCollection>
+                        {(item: Produce) => (
+                          <ComboboxItem key={item.id} value={item}>
+                            <ComboboxItemText>{item.label}</ComboboxItemText>
+                            <ComboboxItemIndicator>
+                              <Check className='size-3.5' />
+                            </ComboboxItemIndicator>
+                          </ComboboxItem>
+                        )}
+                      </ComboboxCollection>
+                    </ComboboxGroup>
+                    {index < groupedProduce.length - 1 && <ComboboxSeparator />}
+                  </React.Fragment>
+                )}
+              </ComboboxList>
+            </ComboboxPopup>
+          </ComboboxPositioner>
+        </ComboboxPortal>
+      </ComboboxRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Popup
+
+```tsx
+import { Button } from '@lglab/compose-ui/button'
+import {
+  ComboboxEmpty,
+  ComboboxIcon,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxItemIndicator,
+  ComboboxItemText,
+  ComboboxList,
+  ComboboxPopup,
+  ComboboxPortal,
+  ComboboxPositioner,
+  ComboboxRoot,
+  ComboboxTrigger,
+  ComboboxValue,
+} from '@lglab/compose-ui/combobox'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { Check, ChevronsUpDown } from 'lucide-react'
+
+interface Country {
+  label: string
+  value: string
+}
+
+const countries: Country[] = [
+  { label: 'Argentina', value: 'ar' },
+  { label: 'Australia', value: 'au' },
+  { label: 'Brazil', value: 'br' },
+  { label: 'Canada', value: 'ca' },
+  { label: 'China', value: 'cn' },
+  { label: 'France', value: 'fr' },
+  { label: 'Germany', value: 'de' },
+  { label: 'India', value: 'in' },
+  { label: 'Italy', value: 'it' },
+  { label: 'Japan', value: 'jp' },
+  { label: 'Mexico', value: 'mx' },
+  { label: 'Netherlands', value: 'nl' },
+  { label: 'Poland', value: 'pl' },
+  { label: 'South Korea', value: 'kr' },
+  { label: 'Spain', value: 'es' },
+  { label: 'Sweden', value: 'se' },
+  { label: 'Switzerland', value: 'ch' },
+  { label: 'United Kingdom', value: 'gb' },
+  { label: 'United States', value: 'us' },
+]
+
+export default function InputInsidePopupExample() {
+  return (
+    <FieldRoot className='w-64'>
+      <FieldLabel render={<div />} nativeLabel={false}>
+        Country
+      </FieldLabel>
+      <ComboboxRoot items={countries}>
+        <ComboboxTrigger
+          render={(props) => (
+            <Button {...props} className='justify-between font-normal' variant='outline'>
+              <ComboboxValue placeholder='Select a country' />
+              <ComboboxIcon>
+                <ChevronsUpDown className='size-4' />
+              </ComboboxIcon>
+            </Button>
+          )}
+        />
+
+        <ComboboxPortal>
+          <ComboboxPositioner align='start'>
+            <ComboboxPopup>
+              <ComboboxInput placeholder='e.g. United Kingdom' />
+              <ComboboxEmpty>No countries found.</ComboboxEmpty>
+              <ComboboxList>
+                {(item: Country) => (
+                  <ComboboxItem key={item.value} value={item}>
+                    <ComboboxItemText>{item.label}</ComboboxItemText>
+                    <ComboboxItemIndicator>
+                      <Check className='size-3.5' />
+                    </ComboboxItemIndicator>
+                  </ComboboxItem>
+                )}
+              </ComboboxList>
+            </ComboboxPopup>
+          </ComboboxPositioner>
+        </ComboboxPortal>
+      </ComboboxRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Async search
+
+```tsx
+import {
+  Combobox,
+  ComboboxClear,
+  ComboboxControl,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxItemIndicator,
+  ComboboxItemText,
+  ComboboxList,
+  ComboboxPopup,
+  ComboboxPortal,
+  ComboboxPositioner,
+  ComboboxRoot,
+  ComboboxStatus,
+  ComboboxTrigger,
+} from '@lglab/compose-ui/combobox'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { Check, ChevronDown, Loader2, X } from 'lucide-react'
+import { useMemo, useRef, useState, useTransition } from 'react'
+
+interface DirectoryUser {
+  id: string
+  name: string
+  email: string
+  title: string
+}
+
+export default function AsyncSearchExample() {
+  const [searchResults, setSearchResults] = useState<DirectoryUser[]>([])
+  const [selectedValue, setSelectedValue] = useState<DirectoryUser | null>(null)
+  const [searchValue, setSearchValue] = useState('')
+  const [error, setError] = useState<string | null>(null)
+  const [isPending, startTransition] = useTransition()
+
+  const { contains } = Combobox.useFilter()
+
+  const abortControllerRef = useRef<AbortController | null>(null)
+
+  const trimmedSearchValue = searchValue.trim()
+
+  const items = useMemo(() => {
+    if (!selectedValue || searchResults.some((user) => user.id === selectedValue.id)) {
+      return searchResults
+    }
+    return [...searchResults, selectedValue]
+  }, [searchResults, selectedValue])
+
+  function getStatus() {
+    if (isPending) {
+      return (
+        <>
+          <Loader2 className='size-3 animate-spin' />
+          Searching…
+        </>
+      )
+    }
+
+    if (error) {
+      return error
+    }
+
+    if (trimmedSearchValue === '') {
+      return selectedValue ? null : 'Start typing to search people…'
+    }
+
+    if (searchResults.length === 0) {
+      return `No matches for "${trimmedSearchValue}".`
+    }
+
+    return null
+  }
+
+  function getEmptyMessage() {
+    if (trimmedSearchValue === '' || isPending || searchResults.length > 0 || error) {
+      return null
+    }
+    return 'Try a different search term.'
+  }
+
+  return (
+    <FieldRoot className='w-80'>
+      <FieldLabel>Assign reviewer</FieldLabel>
+      <ComboboxRoot
+        items={items}
+        itemToStringLabel={(user: DirectoryUser) => user.name}
+        filter={null}
+        onOpenChangeComplete={(open) => {
+          if (!open && selectedValue) {
+            setSearchResults([selectedValue])
+          }
+        }}
+        onValueChange={(nextSelectedValue) => {
+          setSelectedValue(nextSelectedValue)
+          setSearchValue('')
+          setError(null)
+        }}
+        onInputValueChange={(nextSearchValue, { reason }) => {
+          setSearchValue(nextSearchValue)
+
+          if (nextSearchValue === '') {
+            setSearchResults([])
+            setError(null)
+            return
+          }
+
+          if (reason === 'item-press') {
+            return
+          }
+
+          const controller = new AbortController()
+          abortControllerRef.current?.abort()
+          abortControllerRef.current = controller
+
+          startTransition(async () => {
+            setError(null)
+
+            const result = await searchUsers(nextSearchValue, contains)
+
+            if (controller.signal.aborted) {
+              return
+            }
+
+            startTransition(() => {
+              setSearchResults(result.users)
+              setError(result.error)
+            })
+          })
+        }}
+      >
+        <ComboboxControl>
+          <ComboboxInput placeholder='e.g. Michael' />
+          <ComboboxClear aria-label='Clear selection'>
+            <X className='size-4' />
+          </ComboboxClear>
+          <ComboboxTrigger aria-label='Open popup'>
+            <ChevronDown className='size-4' />
+          </ComboboxTrigger>
+        </ComboboxControl>
+
+        <ComboboxPortal>
+          <ComboboxPositioner>
+            <ComboboxPopup aria-busy={isPending || undefined}>
+              <ComboboxStatus>{getStatus()}</ComboboxStatus>
+              <ComboboxEmpty>{getEmptyMessage()}</ComboboxEmpty>
+              <ComboboxList>
+                {(user: DirectoryUser) => (
+                  <ComboboxItem key={user.id} value={user}>
+                    <div className='flex flex-col gap-0.5'>
+                      <ComboboxItemText className='font-medium'>
+                        {user.name}
+                      </ComboboxItemText>
+                      <div className='text-xs text-muted-foreground font-medium'>
+                        {user.title}
+                      </div>
+                      <div className='text-xs text-muted-foreground'>{user.email}</div>
+                    </div>
+                    <ComboboxItemIndicator>
+                      <Check className='size-3.5' />
+                    </ComboboxItemIndicator>
+                  </ComboboxItem>
+                )}
+              </ComboboxList>
+            </ComboboxPopup>
+          </ComboboxPositioner>
+        </ComboboxPortal>
+      </ComboboxRoot>
+    </FieldRoot>
+  )
+}
+
+async function searchUsers(
+  query: string,
+  filter: (item: string, query: string) => boolean,
+): Promise<{ users: DirectoryUser[]; error: string | null }> {
+  await new Promise((resolve) => {
+    setTimeout(resolve, Math.random() * 500 + 100)
+  })
+
+  const users = allUsers.filter((user) => {
+    return (
+      filter(user.name, query) || filter(user.email, query) || filter(user.title, query)
+    )
+  })
+
+  return {
+    users,
+    error: null,
+  }
+}
+
+const allUsers: DirectoryUser[] = [
+  {
+    id: 'leslie-alexander',
+    name: 'Leslie Alexander',
+    email: 'leslie.alexander@example.com',
+    title: 'Product Manager',
+  },
+  {
+    id: 'kathryn-murphy',
+    name: 'Kathryn Murphy',
+    email: 'kathryn.murphy@example.com',
+    title: 'Marketing Lead',
+  },
+  {
+    id: 'courtney-henry',
+    name: 'Courtney Henry',
+    email: 'courtney.henry@example.com',
+    title: 'Design Systems',
+  },
+  {
+    id: 'michael-foster',
+    name: 'Michael Foster',
+    email: 'michael.foster@example.com',
+    title: 'Engineering Manager',
+  },
+  {
+    id: 'lindsay-walton',
+    name: 'Lindsay Walton',
+    email: 'lindsay.walton@example.com',
+    title: 'Product Designer',
+  },
+  {
+    id: 'tom-cook',
+    name: 'Tom Cook',
+    email: 'tom.cook@example.com',
+    title: 'Frontend Engineer',
+  },
+  {
+    id: 'whitney-francis',
+    name: 'Whitney Francis',
+    email: 'whitney.francis@example.com',
+    title: 'Customer Success',
+  },
+  {
+    id: 'jacob-jones',
+    name: 'Jacob Jones',
+    email: 'jacob.jones@example.com',
+    title: 'Security Engineer',
+  },
+  {
+    id: 'arlene-mccoy',
+    name: 'Arlene McCoy',
+    email: 'arlene.mccoy@example.com',
+    title: 'Data Analyst',
+  },
+  {
+    id: 'marvin-mckinney',
+    name: 'Marvin McKinney',
+    email: 'marvin.mckinney@example.com',
+    title: 'QA Specialist',
+  },
+  {
+    id: 'eleanor-pena',
+    name: 'Eleanor Pena',
+    email: 'eleanor.pena@example.com',
+    title: 'Operations',
+  },
+  {
+    id: 'jerome-bell',
+    name: 'Jerome Bell',
+    email: 'jerome.bell@example.com',
+    title: 'DevOps Engineer',
+  },
+]
+```
+
+### Async search Multiple
+
+```tsx
+import {
+  Combobox,
+  ComboboxChip,
+  ComboboxChipRemove,
+  ComboboxChips,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxItemIndicator,
+  ComboboxItemText,
+  ComboboxList,
+  ComboboxPopup,
+  ComboboxPortal,
+  ComboboxPositioner,
+  ComboboxRoot,
+  ComboboxStatus,
+  ComboboxValue,
+} from '@lglab/compose-ui/combobox'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { Check, Loader2, X } from 'lucide-react'
+import { useMemo, useRef, useState, useTransition } from 'react'
+
+interface DirectoryUser {
+  id: string
+  name: string
+  email: string
+  title: string
+}
+
+export default function AsyncSearchMultipleExample() {
+  const [searchResults, setSearchResults] = useState<DirectoryUser[]>([])
+  const [selectedValues, setSelectedValues] = useState<DirectoryUser[]>([])
+  const [searchValue, setSearchValue] = useState('')
+  const [error, setError] = useState<string | null>(null)
+  const [blockStartStatus, setBlockStartStatus] = useState(false)
+  const [isPending, startTransition] = useTransition()
+
+  const { contains } = Combobox.useFilter()
+
+  const abortControllerRef = useRef<AbortController | null>(null)
+  const selectedValuesRef = useRef<DirectoryUser[]>([])
+
+  const trimmedSearchValue = searchValue.trim()
+
+  const items = useMemo(() => {
+    if (selectedValues.length === 0) {
+      return searchResults
+    }
+
+    const merged = [...searchResults]
+
+    selectedValues.forEach((user) => {
+      if (!searchResults.some((result) => result.id === user.id)) {
+        merged.push(user)
+      }
+    })
+
+    return merged
+  }, [searchResults, selectedValues])
+
+  function getStatus() {
+    if (isPending) {
+      return (
+        <>
+          <Loader2 className='size-3 animate-spin' />
+          Searching…
+        </>
+      )
+    }
+
+    if (error) {
+      return error
+    }
+
+    if (trimmedSearchValue === '' && !blockStartStatus) {
+      return selectedValues.length > 0 ? null : 'Start typing to search people…'
+    }
+
+    if (searchResults.length === 0 && !blockStartStatus) {
+      return `No matches for "${trimmedSearchValue}".`
+    }
+
+    return null
+  }
+
+  function getEmptyMessage() {
+    if (trimmedSearchValue === '' || isPending || searchResults.length > 0 || error) {
+      return null
+    }
+    return 'Try a different search term.'
+  }
+
+  return (
+    <FieldRoot className='w-80'>
+      <FieldLabel>Assign reviewers</FieldLabel>
+      <ComboboxRoot
+        items={items}
+        itemToStringLabel={(user: DirectoryUser) => user.name}
+        multiple
+        filter={null}
+        onOpenChangeComplete={(open) => {
+          if (!open) {
+            setSearchResults(selectedValuesRef.current)
+            setBlockStartStatus(false)
+          }
+        }}
+        onValueChange={(nextSelectedValues) => {
+          selectedValuesRef.current = nextSelectedValues
+          setSelectedValues(nextSelectedValues)
+          setSearchValue('')
+          setError(null)
+
+          if (nextSelectedValues.length === 0) {
+            setSearchResults([])
+            setBlockStartStatus(false)
+          } else {
+            setBlockStartStatus(true)
+          }
+        }}
+        onInputValueChange={(nextSearchValue, { reason }) => {
+          setSearchValue(nextSearchValue)
+
+          const controller = new AbortController()
+          abortControllerRef.current?.abort()
+          abortControllerRef.current = controller
+
+          if (nextSearchValue === '') {
+            setSearchResults(selectedValuesRef.current)
+            setError(null)
+            setBlockStartStatus(false)
+            return
+          }
+
+          if (reason === 'item-press') {
+            return
+          }
+
+          startTransition(async () => {
+            setError(null)
+
+            const result = await searchUsers(nextSearchValue, contains)
+
+            if (controller.signal.aborted) {
+              return
+            }
+
+            startTransition(() => {
+              setSearchResults(result.users)
+              setError(result.error)
+            })
+          })
+        }}
+      >
+        <ComboboxChips>
+          <ComboboxValue>
+            {(value: DirectoryUser[]) => (
+              <>
+                {value.map((user) => (
+                  <ComboboxChip key={user.id} aria-label={user.name}>
+                    {user.name}
+                    <ComboboxChipRemove aria-label='Remove'>
+                      <X className='size-3' />
+                    </ComboboxChipRemove>
+                  </ComboboxChip>
+                ))}
+                <ComboboxInput placeholder={value.length > 0 ? '' : 'e.g. Michael'} />
+              </>
+            )}
+          </ComboboxValue>
+        </ComboboxChips>
+
+        <ComboboxPortal>
+          <ComboboxPositioner>
+            <ComboboxPopup aria-busy={isPending || undefined}>
+              <ComboboxStatus>{getStatus()}</ComboboxStatus>
+              <ComboboxEmpty>{getEmptyMessage()}</ComboboxEmpty>
+              <ComboboxList>
+                {(user: DirectoryUser) => (
+                  <ComboboxItem key={user.id} value={user}>
+                    <div className='flex flex-col gap-0.5'>
+                      <ComboboxItemText className='font-medium'>
+                        {user.name}
+                      </ComboboxItemText>
+                      <div className='text-xs text-muted-foreground font-medium'>
+                        {user.title}
+                      </div>
+                      <div className='text-xs text-muted-foreground'>{user.email}</div>
+                    </div>
+                    <ComboboxItemIndicator>
+                      <Check className='size-3.5' />
+                    </ComboboxItemIndicator>
+                  </ComboboxItem>
+                )}
+              </ComboboxList>
+            </ComboboxPopup>
+          </ComboboxPositioner>
+        </ComboboxPortal>
+      </ComboboxRoot>
+    </FieldRoot>
+  )
+}
+
+async function searchUsers(
+  query: string,
+  filter: (item: string, query: string) => boolean,
+): Promise<{ users: DirectoryUser[]; error: string | null }> {
+  await new Promise((resolve) => {
+    setTimeout(resolve, Math.random() * 500 + 100)
+  })
+
+  const users = allUsers.filter((user) => {
+    return (
+      filter(user.name, query) || filter(user.email, query) || filter(user.title, query)
+    )
+  })
+
+  return {
+    users,
+    error: null,
+  }
+}
+
+const allUsers: DirectoryUser[] = [
+  {
+    id: 'leslie-alexander',
+    name: 'Leslie Alexander',
+    email: 'leslie.alexander@example.com',
+    title: 'Product Manager',
+  },
+  {
+    id: 'kathryn-murphy',
+    name: 'Kathryn Murphy',
+    email: 'kathryn.murphy@example.com',
+    title: 'Marketing Lead',
+  },
+  {
+    id: 'courtney-henry',
+    name: 'Courtney Henry',
+    email: 'courtney.henry@example.com',
+    title: 'Design Systems',
+  },
+  {
+    id: 'michael-foster',
+    name: 'Michael Foster',
+    email: 'michael.foster@example.com',
+    title: 'Engineering Manager',
+  },
+  {
+    id: 'lindsay-walton',
+    name: 'Lindsay Walton',
+    email: 'lindsay.walton@example.com',
+    title: 'Product Designer',
+  },
+  {
+    id: 'tom-cook',
+    name: 'Tom Cook',
+    email: 'tom.cook@example.com',
+    title: 'Frontend Engineer',
+  },
+  {
+    id: 'whitney-francis',
+    name: 'Whitney Francis',
+    email: 'whitney.francis@example.com',
+    title: 'Customer Success',
+  },
+  {
+    id: 'jacob-jones',
+    name: 'Jacob Jones',
+    email: 'jacob.jones@example.com',
+    title: 'Security Engineer',
+  },
+  {
+    id: 'arlene-mccoy',
+    name: 'Arlene McCoy',
+    email: 'arlene.mccoy@example.com',
+    title: 'Data Analyst',
+  },
+  {
+    id: 'marvin-mckinney',
+    name: 'Marvin McKinney',
+    email: 'marvin.mckinney@example.com',
+    title: 'QA Specialist',
+  },
+  {
+    id: 'eleanor-pena',
+    name: 'Eleanor Pena',
+    email: 'eleanor.pena@example.com',
+    title: 'Operations',
+  },
+  {
+    id: 'jerome-bell',
+    name: 'Jerome Bell',
+    email: 'jerome.bell@example.com',
+    title: 'DevOps Engineer',
+  },
+]
+```
+
+### Creatable
+
+```tsx
+import { Button } from '@lglab/compose-ui/button'
+import {
+  ComboboxChip,
+  ComboboxChipRemove,
+  ComboboxChips,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxItemIndicator,
+  ComboboxItemText,
+  ComboboxList,
+  ComboboxPopup,
+  ComboboxPortal,
+  ComboboxPositioner,
+  ComboboxRoot,
+  ComboboxValue,
+} from '@lglab/compose-ui/combobox'
+import {
+  DialogBackdrop,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogPopup,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+} from '@lglab/compose-ui/dialog'
+import { FieldControl, FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { FormRoot } from '@lglab/compose-ui/form'
+import { Check, Plus, X } from 'lucide-react'
+import {
+  type ChangeEvent,
+  type FormEvent,
+  type KeyboardEvent,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
+
+const normalize = (str: string) => str.trim().toLocaleLowerCase()
+
+function generateUniqueId(baseId: string, existingIds: Set<string>): string {
+  if (!existingIds.has(baseId)) return baseId
+  let counter = 2
+  while (existingIds.has(`${baseId}-${counter}`)) counter++
+  return `${baseId}-${counter}`
+}
+
+interface LabelItem {
+  creatable?: string
+  id: string
+  value: string
+}
+
+const initialLabels: LabelItem[] = [
+  { id: 'bug', value: 'bug' },
+  { id: 'docs', value: 'documentation' },
+  { id: 'enhancement', value: 'enhancement' },
+  { id: 'help-wanted', value: 'help wanted' },
+  { id: 'good-first-issue', value: 'good first issue' },
+]
+
+export default function CreatableExample() {
+  const [labels, setLabels] = useState<LabelItem[]>(initialLabels)
+  const [selected, setSelected] = useState<LabelItem[]>([])
+  const [query, setQuery] = useState('')
+  const [openDialog, setOpenDialog] = useState(false)
+  const [createValue, setCreateValue] = useState('')
+
+  const containerRef = useRef<HTMLDivElement>(null)
+  const createInputRef = useRef<HTMLInputElement>(null)
+  const comboboxInputRef = useRef<HTMLInputElement>(null)
+  const highlightedItemRef = useRef<LabelItem>(undefined)
+
+  function handleInputKeyDown(event: KeyboardEvent<HTMLInputElement>) {
+    if (event.key !== 'Enter' || highlightedItemRef.current) {
+      return
+    }
+
+    const currentTrimmed = query.trim()
+    if (currentTrimmed === '') {
+      return
+    }
+
+    const normalized = normalize(currentTrimmed)
+    const existing = labels.find((label) => normalize(label.value) === normalized)
+
+    if (existing) {
+      setSelected((prev) =>
+        prev.some((item) => item.id === existing.id) ? prev : [...prev, existing],
+      )
+      setQuery('')
+      return
+    }
+
+    setCreateValue(currentTrimmed)
+    setOpenDialog(true)
+  }
+
+  function handleCreate() {
+    const value = createValue.trim() || createInputRef.current?.value.trim() || ''
+    if (!value) {
+      return
+    }
+
+    const normalized = normalize(value)
+    const baseId = normalized.replace(/\s+/g, '-')
+    const existing = labels.find((label) => normalize(label.value) === normalized)
+
+    if (existing) {
+      setSelected((prev) =>
+        prev.some((item) => item.id === existing.id) ? prev : [...prev, existing],
+      )
+      setOpenDialog(false)
+      setQuery('')
+      return
+    }
+
+    const existingIds = new Set(labels.map((label) => label.id))
+    const uniqueId = generateUniqueId(baseId, existingIds)
+    const newItem: LabelItem = { id: uniqueId, value }
+
+    if (!selected.find((item) => item.id === newItem.id)) {
+      setLabels((prev) => [...prev, newItem])
+      setSelected((prev) => [...prev, newItem])
+    }
+
+    setOpenDialog(false)
+    setQuery('')
+  }
+
+  function handleCreateSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    handleCreate()
+  }
+
+  const itemsForView = useMemo(() => {
+    const trimmed = query.trim()
+    const lowered = normalize(trimmed)
+    const exactExists = labels.some((label) => normalize(label.value) === lowered)
+
+    if (trimmed !== '' && !exactExists) {
+      return [
+        ...labels,
+        {
+          creatable: trimmed,
+          id: `create:${lowered}`,
+          value: `Create "${trimmed}"`,
+        },
+      ]
+    }
+    return labels
+  }, [query, labels])
+
+  return (
+    <>
+      <FieldRoot>
+        <FieldLabel>Labels</FieldLabel>
+        <ComboboxRoot
+          items={itemsForView}
+          multiple
+          onValueChange={(next) => {
+            const creatableSelection = next.find(
+              (item) =>
+                item.creatable && !selected.some((current) => current.id === item.id),
+            )
+
+            if (creatableSelection && creatableSelection.creatable) {
+              setCreateValue(creatableSelection.creatable)
+              setOpenDialog(true)
+              return
+            }
+            const clean = next.filter((item) => !item.creatable)
+            setSelected(clean)
+            setQuery('')
+          }}
+          value={selected}
+          inputValue={query}
+          onInputValueChange={setQuery}
+          onItemHighlighted={(item) => {
+            highlightedItemRef.current = item
+          }}
+        >
+          <ComboboxChips ref={containerRef} className='max-w-xs'>
+            <ComboboxValue>
+              {(value: LabelItem[]) => (
+                <>
+                  {value.map((label) => (
+                    <ComboboxChip key={label.id} aria-label={label.value}>
+                      {label.value}
+                      <ComboboxChipRemove aria-label='Remove'>
+                        <X className='size-3' />
+                      </ComboboxChipRemove>
+                    </ComboboxChip>
+                  ))}
+                  <ComboboxInput
+                    ref={comboboxInputRef}
+                    placeholder={value.length > 0 ? '' : 'e.g. bug'}
+                    onKeyDown={handleInputKeyDown}
+                  />
+                </>
+              )}
+            </ComboboxValue>
+          </ComboboxChips>
+          <ComboboxPortal>
+            <ComboboxPositioner sideOffset={4} anchor={containerRef}>
+              <ComboboxPopup>
+                <ComboboxEmpty>No labels found.</ComboboxEmpty>
+                <ComboboxList>
+                  {(item: LabelItem) =>
+                    item.creatable ? (
+                      <ComboboxItem key={item.id} value={item}>
+                        <span className='flex items-center gap-2'>
+                          <Plus className='size-3' />
+                          <ComboboxItemText>Create {item.creatable}</ComboboxItemText>
+                        </span>
+                      </ComboboxItem>
+                    ) : (
+                      <ComboboxItem key={item.id} value={item}>
+                        <ComboboxItemText>{item.value}</ComboboxItemText>
+                        <ComboboxItemIndicator>
+                          <Check className='size-3.5' />
+                        </ComboboxItemIndicator>
+                      </ComboboxItem>
+                    )
+                  }
+                </ComboboxList>
+              </ComboboxPopup>
+            </ComboboxPositioner>
+          </ComboboxPortal>
+        </ComboboxRoot>
+      </FieldRoot>
+
+      <DialogRoot
+        open={openDialog}
+        onOpenChange={(open) => {
+          setOpenDialog(open)
+          if (!open) setCreateValue('')
+        }}
+      >
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup size='sm' initialFocus={createInputRef}>
+            <DialogHeader>
+              <DialogTitle>Create new label</DialogTitle>
+              <DialogDescription>Add a new label to select.</DialogDescription>
+            </DialogHeader>
+            <FormRoot onSubmit={handleCreateSubmit}>
+              <FieldRoot name='labelName'>
+                <FieldLabel>Label name</FieldLabel>
+                <FieldControl
+                  ref={createInputRef}
+                  placeholder='Label name'
+                  value={createValue}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                    setCreateValue(e.target.value)
+                  }
+                />
+              </FieldRoot>
+              <DialogFooter>
+                <DialogClose variant='ghost'>Cancel</DialogClose>
+                <Button type='submit'>Create</Button>
+              </DialogFooter>
+            </FormRoot>
+          </DialogPopup>
+        </DialogPortal>
+      </DialogRoot>
+    </>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Combobox Documentation](https://base-ui.com/react/components/combobox)
+- [API Reference](https://base-ui.com/react/components/combobox#api-reference)
 
 ---
 
@@ -7726,6 +9150,765 @@ export default function StackOverflowExample() {
 
 - [Base UI Avatar Documentation](https://base-ui.com/react/components/avatar)
 - [API Reference](https://base-ui.com/react/components/avatar#api-reference)
+
+---
+
+# Autocomplete
+
+An input field with a filterable dropdown list of suggestions.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { BaseAutocomplete as Autocomplete, AutocompleteRoot, AutocompleteInput, AutocompletePortal, AutocompletePositioner, AutocompletePopup, AutocompleteEmpty, AutocompleteList, AutocompleteItem, AutocompleteStatus, AutocompleteGroup, AutocompleteGroupLabel, AutocompleteCollection, AutocompleteSeparator } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import {
+  AutocompleteEmpty,
+  AutocompleteInput,
+  AutocompleteItem,
+  AutocompleteList,
+  AutocompletePopup,
+  AutocompletePortal,
+  AutocompletePositioner,
+  AutocompleteRoot,
+} from '@lglab/compose-ui/autocomplete'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+
+interface Component {
+  id: string
+  value: string
+}
+
+const components: Component[] = [
+  { id: 'accordion', value: 'Accordion' },
+  { id: 'alert-dialog', value: 'Alert Dialog' },
+  { id: 'autocomplete', value: 'Autocomplete' },
+  { id: 'avatar', value: 'Avatar' },
+  { id: 'checkbox', value: 'Checkbox' },
+  { id: 'checkbox-group', value: 'Checkbox Group' },
+  { id: 'collapsible', value: 'Collapsible' },
+  { id: 'combobox', value: 'Combobox' },
+  { id: 'context-menu', value: 'Context Menu' },
+  { id: 'dialog', value: 'Dialog' },
+  { id: 'field', value: 'Field' },
+  { id: 'fieldset', value: 'Fieldset' },
+  { id: 'form', value: 'Form' },
+  { id: 'input', value: 'Input' },
+  { id: 'menu', value: 'Menu' },
+  { id: 'menubar', value: 'Menubar' },
+  { id: 'meter', value: 'Meter' },
+  { id: 'navigation-menu', value: 'Navigation Menu' },
+  { id: 'number-field', value: 'Number Field' },
+  { id: 'popover', value: 'Popover' },
+  { id: 'preview-card', value: 'Preview Card' },
+  { id: 'progress', value: 'Progress' },
+  { id: 'radio', value: 'Radio' },
+  { id: 'scroll-area', value: 'Scroll Area' },
+  { id: 'select', value: 'Select' },
+  { id: 'separator', value: 'Separator' },
+  { id: 'slider', value: 'Slider' },
+  { id: 'switch', value: 'Switch' },
+  { id: 'tabs', value: 'Tabs' },
+  { id: 'toast', value: 'Toast' },
+  { id: 'toggle', value: 'Toggle' },
+  { id: 'toggle-group', value: 'Toggle Group' },
+  { id: 'toolbar', value: 'Toolbar' },
+  { id: 'tooltip', value: 'Tooltip' },
+]
+
+export default function DefaultExample() {
+  return (
+    <FieldRoot>
+      <FieldLabel>Search components</FieldLabel>
+      <AutocompleteRoot items={components}>
+        <AutocompleteInput placeholder='e.g. Accordion' />
+        <AutocompletePortal>
+          <AutocompletePositioner>
+            <AutocompletePopup>
+              <AutocompleteEmpty>No components found.</AutocompleteEmpty>
+              <AutocompleteList>
+                {(component: Component) => (
+                  <AutocompleteItem key={component.id} value={component}>
+                    {component.value}
+                  </AutocompleteItem>
+                )}
+              </AutocompleteList>
+            </AutocompletePopup>
+          </AutocompletePositioner>
+        </AutocompletePortal>
+      </AutocompleteRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Inline
+
+```tsx
+import {
+  AutocompleteInput,
+  AutocompleteItem,
+  AutocompleteList,
+  AutocompletePopup,
+  AutocompletePortal,
+  AutocompletePositioner,
+  AutocompleteRoot,
+} from '@lglab/compose-ui/autocomplete'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+
+interface Component {
+  id: string
+  value: string
+}
+
+const components: Component[] = [
+  { id: 'accordion', value: 'Accordion' },
+  { id: 'alert-dialog', value: 'Alert Dialog' },
+  { id: 'autocomplete', value: 'Autocomplete' },
+  { id: 'avatar', value: 'Avatar' },
+  { id: 'checkbox', value: 'Checkbox' },
+  { id: 'checkbox-group', value: 'Checkbox Group' },
+  { id: 'collapsible', value: 'Collapsible' },
+  { id: 'combobox', value: 'Combobox' },
+  { id: 'context-menu', value: 'Context Menu' },
+  { id: 'dialog', value: 'Dialog' },
+  { id: 'field', value: 'Field' },
+  { id: 'fieldset', value: 'Fieldset' },
+  { id: 'form', value: 'Form' },
+  { id: 'input', value: 'Input' },
+  { id: 'menu', value: 'Menu' },
+  { id: 'menubar', value: 'Menubar' },
+  { id: 'meter', value: 'Meter' },
+  { id: 'navigation-menu', value: 'Navigation Menu' },
+  { id: 'number-field', value: 'Number Field' },
+  { id: 'popover', value: 'Popover' },
+  { id: 'preview-card', value: 'Preview Card' },
+  { id: 'progress', value: 'Progress' },
+  { id: 'radio', value: 'Radio' },
+  { id: 'scroll-area', value: 'Scroll Area' },
+  { id: 'select', value: 'Select' },
+  { id: 'separator', value: 'Separator' },
+  { id: 'slider', value: 'Slider' },
+  { id: 'switch', value: 'Switch' },
+  { id: 'tabs', value: 'Tabs' },
+  { id: 'toast', value: 'Toast' },
+  { id: 'toggle', value: 'Toggle' },
+  { id: 'toggle-group', value: 'Toggle Group' },
+  { id: 'toolbar', value: 'Toolbar' },
+  { id: 'tooltip', value: 'Tooltip' },
+]
+
+export default function InlineExample() {
+  return (
+    <FieldRoot>
+      <FieldLabel>Search components</FieldLabel>
+      <AutocompleteRoot items={components} mode='both'>
+        <AutocompleteInput placeholder='e.g. Accordion' />
+        <AutocompletePortal>
+          <AutocompletePositioner className='data-empty:hidden'>
+            <AutocompletePopup>
+              <AutocompleteList>
+                {(component: Component) => (
+                  <AutocompleteItem key={component.id} value={component}>
+                    {component.value}
+                  </AutocompleteItem>
+                )}
+              </AutocompleteList>
+            </AutocompletePopup>
+          </AutocompletePositioner>
+        </AutocompletePortal>
+      </AutocompleteRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Grouped
+
+```tsx
+import {
+  AutocompleteCollection,
+  AutocompleteEmpty,
+  AutocompleteGroup,
+  AutocompleteGroupLabel,
+  AutocompleteInput,
+  AutocompleteItem,
+  AutocompleteList,
+  AutocompletePopup,
+  AutocompletePortal,
+  AutocompletePositioner,
+  AutocompleteRoot,
+  AutocompleteSeparator,
+} from '@lglab/compose-ui/autocomplete'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import * as React from 'react'
+
+interface Produce {
+  id: string
+  label: string
+  group: 'Fruits' | 'Vegetables' | 'Grains'
+}
+
+interface ProduceGroup {
+  value: string
+  items: Produce[]
+}
+
+const produceData: Produce[] = [
+  { id: 'fruit-apple', label: 'Apple', group: 'Fruits' },
+  { id: 'fruit-banana', label: 'Banana', group: 'Fruits' },
+  { id: 'fruit-mango', label: 'Mango', group: 'Fruits' },
+  { id: 'fruit-kiwi', label: 'Kiwi', group: 'Fruits' },
+  { id: 'veg-broccoli', label: 'Broccoli', group: 'Vegetables' },
+  { id: 'veg-carrot', label: 'Carrot', group: 'Vegetables' },
+  { id: 'veg-cauliflower', label: 'Cauliflower', group: 'Vegetables' },
+  { id: 'veg-cucumber', label: 'Cucumber', group: 'Vegetables' },
+  { id: 'veg-kale', label: 'Kale', group: 'Vegetables' },
+  { id: 'veg-pepper', label: 'Bell pepper', group: 'Vegetables' },
+  { id: 'veg-spinach', label: 'Spinach', group: 'Vegetables' },
+  { id: 'veg-zucchini', label: 'Zucchini', group: 'Vegetables' },
+  { id: 'grain-rice', label: 'Rice', group: 'Grains' },
+  { id: 'grain-wheat', label: 'Wheat', group: 'Grains' },
+  { id: 'grain-oats', label: 'Oats', group: 'Grains' },
+  { id: 'grain-barley', label: 'Barley', group: 'Grains' },
+  { id: 'grain-quinoa', label: 'Quinoa', group: 'Grains' },
+]
+
+function groupProduce(items: Produce[]): ProduceGroup[] {
+  const groups: Record<string, Produce[]> = {}
+  items.forEach((item) => {
+    ;(groups[item.group] ??= []).push(item)
+  })
+  const order = ['Fruits', 'Vegetables', 'Grains']
+  return order.map((value) => ({ value, items: groups[value] ?? [] }))
+}
+
+const groupedProduce: ProduceGroup[] = groupProduce(produceData)
+
+export default function GroupedExample() {
+  return (
+    <FieldRoot>
+      <FieldLabel>Search produce</FieldLabel>
+      <AutocompleteRoot items={groupedProduce}>
+        <AutocompleteInput placeholder='e.g. Mango' />
+        <AutocompletePortal>
+          <AutocompletePositioner>
+            <AutocompletePopup>
+              <AutocompleteEmpty>No produce found.</AutocompleteEmpty>
+              <AutocompleteList>
+                {(group: ProduceGroup, index: number) => (
+                  <React.Fragment key={group.value}>
+                    <AutocompleteGroup items={group.items}>
+                      <AutocompleteGroupLabel>{group.value}</AutocompleteGroupLabel>
+                      <AutocompleteCollection>
+                        {(item: Produce) => (
+                          <AutocompleteItem key={item.id} value={item}>
+                            {item.label}
+                          </AutocompleteItem>
+                        )}
+                      </AutocompleteCollection>
+                    </AutocompleteGroup>
+                    {index < groupedProduce.length - 1 && <AutocompleteSeparator />}
+                  </React.Fragment>
+                )}
+              </AutocompleteList>
+            </AutocompletePopup>
+          </AutocompletePositioner>
+        </AutocompletePortal>
+      </AutocompleteRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Limit Results
+
+```tsx
+import {
+  Autocomplete,
+  AutocompleteEmpty,
+  AutocompleteInput,
+  AutocompleteItem,
+  AutocompleteList,
+  AutocompletePopup,
+  AutocompletePortal,
+  AutocompletePositioner,
+  AutocompleteRoot,
+  AutocompleteStatus,
+} from '@lglab/compose-ui/autocomplete'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { useMemo, useState } from 'react'
+
+interface Component {
+  id: string
+  value: string
+}
+
+const limit = 8
+
+const components: Component[] = [
+  { id: 'accordion', value: 'Accordion' },
+  { id: 'alert-dialog', value: 'Alert Dialog' },
+  { id: 'autocomplete', value: 'Autocomplete' },
+  { id: 'avatar', value: 'Avatar' },
+  { id: 'checkbox', value: 'Checkbox' },
+  { id: 'checkbox-group', value: 'Checkbox Group' },
+  { id: 'collapsible', value: 'Collapsible' },
+  { id: 'combobox', value: 'Combobox' },
+  { id: 'context-menu', value: 'Context Menu' },
+  { id: 'dialog', value: 'Dialog' },
+  { id: 'field', value: 'Field' },
+  { id: 'fieldset', value: 'Fieldset' },
+  { id: 'form', value: 'Form' },
+  { id: 'input', value: 'Input' },
+  { id: 'menu', value: 'Menu' },
+  { id: 'menubar', value: 'Menubar' },
+  { id: 'meter', value: 'Meter' },
+  { id: 'navigation-menu', value: 'Navigation Menu' },
+  { id: 'number-field', value: 'Number Field' },
+  { id: 'popover', value: 'Popover' },
+  { id: 'preview-card', value: 'Preview Card' },
+  { id: 'progress', value: 'Progress' },
+  { id: 'radio', value: 'Radio' },
+  { id: 'scroll-area', value: 'Scroll Area' },
+  { id: 'select', value: 'Select' },
+  { id: 'separator', value: 'Separator' },
+  { id: 'slider', value: 'Slider' },
+  { id: 'switch', value: 'Switch' },
+  { id: 'tabs', value: 'Tabs' },
+  { id: 'toast', value: 'Toast' },
+  { id: 'toggle', value: 'Toggle' },
+  { id: 'toggle-group', value: 'Toggle Group' },
+  { id: 'toolbar', value: 'Toolbar' },
+  { id: 'tooltip', value: 'Tooltip' },
+]
+
+export default function LimitResultsExample() {
+  const [value, setValue] = useState('')
+
+  const { contains } = Autocomplete.useFilter({ sensitivity: 'base' })
+
+  const totalMatches = useMemo(() => {
+    const trimmed = value.trim()
+    if (!trimmed) {
+      return components.length
+    }
+    return components.filter((c) => contains(c.value, trimmed)).length
+  }, [value, contains])
+
+  const moreCount = Math.max(0, totalMatches - limit)
+
+  return (
+    <FieldRoot>
+      <FieldLabel>Search components (limit 8)</FieldLabel>
+      <AutocompleteRoot
+        items={components}
+        value={value}
+        onValueChange={setValue}
+        limit={limit}
+      >
+        <AutocompleteInput placeholder='e.g. Dialog' />
+        <AutocompletePortal>
+          <AutocompletePositioner>
+            <AutocompletePopup>
+              <AutocompleteEmpty>
+                No results found for &ldquo;{value}&rdquo;
+              </AutocompleteEmpty>
+              <AutocompleteList>
+                {(component: Component) => (
+                  <AutocompleteItem key={component.id} value={component}>
+                    {component.value}
+                  </AutocompleteItem>
+                )}
+              </AutocompleteList>
+              <AutocompleteStatus>
+                {moreCount > 0
+                  ? `Hiding ${moreCount} results (type a more specific query)`
+                  : null}
+              </AutocompleteStatus>
+            </AutocompletePopup>
+          </AutocompletePositioner>
+        </AutocompletePortal>
+      </AutocompleteRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Fuzzy Matching
+
+```tsx
+import {
+  Autocomplete,
+  AutocompleteEmpty,
+  AutocompleteInput,
+  AutocompleteItem,
+  AutocompleteList,
+  AutocompletePopup,
+  AutocompletePortal,
+  AutocompletePositioner,
+  AutocompleteRoot,
+} from '@lglab/compose-ui/autocomplete'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { matchSorter } from 'match-sorter'
+import type { ReactNode } from 'react'
+
+interface Movie {
+  id: string
+  title: string
+  year: number
+}
+
+function highlightText(text: string, query: string): ReactNode {
+  const trimmed = query.trim()
+  if (!trimmed) {
+    return text
+  }
+
+  const limited = trimmed.slice(0, 100)
+  const escaped = limited.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const regex = new RegExp(`(${escaped})`, 'gi')
+
+  return text.split(regex).map((part, idx) =>
+    regex.test(part) ? (
+      <mark key={idx} className='bg-transparent font-bold text-primary'>
+        {part}
+      </mark>
+    ) : (
+      part
+    ),
+  )
+}
+
+function fuzzyFilter(item: Movie, query: string): boolean {
+  if (!query) {
+    return true
+  }
+
+  const results = matchSorter([item], query, {
+    keys: [
+      'title',
+      { key: 'title', threshold: matchSorter.rankings.CONTAINS },
+      { key: 'year', threshold: matchSorter.rankings.CONTAINS },
+    ],
+  })
+
+  return results.length > 0
+}
+
+const movies: Movie[] = [
+  { id: '1', title: 'The Shawshank Redemption', year: 1994 },
+  { id: '2', title: 'The Godfather', year: 1972 },
+  { id: '3', title: 'The Dark Knight', year: 2008 },
+  { id: '4', title: 'The Godfather Part II', year: 1974 },
+  { id: '5', title: '12 Angry Men', year: 1957 },
+  { id: '6', title: 'The Lord of the Rings: The Return of the King', year: 2003 },
+  { id: '7', title: "Schindler's List", year: 1993 },
+  { id: '8', title: 'Pulp Fiction', year: 1994 },
+  { id: '9', title: 'The Lord of the Rings: The Fellowship of the Ring', year: 2001 },
+  { id: '10', title: 'The Good, the Bad and the Ugly', year: 1966 },
+  { id: '11', title: 'Forrest Gump', year: 1994 },
+  { id: '12', title: 'The Lord of the Rings: The Two Towers', year: 2002 },
+  { id: '13', title: 'Fight Club', year: 1999 },
+  { id: '14', title: 'Inception', year: 2010 },
+  { id: '15', title: 'Star Wars: Episode V - The Empire Strikes Back', year: 1980 },
+  { id: '16', title: 'The Matrix', year: 1999 },
+  { id: '17', title: 'Goodfellas', year: 1990 },
+  { id: '18', title: 'Interstellar', year: 2014 },
+  { id: '19', title: "One Flew Over the Cuckoo's Nest", year: 1975 },
+  { id: '20', title: 'Se7en', year: 1995 },
+  { id: '21', title: "It's a Wonderful Life", year: 1946 },
+  { id: '22', title: 'The Silence of the Lambs', year: 1991 },
+  { id: '23', title: 'Seven Samurai', year: 1954 },
+  { id: '24', title: 'Saving Private Ryan', year: 1998 },
+  { id: '25', title: 'City of God', year: 2002 },
+  { id: '26', title: 'Life Is Beautiful', year: 1997 },
+  { id: '27', title: 'The Green Mile', year: 1999 },
+  { id: '28', title: 'Star Wars: Episode IV - A New Hope', year: 1977 },
+  { id: '29', title: 'Terminator 2: Judgment Day', year: 1991 },
+  { id: '30', title: 'Back to the Future', year: 1985 },
+  { id: '31', title: 'Spirited Away', year: 2001 },
+  { id: '32', title: 'The Pianist', year: 2002 },
+  { id: '33', title: 'Psycho', year: 1960 },
+  { id: '34', title: 'Parasite', year: 2019 },
+  { id: '35', title: 'Gladiator', year: 2000 },
+  { id: '36', title: 'Leon: The Professional', year: 1994 },
+  { id: '37', title: 'American History X', year: 1998 },
+  { id: '38', title: 'The Departed', year: 2006 },
+  { id: '39', title: 'Whiplash', year: 2014 },
+  { id: '40', title: 'The Prestige', year: 2006 },
+  { id: '41', title: 'Grave of the Fireflies', year: 1988 },
+  { id: '42', title: 'The Usual Suspects', year: 1995 },
+  { id: '43', title: 'Casablanca', year: 1942 },
+  { id: '44', title: 'Harakiri', year: 1962 },
+  { id: '45', title: 'The Lion King', year: 1994 },
+  { id: '46', title: 'The Intouchables', year: 2011 },
+  { id: '47', title: 'Modern Times', year: 1936 },
+  { id: '48', title: 'The Lives of Others', year: 2006 },
+  { id: '49', title: 'Once Upon a Time in the West', year: 1968 },
+  { id: '50', title: 'Rear Window', year: 1954 },
+]
+
+export default function FuzzyMatchingExample() {
+  return (
+    <FieldRoot className='w-80'>
+      <FieldLabel>Search movies</FieldLabel>
+      <AutocompleteRoot
+        items={movies}
+        filter={fuzzyFilter}
+        itemToStringValue={(item) => item.title}
+      >
+        <AutocompleteInput placeholder='e.g. Pulp Fiction or 1994' />
+        <AutocompletePortal>
+          <AutocompletePositioner>
+            <AutocompletePopup>
+              <AutocompleteEmpty>
+                No results found for &ldquo;
+                <Autocomplete.Value />
+                &ldquo;
+              </AutocompleteEmpty>
+              <AutocompleteList>
+                {(movie: Movie) => (
+                  <AutocompleteItem key={movie.id} value={movie}>
+                    <Autocomplete.Value>
+                      {(value) => (
+                        <div className='flex w-full flex-col gap-0.5'>
+                          <div className='font-medium'>
+                            {highlightText(movie.title, value)}
+                          </div>
+                          <div className='text-xs text-muted-foreground'>
+                            {highlightText(movie.year.toString(), value)}
+                          </div>
+                        </div>
+                      )}
+                    </Autocomplete.Value>
+                  </AutocompleteItem>
+                )}
+              </AutocompleteList>
+            </AutocompletePopup>
+          </AutocompletePositioner>
+        </AutocompletePortal>
+      </AutocompleteRoot>
+    </FieldRoot>
+  )
+}
+```
+
+### Async Search
+
+```tsx
+import {
+  Autocomplete,
+  AutocompleteInput,
+  AutocompleteItem,
+  AutocompleteList,
+  AutocompletePopup,
+  AutocompletePortal,
+  AutocompletePositioner,
+  AutocompleteRoot,
+  AutocompleteStatus,
+} from '@lglab/compose-ui/autocomplete'
+import { FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { Loader2 } from 'lucide-react'
+import { useRef, useState, useTransition } from 'react'
+
+interface Movie {
+  id: string
+  title: string
+  year: number
+}
+
+export default function AsyncSearchExample() {
+  const [searchValue, setSearchValue] = useState('')
+  const [searchResults, setSearchResults] = useState<Movie[]>([])
+  const [error, setError] = useState<string | null>(null)
+  const [isPending, startTransition] = useTransition()
+
+  const { contains } = Autocomplete.useFilter()
+
+  const abortControllerRef = useRef<AbortController | null>(null)
+
+  function getStatus() {
+    if (isPending) {
+      return (
+        <>
+          <Loader2 className='size-3 animate-spin' />
+          Searching...
+        </>
+      )
+    }
+
+    if (error) {
+      return error
+    }
+
+    if (searchValue === '') {
+      return null
+    }
+
+    if (searchResults.length === 0) {
+      return `Movie or year "${searchValue}" does not exist`
+    }
+
+    return `${searchResults.length} result${searchResults.length === 1 ? '' : 's'} found`
+  }
+
+  const status = getStatus()
+
+  return (
+    <FieldRoot className='w-80'>
+      <FieldLabel>Search movies by name or year</FieldLabel>
+      <AutocompleteRoot
+        items={searchResults}
+        value={searchValue}
+        onValueChange={(nextSearchValue) => {
+          setSearchValue(nextSearchValue)
+
+          const controller = new AbortController()
+          abortControllerRef.current?.abort()
+          abortControllerRef.current = controller
+
+          if (nextSearchValue === '') {
+            setSearchResults([])
+            setError(null)
+            return
+          }
+
+          startTransition(async () => {
+            setError(null)
+
+            const result = await searchMovies(nextSearchValue, contains)
+            if (controller.signal.aborted) {
+              return
+            }
+
+            startTransition(() => {
+              setSearchResults(result.movies)
+              setError(result.error)
+            })
+          })
+        }}
+        itemToStringValue={(item) => item.title}
+        filter={null}
+      >
+        <AutocompleteInput placeholder='e.g. Pulp Fiction or 1994' />
+        <AutocompletePortal hidden={!status}>
+          <AutocompletePositioner align='start'>
+            <AutocompletePopup aria-busy={isPending || undefined}>
+              <AutocompleteStatus>{status}</AutocompleteStatus>
+              <AutocompleteList>
+                {(movie: Movie) => (
+                  <AutocompleteItem key={movie.id} value={movie}>
+                    <div className='flex w-full flex-col gap-0.5'>
+                      <div className='font-medium'>{movie.title}</div>
+                      <div className='text-xs text-muted-foreground'>{movie.year}</div>
+                    </div>
+                  </AutocompleteItem>
+                )}
+              </AutocompleteList>
+            </AutocompletePopup>
+          </AutocompletePositioner>
+        </AutocompletePortal>
+      </AutocompleteRoot>
+    </FieldRoot>
+  )
+}
+
+async function searchMovies(
+  query: string,
+  filter: (item: string, query: string) => boolean,
+): Promise<{ movies: Movie[]; error: string | null }> {
+  await new Promise((resolve) => {
+    setTimeout(resolve, Math.random() * 500 + 100)
+  })
+
+  if (Math.random() < 0.01 || query === 'will_error') {
+    return {
+      movies: [],
+      error: 'Failed to fetch movies. Please try again.',
+    }
+  }
+
+  const movies = top100Movies.filter(
+    (movie) => filter(movie.title, query) || filter(movie.year.toString(), query),
+  )
+
+  return {
+    movies,
+    error: null,
+  }
+}
+
+const top100Movies: Movie[] = [
+  { id: '1', title: 'The Shawshank Redemption', year: 1994 },
+  { id: '2', title: 'The Godfather', year: 1972 },
+  { id: '3', title: 'The Dark Knight', year: 2008 },
+  { id: '4', title: 'The Godfather Part II', year: 1974 },
+  { id: '5', title: '12 Angry Men', year: 1957 },
+  { id: '6', title: 'The Lord of the Rings: The Return of the King', year: 2003 },
+  { id: '7', title: "Schindler's List", year: 1993 },
+  { id: '8', title: 'Pulp Fiction', year: 1994 },
+  { id: '9', title: 'The Lord of the Rings: The Fellowship of the Ring', year: 2001 },
+  { id: '10', title: 'The Good, the Bad and the Ugly', year: 1966 },
+  { id: '11', title: 'Forrest Gump', year: 1994 },
+  { id: '12', title: 'The Lord of the Rings: The Two Towers', year: 2002 },
+  { id: '13', title: 'Fight Club', year: 1999 },
+  { id: '14', title: 'Inception', year: 2010 },
+  { id: '15', title: 'Star Wars: Episode V - The Empire Strikes Back', year: 1980 },
+  { id: '16', title: 'The Matrix', year: 1999 },
+  { id: '17', title: 'Goodfellas', year: 1990 },
+  { id: '18', title: 'Interstellar', year: 2014 },
+  { id: '19', title: "One Flew Over the Cuckoo's Nest", year: 1975 },
+  { id: '20', title: 'Se7en', year: 1995 },
+  { id: '21', title: "It's a Wonderful Life", year: 1946 },
+  { id: '22', title: 'The Silence of the Lambs', year: 1991 },
+  { id: '23', title: 'Seven Samurai', year: 1954 },
+  { id: '24', title: 'Saving Private Ryan', year: 1998 },
+  { id: '25', title: 'City of God', year: 2002 },
+  { id: '26', title: 'Life Is Beautiful', year: 1997 },
+  { id: '27', title: 'The Green Mile', year: 1999 },
+  { id: '28', title: 'Star Wars: Episode IV - A New Hope', year: 1977 },
+  { id: '29', title: 'Terminator 2: Judgment Day', year: 1991 },
+  { id: '30', title: 'Back to the Future', year: 1985 },
+  { id: '31', title: 'Spirited Away', year: 2001 },
+  { id: '32', title: 'The Pianist', year: 2002 },
+  { id: '33', title: 'Psycho', year: 1960 },
+  { id: '34', title: 'Parasite', year: 2019 },
+  { id: '35', title: 'Gladiator', year: 2000 },
+  { id: '36', title: 'Leon: The Professional', year: 1994 },
+  { id: '37', title: 'American History X', year: 1998 },
+  { id: '38', title: 'The Departed', year: 2006 },
+  { id: '39', title: 'Whiplash', year: 2014 },
+  { id: '40', title: 'The Prestige', year: 2006 },
+  { id: '41', title: 'Grave of the Fireflies', year: 1988 },
+  { id: '42', title: 'The Usual Suspects', year: 1995 },
+  { id: '43', title: 'Casablanca', year: 1942 },
+  { id: '44', title: 'Harakiri', year: 1962 },
+  { id: '45', title: 'The Lion King', year: 1994 },
+  { id: '46', title: 'The Intouchables', year: 2011 },
+  { id: '47', title: 'Modern Times', year: 1936 },
+  { id: '48', title: 'The Lives of Others', year: 2006 },
+  { id: '49', title: 'Once Upon a Time in the West', year: 1968 },
+  { id: '50', title: 'Rear Window', year: 1954 },
+]
+```
+
+## Resources
+
+- [Base UI Autocomplete Documentation](https://base-ui.com/react/components/autocomplete)
+- [API Reference](https://base-ui.com/react/components/autocomplete#api-reference)
 
 ---
 
