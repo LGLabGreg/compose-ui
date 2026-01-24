@@ -2,29 +2,39 @@
 
 import { Badge, BadgeDot } from '@lglab/compose-ui/badge'
 
+const badges = [
+  { variant: 'success', label: 'Active' },
+  { variant: 'warning', label: 'Pending' },
+  { variant: 'info', label: 'New' },
+  { variant: 'destructive', label: 'Error' },
+  { variant: 'secondary', label: 'Inactive' },
+] as const
+
 export default function WithDotExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
-      <Badge variant='success' appearance='outline'>
-        <BadgeDot />
-        Active
-      </Badge>
-      <Badge variant='warning' appearance='outline'>
-        <BadgeDot />
-        Pending
-      </Badge>
-      <Badge variant='info' appearance='outline'>
-        <BadgeDot />
-        New
-      </Badge>
-      <Badge variant='destructive' appearance='outline'>
-        <BadgeDot />
-        Error
-      </Badge>
-      <Badge variant='secondary' appearance='outline'>
-        <BadgeDot />
-        Inactive
-      </Badge>
+    <div className='flex flex-col gap-6'>
+      <div className='flex flex-wrap gap-2'>
+        {badges.map(({ variant, label }) => (
+          <Badge key={variant} variant={variant} appearance='outline'>
+            <BadgeDot />
+            {label}
+          </Badge>
+        ))}
+      </div>
+      <div className='flex flex-wrap gap-2'>
+        {badges.map(({ variant, label }) => (
+          <Badge
+            key={variant}
+            variant={variant}
+            appearance='outline'
+            className='relative'
+          >
+            <BadgeDot className='absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 animate-ping' />
+            <BadgeDot className='absolute top-0 right-0 translate-x-1/2 -translate-y-1/2' />
+            {label}
+          </Badge>
+        ))}
+      </div>
     </div>
   )
 }

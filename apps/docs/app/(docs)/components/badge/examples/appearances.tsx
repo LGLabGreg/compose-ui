@@ -5,7 +5,6 @@ import { Badge, BadgeDot } from '@lglab/compose-ui/badge'
 export default function AppearancesExample() {
   return (
     <div className='flex flex-col gap-6'>
-      {/* Default (solid) appearance */}
       <div className='flex flex-col gap-2'>
         <h3 className='text-sm font-medium text-muted-foreground'>Default (Solid)</h3>
         <div className='flex flex-wrap gap-2'>
@@ -30,7 +29,6 @@ export default function AppearancesExample() {
         </div>
       </div>
 
-      {/* Light appearance */}
       <div className='flex flex-col gap-2'>
         <h3 className='text-sm font-medium text-muted-foreground'>Light</h3>
         <div className='flex flex-wrap gap-2'>
@@ -55,7 +53,6 @@ export default function AppearancesExample() {
         </div>
       </div>
 
-      {/* Outline appearance */}
       <div className='flex flex-col gap-2'>
         <h3 className='text-sm font-medium text-muted-foreground'>Outline</h3>
         <div className='flex flex-wrap gap-2'>
@@ -80,7 +77,6 @@ export default function AppearancesExample() {
         </div>
       </div>
 
-      {/* Ghost appearance */}
       <div className='flex flex-col gap-2'>
         <h3 className='text-sm font-medium text-muted-foreground'>Ghost</h3>
         <div className='flex flex-wrap gap-2'>
