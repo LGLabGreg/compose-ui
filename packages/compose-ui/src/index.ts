@@ -134,6 +134,16 @@ export {
   AccordionPanel,
 } from './components/accordion'
 export {
+  AutocompleteRoot,
+  AutocompleteInput,
+  AutocompletePortal,
+  AutocompletePositioner,
+  AutocompletePopup,
+  AutocompleteEmpty,
+  AutocompleteList,
+  AutocompleteItem,
+} from './components/autocomplete'
+export {
   MeterRoot,
   MeterTrack,
   MeterIndicator,
@@ -433,6 +443,16 @@ export type {
   AccordionTriggerProps,
   AccordionPanelProps,
 } from './components/accordion'
+export type {
+  AutocompleteRootProps,
+  AutocompleteInputProps,
+  AutocompletePortalProps,
+  AutocompletePositionerProps,
+  AutocompletePopupProps,
+  AutocompleteEmptyProps,
+  AutocompleteListProps,
+  AutocompleteItemProps,
+} from './components/autocomplete'
 export type {
   MeterRootProps,
   MeterTrackProps,

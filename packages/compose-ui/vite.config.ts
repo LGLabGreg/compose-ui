@@ -11,6 +11,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const components = [
   'accordion',
   'alert-dialog',
+  'autocomplete',
   'avatar',
   'button',
   'card',

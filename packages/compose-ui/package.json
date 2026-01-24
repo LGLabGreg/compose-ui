@@ -33,6 +33,10 @@
       "import": "./dist/accordion.js",
       "types": "./dist/accordion.d.ts"
     },
+    "./autocomplete": {
+      "import": "./dist/autocomplete.js",
+      "types": "./dist/autocomplete.d.ts"
+    },
     "./alert-dialog": {
       "import": "./dist/alert-dialog.js",
       "types": "./dist/alert-dialog.d.ts"
