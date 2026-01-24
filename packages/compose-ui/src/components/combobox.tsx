@@ -410,7 +410,7 @@ const ComboboxChip = ({ className, ...props }: ComboboxChipProps) => {
   return (
     <BaseCombobox.Chip
       className={cn(
-        'flex items-center gap-1 rounded-md bg-muted px-1.5 py-0.5 text-sm text-foreground outline-none cursor-default',
+        'flex items-center gap-1 rounded-md bg-muted px-1.5 py-0.5 text-xs text-foreground font-medium',
         'data-highlighted:bg-primary data-highlighted:text-primary-foreground',
         'focus-within:bg-primary focus-within:text-primary-foreground',
         className,
