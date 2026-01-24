@@ -44,6 +44,7 @@ export {
 } from './components/alert-dialog'
 export { AlertDialog } from '@base-ui/react/alert-dialog'
 export { AvatarRoot, AvatarImage, AvatarFallback, AvatarStack } from './components/avatar'
+export { Badge, BadgeDot, BadgeButton } from './components/badge'
 export {
   ScrollAreaRoot,
   ScrollAreaViewport,
@@ -356,6 +357,7 @@ export type {
   AvatarFallbackProps,
   AvatarStackProps,
 } from './components/avatar'
+export type { BadgeProps, BadgeDotProps, BadgeButtonProps } from './components/badge'
 export type {
   ScrollAreaRootProps,
   ScrollAreaViewportProps,

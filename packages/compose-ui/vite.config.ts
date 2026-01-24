@@ -13,6 +13,7 @@ const components = [
   'alert-dialog',
   'autocomplete',
   'avatar',
+  'badge',
   'button',
   'card',
   'checkbox',

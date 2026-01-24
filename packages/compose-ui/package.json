@@ -45,6 +45,10 @@
       "import": "./dist/avatar.js",
       "types": "./dist/avatar.d.ts"
     },
+    "./badge": {
+      "import": "./dist/badge.js",
+      "types": "./dist/badge.d.ts"
+    },
     "./button": {
       "import": "./dist/button.js",
       "types": "./dist/button.d.ts"
