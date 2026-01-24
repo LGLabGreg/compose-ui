@@ -59,6 +59,7 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Toast', href: '/components/toast' },
       { name: 'Toggle', href: '/components/toggle' },
       { name: 'Toggle Group', href: '/components/toggle-group' },
+      { name: 'Toolbar', href: '/components/toolbar' },
       { name: 'Tooltip', href: '/components/tooltip' },
     ],
   },

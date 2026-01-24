@@ -46,6 +46,7 @@ const components = [
   'toast',
   'toggle',
   'toggle-group',
+  'toolbar',
   'tooltip',
 ]
 

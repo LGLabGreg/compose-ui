@@ -177,6 +177,10 @@
       "import": "./dist/toggle-group.js",
       "types": "./dist/toggle-group.d.ts"
     },
+    "./toolbar": {
+      "import": "./dist/toolbar.js",
+      "types": "./dist/toolbar.d.ts"
+    },
     "./tooltip": {
       "import": "./dist/tooltip.js",
       "types": "./dist/tooltip.d.ts"

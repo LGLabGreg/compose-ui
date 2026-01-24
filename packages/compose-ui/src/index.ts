@@ -219,6 +219,14 @@ export { RadioRoot, RadioIndicator } from './components/radio'
 export { RadioGroupRoot } from './components/radio-group'
 export { ToggleGroupRoot, ToggleGroupItem } from './components/toggle-group'
 export {
+  ToolbarRoot,
+  ToolbarButton,
+  ToolbarLink,
+  ToolbarInput,
+  ToolbarGroup,
+  ToolbarSeparator,
+} from './components/toolbar'
+export {
   CardRoot,
   CardMedia,
   CardHeader,
@@ -531,6 +539,14 @@ export type {
   ToggleGroupRootProps,
   ToggleGroupItemProps,
 } from './components/toggle-group'
+export type {
+  ToolbarRootProps,
+  ToolbarButtonProps,
+  ToolbarLinkProps,
+  ToolbarInputProps,
+  ToolbarGroupProps,
+  ToolbarSeparatorProps,
+} from './components/toolbar'
 export type {
   CardRootProps,
   CardMediaProps,
