@@ -59,7 +59,7 @@ export default function WithPageSizeExample() {
   }))
 
   return (
-    <div className='flex flex-wrap gap-4 items-center'>
+    <div className='flex flex-wrap gap-2 items-center'>
       <PaginationRoot>
         <PaginationContent>
           <PaginationItem>

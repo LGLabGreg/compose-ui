@@ -16,8 +16,14 @@ export type ColumnsConfig<T> = {
   [K in keyof T]?: ColumnDef<T, K>
 }
 
+export interface PaginationConfig {
+  pageSize: number
+  pageSizeOptions?: number[]
+}
+
 export interface UseTableOptions<T> {
   columns: ColumnsConfig<T>
+  pagination?: PaginationConfig
 }
 
 export interface ProcessedColumn<T> {
@@ -33,4 +39,10 @@ export interface UseTableReturn<T> {
   columns: ProcessedColumn<T>[]
   rows: T[]
   totalItems: number
+  currentPage: number
+  totalPages: number
+  pageSize: number
+  pageSizeOptions: number[]
+  onPageChange: (page: number) => void
+  onPageSizeChange: (size: number) => void
 }

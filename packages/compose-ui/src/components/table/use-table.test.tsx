@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react'
+import { act, renderHook } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import { useTable } from './use-table'
@@ -246,5 +246,187 @@ describe('useTable', () => {
 
     expect(result.current.columns[0].key).toBe('name')
     expect(result.current.columns[1].key).toBe('price')
+  })
+
+  describe('pagination', () => {
+    const paginatedData: TestData[] = Array.from({ length: 25 }, (_, i) => ({
+      id: i + 1,
+      name: `Item ${i + 1}`,
+      price: (i + 1) * 10,
+      active: i % 2 === 0,
+    }))
+
+    it('returns default pagination values when no config', () => {
+      const { result } = renderHook(() =>
+        useTable(testData, {
+          columns: { name: { header: 'Name' } },
+        }),
+      )
+
+      expect(result.current.currentPage).toBe(1)
+      expect(result.current.totalPages).toBe(1)
+      expect(result.current.pageSize).toBe(10)
+      expect(result.current.pageSizeOptions).toEqual([10, 25, 50, 100])
+    })
+
+    it('returns all rows when pagination not enabled', () => {
+      const { result } = renderHook(() =>
+        useTable(paginatedData, {
+          columns: { name: { header: 'Name' } },
+        }),
+      )
+
+      expect(result.current.rows).toHaveLength(25)
+      expect(result.current.rows).toBe(paginatedData)
+    })
+
+    it('returns rows sliced to current page when pagination enabled', () => {
+      const { result } = renderHook(() =>
+        useTable(paginatedData, {
+          columns: { name: { header: 'Name' } },
+          pagination: { pageSize: 10 },
+        }),
+      )
+
+      expect(result.current.rows).toHaveLength(10)
+      expect(result.current.rows[0].id).toBe(1)
+      expect(result.current.rows[9].id).toBe(10)
+    })
+
+    it('computes totalPages correctly from data length and pageSize', () => {
+      const { result } = renderHook(() =>
+        useTable(paginatedData, {
+          columns: { name: { header: 'Name' } },
+          pagination: { pageSize: 10 },
+        }),
+      )
+
+      expect(result.current.totalPages).toBe(3)
+      expect(result.current.totalItems).toBe(25)
+    })
+
+    it('onPageChange updates currentPage within bounds', () => {
+      const { result } = renderHook(() =>
+        useTable(paginatedData, {
+          columns: { name: { header: 'Name' } },
+          pagination: { pageSize: 10 },
+        }),
+      )
+
+      act(() => {
+        result.current.onPageChange(2)
+      })
+
+      expect(result.current.currentPage).toBe(2)
+      expect(result.current.rows[0].id).toBe(11)
+
+      act(() => {
+        result.current.onPageChange(3)
+      })
+
+      expect(result.current.currentPage).toBe(3)
+      expect(result.current.rows).toHaveLength(5)
+      expect(result.current.rows[0].id).toBe(21)
+    })
+
+    it('onPageChange clamps to valid range', () => {
+      const { result } = renderHook(() =>
+        useTable(paginatedData, {
+          columns: { name: { header: 'Name' } },
+          pagination: { pageSize: 10 },
+        }),
+      )
+
+      act(() => {
+        result.current.onPageChange(100)
+      })
+      expect(result.current.currentPage).toBe(3)
+
+      act(() => {
+        result.current.onPageChange(0)
+      })
+      expect(result.current.currentPage).toBe(1)
+
+      act(() => {
+        result.current.onPageChange(-5)
+      })
+      expect(result.current.currentPage).toBe(1)
+    })
+
+    it('onPageSizeChange updates pageSize and resets to page 1', () => {
+      const { result } = renderHook(() =>
+        useTable(paginatedData, {
+          columns: { name: { header: 'Name' } },
+          pagination: { pageSize: 10 },
+        }),
+      )
+
+      act(() => {
+        result.current.onPageChange(2)
+      })
+      expect(result.current.currentPage).toBe(2)
+
+      act(() => {
+        result.current.onPageSizeChange(25)
+      })
+
+      expect(result.current.pageSize).toBe(25)
+      expect(result.current.currentPage).toBe(1)
+      expect(result.current.totalPages).toBe(1)
+      expect(result.current.rows).toHaveLength(25)
+    })
+
+    it('page adjusts to last valid page when data shrinks below current page', () => {
+      const initialData = Array.from({ length: 50 }, (_, i) => ({
+        id: i + 1,
+        name: `Item ${i + 1}`,
+        price: (i + 1) * 10,
+        active: true,
+      }))
+
+      const { result, rerender } = renderHook(
+        ({ data }) =>
+          useTable(data, {
+            columns: { name: { header: 'Name' } },
+            pagination: { pageSize: 10 },
+          }),
+        { initialProps: { data: initialData } },
+      )
+
+      act(() => {
+        result.current.onPageChange(5)
+      })
+      expect(result.current.currentPage).toBe(5)
+
+      const smallerData = initialData.slice(0, 15)
+      rerender({ data: smallerData })
+
+      expect(result.current.currentPage).toBe(2)
+      expect(result.current.totalPages).toBe(2)
+    })
+
+    it('custom pageSizeOptions are returned when provided', () => {
+      const { result } = renderHook(() =>
+        useTable(paginatedData, {
+          columns: { name: { header: 'Name' } },
+          pagination: { pageSize: 5, pageSizeOptions: [5, 15, 30] },
+        }),
+      )
+
+      expect(result.current.pageSizeOptions).toEqual([5, 15, 30])
+      expect(result.current.pageSize).toBe(5)
+    })
+
+    it('totalPages is at least 1 even with empty data', () => {
+      const { result } = renderHook(() =>
+        useTable([] as TestData[], {
+          columns: { name: { header: 'Name' } },
+          pagination: { pageSize: 10 },
+        }),
+      )
+
+      expect(result.current.totalPages).toBe(1)
+      expect(result.current.rows).toHaveLength(0)
+    })
   })
 })
