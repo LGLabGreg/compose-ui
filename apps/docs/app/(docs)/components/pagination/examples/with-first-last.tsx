@@ -1,76 +1,85 @@
 'use client'
 
 import {
+  PaginationButton,
   PaginationContent,
   PaginationEllipsis,
   PaginationFirst,
   PaginationItem,
   PaginationLast,
-  PaginationLink,
   PaginationNext,
   PaginationPrevious,
   PaginationRoot,
-  getPageRange,
+  usePagination,
 } from '@lglab/compose-ui/pagination'
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react'
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+  Ellipsis,
+} from 'lucide-react'
 import { useState } from 'react'
 
 export default function WithFirstLastExample() {
   const [currentPage, setCurrentPage] = useState(10)
   const totalPages = 20
-  const pages = getPageRange(currentPage, totalPages)
+
+  const {
+    pages,
+    canGoPrevious,
+    canGoNext,
+    goToPrevious,
+    goToNext,
+    goToFirst,
+    goToLast,
+    goToPage,
+  } = usePagination({
+    currentPage,
+    totalPages,
+    onPageChange: setCurrentPage,
+  })
 
   return (
     <PaginationRoot>
       <PaginationContent>
         <PaginationItem>
-          <PaginationFirst onClick={() => setCurrentPage(1)} disabled={currentPage === 1}>
+          <PaginationFirst onClick={goToFirst} disabled={!canGoPrevious}>
             <ChevronsLeft className='size-4' />
-            <span className='sr-only'>First</span>
           </PaginationFirst>
         </PaginationItem>
 
         <PaginationItem>
-          <PaginationPrevious
-            onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-            disabled={currentPage === 1}
-          >
+          <PaginationPrevious onClick={goToPrevious} disabled={!canGoPrevious}>
             <ChevronLeft className='size-4' />
-            <span className='sr-only'>Previous</span>
           </PaginationPrevious>
         </PaginationItem>
 
         {pages.map((page, i) => (
           <PaginationItem key={i}>
             {page === 'ellipsis' ? (
-              <PaginationEllipsis />
+              <PaginationEllipsis>
+                <Ellipsis className='size-4' />
+              </PaginationEllipsis>
             ) : (
-              <PaginationLink
+              <PaginationButton
                 isActive={page === currentPage}
-                onClick={() => setCurrentPage(page)}
+                onClick={() => goToPage(page)}
               >
                 {page}
-              </PaginationLink>
+              </PaginationButton>
             )}
           </PaginationItem>
         ))}
 
         <PaginationItem>
-          <PaginationNext
-            onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-            disabled={currentPage === totalPages}
-          >
-            <span className='sr-only'>Next</span>
+          <PaginationNext onClick={goToNext} disabled={!canGoNext}>
             <ChevronRight className='size-4' />
           </PaginationNext>
         </PaginationItem>
 
         <PaginationItem>
-          <PaginationLast
-            onClick={() => setCurrentPage(totalPages)}
-            disabled={currentPage === totalPages}
-          >
-            <span className='sr-only'>Last</span>
+          <PaginationLast onClick={goToLast} disabled={!canGoNext}>
             <ChevronsRight className='size-4' />
           </PaginationLast>
         </PaginationItem>

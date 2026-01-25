@@ -18,8 +18,12 @@ export const controlVariants = cva(
           'hover:bg-accent hover:text-accent-foreground',
           'data-pressed:border-primary data-pressed:bg-primary data-pressed:text-primary-foreground data-pressed:shadow-none',
           'data-popup-open:border-primary data-popup-open:bg-primary data-popup-open:text-primary-foreground data-popup-open:shadow-none',
+          'aria-[current=page]:bg-primary aria-[current=page]:border-primary aria-[current=page]:text-primary-foreground',
         ],
-        ghost: ['hover:bg-accent'],
+        ghost: [
+          'border-transparent bg-transparent shadow-none',
+          'hover:bg-accent hover:text-accent-foreground',
+        ],
       },
       size: {
         sm: 'h-8 min-w-8 px-2.5 gap-1.5',

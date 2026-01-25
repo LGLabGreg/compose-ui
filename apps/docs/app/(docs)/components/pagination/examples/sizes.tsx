@@ -1,157 +1,139 @@
 'use client'
 
 import {
+  PaginationButton,
   PaginationContent,
+  PaginationEllipsis,
   PaginationItem,
-  PaginationLink,
   PaginationNext,
   PaginationPrevious,
   PaginationRoot,
-  getPageRange,
+  usePagination,
 } from '@lglab/compose-ui/pagination'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Ellipsis } from 'lucide-react'
 import { useState } from 'react'
 
 export default function SizesExample() {
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = 5
-  const pages = getPageRange(currentPage, totalPages)
+
+  const { pages, canGoPrevious, canGoNext, goToPrevious, goToNext, goToPage } =
+    usePagination({
+      currentPage,
+      totalPages,
+      onPageChange: setCurrentPage,
+    })
 
   return (
-    <div className='space-y-8'>
-      <div>
-        <p className='mb-4 text-sm text-muted-foreground'>Small</p>
-        <PaginationRoot>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                size='sm'
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                disabled={currentPage === 1}
-              >
-                <ChevronLeft className='size-4' />
-                <span className='sr-only'>Previous</span>
-              </PaginationPrevious>
+    <div className='flex flex-col gap-6 items-center'>
+      <PaginationRoot>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious onClick={goToPrevious} disabled={!canGoPrevious}>
+              <ChevronLeft className='size-4' />
+            </PaginationPrevious>
+          </PaginationItem>
+
+          {pages.map((page, i) => (
+            <PaginationItem key={i}>
+              {page === 'ellipsis' ? (
+                <PaginationEllipsis>
+                  <Ellipsis className='size-4' />
+                </PaginationEllipsis>
+              ) : (
+                <PaginationButton
+                  isActive={page === currentPage}
+                  onClick={() => goToPage(page)}
+                >
+                  {page}
+                </PaginationButton>
+              )}
             </PaginationItem>
+          ))}
 
-            {pages.map((page, i) => (
-              <PaginationItem key={i}>
-                {page === 'ellipsis' ? (
-                  <span className='flex h-8 w-8 items-center justify-center text-xs'>
-                    ...
-                  </span>
-                ) : (
-                  <PaginationLink
-                    size='sm'
-                    isActive={page === currentPage}
-                    onClick={() => setCurrentPage(page)}
-                  >
-                    {page}
-                  </PaginationLink>
-                )}
-              </PaginationItem>
-            ))}
+          <PaginationItem>
+            <PaginationNext onClick={goToNext} disabled={!canGoNext}>
+              <ChevronRight className='size-4' />
+            </PaginationNext>
+          </PaginationItem>
+        </PaginationContent>
+      </PaginationRoot>
 
-            <PaginationItem>
-              <PaginationNext
-                size='sm'
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                disabled={currentPage === totalPages}
-              >
-                <span className='sr-only'>Next</span>
-                <ChevronRight className='size-4' />
-              </PaginationNext>
+      <PaginationRoot>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious
+              size='icon'
+              onClick={goToPrevious}
+              disabled={!canGoPrevious}
+            >
+              <ChevronLeft className='size-4' />
+            </PaginationPrevious>
+          </PaginationItem>
+
+          {pages.map((page, i) => (
+            <PaginationItem key={i}>
+              {page === 'ellipsis' ? (
+                <PaginationEllipsis size='icon'>
+                  <Ellipsis className='size-4' />
+                </PaginationEllipsis>
+              ) : (
+                <PaginationButton
+                  size='icon'
+                  isActive={page === currentPage}
+                  onClick={() => goToPage(page)}
+                >
+                  {page}
+                </PaginationButton>
+              )}
             </PaginationItem>
-          </PaginationContent>
-        </PaginationRoot>
-      </div>
+          ))}
 
-      <div>
-        <p className='mb-4 text-sm text-muted-foreground'>Default</p>
-        <PaginationRoot>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                disabled={currentPage === 1}
-              >
-                <ChevronLeft className='size-4' />
-                <span className='sr-only'>Previous</span>
-              </PaginationPrevious>
+          <PaginationItem>
+            <PaginationNext size='icon' onClick={goToNext} disabled={!canGoNext}>
+              <ChevronRight className='size-4' />
+            </PaginationNext>
+          </PaginationItem>
+        </PaginationContent>
+      </PaginationRoot>
+
+      <PaginationRoot>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious
+              size='icon-lg'
+              onClick={goToPrevious}
+              disabled={!canGoPrevious}
+            >
+              <ChevronLeft className='size-4' />
+            </PaginationPrevious>
+          </PaginationItem>
+
+          {pages.map((page, i) => (
+            <PaginationItem key={i}>
+              {page === 'ellipsis' ? (
+                <PaginationEllipsis size='icon-lg'>
+                  <Ellipsis className='size-4' />
+                </PaginationEllipsis>
+              ) : (
+                <PaginationButton
+                  size='icon-lg'
+                  isActive={page === currentPage}
+                  onClick={() => goToPage(page)}
+                >
+                  {page}
+                </PaginationButton>
+              )}
             </PaginationItem>
+          ))}
 
-            {pages.map((page, i) => (
-              <PaginationItem key={i}>
-                {page === 'ellipsis' ? (
-                  <span className='flex h-9 w-9 items-center justify-center'>...</span>
-                ) : (
-                  <PaginationLink
-                    isActive={page === currentPage}
-                    onClick={() => setCurrentPage(page)}
-                  >
-                    {page}
-                  </PaginationLink>
-                )}
-              </PaginationItem>
-            ))}
-
-            <PaginationItem>
-              <PaginationNext
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                disabled={currentPage === totalPages}
-              >
-                <span className='sr-only'>Next</span>
-                <ChevronRight className='size-4' />
-              </PaginationNext>
-            </PaginationItem>
-          </PaginationContent>
-        </PaginationRoot>
-      </div>
-
-      <div>
-        <p className='mb-4 text-sm text-muted-foreground'>Large</p>
-        <PaginationRoot>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                size='lg'
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                disabled={currentPage === 1}
-              >
-                <ChevronLeft className='size-4' />
-                <span className='sr-only'>Previous</span>
-              </PaginationPrevious>
-            </PaginationItem>
-
-            {pages.map((page, i) => (
-              <PaginationItem key={i}>
-                {page === 'ellipsis' ? (
-                  <span className='flex h-10 w-10 items-center justify-center'>...</span>
-                ) : (
-                  <PaginationLink
-                    size='lg'
-                    isActive={page === currentPage}
-                    onClick={() => setCurrentPage(page)}
-                  >
-                    {page}
-                  </PaginationLink>
-                )}
-              </PaginationItem>
-            ))}
-
-            <PaginationItem>
-              <PaginationNext
-                size='lg'
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                disabled={currentPage === totalPages}
-              >
-                <span className='sr-only'>Next</span>
-                <ChevronRight className='size-4' />
-              </PaginationNext>
-            </PaginationItem>
-          </PaginationContent>
-        </PaginationRoot>
-      </div>
+          <PaginationItem>
+            <PaginationNext size='icon-lg' onClick={goToNext} disabled={!canGoNext}>
+              <ChevronRight className='size-4' />
+            </PaginationNext>
+          </PaginationItem>
+        </PaginationContent>
+      </PaginationRoot>
     </div>
   )
 }

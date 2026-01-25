@@ -209,16 +209,16 @@ export {
   NumberFieldIncrement,
 } from './components/number-field'
 export {
+  usePagination,
   PaginationRoot,
   PaginationContent,
   PaginationItem,
-  PaginationLink,
+  PaginationButton,
   PaginationPrevious,
   PaginationNext,
   PaginationFirst,
   PaginationLast,
   PaginationEllipsis,
-  getPageRange,
 } from './components/pagination'
 export {
   PopoverRoot,
@@ -557,10 +557,13 @@ export type {
   NumberFieldIncrementProps,
 } from './components/number-field'
 export type {
+  PaginationPage,
+  UsePaginationOptions,
+  UsePaginationReturn,
   PaginationRootProps,
   PaginationContentProps,
   PaginationItemProps,
-  PaginationLinkProps,
+  PaginationButtonProps,
   PaginationPreviousProps,
   PaginationNextProps,
   PaginationFirstProps,

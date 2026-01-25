@@ -1,18 +1,18 @@
-import { screen } from '@testing-library/react'
+import { renderHook, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { render } from '~/vitest.utils'
 
 import {
+  PaginationButton,
   PaginationContent,
   PaginationEllipsis,
   PaginationFirst,
   PaginationItem,
   PaginationLast,
-  PaginationLink,
   PaginationNext,
   PaginationPrevious,
   PaginationRoot,
-  getPageRange,
+  usePagination,
 } from './pagination'
 
 describe('PaginationRoot', () => {
@@ -71,67 +71,55 @@ describe('PaginationItem', () => {
   })
 })
 
-describe('PaginationLink', () => {
+describe('PaginationButton', () => {
   it('renders as button element', () => {
-    render(<PaginationLink>1</PaginationLink>)
+    render(<PaginationButton>1</PaginationButton>)
     expect(screen.getByRole('button', { name: '1' })).toBeInTheDocument()
   })
 
   it('calls onClick when clicked', async () => {
     const onClick = vi.fn()
-    const { user } = render(<PaginationLink onClick={onClick}>1</PaginationLink>)
+    const { user } = render(<PaginationButton onClick={onClick}>1</PaginationButton>)
     await user.click(screen.getByRole('button', { name: '1' }))
     expect(onClick).toHaveBeenCalled()
   })
 
   describe('active state', () => {
     it('has aria-current="page" when active', () => {
-      render(<PaginationLink isActive>1</PaginationLink>)
+      render(<PaginationButton isActive>1</PaginationButton>)
       const button = screen.getByRole('button', { name: '1' })
       expect(button).toHaveAttribute('aria-current', 'page')
     })
 
     it('does not have aria-current when not active', () => {
-      render(<PaginationLink>1</PaginationLink>)
+      render(<PaginationButton>1</PaginationButton>)
       const button = screen.getByRole('button', { name: '1' })
       expect(button).not.toHaveAttribute('aria-current')
-    })
-
-    it('applies active styling when isActive is true', () => {
-      render(<PaginationLink isActive>1</PaginationLink>)
-      const button = screen.getByRole('button', { name: '1' })
-      expect(button).toHaveClass('bg-accent', 'text-accent-foreground')
     })
   })
 
   describe('sizes', () => {
-    it('renders default size', () => {
-      render(<PaginationLink>1</PaginationLink>)
+    it('renders default (icon) size', () => {
+      render(<PaginationButton>1</PaginationButton>)
       const button = screen.getByRole('button', { name: '1' })
-      expect(button).toHaveClass('h-9', 'w-9')
+      expect(button).toHaveClass('size-8')
     })
 
-    it('renders sm size', () => {
-      render(<PaginationLink size='sm'>1</PaginationLink>)
+    it('renders icon-sm size', () => {
+      render(<PaginationButton size='icon'>1</PaginationButton>)
       const button = screen.getByRole('button', { name: '1' })
-      expect(button).toHaveClass('h-8', 'w-8', 'text-xs')
+      expect(button).toHaveClass('size-9')
     })
 
-    it('renders lg size', () => {
-      render(<PaginationLink size='lg'>1</PaginationLink>)
+    it('renders icon-lg size', () => {
+      render(<PaginationButton size='icon-lg'>1</PaginationButton>)
       const button = screen.getByRole('button', { name: '1' })
-      expect(button).toHaveClass('h-10', 'w-10')
-    })
-
-    it('renders icon size', () => {
-      render(<PaginationLink size='icon'>1</PaginationLink>)
-      const button = screen.getByRole('button', { name: '1' })
-      expect(button).toHaveClass('h-9', 'w-9')
+      expect(button).toHaveClass('size-10')
     })
   })
 
   it('merges custom className', () => {
-    render(<PaginationLink className='custom-class'>1</PaginationLink>)
+    render(<PaginationButton className='custom-class'>1</PaginationButton>)
     const button = screen.getByRole('button', { name: '1' })
     expect(button).toHaveClass('custom-class')
   })
@@ -275,99 +263,224 @@ describe('PaginationLast', () => {
 
 describe('PaginationEllipsis', () => {
   it('renders as span element with aria-hidden', () => {
-    const { container } = render(<PaginationEllipsis />)
+    const { container } = render(<PaginationEllipsis>...</PaginationEllipsis>)
     const span = container.querySelector('span')
     expect(span).toBeInTheDocument()
     expect(span).toHaveAttribute('aria-hidden', 'true')
   })
 
-  it('displays ellipsis text', () => {
-    render(<PaginationEllipsis />)
+  it('renders children', () => {
+    render(<PaginationEllipsis>...</PaginationEllipsis>)
     expect(screen.getByText('...')).toBeInTheDocument()
   })
 
+  describe('sizes', () => {
+    it('renders default (icon) size', () => {
+      const { container } = render(<PaginationEllipsis>...</PaginationEllipsis>)
+      const span = container.querySelector('span')
+      expect(span).toHaveClass('size-8')
+    })
+
+    it('renders icon-sm size', () => {
+      const { container } = render(
+        <PaginationEllipsis size='icon'>...</PaginationEllipsis>,
+      )
+      const span = container.querySelector('span')
+      expect(span).toHaveClass('size-9')
+    })
+
+    it('renders icon-lg size', () => {
+      const { container } = render(
+        <PaginationEllipsis size='icon-lg'>...</PaginationEllipsis>,
+      )
+      const span = container.querySelector('span')
+      expect(span).toHaveClass('size-10')
+    })
+  })
+
   it('merges custom className', () => {
-    const { container } = render(<PaginationEllipsis className='custom-class' />)
+    const { container } = render(
+      <PaginationEllipsis className='custom-class'>...</PaginationEllipsis>,
+    )
     const span = container.querySelector('span')
     expect(span).toHaveClass('custom-class')
   })
 })
 
-describe('getPageRange', () => {
+describe('usePagination', () => {
   it('returns single page for 1 total page', () => {
-    expect(getPageRange(1, 1)).toEqual([1])
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 1, totalPages: 1, onPageChange: vi.fn() }),
+    )
+    expect(result.current.pages).toEqual([1])
   })
 
   it('returns all pages when totalPages <= 7', () => {
-    expect(getPageRange(1, 5)).toEqual([1, 2, 3, 4, 5])
-    expect(getPageRange(3, 7)).toEqual([1, 2, 3, 4, 5, 6, 7])
+    const { result: result1 } = renderHook(() =>
+      usePagination({ currentPage: 1, totalPages: 5, onPageChange: vi.fn() }),
+    )
+    expect(result1.current.pages).toEqual([1, 2, 3, 4, 5])
+
+    const { result: result2 } = renderHook(() =>
+      usePagination({ currentPage: 3, totalPages: 7, onPageChange: vi.fn() }),
+    )
+    expect(result2.current.pages).toEqual([1, 2, 3, 4, 5, 6, 7])
   })
 
   it('handles current page at start', () => {
-    const result = getPageRange(1, 10)
-    expect(result[0]).toBe(1)
-    expect(result).toContain('ellipsis')
-    expect(result[result.length - 1]).toBe(10)
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 1, totalPages: 10, onPageChange: vi.fn() }),
+    )
+    const pages = result.current.pages
+    expect(pages[0]).toBe(1)
+    expect(pages).toContain('ellipsis')
+    expect(pages[pages.length - 1]).toBe(10)
   })
 
   it('handles current page at end', () => {
-    const result = getPageRange(10, 10)
-    expect(result[0]).toBe(1)
-    expect(result).toContain('ellipsis')
-    expect(result[result.length - 1]).toBe(10)
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 10, totalPages: 10, onPageChange: vi.fn() }),
+    )
+    const pages = result.current.pages
+    expect(pages[0]).toBe(1)
+    expect(pages).toContain('ellipsis')
+    expect(pages[pages.length - 1]).toBe(10)
   })
 
   it('handles current page in middle', () => {
-    const result = getPageRange(5, 10)
-    expect(result[0]).toBe(1)
-    expect(result).toContain('ellipsis')
-    expect(result).toContain(4)
-    expect(result).toContain(5)
-    expect(result).toContain(6)
-    expect(result).toContain('ellipsis')
-    expect(result[result.length - 1]).toBe(10)
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 5, totalPages: 10, onPageChange: vi.fn() }),
+    )
+    const pages = result.current.pages
+    expect(pages[0]).toBe(1)
+    expect(pages).toContain('ellipsis')
+    expect(pages).toContain(4)
+    expect(pages).toContain(5)
+    expect(pages).toContain(6)
+    expect(pages).toContain('ellipsis')
+    expect(pages[pages.length - 1]).toBe(10)
   })
 
   it('respects siblingCount parameter', () => {
-    const result = getPageRange(5, 10, 2)
-    expect(result).toContain(3)
-    expect(result).toContain(4)
-    expect(result).toContain(5)
-    expect(result).toContain(6)
-    expect(result).toContain(7)
+    const { result } = renderHook(() =>
+      usePagination({
+        currentPage: 5,
+        totalPages: 10,
+        siblingCount: 2,
+        onPageChange: vi.fn(),
+      }),
+    )
+    const pages = result.current.pages
+    expect(pages).toContain(3)
+    expect(pages).toContain(4)
+    expect(pages).toContain(5)
+    expect(pages).toContain(6)
+    expect(pages).toContain(7)
   })
 
   it('does not duplicate first and last pages', () => {
-    const result = getPageRange(5, 10)
-    const firstIndex = result.indexOf(1)
-    const lastIndex = result.indexOf(10)
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 5, totalPages: 10, onPageChange: vi.fn() }),
+    )
+    const pages = result.current.pages
+    const firstIndex = pages.indexOf(1)
+    const lastIndex = pages.indexOf(10)
     expect(firstIndex).toBeGreaterThanOrEqual(0)
     expect(lastIndex).toBeGreaterThanOrEqual(0)
-    expect(result.filter((p) => p === 1).length).toBe(1)
-    expect(result.filter((p) => p === 10).length).toBe(1)
+    expect(pages.filter((p) => p === 1).length).toBe(1)
+    expect(pages.filter((p) => p === 10).length).toBe(1)
   })
 
   it('handles large page counts', () => {
-    const result = getPageRange(50, 100)
-    expect(result[0]).toBe(1)
-    expect(result[result.length - 1]).toBe(100)
-    expect(result).toContain('ellipsis')
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 50, totalPages: 100, onPageChange: vi.fn() }),
+    )
+    const pages = result.current.pages
+    expect(pages[0]).toBe(1)
+    expect(pages[pages.length - 1]).toBe(100)
+    expect(pages).toContain('ellipsis')
+  })
+
+  it('returns correct navigation state', () => {
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 5, totalPages: 10, onPageChange: vi.fn() }),
+    )
+    expect(result.current.canGoNext).toBe(true)
+    expect(result.current.canGoPrevious).toBe(true)
+    expect(result.current.currentPage).toBe(5)
+    expect(result.current.totalPages).toBe(10)
+  })
+
+  it('canGoNext is false on last page', () => {
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 10, totalPages: 10, onPageChange: vi.fn() }),
+    )
+    expect(result.current.canGoNext).toBe(false)
+    expect(result.current.canGoPrevious).toBe(true)
+  })
+
+  it('canGoPrevious is false on first page', () => {
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 1, totalPages: 10, onPageChange: vi.fn() }),
+    )
+    expect(result.current.canGoNext).toBe(true)
+    expect(result.current.canGoPrevious).toBe(false)
+  })
+
+  it('navigation functions call onPageChange correctly', () => {
+    const onPageChange = vi.fn()
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 5, totalPages: 10, onPageChange }),
+    )
+
+    result.current.goToNext()
+    expect(onPageChange).toHaveBeenLastCalledWith(6)
+
+    result.current.goToPrevious()
+    expect(onPageChange).toHaveBeenLastCalledWith(4)
+
+    result.current.goToFirst()
+    expect(onPageChange).toHaveBeenLastCalledWith(1)
+
+    result.current.goToLast()
+    expect(onPageChange).toHaveBeenLastCalledWith(10)
+
+    result.current.goToPage(7)
+    expect(onPageChange).toHaveBeenLastCalledWith(7)
+  })
+
+  it('goToNext does not exceed totalPages', () => {
+    const onPageChange = vi.fn()
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 10, totalPages: 10, onPageChange }),
+    )
+    result.current.goToNext()
+    expect(onPageChange).toHaveBeenLastCalledWith(10)
+  })
+
+  it('goToPrevious does not go below 1', () => {
+    const onPageChange = vi.fn()
+    const { result } = renderHook(() =>
+      usePagination({ currentPage: 1, totalPages: 10, onPageChange }),
+    )
+    result.current.goToPrevious()
+    expect(onPageChange).toHaveBeenLastCalledWith(1)
   })
 })
 
 describe('Keyboard accessibility', () => {
-  it('PaginationLink can be activated with Enter', async () => {
+  it('PaginationButton can be activated with Enter', async () => {
     const onClick = vi.fn()
-    const { user } = render(<PaginationLink onClick={onClick}>1</PaginationLink>)
+    const { user } = render(<PaginationButton onClick={onClick}>1</PaginationButton>)
     const button = screen.getByRole('button', { name: '1' })
     button.focus()
     await user.keyboard('{Enter}')
     expect(onClick).toHaveBeenCalled()
   })
 
-  it('PaginationLink can be activated with Space', async () => {
+  it('PaginationButton can be activated with Space', async () => {
     const onClick = vi.fn()
-    const { user } = render(<PaginationLink onClick={onClick}>1</PaginationLink>)
+    const { user } = render(<PaginationButton onClick={onClick}>1</PaginationButton>)
     const button = screen.getByRole('button', { name: '1' })
     button.focus()
     await user.keyboard(' ')
@@ -404,14 +517,14 @@ describe('Accessibility', () => {
     expect(nav).toBeInTheDocument()
   })
 
-  it('active PaginationLink has aria-current="page"', () => {
-    render(<PaginationLink isActive>1</PaginationLink>)
+  it('active PaginationButton has aria-current="page"', () => {
+    render(<PaginationButton isActive>1</PaginationButton>)
     const button = screen.getByRole('button', { name: '1' })
     expect(button).toHaveAttribute('aria-current', 'page')
   })
 
-  it('inactive PaginationLink does not have aria-current', () => {
-    render(<PaginationLink>1</PaginationLink>)
+  it('inactive PaginationButton does not have aria-current', () => {
+    render(<PaginationButton>1</PaginationButton>)
     const button = screen.getByRole('button', { name: '1' })
     expect(button).not.toHaveAttribute('aria-current')
   })
@@ -442,7 +555,7 @@ describe('Accessibility', () => {
   })
 
   it('PaginationEllipsis has aria-hidden="true"', () => {
-    const { container } = render(<PaginationEllipsis />)
+    const { container } = render(<PaginationEllipsis>...</PaginationEllipsis>)
     const span = container.querySelector('span[aria-hidden="true"]')
     expect(span).toBeInTheDocument()
   })

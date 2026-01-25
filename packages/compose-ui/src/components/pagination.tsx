@@ -1,84 +1,69 @@
 'use client'
 
-import { type VariantProps, cva } from 'class-variance-authority'
 import * as React from 'react'
 
+import {
+  type ControlSize,
+  type ControlVariant,
+  controlVariants,
+} from '../lib/control-variants'
 import { cn } from '../lib/utils'
 
 // ============================================================================
-// Pagination Variants
+// usePagination Hook
 // ============================================================================
 
-const paginationLinkVariants = cva(
-  [
-    'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors',
-    'hover:bg-accent hover:text-accent-foreground',
-    'focus-visible:outline-none',
-  ],
-  {
-    variants: {
-      isActive: {
-        true: 'bg-accent text-accent-foreground',
-        false: '',
-      },
-      size: {
-        default: 'h-9 w-9',
-        sm: 'h-8 w-8 text-xs',
-        lg: 'h-10 w-10',
-        icon: 'h-9 w-9',
-      },
-    },
-    defaultVariants: {
-      isActive: false,
-      size: 'default',
-    },
-  },
-)
+type PaginationPage = number | 'ellipsis'
 
-const paginationButtonVariants = cva(
-  [
-    'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors',
-    'hover:bg-accent hover:text-accent-foreground',
-    'focus-visible:outline-none',
-  ],
-  {
-    variants: {
-      size: {
-        default: 'h-9 px-4',
-        sm: 'h-8 px-3 text-xs',
-        lg: 'h-10 px-6',
-        icon: 'h-9 w-9',
-      },
-    },
-    defaultVariants: {
-      size: 'default',
-    },
-  },
-)
+type UsePaginationOptions = {
+  /** Current active page (1-indexed) */
+  currentPage: number
+  /** Total number of pages */
+  totalPages: number
+  /** Number of pages to show on each side of current page (default: 1) */
+  siblingCount?: number
+  /** Callback when page changes */
+  onPageChange: (page: number) => void
+}
 
-// ============================================================================
-// Utility Function
-// ============================================================================
+type UsePaginationReturn = {
+  /** Array of page numbers and 'ellipsis' markers */
+  pages: PaginationPage[]
+  /** Current active page */
+  currentPage: number
+  /** Total number of pages */
+  totalPages: number
+  /** Whether navigation to next page is possible */
+  canGoNext: boolean
+  /** Whether navigation to previous page is possible */
+  canGoPrevious: boolean
+  /** Navigate to a specific page */
+  goToPage: (page: number) => void
+  /** Navigate to the next page */
+  goToNext: () => void
+  /** Navigate to the previous page */
+  goToPrevious: () => void
+  /** Navigate to the first page */
+  goToFirst: () => void
+  /** Navigate to the last page */
+  goToLast: () => void
+}
 
 /**
  * Generate page numbers with ellipsis for pagination display
- * @param currentPage - Current active page (1-indexed)
- * @param totalPages - Total number of pages
- * @param siblingCount - Number of pages to show on each side of current page (default: 1)
- * @returns Array of page numbers and 'ellipsis' strings
  */
-export function getPageRange(
+function computePageRange(
   currentPage: number,
   totalPages: number,
-  siblingCount: number = 1,
-): (number | 'ellipsis')[] {
+  siblingCount: number,
+): PaginationPage[] {
   if (totalPages <= 1) return [1]
   if (totalPages <= 7) {
     // Show all pages if 7 or fewer
     return Array.from({ length: totalPages }, (_, i) => i + 1)
   }
 
-  const result: (number | 'ellipsis')[] = []
+  const result: PaginationPage[] = []
   const leftSiblingIndex = Math.max(currentPage - siblingCount, 1)
   const rightSiblingIndex = Math.min(currentPage + siblingCount, totalPages)
 
@@ -111,6 +96,31 @@ export function getPageRange(
   return result
 }
 
+function usePagination({
+  currentPage,
+  totalPages,
+  siblingCount = 1,
+  onPageChange,
+}: UsePaginationOptions): UsePaginationReturn {
+  const pages = React.useMemo(
+    () => computePageRange(currentPage, totalPages, siblingCount),
+    [currentPage, totalPages, siblingCount],
+  )
+
+  return {
+    pages,
+    currentPage,
+    totalPages,
+    canGoNext: currentPage < totalPages,
+    canGoPrevious: currentPage > 1,
+    goToPage: onPageChange,
+    goToNext: () => onPageChange(Math.min(currentPage + 1, totalPages)),
+    goToPrevious: () => onPageChange(Math.max(currentPage - 1, 1)),
+    goToFirst: () => onPageChange(1),
+    goToLast: () => onPageChange(totalPages),
+  }
+}
+
 // ============================================================================
 // PaginationRoot
 // ============================================================================
@@ -118,13 +128,7 @@ export function getPageRange(
 type PaginationRootProps = React.ComponentProps<'nav'>
 
 const PaginationRoot = ({ className, ...props }: PaginationRootProps) => {
-  return (
-    <nav
-      aria-label='pagination'
-      className={cn('mx-auto flex w-full justify-center', className)}
-      {...props}
-    />
-  )
+  return <nav aria-label='pagination' className={className} {...props} />
 }
 
 PaginationRoot.displayName = 'PaginationRoot'
@@ -139,7 +143,7 @@ const PaginationContent = ({ className, ...props }: PaginationContentProps) => {
   return (
     <ul
       role='list'
-      className={cn('flex flex-row items-center gap-1', className)}
+      className={cn('flex flex-row flex-wrap items-center gap-1 w-fit', className)}
       {...props}
     />
   )
@@ -160,39 +164,53 @@ const PaginationItem = ({ className, ...props }: PaginationItemProps) => {
 PaginationItem.displayName = 'PaginationItem'
 
 // ============================================================================
-// PaginationLink
+// PaginationButton (page number button)
 // ============================================================================
 
-type PaginationLinkProps = React.ComponentProps<'button'> &
-  VariantProps<typeof paginationLinkVariants> & {
-    /** Whether this link represents the current active page */
-    isActive?: boolean
-  }
+type PaginationButtonProps = React.ComponentProps<'button'> & {
+  /** Whether this button represents the current active page */
+  isActive?: boolean
+  /** Visual style of the button */
+  variant?: ControlVariant
+  /** Size of the button */
+  size?: ControlSize
+}
 
-const PaginationLink = ({ className, isActive, size, ...props }: PaginationLinkProps) => {
+const PaginationButton = ({
+  className,
+  isActive,
+  variant,
+  size = 'icon-sm',
+  ...props
+}: PaginationButtonProps) => {
   return (
     <button
       type='button'
       aria-current={isActive ? 'page' : undefined}
-      className={cn(paginationLinkVariants({ isActive, size }), className)}
+      className={cn(controlVariants({ variant, size }), className)}
       {...props}
     />
   )
 }
 
-PaginationLink.displayName = 'PaginationLink'
+PaginationButton.displayName = 'PaginationButton'
 
 // ============================================================================
 // PaginationPrevious
 // ============================================================================
 
-type PaginationPreviousProps = React.ComponentProps<'button'> &
-  VariantProps<typeof paginationButtonVariants>
+type PaginationPreviousProps = React.ComponentProps<'button'> & {
+  /** Visual style of the button */
+  variant?: ControlVariant
+  /** Size of the button */
+  size?: ControlSize
+}
 
 const PaginationPrevious = ({
   className,
   disabled,
-  size,
+  variant,
+  size = 'icon-sm',
   children,
   ...props
 }: PaginationPreviousProps) => {
@@ -203,7 +221,7 @@ const PaginationPrevious = ({
       aria-disabled={disabled || undefined}
       disabled={disabled}
       className={cn(
-        paginationButtonVariants({ size }),
+        controlVariants({ variant, size }),
         disabled && 'pointer-events-none opacity-50',
         className,
       )}
@@ -220,10 +238,21 @@ PaginationPrevious.displayName = 'PaginationPrevious'
 // PaginationNext
 // ============================================================================
 
-type PaginationNextProps = React.ComponentProps<'button'> &
-  VariantProps<typeof paginationButtonVariants>
+type PaginationNextProps = React.ComponentProps<'button'> & {
+  /** Visual style of the button */
+  variant?: ControlVariant
+  /** Size of the button */
+  size?: ControlSize
+}
 
-const PaginationNext = ({ className, disabled, size, ...props }: PaginationNextProps) => {
+const PaginationNext = ({
+  className,
+  disabled,
+  variant,
+  size = 'icon-sm',
+  children,
+  ...props
+}: PaginationNextProps) => {
   return (
     <button
       type='button'
@@ -231,12 +260,14 @@ const PaginationNext = ({ className, disabled, size, ...props }: PaginationNextP
       aria-disabled={disabled || undefined}
       disabled={disabled}
       className={cn(
-        paginationButtonVariants({ size }),
+        controlVariants({ variant, size }),
         disabled && 'pointer-events-none opacity-50',
         className,
       )}
       {...props}
-    />
+    >
+      {children}
+    </button>
   )
 }
 
@@ -246,13 +277,18 @@ PaginationNext.displayName = 'PaginationNext'
 // PaginationFirst
 // ============================================================================
 
-type PaginationFirstProps = React.ComponentProps<'button'> &
-  VariantProps<typeof paginationButtonVariants>
+type PaginationFirstProps = React.ComponentProps<'button'> & {
+  /** Visual style of the button */
+  variant?: ControlVariant
+  /** Size of the button */
+  size?: ControlSize
+}
 
 const PaginationFirst = ({
   className,
   disabled,
-  size,
+  variant,
+  size = 'icon-sm',
   children,
   ...props
 }: PaginationFirstProps) => {
@@ -263,7 +299,7 @@ const PaginationFirst = ({
       aria-disabled={disabled || undefined}
       disabled={disabled}
       className={cn(
-        paginationButtonVariants({ size }),
+        controlVariants({ variant, size }),
         disabled && 'pointer-events-none opacity-50',
         className,
       )}
@@ -280,13 +316,18 @@ PaginationFirst.displayName = 'PaginationFirst'
 // PaginationLast
 // ============================================================================
 
-type PaginationLastProps = React.ComponentProps<'button'> &
-  VariantProps<typeof paginationButtonVariants>
+type PaginationLastProps = React.ComponentProps<'button'> & {
+  /** Visual style of the button */
+  variant?: ControlVariant
+  /** Size of the button */
+  size?: ControlSize
+}
 
 const PaginationLast = ({
   className,
   disabled,
-  size,
+  variant,
+  size = 'icon-sm',
   children,
   ...props
 }: PaginationLastProps) => {
@@ -297,7 +338,7 @@ const PaginationLast = ({
       aria-disabled={disabled || undefined}
       disabled={disabled}
       className={cn(
-        paginationButtonVariants({ size }),
+        controlVariants({ variant, size }),
         disabled && 'pointer-events-none opacity-50',
         className,
       )}
@@ -314,17 +355,26 @@ PaginationLast.displayName = 'PaginationLast'
 // PaginationEllipsis
 // ============================================================================
 
-type PaginationEllipsisProps = React.ComponentProps<'span'>
+type PaginationEllipsisProps = React.ComponentProps<'span'> & {
+  /** Size of the ellipsis container */
+  size?: ControlSize
+}
 
-const PaginationEllipsis = ({ className, ...props }: PaginationEllipsisProps) => {
+const PaginationEllipsis = ({
+  className,
+  size = 'icon-sm',
+  ...props
+}: PaginationEllipsisProps) => {
   return (
     <span
       aria-hidden='true'
-      className={cn('flex h-9 w-9 items-center justify-center', className)}
+      className={cn(
+        controlVariants({ size }),
+        'border-transparent bg-transparent shadow-none',
+        className,
+      )}
       {...props}
-    >
-      ...
-    </span>
+    />
   )
 }
 
@@ -335,10 +385,12 @@ PaginationEllipsis.displayName = 'PaginationEllipsis'
 // ============================================================================
 
 export {
+  // eslint-disable-next-line react-refresh/only-export-components
+  usePagination,
   PaginationRoot,
   PaginationContent,
   PaginationItem,
-  PaginationLink,
+  PaginationButton,
   PaginationPrevious,
   PaginationNext,
   PaginationFirst,
@@ -347,10 +399,13 @@ export {
 }
 
 export type {
+  PaginationPage,
+  UsePaginationOptions,
+  UsePaginationReturn,
   PaginationRootProps,
   PaginationContentProps,
   PaginationItemProps,
-  PaginationLinkProps,
+  PaginationButtonProps,
   PaginationPreviousProps,
   PaginationNextProps,
   PaginationFirstProps,
