@@ -79,7 +79,151 @@ const {ComponentName} = ({ className, variant, size, ...props }: {ComponentName}
 {ComponentName}.displayName = '{ComponentName}'
 ```
 
-### 2. Test File
+### 2. Hooks Architecture
+
+Some components require companion hooks for state management (e.g., `useTable`, `useCombobox`). Follow this pattern for hooks:
+
+### Component-Specific Hooks
+
+Hooks that are tightly coupled to a component live alongside that component:
+
+```
+packages/compose-ui/src/components/
+├── table/
+│   ├── index.ts              # Exports primitives + hook
+│   ├── primitives.tsx        # Table, TableRow, TableHead, etc.
+│   ├── use-table.ts          # Component-specific hook
+│   ├── table-pagination.tsx  # Related sub-components
+│   ├── table-search.tsx
+│   ├── types.ts              # Shared types
+│   └── utils.ts              # Internal utilities
+```
+
+**Export structure for `table/index.ts`:**
+
+```tsx
+export * from './primitives'
+export { useTable } from './use-table'
+export type * from './types'
+```
+
+**Subpath exports in `package.json`:**
+
+```json
+"./table": {
+  "import": "./dist/table/index.js",
+  "types": "./dist/table/index.d.ts"
+},
+"./table/use-table": {
+  "import": "./dist/table/use-table.js",
+  "types": "./dist/table/use-table.d.ts"
+}
+```
+
+**Consumer import patterns:**
+
+```tsx
+// All table exports (primitives + hook)
+import { Table, TableRow, useTable } from '@lglab/compose-ui/table'
+
+// Hook only
+import { useTable } from '@lglab/compose-ui/table/use-table'
+
+// Primitives only (if needed)
+import { Table, TableRow } from '@lglab/compose-ui/table'
+```
+
+### Generic Hooks
+
+Hooks that are reusable across multiple components live in a top-level `/hooks` folder:
+
+```
+packages/compose-ui/src/
+├── hooks/
+│   ├── index.ts              # Barrel export
+│   ├── use-disclosure.ts     # Open/close state management
+│   ├── use-controllable.ts   # Controlled/uncontrolled pattern
+│   └── use-media-query.ts    # Responsive breakpoints
+```
+
+**Subpath exports in `package.json`:**
+
+```json
+"./hooks": {
+  "import": "./dist/hooks/index.js",
+  "types": "./dist/hooks/index.d.ts"
+},
+"./hooks/use-disclosure": {
+  "import": "./dist/hooks/use-disclosure.js",
+  "types": "./dist/hooks/use-disclosure.d.ts"
+}
+```
+
+**Consumer import patterns:**
+
+```tsx
+// All generic hooks
+import { useDisclosure, useControllable } from '@lglab/compose-ui/hooks'
+
+// Specific hook
+import { useDisclosure } from '@lglab/compose-ui/hooks/use-disclosure'
+```
+
+### Hook Naming Convention
+
+- File names: `use-kebab-case.ts`
+- Export names: `useCamelCase`
+- Types: `Use{HookName}Options`, `Use{HookName}Return`
+
+### When to Create a Hook
+
+Create a component-specific hook when:
+
+- Component has complex state logic (sorting, filtering, pagination)
+- State needs to be shared across multiple sub-components
+- Logic would otherwise require "prop drilling"
+
+Create a generic hook when:
+
+- Logic is reusable across unrelated components
+- Pattern is common (disclosure, controllable, media queries)
+
+### Hook File Structure
+
+```tsx
+// use-table.ts
+import { useCallback, useMemo, useState } from 'react'
+
+import type { UseTableOptions, UseTableReturn } from './types'
+
+export function useTable<T>(data: T[], options: UseTableOptions<T>): UseTableReturn<T> {
+  // Implementation
+}
+```
+
+### Adding Hook to tsdown Config
+
+For component-specific hooks, add the component folder to the `components` array:
+
+```ts
+// tsdown.config.ts
+const components = [
+  // ... existing components
+  'table', // This will include table/index.ts, table/use-table.ts, etc.
+]
+```
+
+For generic hooks, ensure the hooks folder is included:
+
+```ts
+const hooks = [
+  'use-disclosure',
+  'use-controllable',
+  // ... other generic hooks
+]
+```
+
+### 3. Test File
 
 **Location**: `packages/compose-ui/src/components/$ARGUMENTS.test.tsx`
 
@@ -88,13 +232,13 @@ const {ComponentName} = ({ className, variant, size, ...props }: {ComponentName}
 - Use userEvent for interactions
 - No comments in test code
 
-### 3. Export from Index
+### 4. Export from Index
 
 **Location**: `packages/compose-ui/src/index.ts`
 
 Add exports for all component parts and their types.
 
-### 4. Documentation Page
+### 5. Documentation Page
 
 **Location**: `apps/docs/app/(docs)/components/$ARGUMENTS/page.mdx`
 
@@ -121,7 +265,7 @@ import DefaultExample from './examples/default'
 </ComponentPage>
 ```
 
-### 5. Example Files
+### 6. Example Files
 
 **Location**: `apps/docs/app/(docs)/components/$ARGUMENTS/examples/`
 
@@ -155,7 +299,7 @@ import { SomeIcon } from 'lucide-react'
 
 Note: The barrel file import (`@lglab/compose-ui`) still works, but subpath imports are recommended for optimal tree-shaking.
 
-### 6. Add Subpath Export to package.json
+### 7. Add Subpath Export to package.json
 
 **Location**: `packages/compose-ui/package.json`
 
@@ -168,7 +312,7 @@ Add the component to the `exports` field in alphabetical order. This enables sub
 },
 ```
 
-### 7. Add to tsdown Config
+### 8. Add to tsdown Config
 
 **Location**: `packages/compose-ui/tsdown.config.ts`
 
@@ -182,7 +326,7 @@ const components = [
 ]
 ```
 
-### 8. Add to Navigation
+### 9. Add to Navigation
 
 **Location**: `apps/docs/lib/navigation.ts`
 

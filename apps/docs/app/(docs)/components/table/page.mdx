@@ -1,0 +1,39 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import BasicExample from './examples/basic'
+import SelectedExample from './examples/selected'
+import VariantsExample from './examples/variants'
+import WithHookExample from './examples/with-hook'
+
+<ComponentPage
+  title="Table"
+  description="A responsive table component with support for variants, alignment, row selection, and a useTable hook for declarative column configuration."
+  component="table"
+>
+
+<ExampleLoader title='Basic' filePath='app/(docs)/components/table/examples/basic.tsx'>
+  <BasicExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With useTable Hook'
+  filePath='app/(docs)/components/table/examples/with-hook.tsx'
+>
+  <WithHookExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Row Selection'
+  filePath='app/(docs)/components/table/examples/selected.tsx'
+>
+  <SelectedExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Variants'
+  filePath='app/(docs)/components/table/examples/variants.tsx'
+>
+  <VariantsExample />
+</ExampleLoader>
+
+</ComponentPage>

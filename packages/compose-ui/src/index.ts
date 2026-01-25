@@ -79,6 +79,17 @@ export { SwitchRoot, SwitchThumb } from './components/switch'
 export { Toggle } from './components/toggle'
 export { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from './components/tabs'
 export {
+  TableRoot,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableRow,
+  TableHead,
+  TableCell,
+  TableCaption,
+  useTable,
+} from './components/table'
+export {
   Toast,
   ToastProvider,
   ToastViewport,
@@ -399,6 +410,22 @@ export type {
   TabsIndicatorProps,
   TabsPanelProps,
 } from './components/tabs'
+export type {
+  TableRootProps,
+  TableHeaderProps,
+  TableBodyProps,
+  TableFooterProps,
+  TableRowProps,
+  TableHeadProps,
+  TableCellProps,
+  TableCaptionProps,
+  Alignment,
+  ColumnDef,
+  ColumnsConfig,
+  UseTableOptions,
+  ProcessedColumn,
+  UseTableReturn,
+} from './components/table'
 export type {
   ToastProviderProps,
   ToastViewportProps,

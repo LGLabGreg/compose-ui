@@ -169,6 +169,14 @@
       "import": "./dist/tabs.js",
       "types": "./dist/tabs.d.ts"
     },
+    "./table": {
+      "import": "./dist/table/index.js",
+      "types": "./dist/table/index.d.ts"
+    },
+    "./table/use-table": {
+      "import": "./dist/table/use-table.js",
+      "types": "./dist/table/use-table.d.ts"
+    },
     "./textarea": {
       "import": "./dist/textarea.js",
       "types": "./dist/textarea.d.ts"
