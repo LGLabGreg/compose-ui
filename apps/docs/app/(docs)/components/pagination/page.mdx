@@ -1,0 +1,42 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import SizesExample from './examples/sizes'
+import WithEllipsisExample from './examples/with-ellipsis'
+import WithFirstLastExample from './examples/with-first-last'
+
+<ComponentPage
+  title="Pagination"
+  description="A composable pagination component for navigating through paginated content. Use with tables, search results, or any paginated data."
+  component="pagination"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/pagination/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Ellipsis'
+  filePath='app/(docs)/components/pagination/examples/with-ellipsis.tsx'
+>
+  <WithEllipsisExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Sizes'
+  filePath='app/(docs)/components/pagination/examples/sizes.tsx'
+>
+  <SizesExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With First/Last'
+  filePath='app/(docs)/components/pagination/examples/with-first-last.tsx'
+>
+  <WithFirstLastExample />
+</ExampleLoader>
+
+</ComponentPage>
