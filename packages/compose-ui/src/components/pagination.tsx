@@ -15,6 +15,8 @@ import { cn } from '../lib/utils'
 
 type PaginationPage = number | 'ellipsis'
 
+const DEFAULT_PAGE_SIZE_OPTIONS = [10, 25, 50, 100]
+
 type UsePaginationOptions = {
   /** Current active page (1-indexed) */
   currentPage: number
@@ -24,6 +26,12 @@ type UsePaginationOptions = {
   siblingCount?: number
   /** Callback when page changes */
   onPageChange: (page: number) => void
+  /** Current page size */
+  pageSize?: number
+  /** Available page size options (default: [10, 25, 50, 100]) */
+  pageSizeOptions?: number[]
+  /** Callback when page size changes */
+  onPageSizeChange?: (pageSize: number) => void
 }
 
 type UsePaginationReturn = {
@@ -47,6 +55,12 @@ type UsePaginationReturn = {
   goToFirst: () => void
   /** Navigate to the last page */
   goToLast: () => void
+  /** Current page size */
+  pageSize: number
+  /** Available page size options */
+  pageSizeOptions: number[]
+  /** Set page size (calls onPageSizeChange if provided) */
+  setPageSize: (size: number) => void
 }
 
 /**
@@ -101,10 +115,20 @@ function usePagination({
   totalPages,
   siblingCount = 1,
   onPageChange,
+  pageSize = DEFAULT_PAGE_SIZE_OPTIONS[0],
+  pageSizeOptions = DEFAULT_PAGE_SIZE_OPTIONS,
+  onPageSizeChange,
 }: UsePaginationOptions): UsePaginationReturn {
   const pages = React.useMemo(
     () => computePageRange(currentPage, totalPages, siblingCount),
     [currentPage, totalPages, siblingCount],
+  )
+
+  const setPageSize = React.useCallback(
+    (size: number) => {
+      onPageSizeChange?.(size)
+    },
+    [onPageSizeChange],
   )
 
   return {
@@ -118,6 +142,9 @@ function usePagination({
     goToPrevious: () => onPageChange(Math.max(currentPage - 1, 1)),
     goToFirst: () => onPageChange(1),
     goToLast: () => onPageChange(totalPages),
+    pageSize,
+    pageSizeOptions,
+    setPageSize,
   }
 }
 

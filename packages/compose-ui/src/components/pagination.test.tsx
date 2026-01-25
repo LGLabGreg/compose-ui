@@ -466,6 +466,62 @@ describe('usePagination', () => {
     result.current.goToPrevious()
     expect(onPageChange).toHaveBeenLastCalledWith(1)
   })
+
+  describe('page size', () => {
+    it('returns default pageSize and pageSizeOptions', () => {
+      const { result } = renderHook(() =>
+        usePagination({ currentPage: 1, totalPages: 10, onPageChange: vi.fn() }),
+      )
+      expect(result.current.pageSize).toBe(10)
+      expect(result.current.pageSizeOptions).toEqual([10, 25, 50, 100])
+    })
+
+    it('returns custom pageSize when provided', () => {
+      const { result } = renderHook(() =>
+        usePagination({
+          currentPage: 1,
+          totalPages: 10,
+          onPageChange: vi.fn(),
+          pageSize: 25,
+        }),
+      )
+      expect(result.current.pageSize).toBe(25)
+    })
+
+    it('returns custom pageSizeOptions when provided', () => {
+      const customOptions = [5, 10, 20]
+      const { result } = renderHook(() =>
+        usePagination({
+          currentPage: 1,
+          totalPages: 10,
+          onPageChange: vi.fn(),
+          pageSizeOptions: customOptions,
+        }),
+      )
+      expect(result.current.pageSizeOptions).toEqual(customOptions)
+    })
+
+    it('setPageSize calls onPageSizeChange', () => {
+      const onPageSizeChange = vi.fn()
+      const { result } = renderHook(() =>
+        usePagination({
+          currentPage: 1,
+          totalPages: 10,
+          onPageChange: vi.fn(),
+          onPageSizeChange,
+        }),
+      )
+      result.current.setPageSize(50)
+      expect(onPageSizeChange).toHaveBeenCalledWith(50)
+    })
+
+    it('setPageSize does not throw when onPageSizeChange is not provided', () => {
+      const { result } = renderHook(() =>
+        usePagination({ currentPage: 1, totalPages: 10, onPageChange: vi.fn() }),
+      )
+      expect(() => result.current.setPageSize(50)).not.toThrow()
+    })
+  })
 })
 
 describe('Keyboard accessibility', () => {

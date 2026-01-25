@@ -4,6 +4,7 @@ import DefaultExample from './examples/default'
 import SizesExample from './examples/sizes'
 import WithEllipsisExample from './examples/with-ellipsis'
 import WithFirstLastExample from './examples/with-first-last'
+import WithPageSizeExample from './examples/with-page-size'
 
 <ComponentPage
   title="Pagination"
@@ -26,17 +27,24 @@ import WithFirstLastExample from './examples/with-first-last'
 </ExampleLoader>
 
 <ExampleLoader
-  title='Sizes'
-  filePath='app/(docs)/components/pagination/examples/sizes.tsx'
->
-  <SizesExample />
-</ExampleLoader>
-
-<ExampleLoader
   title='With First/Last'
   filePath='app/(docs)/components/pagination/examples/with-first-last.tsx'
 >
   <WithFirstLastExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Page Size'
+  filePath='app/(docs)/components/pagination/examples/with-page-size.tsx'
+>
+  <WithPageSizeExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Sizes'
+  filePath='app/(docs)/components/pagination/examples/sizes.tsx'
+>
+  <SizesExample />
 </ExampleLoader>
 
 </ComponentPage>
