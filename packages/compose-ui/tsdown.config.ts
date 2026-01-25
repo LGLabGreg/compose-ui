@@ -25,6 +25,7 @@ const components = [
   'meter',
   'navigation-menu',
   'number-field',
+  'pagination',
   'popover',
   'preview-card',
   'progress',
