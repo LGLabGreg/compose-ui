@@ -16,7 +16,7 @@ export default function BasicExample() {
         <TabsIndicator />
       </TabsList>
       <TabsPanel value='overview'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>
             This is the overview panel. Here you can see a summary of your account and
             recent activity.
@@ -24,14 +24,14 @@ export default function BasicExample() {
         </div>
       </TabsPanel>
       <TabsPanel value='projects'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>
             View and manage your projects here. Create new projects or edit existing ones.
           </p>
         </div>
       </TabsPanel>
       <TabsPanel value='settings'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>Configure your account settings, preferences, and notification options.</p>
         </div>
       </TabsPanel>

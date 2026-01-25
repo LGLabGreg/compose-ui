@@ -6,8 +6,16 @@ You are creating a new compose-ui component. Follow the guidelines in @component
 
 Before creating the component:
 
-1. **Review existing components** in `packages/compose-ui/src/components/` for patterns and conventions
-2. **Review the Badge component** (`packages/compose-ui/src/components/badge.tsx`) as a reference for custom component structure
+1. **Read the Base UI markdown documentation** by fetching `https://base-ui.com/react/components/$ARGUMENTS.md`
+   - **IMPORTANT**: Read/fetch the `.md` file directly - do NOT navigate the HTML page or take screenshots
+   - The markdown contains the full component API, all sub-components, and example code in a readable format
+   - **CRITICAL**: Copy the exact animation/transform styles from Base UI's examples, especially:
+     - `origin-[var(--transform-origin)]` for proper transform origin
+     - `transition-[transform,scale,opacity]` or similar specific transitions (not `transition-all`)
+     - `data-[starting-style]` and `data-[ending-style]` classes for animations
+     - Scale and opacity values (e.g., `scale-90`, `opacity-0`)
+   - Adapt colors to use design tokens (`bg-background`, `text-foreground`, `border-border`) instead of Base UI's color values
+2. **Review existing components** in `packages/compose-ui/src/components/` for patterns and conventions
 
 ## Files to Create
 
@@ -18,59 +26,30 @@ Before creating the component:
 Structure:
 
 - Add `'use client'` directive at the top (if using React hooks or client features)
-- Import `cva` from `class-variance-authority` if you need variants
+- Import from Base UI: `import { Component } from '@base-ui/react/$ARGUMENTS'`
 - Import `cn` utility: `import { cn } from '../lib/utils'`
 - **NEVER import icon libraries** (like `lucide-react`) in component files - users may use different icon libraries. Icons should only be used in documentation examples.
-- Create component variants using `cva` if needed
 - Create each sub-component with proper typing, styling, and displayName
 - Export all components and types at the bottom
 
-Use this pattern for variants:
+Use this pattern for each part:
 
 ```tsx
-const componentVariants = cva(
-  [
-    // Base classes
-  ],
-  {
-    variants: {
-      variant: {
-        default: '',
-        // ... other variants
-      },
-      size: {
-        sm: '',
-        md: '',
-        lg: '',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'md',
-    },
-  },
-)
-```
+type {ComponentName}{Part}Props = React.ComponentProps<typeof Base{ComponentName}.{Part}>
 
-Use this pattern for components:
-
-```tsx
-type {ComponentName}Props = React.ComponentProps<'element'> & {
-  /** Prop description */
-  variant?: {ComponentName}Variant
-  size?: {ComponentName}Size
-}
-
-const {ComponentName} = ({ className, variant, size, ...props }: {ComponentName}Props) => {
+const {ComponentName}{Part} = ({ className, ...props }: {ComponentName}{Part}Props) => {
   return (
-    <element
-      className={cn(componentVariants({ variant, size }), className)}
+    <Base{ComponentName}.{Part}
+      className={cn(
+        // Tailwind classes using design tokens
+        className,
+      )}
       {...props}
     />
   )
 }
 
-{ComponentName}.displayName = '{ComponentName}'
+{ComponentName}{Part}.displayName = '{ComponentName}{Part}'
 ```
 
 ### 2. Test File
@@ -91,6 +70,7 @@ Add exports for all component parts and their types.
 ### 4. Documentation Page
 
 **Location**: `apps/docs/app/(docs)/components/$ARGUMENTS/page.mdx`
+**Examples**: create all examples from `https://base-ui.com/react/components/$ARGUMENTS.md`
 
 Create the MDX page with examples:
 
@@ -103,6 +83,7 @@ import DefaultExample from './examples/default'
   title="{Component Name}"
   description="Brief description of the component."
   component="$ARGUMENTS"
+  baseUiComponent="$ARGUMENTS"
 >
 
 <ExampleLoader
@@ -188,16 +169,18 @@ Add the component to the Components section in alphabetical order:
 
 ## Styling Guidelines
 
-- **Colors**: Use design tokens instead of hardcoded colors:
-  - `bg-background`, `bg-muted`, `bg-primary`
-  - `text-foreground`, `text-muted-foreground`, `text-primary`
-  - `border-border`
-- **Variants**: Use `cva` (class-variance-authority) for component variants
-- **States**: Use data attributes for states when needed: `data-[selected]:`, `data-[disabled]:`, `data-[checked]:`
-- **Focus/Disabled**: Do not repeat focus ring and disabled styles - these are globally applied in `styles/default.css`:
-  - `focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2`
-  - `data-disabled:pointer-events-none data-disabled:opacity-70`
-- Review similar components (like Badge) for consistent styling patterns
+- **Animation/Transform Styles**: Copy Base UI's exact animation and transform styles, then fix Tailwind lint errors:
+  - Transform origin: Use `origin-(--transform-origin)` (Tailwind lint prefers this over `origin-[var(--transform-origin)]`)
+  - Transitions: Use specific properties like `transition-[transform,scale,opacity]` instead of `transition-all`
+  - Animation states: Use `data-starting-style:` and `data-ending-style:` (Tailwind lint prefers this over `data-[starting-style]:` and `data-[ending-style]:`)
+  - Scale/opacity values: Match Base UI's values (e.g., `scale-90`, `opacity-0`)
+- **Colors**: Adapt Base UI's colors to use design tokens:
+  - `bg-[canvas]` → `bg-background`
+  - `text-gray-900` → `text-foreground`
+  - `outline-gray-200` → `outline-border`
+  - `shadow-gray-200` → Keep as-is or adapt to design tokens if available
+- **Data Attributes**: Use Base UI data attributes for states: `data-[selected]:`, `data-[disabled]:`, `data-[checked]:`, `data-highlighted:`
+- Review similar components for consistent styling patterns, but prioritize Base UI's animation/transform styles
 
 ## Checklist
 
@@ -209,5 +192,6 @@ Add the component to the Components section in alphabetical order:
 - [ ] Documentation page created
 - [ ] At least one example created
 - [ ] Navigation updated
+- [ ] Fix all Tailwind lint errors (use cleaner syntax: `data-ending-style:` instead of `data-[ending-style]:`, `origin-(--var)` instead of `origin-[var(--var)]`)
 - [ ] Run tests to verify: `pnpm test`
 - [ ] No lint errors in any file

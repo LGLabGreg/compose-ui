@@ -13,7 +13,7 @@ import { cn } from '../lib/utils'
 type TabsRootProps = React.ComponentProps<typeof BaseTabs.Root>
 
 const TabsRoot = ({ className, ...props }: TabsRootProps) => {
-  return <BaseTabs.Root className={cn('flex flex-col', className)} {...props} />
+  return <BaseTabs.Root className={cn('flex flex-col w-full', className)} {...props} />
 }
 
 TabsRoot.displayName = 'TabsRoot'

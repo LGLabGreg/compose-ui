@@ -37,7 +37,7 @@ export default function BasicExample() {
         <TabsIndicator />
       </TabsList>
       <TabsPanel value='overview'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>
             This is the overview panel. Here you can see a summary of your account and
             recent activity.
@@ -45,14 +45,14 @@ export default function BasicExample() {
         </div>
       </TabsPanel>
       <TabsPanel value='projects'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>
             View and manage your projects here. Create new projects or edit existing ones.
           </p>
         </div>
       </TabsPanel>
       <TabsPanel value='settings'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>Configure your account settings, preferences, and notification options.</p>
         </div>
       </TabsPanel>
@@ -92,17 +92,17 @@ export default function WithIconsExample() {
         <TabsIndicator />
       </TabsList>
       <TabsPanel value='account'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>Manage your account details and profile information.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='projects'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>Browse and manage all your projects in one place.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='settings'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>Customize your experience with various settings options.</p>
         </div>
       </TabsPanel>
@@ -192,17 +192,17 @@ export default function DisabledExample() {
         <TabsIndicator />
       </TabsList>
       <TabsPanel value='active'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>This tab is active. The middle tab is disabled and cannot be selected.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='disabled'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>You shouldn&apos;t see this content.</p>
         </div>
       </TabsPanel>
       <TabsPanel value='another'>
-        <div className='rounded-md p-4'>
+        <div className='rounded-md p-2'>
           <p>This is another active tab panel.</p>
         </div>
       </TabsPanel>
@@ -234,7 +234,7 @@ export default function VerticalExample() {
       </TabsList>
       <div className='flex-1'>
         <TabsPanel value='general' className='mt-0'>
-          <div className='rounded-md p-4'>
+          <div className='rounded-md p-2'>
             <h3 className='font-medium'>General Settings</h3>
             <p className='mt-1 text-sm'>
               Configure general application settings and preferences.
@@ -242,7 +242,7 @@ export default function VerticalExample() {
           </div>
         </TabsPanel>
         <TabsPanel value='security' className='mt-0'>
-          <div className='rounded-md p-4'>
+          <div className='rounded-md p-2'>
             <h3 className='font-medium'>Security Settings</h3>
             <p className='mt-1 text-sm'>
               Manage your security preferences, two-factor authentication, and sessions.
@@ -250,7 +250,7 @@ export default function VerticalExample() {
           </div>
         </TabsPanel>
         <TabsPanel value='notifications' className='mt-0'>
-          <div className='rounded-md p-4'>
+          <div className='rounded-md p-2'>
             <h3 className='font-medium'>Notification Preferences</h3>
             <p className='mt-1 text-sm'>
               Control how and when you receive notifications.
@@ -258,7 +258,7 @@ export default function VerticalExample() {
           </div>
         </TabsPanel>
         <TabsPanel value='billing' className='mt-0'>
-          <div className='rounded-md p-4'>
+          <div className='rounded-md p-2'>
             <h3 className='font-medium'>Billing Information</h3>
             <p className='mt-1 text-sm'>
               View and manage your billing details and payment methods.

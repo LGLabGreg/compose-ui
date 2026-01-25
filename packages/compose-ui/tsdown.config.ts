@@ -33,6 +33,7 @@ const components = [
   'scroll-area',
   'select',
   'separator',
+  'skeleton',
   'slider',
   'switch',
   'tabs',
