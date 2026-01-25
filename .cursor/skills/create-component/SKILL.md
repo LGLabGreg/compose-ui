@@ -1,3 +1,9 @@
+---
+name: create-component
+description: Create Component
+disable-model-invocation: true
+---
+
 # Create Component: $ARGUMENTS
 
 You are creating a new compose-ui component. Follow the guidelines in @component.mdc and complete all steps below.

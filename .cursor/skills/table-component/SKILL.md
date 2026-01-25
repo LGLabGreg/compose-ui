@@ -1,6 +1,6 @@
 ---
+name: table-component
 description: When creating the compose ui Table component
-alwaysApply: false
 ---
 
 # Compose UI Table Component - Implementation Plan

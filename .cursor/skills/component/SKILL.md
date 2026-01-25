@@ -1,6 +1,6 @@
 ---
+name: component
 description: When creating a new compose-ui component
-alwaysApply: false
 ---
 
 ## General Component Structure (Applies to All Components)
