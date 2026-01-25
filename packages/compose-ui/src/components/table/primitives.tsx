@@ -15,6 +15,8 @@ const tableVariants = cva('w-full caption-bottom text-sm', {
     variant: {
       default: '',
       striped: '[&_tbody_tr:nth-child(even)]:bg-muted/50',
+      bordered:
+        '[&_th:not(:last-child)]:border-r [&_td:not(:last-child)]:border-r [&_th]:border-border [&_td]:border-border',
     },
   },
   defaultVariants: { variant: 'default' },

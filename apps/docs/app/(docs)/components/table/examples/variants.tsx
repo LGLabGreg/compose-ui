@@ -10,10 +10,25 @@ import {
 } from '@lglab/compose-ui/table'
 
 const data = [
-  { name: 'Alice Johnson', email: 'alice@example.com', role: 'Admin' },
-  { name: 'Bob Smith', email: 'bob@example.com', role: 'User' },
-  { name: 'Charlie Brown', email: 'charlie@example.com', role: 'User' },
-  { name: 'Diana Prince', email: 'diana@example.com', role: 'Editor' },
+  {
+    name: 'Alice Johnson',
+    email: 'alice@example.com',
+    role: 'Admin',
+    department: 'Engineering',
+  },
+  { name: 'Bob Smith', email: 'bob@example.com', role: 'User', department: 'Marketing' },
+  {
+    name: 'Charlie Brown',
+    email: 'charlie@example.com',
+    role: 'User',
+    department: 'Sales',
+  },
+  {
+    name: 'Diana Prince',
+    email: 'diana@example.com',
+    role: 'Editor',
+    department: 'Design',
+  },
 ]
 
 export default function VariantsExample() {
@@ -27,6 +42,7 @@ export default function VariantsExample() {
               <TableHead>Name</TableHead>
               <TableHead>Email</TableHead>
               <TableHead>Role</TableHead>
+              <TableHead>Department</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -35,6 +51,7 @@ export default function VariantsExample() {
                 <TableCell>{row.name}</TableCell>
                 <TableCell>{row.email}</TableCell>
                 <TableCell>{row.role}</TableCell>
+                <TableCell>{row.department}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -49,6 +66,7 @@ export default function VariantsExample() {
               <TableHead>Name</TableHead>
               <TableHead>Email</TableHead>
               <TableHead>Role</TableHead>
+              <TableHead>Department</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -57,6 +75,7 @@ export default function VariantsExample() {
                 <TableCell>{row.name}</TableCell>
                 <TableCell>{row.email}</TableCell>
                 <TableCell>{row.role}</TableCell>
+                <TableCell>{row.department}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -66,12 +85,13 @@ export default function VariantsExample() {
       <div>
         <h4 className='mb-2 text-sm font-medium'>Bordered</h4>
         <div className='rounded-md border border-border'>
-          <TableRoot>
+          <TableRoot variant='bordered'>
             <TableHeader>
               <TableRow>
                 <TableHead>Name</TableHead>
                 <TableHead>Email</TableHead>
                 <TableHead>Role</TableHead>
+                <TableHead>Department</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -80,6 +100,7 @@ export default function VariantsExample() {
                   <TableCell>{row.name}</TableCell>
                   <TableCell>{row.email}</TableCell>
                   <TableCell>{row.role}</TableCell>
+                  <TableCell>{row.department}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

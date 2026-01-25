@@ -11,9 +11,27 @@ import {
 import { useState } from 'react'
 
 const users = [
-  { id: 1, name: 'John Doe', email: 'john@example.com' },
-  { id: 2, name: 'Jane Smith', email: 'jane@example.com' },
-  { id: 3, name: 'Bob Johnson', email: 'bob@example.com' },
+  {
+    id: 1,
+    name: 'John Doe',
+    email: 'john@example.com',
+    role: 'Admin',
+    department: 'Engineering',
+  },
+  {
+    id: 2,
+    name: 'Jane Smith',
+    email: 'jane@example.com',
+    role: 'User',
+    department: 'Marketing',
+  },
+  {
+    id: 3,
+    name: 'Bob Johnson',
+    email: 'bob@example.com',
+    role: 'Editor',
+    department: 'Sales',
+  },
 ]
 
 export default function SelectedExample() {
@@ -25,6 +43,8 @@ export default function SelectedExample() {
         <TableRow>
           <TableHead>Name</TableHead>
           <TableHead>Email</TableHead>
+          <TableHead>Role</TableHead>
+          <TableHead>Department</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -37,6 +57,8 @@ export default function SelectedExample() {
           >
             <TableCell>{user.name}</TableCell>
             <TableCell>{user.email}</TableCell>
+            <TableCell>{user.role}</TableCell>
+            <TableCell>{user.department}</TableCell>
           </TableRow>
         ))}
       </TableBody>
