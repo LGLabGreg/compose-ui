@@ -219,8 +219,8 @@
     "globals": "^17.1.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "tsdown": "^0.12.5",
+    "tsdown": "^0.20.1",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.53.1"
+    "typescript-eslint": "^8.54.0"
   }
 }
