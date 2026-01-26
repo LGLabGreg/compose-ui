@@ -1,19 +1,21 @@
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 
-export type Alignment = 'left' | 'center' | 'right'
+export type SortDirection = 'asc' | 'desc'
+
+// ============================================================================
+// Input Types (what users provide to useTable)
+// ============================================================================
 
 export interface ColumnDef<T, K extends keyof T = keyof T> {
-  header: string
+  key: K
+  header: ReactNode
   format?: (value: T[K], row: T) => string
   cell?: (value: T[K], row: T) => ReactNode
-  align?: Alignment
+  className?: string
   headerClassName?: string
   cellClassName?: string
   width?: string | number
-}
-
-export type ColumnsConfig<T> = {
-  [K in keyof T]?: ColumnDef<T, K>
+  sortable?: boolean
 }
 
 export interface PaginationConfig {
@@ -22,16 +24,29 @@ export interface PaginationConfig {
 }
 
 export interface UseTableOptions<T> {
-  columns: ColumnsConfig<T>
+  data: T[]
+  columns: ColumnDef<T, keyof T>[]
   pagination?: PaginationConfig
+  sort?: { key: keyof T; direction: SortDirection }
 }
+
+// ============================================================================
+// Output Types (what useTable returns)
+// ============================================================================
 
 export interface ProcessedColumn<T> {
   key: keyof T
-  header: string
-  headerClassName: string | undefined
-  cellClassName: string | undefined
-  width: string | number | undefined
+  head: {
+    children: ReactNode
+    className?: string
+    style?: CSSProperties
+    sortable: boolean
+    sortDirection?: SortDirection
+    onSort?: () => void
+  }
+  cell: {
+    className?: string
+  }
   renderCell: (row: T) => ReactNode
 }
 
@@ -45,4 +60,7 @@ export interface UseTableReturn<T> {
   pageSizeOptions: number[]
   onPageChange: (page: number) => void
   onPageSizeChange: (size: number) => void
+  sortKey: keyof T | null
+  sortDirection: SortDirection
+  onSort: (key: keyof T) => void
 }

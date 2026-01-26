@@ -211,27 +211,12 @@ describe('TableHead', () => {
     expect(screen.getByTestId('th')).toHaveClass('text-left')
   })
 
-  it('applies center alignment', () => {
+  it('applies custom className for alignment', () => {
     render(
       <table>
         <thead>
           <tr>
-            <TableHead data-testid='th' align='center'>
-              Header
-            </TableHead>
-          </tr>
-        </thead>
-      </table>,
-    )
-    expect(screen.getByTestId('th')).toHaveClass('text-center')
-  })
-
-  it('applies right alignment', () => {
-    render(
-      <table>
-        <thead>
-          <tr>
-            <TableHead data-testid='th' align='right'>
+            <TableHead data-testid='th' className='text-right'>
               Header
             </TableHead>
           </tr>
@@ -269,12 +254,12 @@ describe('TableCell', () => {
     expect(screen.getByTestId('td')).toHaveClass('p-4')
   })
 
-  it('applies center alignment', () => {
+  it('applies custom className for alignment', () => {
     render(
       <table>
         <tbody>
           <tr>
-            <TableCell data-testid='td' align='center'>
+            <TableCell data-testid='td' className='text-center'>
               Cell
             </TableCell>
           </tr>
@@ -282,21 +267,6 @@ describe('TableCell', () => {
       </table>,
     )
     expect(screen.getByTestId('td')).toHaveClass('text-center')
-  })
-
-  it('applies right alignment', () => {
-    render(
-      <table>
-        <tbody>
-          <tr>
-            <TableCell data-testid='td' align='right'>
-              Cell
-            </TableCell>
-          </tr>
-        </tbody>
-      </table>,
-    )
-    expect(screen.getByTestId('td')).toHaveClass('text-right')
   })
 })
 

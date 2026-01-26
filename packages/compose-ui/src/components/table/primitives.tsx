@@ -4,7 +4,7 @@ import { type VariantProps, cva } from 'class-variance-authority'
 import * as React from 'react'
 
 import { cn } from '../../lib/utils'
-import type { Alignment } from './types'
+import type { SortDirection } from './types'
 
 // ============================================================================
 // Table Variants
@@ -108,26 +108,87 @@ TableRow.displayName = 'TableRow'
 // TableHead
 // ============================================================================
 
-const alignmentClasses: Record<Alignment, string> = {
-  left: 'text-left',
-  center: 'text-center',
-  right: 'text-right',
+const ariaSortValues: Record<SortDirection, 'ascending' | 'descending'> = {
+  asc: 'ascending',
+  desc: 'descending',
 }
 
 type TableHeadProps = React.ComponentProps<'th'> & {
-  align?: Alignment
+  sortable?: boolean
+  sortDirection?: SortDirection
+  onSort?: () => void
 }
 
-const TableHead = ({ className, align, ...props }: TableHeadProps) => {
+const SortIcon = ({ direction }: { direction?: SortDirection }) => {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='16'
+      height='16'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      className='ml-1 inline-block'
+      aria-hidden='true'
+    >
+      {direction === 'asc' ? (
+        <path d='m18 15-6-6-6 6' />
+      ) : direction === 'desc' ? (
+        <path d='m6 9 6 6 6-6' />
+      ) : (
+        <>
+          <path d='m7 15 5 5 5-5' />
+          <path d='m7 9 5-5 5 5' />
+        </>
+      )}
+    </svg>
+  )
+}
+
+const TableHead = ({
+  className,
+  sortable,
+  sortDirection,
+  onSort,
+  children,
+  ...props
+}: TableHeadProps) => {
+  const isInteractive = sortable && onSort
+
+  const handleClick = () => {
+    if (isInteractive) onSort()
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTableCellElement>) => {
+    if (isInteractive && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault()
+      onSort()
+    }
+  }
+
   return (
     <th
       className={cn(
         'h-10 px-4 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0 *:[[role=checkbox]]:translate-y-[2px]',
-        align && alignmentClasses[align],
+        isInteractive &&
+          'cursor-pointer select-none hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset',
         className,
       )}
+      tabIndex={isInteractive ? 0 : undefined}
+      role={isInteractive ? 'columnheader button' : undefined}
+      aria-sort={sortDirection ? ariaSortValues[sortDirection] : undefined}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
       {...props}
-    />
+    >
+      <span className='inline-flex items-center'>
+        {children}
+        {sortable && <SortIcon direction={sortDirection} />}
+      </span>
+    </th>
   )
 }
 
@@ -137,16 +198,13 @@ TableHead.displayName = 'TableHead'
 // TableCell
 // ============================================================================
 
-type TableCellProps = React.ComponentProps<'td'> & {
-  align?: Alignment
-}
+type TableCellProps = React.ComponentProps<'td'>
 
-const TableCell = ({ className, align, ...props }: TableCellProps) => {
+const TableCell = ({ className, ...props }: TableCellProps) => {
   return (
     <td
       className={cn(
         'p-4 align-middle [&:has([role=checkbox])]:pr-0 *:[[role=checkbox]]:translate-y-[2px]',
-        align && alignmentClasses[align],
         className,
       )}
       {...props}

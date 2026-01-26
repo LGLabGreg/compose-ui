@@ -31,10 +31,10 @@ export default function BasicExample() {
       <TableCaption>A list of your recent invoices.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead className='w-[100px]'>Invoice</TableHead>
+          <TableHead>Invoice</TableHead>
           <TableHead>Status</TableHead>
           <TableHead>Method</TableHead>
-          <TableHead align='right'>Amount</TableHead>
+          <TableHead>Amount</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -51,7 +51,7 @@ export default function BasicExample() {
               </Badge>
             </TableCell>
             <TableCell>{invoice.method}</TableCell>
-            <TableCell align='right'>{invoice.amount}</TableCell>
+            <TableCell>{invoice.amount}</TableCell>
           </TableRow>
         ))}
       </TableBody>

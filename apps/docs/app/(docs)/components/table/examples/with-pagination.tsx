@@ -59,17 +59,18 @@ export default function WithPaginationExample() {
     pageSizeOptions,
     onPageChange,
     onPageSizeChange,
-  } = useTable(products, {
-    columns: {
-      id: { header: 'ID', width: 60 },
-      name: { header: 'Product Name' },
-      price: {
+  } = useTable({
+    data: products,
+    columns: [
+      { key: 'id', header: 'ID', width: 60 },
+      { key: 'name', header: 'Product Name' },
+      {
+        key: 'price',
         header: 'Price',
-        align: 'right',
-        format: (value) => `$${value.toFixed(2)}`,
+        format: (value) => `$${(value as number).toFixed(2)}`,
       },
-      category: { header: 'Category' },
-    },
+      { key: 'category', header: 'Category' },
+    ],
     pagination: { pageSize: 10 },
   })
 
@@ -93,13 +94,7 @@ export default function WithPaginationExample() {
         <TableHeader>
           <TableRow>
             {columns.map((col) => (
-              <TableHead
-                key={String(col.key)}
-                className={col.headerClassName}
-                style={{ width: col.width }}
-              >
-                {col.header}
-              </TableHead>
+              <TableHead key={String(col.key)} {...col.head} />
             ))}
           </TableRow>
         </TableHeader>
@@ -107,7 +102,7 @@ export default function WithPaginationExample() {
           {rows.map((row) => (
             <TableRow key={row.id}>
               {columns.map((col) => (
-                <TableCell key={String(col.key)} className={col.cellClassName}>
+                <TableCell key={String(col.key)} {...col.cell}>
                   {col.renderCell(row)}
                 </TableCell>
               ))}

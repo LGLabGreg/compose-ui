@@ -431,12 +431,12 @@ export type {
   TableHeadProps,
   TableCellProps,
   TableCaptionProps,
-  Alignment,
   ColumnDef,
-  ColumnsConfig,
   UseTableOptions,
   ProcessedColumn,
   UseTableReturn,
+  SortDirection,
+  PaginationConfig,
 } from './components/table'
 export type {
   ToastProviderProps,

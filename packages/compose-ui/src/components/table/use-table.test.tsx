@@ -8,6 +8,7 @@ interface TestData {
   name: string
   price: number
   active: boolean
+  createdAt?: Date
 }
 
 const testData: TestData[] = [
@@ -19,10 +20,9 @@ const testData: TestData[] = [
 describe('useTable', () => {
   it('returns rows from data', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          name: { header: 'Name' },
-        },
+      useTable({
+        data: testData,
+        columns: [{ key: 'name', header: 'Name' }],
       }),
     )
 
@@ -31,10 +31,9 @@ describe('useTable', () => {
 
   it('returns correct totalItems count', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          name: { header: 'Name' },
-        },
+      useTable({
+        data: testData,
+        columns: [{ key: 'name', header: 'Name' }],
       }),
     )
 
@@ -43,25 +42,25 @@ describe('useTable', () => {
 
   it('processes columns with headers', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          name: { header: 'Product Name' },
-          price: { header: 'Price' },
-        },
+      useTable({
+        data: testData,
+        columns: [
+          { key: 'name', header: 'Product Name' },
+          { key: 'price', header: 'Price' },
+        ],
       }),
     )
 
     expect(result.current.columns).toHaveLength(2)
-    expect(result.current.columns[0].header).toBe('Product Name')
-    expect(result.current.columns[1].header).toBe('Price')
+    expect(result.current.columns[0].head.children).toBe('Product Name')
+    expect(result.current.columns[1].head.children).toBe('Price')
   })
 
   it('renderCell returns raw value by default', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          name: { header: 'Name' },
-        },
+      useTable({
+        data: testData,
+        columns: [{ key: 'name', header: 'Name' }],
       }),
     )
 
@@ -71,13 +70,15 @@ describe('useTable', () => {
 
   it('renderCell uses format function when provided', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          price: {
+      useTable({
+        data: testData,
+        columns: [
+          {
+            key: 'price',
             header: 'Price',
             format: (value) => `$${value}`,
           },
-        },
+        ],
       }),
     )
 
@@ -87,14 +88,16 @@ describe('useTable', () => {
 
   it('renderCell prioritizes cell over format', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          price: {
+      useTable({
+        data: testData,
+        columns: [
+          {
+            key: 'price',
             header: 'Price',
             format: (value) => `$${value}`,
-            cell: (value) => <span data-testid='custom'>{value}</span>,
+            cell: (value) => <span data-testid='custom'>{value as number}</span>,
           },
-        },
+        ],
       }),
     )
 
@@ -104,13 +107,15 @@ describe('useTable', () => {
 
   it('format function receives both value and row', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          name: {
+      useTable({
+        data: testData,
+        columns: [
+          {
+            key: 'name',
             header: 'Name',
             format: (value, row) => `${value} (ID: ${row.id})`,
           },
-        },
+        ],
       }),
     )
 
@@ -120,15 +125,17 @@ describe('useTable', () => {
 
   it('cell function receives both value and row', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          name: {
+      useTable({
+        data: testData,
+        columns: [
+          {
+            key: 'name',
             header: 'Name',
             cell: (value, row) => (
               <span>{`${value} - ${row.active ? 'Active' : 'Inactive'}`}</span>
             ),
           },
-        },
+        ],
       }),
     )
 
@@ -140,10 +147,9 @@ describe('useTable', () => {
     const dataWithNull = [{ id: 1, name: null as unknown as string }]
 
     const { result } = renderHook(() =>
-      useTable(dataWithNull, {
-        columns: {
-          name: { header: 'Name' },
-        },
+      useTable({
+        data: dataWithNull,
+        columns: [{ key: 'name', header: 'Name' }],
       }),
     )
 
@@ -155,10 +161,9 @@ describe('useTable', () => {
     const dataWithUndefined = [{ id: 1, name: undefined as unknown as string }]
 
     const { result } = renderHook(() =>
-      useTable(dataWithUndefined, {
-        columns: {
-          name: { header: 'Name' },
-        },
+      useTable({
+        data: dataWithUndefined,
+        columns: [{ key: 'name', header: 'Name' }],
       }),
     )
 
@@ -166,81 +171,83 @@ describe('useTable', () => {
     expect(cell).toBe('')
   })
 
-  it('applies alignment class to headerClassName', () => {
+  it('applies className to head.className', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          price: {
+      useTable({
+        data: testData,
+        columns: [
+          {
+            key: 'price',
             header: 'Price',
-            align: 'right',
+            className: 'text-right',
           },
-        },
+        ],
       }),
     )
 
-    expect(result.current.columns[0].headerClassName).toBe('text-right')
+    expect(result.current.columns[0].head.className).toBe('text-right')
   })
 
-  it('applies alignment class to cellClassName', () => {
+  it('applies className to cell.className', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          price: {
+      useTable({
+        data: testData,
+        columns: [
+          {
+            key: 'price',
             header: 'Price',
-            align: 'center',
+            className: 'text-center',
           },
-        },
+        ],
       }),
     )
 
-    expect(result.current.columns[0].cellClassName).toBe('text-center')
+    expect(result.current.columns[0].cell.className).toBe('text-center')
   })
 
-  it('merges custom className with alignment', () => {
+  it('merges className with headerClassName and cellClassName', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          price: {
+      useTable({
+        data: testData,
+        columns: [
+          {
+            key: 'price',
             header: 'Price',
-            align: 'right',
+            className: 'text-right',
             headerClassName: 'font-bold',
             cellClassName: 'text-green-500',
           },
-        },
+        ],
       }),
     )
 
-    expect(result.current.columns[0].headerClassName).toBe('font-bold text-right')
-    expect(result.current.columns[0].cellClassName).toBe('text-green-500 text-right')
+    expect(result.current.columns[0].head.className).toBe('text-right font-bold')
+    expect(result.current.columns[0].cell.className).toBe('text-right text-green-500')
   })
 
-  it('passes width through to column', () => {
+  it('passes width through to head.style', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          name: {
-            header: 'Name',
-            width: 200,
-          },
-          price: {
-            header: 'Price',
-            width: '100px',
-          },
-        },
+      useTable({
+        data: testData,
+        columns: [
+          { key: 'name', header: 'Name', width: 200 },
+          { key: 'price', header: 'Price', width: '100px' },
+        ],
       }),
     )
 
-    expect(result.current.columns[0].width).toBe(200)
-    expect(result.current.columns[1].width).toBe('100px')
+    expect(result.current.columns[0].head.style).toEqual({ width: 200 })
+    expect(result.current.columns[1].head.style).toEqual({ width: '100px' })
   })
 
   it('preserves column key', () => {
     const { result } = renderHook(() =>
-      useTable(testData, {
-        columns: {
-          name: { header: 'Name' },
-          price: { header: 'Price' },
-        },
+      useTable({
+        data: testData,
+        columns: [
+          { key: 'name', header: 'Name' },
+          { key: 'price', header: 'Price' },
+        ],
       }),
     )
 
@@ -258,8 +265,9 @@ describe('useTable', () => {
 
     it('returns default pagination values when no config', () => {
       const { result } = renderHook(() =>
-        useTable(testData, {
-          columns: { name: { header: 'Name' } },
+        useTable({
+          data: testData,
+          columns: [{ key: 'name', header: 'Name' }],
         }),
       )
 
@@ -271,8 +279,9 @@ describe('useTable', () => {
 
     it('returns all rows when pagination not enabled', () => {
       const { result } = renderHook(() =>
-        useTable(paginatedData, {
-          columns: { name: { header: 'Name' } },
+        useTable({
+          data: paginatedData,
+          columns: [{ key: 'name', header: 'Name' }],
         }),
       )
 
@@ -282,8 +291,9 @@ describe('useTable', () => {
 
     it('returns rows sliced to current page when pagination enabled', () => {
       const { result } = renderHook(() =>
-        useTable(paginatedData, {
-          columns: { name: { header: 'Name' } },
+        useTable({
+          data: paginatedData,
+          columns: [{ key: 'name', header: 'Name' }],
           pagination: { pageSize: 10 },
         }),
       )
@@ -295,8 +305,9 @@ describe('useTable', () => {
 
     it('computes totalPages correctly from data length and pageSize', () => {
       const { result } = renderHook(() =>
-        useTable(paginatedData, {
-          columns: { name: { header: 'Name' } },
+        useTable({
+          data: paginatedData,
+          columns: [{ key: 'name', header: 'Name' }],
           pagination: { pageSize: 10 },
         }),
       )
@@ -307,8 +318,9 @@ describe('useTable', () => {
 
     it('onPageChange updates currentPage within bounds', () => {
       const { result } = renderHook(() =>
-        useTable(paginatedData, {
-          columns: { name: { header: 'Name' } },
+        useTable({
+          data: paginatedData,
+          columns: [{ key: 'name', header: 'Name' }],
           pagination: { pageSize: 10 },
         }),
       )
@@ -331,8 +343,9 @@ describe('useTable', () => {
 
     it('onPageChange clamps to valid range', () => {
       const { result } = renderHook(() =>
-        useTable(paginatedData, {
-          columns: { name: { header: 'Name' } },
+        useTable({
+          data: paginatedData,
+          columns: [{ key: 'name', header: 'Name' }],
           pagination: { pageSize: 10 },
         }),
       )
@@ -355,8 +368,9 @@ describe('useTable', () => {
 
     it('onPageSizeChange updates pageSize and resets to page 1', () => {
       const { result } = renderHook(() =>
-        useTable(paginatedData, {
-          columns: { name: { header: 'Name' } },
+        useTable({
+          data: paginatedData,
+          columns: [{ key: 'name', header: 'Name' }],
           pagination: { pageSize: 10 },
         }),
       )
@@ -386,8 +400,9 @@ describe('useTable', () => {
 
       const { result, rerender } = renderHook(
         ({ data }) =>
-          useTable(data, {
-            columns: { name: { header: 'Name' } },
+          useTable({
+            data,
+            columns: [{ key: 'name', header: 'Name' }],
             pagination: { pageSize: 10 },
           }),
         { initialProps: { data: initialData } },
@@ -407,8 +422,9 @@ describe('useTable', () => {
 
     it('custom pageSizeOptions are returned when provided', () => {
       const { result } = renderHook(() =>
-        useTable(paginatedData, {
-          columns: { name: { header: 'Name' } },
+        useTable({
+          data: paginatedData,
+          columns: [{ key: 'name', header: 'Name' }],
           pagination: { pageSize: 5, pageSizeOptions: [5, 15, 30] },
         }),
       )
@@ -419,14 +435,324 @@ describe('useTable', () => {
 
     it('totalPages is at least 1 even with empty data', () => {
       const { result } = renderHook(() =>
-        useTable([] as TestData[], {
-          columns: { name: { header: 'Name' } },
+        useTable({
+          data: [] as TestData[],
+          columns: [{ key: 'name', header: 'Name' }],
           pagination: { pageSize: 10 },
         }),
       )
 
       expect(result.current.totalPages).toBe(1)
       expect(result.current.rows).toHaveLength(0)
+    })
+  })
+
+  describe('sorting', () => {
+    it('returns default sort values when no sort option provided', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'name', header: 'Name' }],
+        }),
+      )
+
+      expect(result.current.sortKey).toBeNull()
+      expect(result.current.sortDirection).toBe('asc')
+    })
+
+    it('uses initial sort config when provided', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'name', header: 'Name' }],
+          sort: { key: 'price', direction: 'desc' },
+        }),
+      )
+
+      expect(result.current.sortKey).toBe('price')
+      expect(result.current.sortDirection).toBe('desc')
+      expect(result.current.rows[0].price).toBe(300)
+      expect(result.current.rows[2].price).toBe(100)
+    })
+
+    it('cycles sort direction asc -> desc -> unsorted', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'name', header: 'Name' }],
+        }),
+      )
+
+      // First click: ascending
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.sortKey).toBe('price')
+      expect(result.current.sortDirection).toBe('asc')
+
+      // Second click: descending
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.sortKey).toBe('price')
+      expect(result.current.sortDirection).toBe('desc')
+
+      // Third click: unsorted
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.sortKey).toBeNull()
+    })
+
+    it('re-sorts data correctly on multiple consecutive clicks', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'price', header: 'Price' }],
+        }),
+      )
+
+      // Initial: unsorted (original order)
+      expect(result.current.rows.map((r) => r.price)).toEqual([100, 200, 300])
+
+      // First click: ascending
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.sortKey).toBe('price')
+      expect(result.current.sortDirection).toBe('asc')
+      expect(result.current.rows.map((r) => r.price)).toEqual([100, 200, 300])
+
+      // Second click: descending
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.sortKey).toBe('price')
+      expect(result.current.sortDirection).toBe('desc')
+      expect(result.current.rows.map((r) => r.price)).toEqual([300, 200, 100])
+
+      // Third click: unsorted (back to original order)
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.sortKey).toBeNull()
+      expect(result.current.rows.map((r) => r.price)).toEqual([100, 200, 300])
+
+      // Fourth click: ascending again
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.sortKey).toBe('price')
+      expect(result.current.sortDirection).toBe('asc')
+      expect(result.current.rows.map((r) => r.price)).toEqual([100, 200, 300])
+    })
+
+    it('updates column sortDirection prop on multiple clicks', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'price', header: 'Price' }],
+        }),
+      )
+
+      // Initial: not sorted
+      expect(result.current.columns[0].head.sortDirection).toBeUndefined()
+
+      // First click: ascending
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.columns[0].head.sortDirection).toBe('asc')
+
+      // Second click: descending
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.columns[0].head.sortDirection).toBe('desc')
+
+      // Third click: unsorted
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.columns[0].head.sortDirection).toBeUndefined()
+    })
+
+    it('resets to asc when sorting a different column', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [
+            { key: 'name', header: 'Name' },
+            { key: 'price', header: 'Price' },
+          ],
+        }),
+      )
+
+      act(() => {
+        result.current.onSort('price')
+      })
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.sortDirection).toBe('desc')
+
+      act(() => {
+        result.current.onSort('name')
+      })
+      expect(result.current.sortKey).toBe('name')
+      expect(result.current.sortDirection).toBe('asc')
+    })
+
+    it('sorts numbers correctly', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'price', header: 'Price' }],
+          sort: { key: 'price', direction: 'asc' },
+        }),
+      )
+
+      expect(result.current.rows.map((r) => r.price)).toEqual([100, 200, 300])
+
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.rows.map((r) => r.price)).toEqual([300, 200, 100])
+    })
+
+    it('sorts strings case-insensitively', () => {
+      const data = [
+        { id: 1, name: 'banana', price: 1, active: true },
+        { id: 2, name: 'Apple', price: 2, active: true },
+        { id: 3, name: 'cherry', price: 3, active: true },
+      ]
+
+      const { result } = renderHook(() =>
+        useTable({
+          data,
+          columns: [{ key: 'name', header: 'Name' }],
+          sort: { key: 'name', direction: 'asc' },
+        }),
+      )
+
+      expect(result.current.rows.map((r) => r.name)).toEqual([
+        'Apple',
+        'banana',
+        'cherry',
+      ])
+    })
+
+    it('sorts dates correctly', () => {
+      const data: TestData[] = [
+        { id: 1, name: 'A', price: 1, active: true, createdAt: new Date('2024-03-01') },
+        { id: 2, name: 'B', price: 2, active: true, createdAt: new Date('2024-01-01') },
+        { id: 3, name: 'C', price: 3, active: true, createdAt: new Date('2024-02-01') },
+      ]
+
+      const { result } = renderHook(() =>
+        useTable({
+          data,
+          columns: [{ key: 'createdAt', header: 'Created' }],
+          sort: { key: 'createdAt', direction: 'asc' },
+        }),
+      )
+
+      expect(result.current.rows.map((r) => r.id)).toEqual([2, 3, 1])
+    })
+
+    it('sorts booleans correctly (false < true)', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'active', header: 'Active' }],
+          sort: { key: 'active', direction: 'asc' },
+        }),
+      )
+
+      expect(result.current.rows.map((r) => r.active)).toEqual([false, true, true])
+    })
+
+    it('sorts nulls to end regardless of direction', () => {
+      const data = [
+        { id: 1, name: 'B', price: 100, active: true },
+        { id: 2, name: null as unknown as string, price: 200, active: true },
+        { id: 3, name: 'A', price: 300, active: true },
+      ]
+
+      const { result } = renderHook(() =>
+        useTable({
+          data,
+          columns: [{ key: 'name', header: 'Name' }],
+          sort: { key: 'name', direction: 'asc' },
+        }),
+      )
+
+      expect(result.current.rows.map((r) => r.name)).toEqual(['A', 'B', null])
+
+      act(() => {
+        result.current.onSort('name')
+      })
+      expect(result.current.rows.map((r) => r.name)).toEqual(['B', 'A', null])
+    })
+
+    it('column sortable: true enables sorting for that column', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [
+            { key: 'name', header: 'Name', sortable: true },
+            { key: 'price', header: 'Price' },
+          ],
+        }),
+      )
+
+      expect(result.current.columns[0].head.sortable).toBe(true)
+      expect(result.current.columns[0].head.onSort).toBeDefined()
+      expect(result.current.columns[1].head.sortable).toBe(false)
+      expect(result.current.columns[1].head.onSort).toBeUndefined()
+    })
+
+    it('column includes sortDirection when sorted', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [
+            { key: 'name', header: 'Name' },
+            { key: 'price', header: 'Price' },
+          ],
+          sort: { key: 'price', direction: 'asc' },
+        }),
+      )
+
+      expect(result.current.columns[0].head.sortDirection).toBeUndefined()
+      expect(result.current.columns[1].head.sortDirection).toBe('asc')
+    })
+
+    it('sort resets pagination to page 1', () => {
+      const paginatedData: TestData[] = Array.from({ length: 25 }, (_, i) => ({
+        id: i + 1,
+        name: `Item ${i + 1}`,
+        price: (i + 1) * 10,
+        active: i % 2 === 0,
+      }))
+
+      const { result } = renderHook(() =>
+        useTable({
+          data: paginatedData,
+          columns: [{ key: 'name', header: 'Name' }],
+          pagination: { pageSize: 10 },
+        }),
+      )
+
+      act(() => {
+        result.current.onPageChange(2)
+      })
+      expect(result.current.currentPage).toBe(2)
+
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.currentPage).toBe(1)
     })
   })
 })

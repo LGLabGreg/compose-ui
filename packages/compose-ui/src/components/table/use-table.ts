@@ -1,43 +1,51 @@
 import { type ReactNode, useCallback, useMemo, useState } from 'react'
 
 import { cn } from '../../lib/utils'
+import { compareValues } from './sort'
 import type {
-  Alignment,
   ColumnDef,
   ProcessedColumn,
+  SortDirection,
   UseTableOptions,
   UseTableReturn,
 } from './types'
 
-const alignmentClasses: Record<Alignment, string> = {
-  left: 'text-left',
-  center: 'text-center',
-  right: 'text-right',
-}
-
 const DEFAULT_PAGE_SIZE = 10
 const DEFAULT_PAGE_SIZE_OPTIONS = [10, 25, 50, 100]
 
-export function useTable<T>(data: T[], options: UseTableOptions<T>): UseTableReturn<T> {
+export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
+  const { data, columns: columnDefs, pagination, sort } = options
+
   const [currentPage, setCurrentPage] = useState(1)
-  const [pageSize, setPageSize] = useState(
-    options.pagination?.pageSize ?? DEFAULT_PAGE_SIZE,
-  )
+  const [pageSize, setPageSize] = useState(pagination?.pageSize ?? DEFAULT_PAGE_SIZE)
+  const [sortState, setSortState] = useState<{
+    key: keyof T | null
+    direction: SortDirection
+  }>({
+    key: sort?.key ?? null,
+    direction: sort?.direction ?? 'asc',
+  })
 
-  const pageSizeOptions = options.pagination?.pageSizeOptions ?? DEFAULT_PAGE_SIZE_OPTIONS
+  const sortKey = sortState.key
+  const sortDirection = sortState.direction
 
-  const totalItems = data.length
-  const totalPages = options.pagination
-    ? Math.max(1, Math.ceil(totalItems / pageSize))
-    : 1
+  const pageSizeOptions = pagination?.pageSizeOptions ?? DEFAULT_PAGE_SIZE_OPTIONS
+
+  const sortedData = useMemo(() => {
+    if (!sortKey) return data
+    return [...data].sort((a, b) => compareValues(a[sortKey], b[sortKey], sortDirection))
+  }, [data, sortKey, sortDirection])
+
+  const totalItems = sortedData.length
+  const totalPages = pagination ? Math.max(1, Math.ceil(totalItems / pageSize)) : 1
 
   const effectivePage = Math.min(currentPage, totalPages)
 
   const rows = useMemo(() => {
-    if (!options.pagination) return data
+    if (!pagination) return sortedData
     const start = (effectivePage - 1) * pageSize
-    return data.slice(start, start + pageSize)
-  }, [data, effectivePage, pageSize, options.pagination])
+    return sortedData.slice(start, start + pageSize)
+  }, [sortedData, effectivePage, pageSize, pagination])
 
   const onPageChange = useCallback(
     (page: number) => {
@@ -51,9 +59,25 @@ export function useTable<T>(data: T[], options: UseTableOptions<T>): UseTableRet
     setCurrentPage(1)
   }, [])
 
+  const onSort = useCallback((key: keyof T) => {
+    setSortState((prev) => {
+      if (prev.key !== key) {
+        return { key, direction: 'asc' }
+      }
+      if (prev.direction === 'asc') {
+        return { key, direction: 'desc' }
+      }
+      return { key: null, direction: 'asc' }
+    })
+    setCurrentPage(1)
+  }, [])
+
   const columns = useMemo(() => {
-    const entries = Object.entries(options.columns) as [keyof T, ColumnDef<T>][]
-    return entries.map(([key, def]): ProcessedColumn<T> => {
+    return columnDefs.map((def: ColumnDef<T, keyof T>): ProcessedColumn<T> => {
+      const key = def.key
+      const sortable = def.sortable ?? false
+      const isSorted = sortKey === key
+
       const renderCell = (row: T): ReactNode => {
         const value = row[key]
         if (def.cell) return def.cell(value, row)
@@ -61,18 +85,23 @@ export function useTable<T>(data: T[], options: UseTableOptions<T>): UseTableRet
         return value == null ? '' : String(value)
       }
 
-      const alignClass = def.align ? alignmentClasses[def.align] : undefined
-
       return {
         key,
-        header: def.header,
-        headerClassName: cn(def.headerClassName, alignClass) || undefined,
-        cellClassName: cn(def.cellClassName, alignClass) || undefined,
-        width: def.width,
+        head: {
+          children: def.header,
+          className: cn(def.className, def.headerClassName) || undefined,
+          style: def.width ? { width: def.width } : undefined,
+          sortable,
+          sortDirection: isSorted ? sortDirection : undefined,
+          onSort: sortable ? () => onSort(key) : undefined,
+        },
+        cell: {
+          className: cn(def.className, def.cellClassName) || undefined,
+        },
         renderCell,
       }
     })
-  }, [options.columns])
+  }, [columnDefs, sortKey, sortDirection, onSort])
 
   return {
     columns,
@@ -84,5 +113,8 @@ export function useTable<T>(data: T[], options: UseTableOptions<T>): UseTableRet
     pageSizeOptions,
     onPageChange,
     onPageSizeChange,
+    sortKey,
+    sortDirection,
+    onSort,
   }
 }

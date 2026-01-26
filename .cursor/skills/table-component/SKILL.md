@@ -754,7 +754,7 @@ function UsersTable() {
         sortable: false, // Disable sorting
       },
     },
-    sort: { key: 'name', direction: 'asc' },
+    sort: { column: 'name', direction: 'asc' },
     pagination: { pageSize: 10 },
   })
 

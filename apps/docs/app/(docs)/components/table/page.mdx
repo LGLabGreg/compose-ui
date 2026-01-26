@@ -3,8 +3,8 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 import BasicExample from './examples/basic'
 import SelectedExample from './examples/selected'
 import VariantsExample from './examples/variants'
-import WithHookExample from './examples/with-hook'
 import WithPaginationExample from './examples/with-pagination'
+import WithSortingExample from './examples/with-sorting'
 
 <ComponentPage
   title="Table"
@@ -14,13 +14,6 @@ import WithPaginationExample from './examples/with-pagination'
 
 <ExampleLoader title='Basic' filePath='app/(docs)/components/table/examples/basic.tsx'>
   <BasicExample />
-</ExampleLoader>
-
-<ExampleLoader
-  title='With useTable Hook'
-  filePath='app/(docs)/components/table/examples/with-hook.tsx'
->
-  <WithHookExample />
 </ExampleLoader>
 
 <ExampleLoader
@@ -42,6 +35,13 @@ import WithPaginationExample from './examples/with-pagination'
   filePath='app/(docs)/components/table/examples/with-pagination.tsx'
 >
   <WithPaginationExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Sorting'
+  filePath='app/(docs)/components/table/examples/with-sorting.tsx'
+>
+  <WithSortingExample />
 </ExampleLoader>
 
 </ComponentPage>
