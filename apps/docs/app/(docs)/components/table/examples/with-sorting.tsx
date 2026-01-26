@@ -96,7 +96,7 @@ export default function WithSortingExample() {
       <TableHeader>
         <TableRow>
           {columns.map((col) => (
-            <TableHead key={String(col.key)} {...col.head} />
+            <TableHead key={col.key} {...col.head} />
           ))}
         </TableRow>
       </TableHeader>
@@ -104,7 +104,7 @@ export default function WithSortingExample() {
         {rows.map((row) => (
           <TableRow key={row.id}>
             {columns.map((col) => (
-              <TableCell key={String(col.key)} {...col.cell}>
+              <TableCell key={col.key} {...col.cell}>
                 {col.renderCell(row)}
               </TableCell>
             ))}

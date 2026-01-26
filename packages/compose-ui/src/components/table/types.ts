@@ -23,11 +23,17 @@ export interface PaginationConfig {
   pageSizeOptions?: number[]
 }
 
+export interface SearchConfig<T> {
+  keys: (keyof T)[]
+  debounceMs?: number
+}
+
 export interface UseTableOptions<T> {
   data: T[]
   columns: ColumnDef<T, keyof T>[]
   pagination?: PaginationConfig
   sort?: { key: keyof T; direction: SortDirection }
+  search?: SearchConfig<T>
 }
 
 // ============================================================================
@@ -63,4 +69,6 @@ export interface UseTableReturn<T> {
   sortKey: keyof T | null
   sortDirection: SortDirection
   onSort: (key: keyof T) => void
+  searchTerm: string
+  onSearchChange: (term: string) => void
 }

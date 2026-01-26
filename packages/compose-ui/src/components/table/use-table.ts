@@ -1,4 +1,4 @@
-import { type ReactNode, useCallback, useMemo, useState } from 'react'
+import { type ReactNode, useCallback, useDeferredValue, useMemo, useState } from 'react'
 
 import { cn } from '../../lib/utils'
 import { compareValues } from './sort'
@@ -14,7 +14,7 @@ const DEFAULT_PAGE_SIZE = 10
 const DEFAULT_PAGE_SIZE_OPTIONS = [10, 25, 50, 100]
 
 export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
-  const { data, columns: columnDefs, pagination, sort } = options
+  const { data, columns: columnDefs, pagination, sort, search } = options
 
   const [currentPage, setCurrentPage] = useState(1)
   const [pageSize, setPageSize] = useState(pagination?.pageSize ?? DEFAULT_PAGE_SIZE)
@@ -25,16 +25,28 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
     key: sort?.key ?? null,
     direction: sort?.direction ?? 'asc',
   })
+  const [searchTerm, setSearchTerm] = useState('')
 
   const sortKey = sortState.key
   const sortDirection = sortState.direction
+  const debouncedSearchTerm = useDeferredValue(searchTerm)
 
   const pageSizeOptions = pagination?.pageSizeOptions ?? DEFAULT_PAGE_SIZE_OPTIONS
 
+  const filteredData = useMemo(() => {
+    if (!search || !debouncedSearchTerm) return data
+    const term = debouncedSearchTerm.toLowerCase()
+    return data.filter((row) =>
+      search.keys.some((key) => String(row[key]).toLowerCase().includes(term)),
+    )
+  }, [data, debouncedSearchTerm, search])
+
   const sortedData = useMemo(() => {
-    if (!sortKey) return data
-    return [...data].sort((a, b) => compareValues(a[sortKey], b[sortKey], sortDirection))
-  }, [data, sortKey, sortDirection])
+    if (!sortKey) return filteredData
+    return [...filteredData].sort((a, b) =>
+      compareValues(a[sortKey], b[sortKey], sortDirection),
+    )
+  }, [filteredData, sortKey, sortDirection])
 
   const totalItems = sortedData.length
   const totalPages = pagination ? Math.max(1, Math.ceil(totalItems / pageSize)) : 1
@@ -69,6 +81,11 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
       }
       return { key: null, direction: 'asc' }
     })
+    setCurrentPage(1)
+  }, [])
+
+  const onSearchChange = useCallback((term: string) => {
+    setSearchTerm(term)
     setCurrentPage(1)
   }, [])
 
@@ -116,5 +133,7 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
     sortKey,
     sortDirection,
     onSort,
+    searchTerm,
+    onSearchChange,
   }
 }
