@@ -194,7 +194,7 @@ export default function WithFiltersExample() {
               <PopoverPopup className='min-w-[140px] p-2'>
                 <CheckboxGroupRoot
                   value={selectedStatuses}
-                  onValueChange={(v) => table.setFilterValue('status', v)}
+                  onValueChange={(value) => table.setFilterValue('status', value)}
                 >
                   {statuses.map((status) => (
                     <label
@@ -233,7 +233,7 @@ export default function WithFiltersExample() {
                   min={0}
                   max={2500}
                   step={50}
-                  onValueChange={(v) => table.setFilterValue('amount', v)}
+                  onValueChange={(value) => table.setFilterValue('amount', value)}
                   format={{
                     style: 'currency',
                     currency: 'USD',
@@ -307,7 +307,9 @@ export default function WithFiltersExample() {
               <PopoverPopup className='min-w-[200px] p-2'>
                 <RadioGroupRoot
                   value={selectedEmail}
-                  onValueChange={(v) => table.setFilterValue('email', v || undefined)}
+                  onValueChange={(value) =>
+                    table.setFilterValue('email', value || undefined)
+                  }
                 >
                   {invoices.map((invoice) => (
                     <label

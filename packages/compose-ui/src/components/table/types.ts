@@ -38,7 +38,8 @@ export interface FilterDef<T, V = unknown> {
 }
 
 // Filter config map: filterId -> FilterDef
-export type FiltersConfig<T> = Record<string, FilterDef<T, unknown>>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- intentional: each filter can have different value types
+export type FiltersConfig<T> = Record<string, FilterDef<T, any>>
 
 // Filter values map: filterId -> current value
 export type FilterValues = Record<string, unknown>
