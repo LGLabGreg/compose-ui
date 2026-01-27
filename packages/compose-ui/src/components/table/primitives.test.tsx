@@ -149,39 +149,6 @@ describe('TableRow', () => {
     )
     expect(screen.getByTestId('row')).toHaveClass('hover:bg-muted/50')
   })
-
-  it('adds data-selected attribute when selected', () => {
-    render(
-      <table>
-        <tbody>
-          <TableRow data-testid='row' selected />
-        </tbody>
-      </table>,
-    )
-    expect(screen.getByTestId('row')).toHaveAttribute('data-selected')
-  })
-
-  it('does not have data-selected when not selected', () => {
-    render(
-      <table>
-        <tbody>
-          <TableRow data-testid='row' />
-        </tbody>
-      </table>,
-    )
-    expect(screen.getByTestId('row')).not.toHaveAttribute('data-selected')
-  })
-
-  it('applies selected styling', () => {
-    render(
-      <table>
-        <tbody>
-          <TableRow data-testid='row' selected />
-        </tbody>
-      </table>,
-    )
-    expect(screen.getByTestId('row').className).toContain('data-selected:bg-primary/10')
-  })
 })
 
 describe('TableHead', () => {

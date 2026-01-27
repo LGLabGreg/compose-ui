@@ -85,18 +85,12 @@ TableFooter.displayName = 'TableFooter'
 // TableRow
 // ============================================================================
 
-type TableRowProps = React.ComponentProps<'tr'> & {
-  selected?: boolean
-}
+type TableRowProps = React.ComponentProps<'tr'>
 
-const TableRow = ({ className, selected, ...props }: TableRowProps) => {
+const TableRow = ({ className, ...props }: TableRowProps) => {
   return (
     <tr
-      data-selected={selected || undefined}
-      className={cn(
-        'border-b transition-colors hover:bg-muted/50 data-selected:bg-primary/10',
-        className,
-      )}
+      className={cn('border-b transition-colors hover:bg-muted/50', className)}
       {...props}
     />
   )
