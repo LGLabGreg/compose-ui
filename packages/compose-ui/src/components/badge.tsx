@@ -11,7 +11,7 @@ import { cn } from '../lib/utils'
 
 const badgeVariants = cva(
   [
-    'inline-flex items-center gap-1.5 whitespace-nowrap font-medium transition-colors',
+    'inline-flex items-center gap-1.5 whitespace-nowrap font-medium leading-none transition-colors',
     '[&_svg]:pointer-events-none [&_svg]:shrink-0',
   ],
   {

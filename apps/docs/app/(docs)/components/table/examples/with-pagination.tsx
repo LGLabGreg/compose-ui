@@ -89,7 +89,7 @@ export default function WithPaginationExample() {
   }))
 
   return (
-    <div className='flex flex-col gap-4 flex-1'>
+    <div className='flex flex-col w-full gap-4'>
       <TableRoot>
         <TableHeader>
           <TableRow>

@@ -4,6 +4,7 @@ import { cn } from '../../lib/utils'
 import { compareValues } from './sort'
 import type {
   ColumnDef,
+  FilterValues,
   ProcessedColumn,
   SortDirection,
   UseTableOptions,
@@ -14,7 +15,7 @@ const DEFAULT_PAGE_SIZE = 10
 const DEFAULT_PAGE_SIZE_OPTIONS = [10, 25, 50, 100]
 
 export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
-  const { data, columns: columnDefs, pagination, sort, search } = options
+  const { data, columns: columnDefs, pagination, sort, search, filters } = options
 
   const [currentPage, setCurrentPage] = useState(1)
   const [pageSize, setPageSize] = useState(pagination?.pageSize ?? DEFAULT_PAGE_SIZE)
@@ -26,6 +27,16 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
     direction: sort?.direction ?? 'asc',
   })
   const [searchTerm, setSearchTerm] = useState('')
+  const [filterValues, setFilterValues] = useState<FilterValues>(() => {
+    if (!filters) return {}
+    const initial: FilterValues = {}
+    for (const [id, def] of Object.entries(filters)) {
+      if (def.defaultValue !== undefined) {
+        initial[id] = def.defaultValue
+      }
+    }
+    return initial
+  })
 
   const sortKey = sortState.key
   const sortDirection = sortState.direction
@@ -33,13 +44,27 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
 
   const pageSizeOptions = pagination?.pageSizeOptions ?? DEFAULT_PAGE_SIZE_OPTIONS
 
+  // Step 1: Apply filters
+  const filteredByFilters = useMemo(() => {
+    if (!filters) return data
+    return data.filter((row) => {
+      for (const [id, def] of Object.entries(filters)) {
+        const value = filterValues[id]
+        if (value === undefined) continue
+        if (!def.predicate(row, value)) return false
+      }
+      return true
+    })
+  }, [data, filters, filterValues])
+
+  // Step 2: Apply search
   const filteredData = useMemo(() => {
-    if (!search || !debouncedSearchTerm) return data
+    if (!search || !debouncedSearchTerm) return filteredByFilters
     const term = debouncedSearchTerm.toLowerCase()
-    return data.filter((row) =>
+    return filteredByFilters.filter((row) =>
       search.keys.some((key) => String(row[key]).toLowerCase().includes(term)),
     )
-  }, [data, debouncedSearchTerm, search])
+  }, [filteredByFilters, debouncedSearchTerm, search])
 
   const sortedData = useMemo(() => {
     if (!sortKey) return filteredData
@@ -89,6 +114,28 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
     setCurrentPage(1)
   }, [])
 
+  const setFilterValue = useCallback((id: string, value: unknown) => {
+    setFilterValues((prev) => ({ ...prev, [id]: value }))
+    setCurrentPage(1)
+  }, [])
+
+  const clearFilters = useCallback(() => {
+    setFilterValues({})
+    setCurrentPage(1)
+  }, [])
+
+  const activeFilterCount = useMemo(
+    () =>
+      Object.values(filterValues).filter(
+        (v) =>
+          v !== undefined &&
+          v !== null &&
+          !(Array.isArray(v) && v.length === 0) &&
+          v !== '',
+      ).length,
+    [filterValues],
+  )
+
   const columns = useMemo(() => {
     return columnDefs.map((def: ColumnDef<T, keyof T>): ProcessedColumn<T> => {
       const key = def.key
@@ -135,5 +182,9 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
     onSort,
     searchTerm,
     onSearchChange,
+    filterValues,
+    setFilterValue,
+    clearFilters,
+    activeFilterCount,
   }
 }

@@ -1,5 +1,6 @@
 'use client'
 
+import { FieldControl, FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
 import { Input } from '@lglab/compose-ui/input'
 import {
   TableBody,
@@ -40,13 +41,19 @@ export default function WithSearchExample() {
   })
 
   return (
-    <div className='flex flex-col flex-1 gap-4'>
-      <Input
-        placeholder='Search users...'
-        value={searchTerm}
-        onChange={(e) => onSearchChange(e.target.value)}
-        className='w-[250px]'
-      />
+    <div className='flex flex-col w-full gap-2'>
+      <FieldRoot className='w-[250px]'>
+        <FieldLabel>Search users by name or email</FieldLabel>
+        <FieldControl
+          render={
+            <Input
+              placeholder='Search'
+              value={searchTerm}
+              onChange={(e) => onSearchChange(e.target.value)}
+            />
+          }
+        />
+      </FieldRoot>
       <TableRoot>
         <TableHeader>
           <TableRow>

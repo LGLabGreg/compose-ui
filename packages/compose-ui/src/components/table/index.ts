@@ -1,4 +1,5 @@
 export * from './primitives'
 export { useTable } from './use-table'
+export { containsFilter, equalsFilter, includesFilter, rangeFilter } from './filters'
 export type { SortDirection } from './types'
 export type * from './types'

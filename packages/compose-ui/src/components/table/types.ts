@@ -28,12 +28,28 @@ export interface SearchConfig<T> {
   debounceMs?: number
 }
 
+// Filter predicate: returns true if row should be included
+export type FilterPredicate<T, V = unknown> = (row: T, value: V) => boolean
+
+// Filter definition
+export interface FilterDef<T, V = unknown> {
+  predicate: FilterPredicate<T, V>
+  defaultValue?: V
+}
+
+// Filter config map: filterId -> FilterDef
+export type FiltersConfig<T> = Record<string, FilterDef<T, unknown>>
+
+// Filter values map: filterId -> current value
+export type FilterValues = Record<string, unknown>
+
 export interface UseTableOptions<T> {
   data: T[]
   columns: ColumnDef<T, keyof T>[]
   pagination?: PaginationConfig
   sort?: { key: keyof T; direction: SortDirection }
   search?: SearchConfig<T>
+  filters?: FiltersConfig<T>
 }
 
 // ============================================================================
@@ -71,4 +87,8 @@ export interface UseTableReturn<T> {
   onSort: (key: keyof T) => void
   searchTerm: string
   onSearchChange: (term: string) => void
+  filterValues: FilterValues
+  setFilterValue: (filterId: string, value: unknown) => void
+  clearFilters: () => void
+  activeFilterCount: number
 }
