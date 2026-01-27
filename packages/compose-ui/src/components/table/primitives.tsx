@@ -18,11 +18,16 @@ const tableVariants = cva('w-full caption-bottom text-sm', {
       bordered:
         '[&_th:not(:last-child)]:border-r [&_td:not(:last-child)]:border-r [&_th]:border-border [&_td]:border-border',
     },
+    size: {
+      default: '',
+      compact: '[&_th]:h-8 [&_th]:px-2 [&_td]:p-2.5',
+    },
   },
-  defaultVariants: { variant: 'default' },
+  defaultVariants: { variant: 'default', size: 'default' },
 })
 
 export type TableVariant = VariantProps<typeof tableVariants>['variant']
+export type TableSize = VariantProps<typeof tableVariants>['size']
 
 // ============================================================================
 // TableRoot
@@ -30,10 +35,10 @@ export type TableVariant = VariantProps<typeof tableVariants>['variant']
 
 type TableRootProps = React.ComponentProps<'table'> & VariantProps<typeof tableVariants>
 
-const TableRoot = ({ className, variant, ...props }: TableRootProps) => {
+const TableRoot = ({ className, variant, size, ...props }: TableRootProps) => {
   return (
     <div className='relative w-full overflow-x-auto'>
-      <table className={cn(tableVariants({ variant }), className)} {...props} />
+      <table className={cn(tableVariants({ variant, size }), className)} {...props} />
     </div>
   )
 }

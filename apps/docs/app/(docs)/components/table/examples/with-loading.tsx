@@ -12,7 +12,7 @@ import {
 
 export default function WithLoadingExample() {
   return (
-    <TableRoot>
+    <TableRoot size='compact'>
       <TableHeader>
         <TableRow>
           <TableHead>Invoice</TableHead>

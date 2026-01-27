@@ -1,6 +1,7 @@
 import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import BasicExample from './examples/basic'
+import SizesExample from './examples/sizes'
 import VariantsExample from './examples/variants'
 import WithFiltersExample from './examples/with-filters'
 import WithLoadingExample from './examples/with-loading'
@@ -23,6 +24,10 @@ import WithSortingExample from './examples/with-sorting'
   filePath='app/(docs)/components/table/examples/variants.tsx'
 >
   <VariantsExample />
+</ExampleLoader>
+
+<ExampleLoader title='Compact' filePath='app/(docs)/components/table/examples/sizes.tsx'>
+  <SizesExample />
 </ExampleLoader>
 
 <ExampleLoader
@@ -296,7 +301,10 @@ import WithSortingExample from './examples/with-sorting'
   />
 </ApiSection>
 
-<ApiSection title='TableRoot' description='The root table element with variant support.'>
+<ApiSection
+  title='TableRoot'
+  description='The root table element with variant and size support.'
+>
   <ApiTable
     data={[
       {
@@ -304,6 +312,12 @@ import WithSortingExample from './examples/with-sorting'
         type: "'default' | 'striped' | 'bordered'",
         default: "'default'",
         description: 'Visual style variant',
+      },
+      {
+        name: 'size',
+        type: "'default' | 'compact'",
+        default: "'default'",
+        description: 'Table density size',
       },
       {
         name: '...props',
@@ -438,6 +452,11 @@ import WithSortingExample from './examples/with-sorting'
         name: 'TableVariant',
         type: "'default' | 'striped' | 'bordered'",
         description: 'Table variant type',
+      },
+      {
+        name: 'TableSize',
+        type: "'default' | 'compact'",
+        description: 'Table size type',
       },
       {
         name: 'ColumnDef<T>',

@@ -30,7 +30,7 @@ export function ApiTable({
   showDefault = true,
 }: ApiTableProps) {
   return (
-    <TableRoot>
+    <TableRoot size='compact'>
       <TableHeader>
         <TableRow>
           <TableHead>Prop</TableHead>
