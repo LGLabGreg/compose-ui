@@ -79,6 +79,17 @@ export { SwitchRoot, SwitchThumb } from './components/switch'
 export { Toggle } from './components/toggle'
 export { TabsRoot, TabsList, TabsTab, TabsIndicator, TabsPanel } from './components/tabs'
 export {
+  TableRoot,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableRow,
+  TableHead,
+  TableCell,
+  TableCaption,
+  useTable,
+} from './components/table'
+export {
   Toast,
   ToastProvider,
   ToastViewport,
@@ -197,6 +208,18 @@ export {
   NumberFieldDecrement,
   NumberFieldIncrement,
 } from './components/number-field'
+export {
+  usePagination,
+  PaginationRoot,
+  PaginationContent,
+  PaginationItem,
+  PaginationButton,
+  PaginationPrevious,
+  PaginationNext,
+  PaginationFirst,
+  PaginationLast,
+  PaginationEllipsis,
+} from './components/pagination'
 export {
   PopoverRoot,
   PopoverTrigger,
@@ -400,6 +423,22 @@ export type {
   TabsPanelProps,
 } from './components/tabs'
 export type {
+  TableRootProps,
+  TableHeaderProps,
+  TableBodyProps,
+  TableFooterProps,
+  TableRowProps,
+  TableHeadProps,
+  TableCellProps,
+  TableCaptionProps,
+  ColumnDef,
+  UseTableOptions,
+  ProcessedColumn,
+  UseTableReturn,
+  SortDirection,
+  PaginationConfig,
+} from './components/table'
+export type {
   ToastProviderProps,
   ToastViewportProps,
   ToastRootProps,
@@ -517,6 +556,20 @@ export type {
   NumberFieldDecrementProps,
   NumberFieldIncrementProps,
 } from './components/number-field'
+export type {
+  PaginationPage,
+  UsePaginationOptions,
+  UsePaginationReturn,
+  PaginationRootProps,
+  PaginationContentProps,
+  PaginationItemProps,
+  PaginationButtonProps,
+  PaginationPreviousProps,
+  PaginationNextProps,
+  PaginationFirstProps,
+  PaginationLastProps,
+  PaginationEllipsisProps,
+} from './components/pagination'
 export type {
   PopoverRootProps,
   PopoverTriggerProps,

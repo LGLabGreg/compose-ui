@@ -12,7 +12,7 @@ import {
 export default function RangeExample() {
   return (
     <SliderRoot
-      className='mx-auto lg:w-1/2 space-y-0.5'
+      className='mx-auto w-full max-w-md space-y-0.5'
       defaultValue={[40, 80]}
       min={10}
       max={120}

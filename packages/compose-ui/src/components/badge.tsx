@@ -11,7 +11,7 @@ import { cn } from '../lib/utils'
 
 const badgeVariants = cva(
   [
-    'inline-flex items-center gap-1.5 whitespace-nowrap font-medium transition-colors',
+    'inline-flex items-center gap-1.5 whitespace-nowrap font-medium leading-none transition-colors',
     '[&_svg]:pointer-events-none [&_svg]:shrink-0',
   ],
   {
@@ -117,22 +117,22 @@ const badgeVariants = cva(
       {
         variant: 'destructive',
         appearance: 'outline',
-        class: 'border-destructive bg-destructive/10 text-destructive',
+        class: 'border-destructive/50 bg-destructive/10 text-destructive',
       },
       {
         variant: 'success',
         appearance: 'outline',
-        class: 'border-success bg-success/10 text-success',
+        class: 'border-success/50 bg-success/10 text-success',
       },
       {
         variant: 'warning',
         appearance: 'outline',
-        class: 'border-warning bg-warning/10 text-warning',
+        class: 'border-warning/50 bg-warning/10 text-warning',
       },
       {
         variant: 'info',
         appearance: 'outline',
-        class: 'border-info bg-info/10 text-info',
+        class: 'border-info/50 bg-info/10 text-info',
       },
       // Ghost appearance - just colored text
       {

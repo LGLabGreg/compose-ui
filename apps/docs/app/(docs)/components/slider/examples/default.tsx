@@ -10,7 +10,7 @@ import {
 export default function DefaultExample() {
   return (
     <SliderRoot
-      className='mx-auto lg:w-1/2 space-y-0.5'
+      className='mx-auto w-full max-w-md space-y-0.5'
       defaultValue={43}
       thumbAlignment='edge'
     >

@@ -3,7 +3,7 @@ import { BoldIcon } from 'lucide-react'
 
 export default function SizesExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Toggle aria-label='Toggle bold' size='icon-sm'>
         <BoldIcon className='size-3.5' />
       </Toggle>

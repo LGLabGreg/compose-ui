@@ -1,0 +1,642 @@
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import BasicExample from './examples/basic'
+import SizesExample from './examples/sizes'
+import VariantsExample from './examples/variants'
+import WithFiltersExample from './examples/with-filters'
+import WithLoadingExample from './examples/with-loading'
+import WithPaginationExample from './examples/with-pagination'
+import WithSearchExample from './examples/with-search'
+import WithSelectionExample from './examples/with-selection'
+import WithSortingExample from './examples/with-sorting'
+
+<ComponentPage
+  title="Table"
+  description="A responsive table component with support for variants, alignment, and a useTable hook for declarative column configuration."
+  component="table"
+>
+
+<ExampleLoader title='Basic' filePath='app/(docs)/components/table/examples/basic.tsx'>
+  <BasicExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Variants'
+  filePath='app/(docs)/components/table/examples/variants.tsx'
+>
+  <VariantsExample />
+</ExampleLoader>
+
+<ExampleLoader title='Compact' filePath='app/(docs)/components/table/examples/sizes.tsx'>
+  <SizesExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Pagination'
+  filePath='app/(docs)/components/table/examples/with-pagination.tsx'
+>
+  <WithPaginationExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Sorting'
+  filePath='app/(docs)/components/table/examples/with-sorting.tsx'
+>
+  <WithSortingExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Search'
+  filePath='app/(docs)/components/table/examples/with-search.tsx'
+>
+  <WithSearchExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Filters'
+  filePath='app/(docs)/components/table/examples/with-filters.tsx'
+>
+  <WithFiltersExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Row Selection'
+  filePath='app/(docs)/components/table/examples/with-selection.tsx'
+>
+  <WithSelectionExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Loading State'
+  filePath='app/(docs)/components/table/examples/with-loading.tsx'
+>
+  <WithLoadingExample />
+</ExampleLoader>
+
+## API Reference
+
+<ApiSection title='useTable Options' description='Options passed to the useTable hook.'>
+  <ApiTable
+    showRequired
+    data={[
+      {
+        name: 'data',
+        type: 'T[]',
+        required: true,
+        description: 'Array of data items to display in the table',
+      },
+      {
+        name: 'columns',
+        type: 'ColumnDef<T>[]',
+        required: true,
+        description: 'Column definitions for the table',
+      },
+      {
+        name: 'pagination',
+        type: 'PaginationConfig',
+        description: 'Enable pagination with page size options',
+      },
+      {
+        name: 'sort',
+        type: '{ key: keyof T; direction: SortDirection }',
+        description: 'Initial sort configuration',
+      },
+      {
+        name: 'search',
+        type: 'SearchConfig<T>',
+        description: 'Enable search functionality',
+      },
+      {
+        name: 'filters',
+        type: 'FiltersConfig<T>',
+        description: 'Filter definitions for the table',
+      },
+      {
+        name: 'selection',
+        type: 'SelectionConfig<T>',
+        description: 'Enable row selection functionality',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='useTable Return'
+  description='Values and functions returned by the useTable hook.'
+>
+  <ApiTable
+    showDefault={false}
+    data={[
+      {
+        name: 'columns',
+        type: 'ProcessedColumn<T>[]',
+        description: 'Processed columns with head/cell props and renderCell function',
+      },
+      { name: 'rows', type: 'T[]', description: 'Current page of filtered, sorted data' },
+      {
+        name: 'totalItems',
+        type: 'number',
+        description: 'Total number of items after filtering',
+      },
+      {
+        name: 'currentPage',
+        type: 'number',
+        description: 'Current page number (1-indexed)',
+      },
+      { name: 'totalPages', type: 'number', description: 'Total number of pages' },
+      { name: 'pageSize', type: 'number', description: 'Current page size' },
+      {
+        name: 'pageSizeOptions',
+        type: 'number[]',
+        description: 'Available page size options',
+      },
+      {
+        name: 'onPageChange',
+        type: '(page: number) => void',
+        description: 'Callback to change current page',
+      },
+      {
+        name: 'onPageSizeChange',
+        type: '(size: number) => void',
+        description: 'Callback to change page size',
+      },
+      {
+        name: 'sortKey',
+        type: 'keyof T | null',
+        description: 'Currently sorted column key',
+      },
+      {
+        name: 'sortDirection',
+        type: 'SortDirection',
+        description: 'Current sort direction',
+      },
+      {
+        name: 'onSort',
+        type: '(key: keyof T) => void',
+        description: 'Callback to toggle sort on a column',
+      },
+      { name: 'searchTerm', type: 'string', description: 'Current search term' },
+      {
+        name: 'onSearchChange',
+        type: '(term: string) => void',
+        description: 'Callback to update search term',
+      },
+      {
+        name: 'filterValues',
+        type: 'FilterValues',
+        description: 'Current filter values by filter ID',
+      },
+      {
+        name: 'setFilterValue',
+        type: '(filterId: string, value: unknown) => void',
+        description: 'Set a filter value',
+      },
+      {
+        name: 'clearFilters',
+        type: '() => void',
+        description: 'Clear all filter values',
+      },
+      {
+        name: 'activeFilterCount',
+        type: 'number',
+        description: 'Number of active filters',
+      },
+      {
+        name: 'selection',
+        type: 'SelectionState',
+        description:
+          'Selection state and handlers (only present when selection config provided)',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection title='ColumnDef' description='Column definition for the table.'>
+  <ApiTable
+    showRequired
+    data={[
+      {
+        name: 'key',
+        type: 'keyof T',
+        required: true,
+        description: 'Property key to access row data',
+      },
+      {
+        name: 'header',
+        type: 'ReactNode',
+        required: true,
+        description: 'Content to display in column header',
+      },
+      {
+        name: 'cell',
+        type: '(value: T[K], row: T) => ReactNode',
+        description: 'Custom cell renderer',
+      },
+      {
+        name: 'format',
+        type: '(value: T[K], row: T) => string',
+        description: 'Format value as string (used if cell not provided)',
+      },
+      {
+        name: 'sortable',
+        type: 'boolean',
+        default: 'false',
+        description: 'Enable sorting for this column',
+      },
+      { name: 'width', type: 'string | number', description: 'Column width (CSS value)' },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Class applied to both header and cells',
+      },
+      {
+        name: 'headerClassName',
+        type: 'string',
+        description: 'Class applied to header only',
+      },
+      {
+        name: 'cellClassName',
+        type: 'string',
+        description: 'Class applied to cells only',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection title='PaginationConfig' description='Configuration for table pagination.'>
+  <ApiTable
+    showRequired
+    data={[
+      {
+        name: 'pageSize',
+        type: 'number',
+        required: true,
+        description: 'Initial number of rows per page',
+      },
+      {
+        name: 'pageSizeOptions',
+        type: 'number[]',
+        default: '[10, 25, 50, 100]',
+        description: 'Available page size options',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection title='SearchConfig' description='Configuration for table search.'>
+  <ApiTable
+    showRequired
+    data={[
+      {
+        name: 'keys',
+        type: '(keyof T)[]',
+        required: true,
+        description: 'Row properties to search in',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='FiltersConfig'
+  description='Map of filter ID to FilterDef. Each filter can have a different value type.'
+>
+  <ApiTable
+    showRequired
+    data={[
+      {
+        name: 'predicate',
+        type: '(row: T, value: V) => boolean',
+        required: true,
+        description: 'Returns true if row passes the filter',
+      },
+      { name: 'defaultValue', type: 'V', description: 'Initial filter value' },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='SelectionConfig'
+  description='Configuration for row selection. Supports both controlled and uncontrolled modes.'
+>
+  <ApiTable
+    showRequired
+    data={[
+      {
+        name: 'rowKey',
+        type: '(row: T) => string | number',
+        required: true,
+        description: 'Function to extract unique key from each row',
+      },
+      {
+        name: 'defaultSelectedKeys',
+        type: '(string | number)[]',
+        description: 'Initial selected keys (uncontrolled mode)',
+      },
+      {
+        name: 'selectedKeys',
+        type: '(string | number)[]',
+        description: 'Controlled selected keys',
+      },
+      {
+        name: 'onSelectionChange',
+        type: '(keys: (string | number)[]) => void',
+        description: 'Callback when selection changes',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='SelectionState'
+  description='Selection state returned by useTable when selection is enabled.'
+>
+  <ApiTable
+    showDefault={false}
+    data={[
+      {
+        name: 'selectedKeys',
+        type: '(string | number)[]',
+        description: 'Array of currently selected row keys',
+      },
+      {
+        name: 'selectedCount',
+        type: 'number',
+        description: 'Number of selected rows',
+      },
+      {
+        name: 'isSelected',
+        type: '(key: string | number) => boolean',
+        description: 'Check if a row key is selected',
+      },
+      {
+        name: 'toggleRow',
+        type: '(key: string | number) => void',
+        description: 'Toggle selection state by row key',
+      },
+      {
+        name: 'isRowSelected',
+        type: '(row: T) => boolean',
+        description: 'Check if a row is selected (uses rowKey internally)',
+      },
+      {
+        name: 'toggleRowSelection',
+        type: '(row: T) => void',
+        description: 'Toggle selection state of a row (uses rowKey internally)',
+      },
+      {
+        name: 'toggleAllOnPage',
+        type: '() => void',
+        description: 'Toggle selection of all rows on current page',
+      },
+      {
+        name: 'clearSelection',
+        type: '() => void',
+        description: 'Clear all selections',
+      },
+      {
+        name: 'pageSelectionState',
+        type: "'all' | 'some' | 'none'",
+        description: 'Selection state for current page rows',
+      },
+      {
+        name: 'isIndeterminate',
+        type: 'boolean',
+        description: 'True when some (but not all) page rows are selected',
+      },
+      {
+        name: 'isAllOnPageSelected',
+        type: 'boolean',
+        description: 'True when all page rows are selected',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='TableRoot'
+  description='The root table element with variant and size support.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'variant',
+        type: "'default' | 'striped' | 'bordered'",
+        default: "'default'",
+        description: 'Visual style variant',
+      },
+      {
+        name: 'size',
+        type: "'default' | 'compact'",
+        default: "'default'",
+        description: 'Table density size',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"table">',
+        description: 'Standard table element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='TableHead'
+  description='Table header cell with optional sorting support.'
+>
+  <ApiTable
+    data={[
+      { name: 'sortable', type: 'boolean', description: 'Show sort indicator' },
+      {
+        name: 'sortDirection',
+        type: 'SortDirection',
+        description: "Current sort direction ('asc' | 'desc')",
+      },
+      {
+        name: 'onSort',
+        type: '() => void',
+        description: 'Callback when header is clicked',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"th">',
+        description: 'Standard th element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection title='TableCaption' description='Table caption element with positioning.'>
+  <ApiTable
+    data={[
+      {
+        name: 'position',
+        type: "'top' | 'bottom'",
+        default: "'bottom'",
+        description: 'Caption position relative to table',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"caption">',
+        description: 'Standard caption element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='Other Primitives'
+  description='Standard table primitives with styling.'
+>
+  <ApiTable
+    showDefault={false}
+    data={[
+      {
+        name: 'TableHeader',
+        type: 'React.ComponentProps<"thead">',
+        description: 'Table header group (thead)',
+      },
+      {
+        name: 'TableBody',
+        type: 'React.ComponentProps<"tbody">',
+        description: 'Table body group (tbody)',
+      },
+      {
+        name: 'TableFooter',
+        type: 'React.ComponentProps<"tfoot">',
+        description: 'Table footer group (tfoot)',
+      },
+      {
+        name: 'TableRow',
+        type: 'React.ComponentProps<"tr">',
+        description: 'Table row (tr)',
+      },
+      {
+        name: 'TableCell',
+        type: 'React.ComponentProps<"td">',
+        description: 'Table cell (td)',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='Filter Helpers'
+  description='Utility functions for creating common filter predicates.'
+>
+  <ApiTable
+    showDefault={false}
+    data={[
+      {
+        name: 'includesFilter(key)',
+        type: 'FilterPredicate<T, T[K][]>',
+        description: 'Multi-select: row value is in selected array',
+      },
+      {
+        name: 'rangeFilter(key)',
+        type: 'FilterPredicate<T, [number, number]>',
+        description: 'Range: numeric value is within [min, max]',
+      },
+      {
+        name: 'containsFilter(key)',
+        type: 'FilterPredicate<T, string>',
+        description: 'Contains: string value includes search term (case-insensitive)',
+      },
+      {
+        name: 'equalsFilter(key)',
+        type: 'FilterPredicate<T, T[K]>',
+        description: 'Equals: row value strictly equals filter value',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection title='Types' description='Type definitions exported from the table package.'>
+  <ApiTable
+    showDefault={false}
+    data={[
+      {
+        name: 'SortDirection',
+        type: "'asc' | 'desc'",
+        description: 'Sort direction type',
+      },
+      {
+        name: 'TableVariant',
+        type: "'default' | 'striped' | 'bordered'",
+        description: 'Table variant type',
+      },
+      {
+        name: 'TableSize',
+        type: "'default' | 'compact'",
+        description: 'Table size type',
+      },
+      {
+        name: 'ColumnDef<T>',
+        type: 'interface',
+        description: 'Column definition interface',
+      },
+      {
+        name: 'ProcessedColumn<T>',
+        type: 'interface',
+        description: 'Processed column returned by useTable',
+      },
+      {
+        name: 'PaginationConfig',
+        type: 'interface',
+        description: 'Pagination configuration interface',
+      },
+      {
+        name: 'SearchConfig<T>',
+        type: 'interface',
+        description: 'Search configuration interface',
+      },
+      {
+        name: 'FilterDef<T, V>',
+        type: 'interface',
+        description: 'Filter definition interface',
+      },
+      {
+        name: 'FiltersConfig<T>',
+        type: 'type',
+        description: 'Map of filter IDs to FilterDef',
+      },
+      {
+        name: 'FilterValues',
+        type: 'type',
+        description: 'Map of filter IDs to current values',
+      },
+      {
+        name: 'FilterPredicate<T, V>',
+        type: 'type',
+        description: 'Filter predicate function type',
+      },
+      {
+        name: 'UseTableOptions<T>',
+        type: 'interface',
+        description: 'useTable hook options',
+      },
+      {
+        name: 'UseTableReturn<T>',
+        type: 'interface',
+        description: 'useTable hook return type',
+      },
+      {
+        name: 'SelectionConfig<T>',
+        type: 'interface',
+        description: 'Selection configuration interface',
+      },
+      {
+        name: 'SelectionState<T>',
+        type: 'interface',
+        description: 'Selection state interface',
+      },
+      {
+        name: 'RowKeyGetter<T>',
+        type: 'type',
+        description: 'Function type to extract row key',
+      },
+    ]}
+  />
+</ApiSection>
+
+</ComponentPage>

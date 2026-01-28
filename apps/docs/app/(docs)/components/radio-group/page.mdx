@@ -1,6 +1,7 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import DefaultExample from './examples/default'
+import WithFieldExample from './examples/with-field'
 
 <ComponentPage
   title="Radio Group"
@@ -14,6 +15,13 @@ import DefaultExample from './examples/default'
   filePath='app/(docs)/components/radio-group/examples/default.tsx'
 >
   <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Field'
+  filePath='app/(docs)/components/radio-group/examples/with-field.tsx'
+>
+  <WithFieldExample />
 </ExampleLoader>
 
 </ComponentPage>

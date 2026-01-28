@@ -20,7 +20,7 @@ export default function BasicExample() {
   }, [])
 
   return (
-    <ProgressRoot className='lg:w-1/2 mx-auto text-sm font-medium ' value={value}>
+    <ProgressRoot className='w-full max-w-md mx-auto text-sm font-medium ' value={value}>
       <div className='flex items-center justify-between mb-2'>
         <ProgressLabel>
           {value < 100 ? 'Uploading file...' : 'File uploaded'}

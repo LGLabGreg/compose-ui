@@ -8,6 +8,7 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
 }
 
 :root {
@@ -23,7 +24,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans border-border;
+    @apply bg-background text-foreground font-inter border-border;
   }
 }
 

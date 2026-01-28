@@ -78,7 +78,7 @@ describe('Badge', () => {
       const badge = screen.getByText('Outline')
       expect(badge).toHaveClass(
         'border',
-        'border-destructive',
+        'border-destructive/50',
         'bg-destructive/10',
         'text-destructive',
       )
@@ -115,7 +115,7 @@ describe('Badge', () => {
         </Badge>,
       )
       expect(screen.getByText('Outline')).toHaveClass(
-        'border-success',
+        'border-success/50',
         'bg-success/10',
         'text-success',
       )

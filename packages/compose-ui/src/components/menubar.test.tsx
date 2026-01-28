@@ -1,5 +1,4 @@
 import { screen, waitFor } from '@testing-library/react'
-import * as React from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import { render } from '~/vitest.utils'
 
@@ -273,7 +272,7 @@ describe('Menubar', () => {
 
     const trigger = screen.getByRole('menuitem', { name: 'File' })
     expect(trigger).toBeInTheDocument()
-    expect(trigger).toHaveClass('border-border')
+    expect(trigger).toHaveClass('border-transparent')
   })
 
   it('renders submenu', async () => {

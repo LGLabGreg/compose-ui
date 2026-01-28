@@ -62,19 +62,19 @@ export default function DefaultExample() {
     <ToolbarRoot>
       <ToggleGroupRoot className='flex gap-0.5' multiple>
         <ToolbarButton
-          render={<ToggleGroupItem value='bold' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='bold' size='icon-sm' />}
           aria-label='Bold'
         >
           <BoldIcon className='size-4' />
         </ToolbarButton>
         <ToolbarButton
-          render={<ToggleGroupItem value='italic' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='italic' size='icon-sm' />}
           aria-label='Italic'
         >
           <ItalicIcon className='size-4' />
         </ToolbarButton>
         <ToolbarButton
-          render={<ToggleGroupItem value='underline' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='underline' size='icon-sm' />}
           aria-label='Underline'
         >
           <UnderlineIcon className='size-4' />
@@ -85,19 +85,19 @@ export default function DefaultExample() {
 
       <ToggleGroupRoot defaultValue={['left']} className='flex gap-0.5'>
         <ToolbarButton
-          render={<ToggleGroupItem value='left' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='left' size='icon-sm' />}
           aria-label='Align left'
         >
           <AlignLeftIcon className='size-4' />
         </ToolbarButton>
         <ToolbarButton
-          render={<ToggleGroupItem value='center' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='center' size='icon-sm' />}
           aria-label='Align center'
         >
           <AlignCenterIcon className='size-4' />
         </ToolbarButton>
         <ToolbarButton
-          render={<ToggleGroupItem value='right' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='right' size='icon-sm' />}
           aria-label='Align right'
         >
           <AlignRightIcon className='size-4' />
@@ -107,12 +107,8 @@ export default function DefaultExample() {
       <ToolbarSeparator />
 
       <ToolbarGroup aria-label='Format'>
-        <ToolbarButton size='sm' variant='ghost'>
-          $
-        </ToolbarButton>
-        <ToolbarButton size='sm' variant='ghost'>
-          %
-        </ToolbarButton>
+        <ToolbarButton size='sm'>$</ToolbarButton>
+        <ToolbarButton size='sm'>%</ToolbarButton>
       </ToolbarGroup>
 
       <ToolbarSeparator />

@@ -24,7 +24,7 @@ import { TrashIcon } from 'lucide-react'
 
 export default function DefaultExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Button size='sm'>Small</Button>
       <Button>Default</Button>
       <Button size='lg'>Large</Button>
@@ -51,7 +51,7 @@ import { TrashIcon } from 'lucide-react'
 
 export default function SecondaryExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Button variant='secondary' size='sm'>
         Small
       </Button>
@@ -84,7 +84,7 @@ import { TrashIcon } from 'lucide-react'
 
 export default function OutlineExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Button variant='outline' size='sm'>
         Small
       </Button>
@@ -117,7 +117,7 @@ import { TrashIcon } from 'lucide-react'
 
 export default function DestructiveExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Button variant='destructive' size='sm'>
         Small
       </Button>
@@ -150,7 +150,7 @@ import { TrashIcon } from 'lucide-react'
 
 export default function GhostExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Button variant='ghost' size='sm'>
         Small
       </Button>

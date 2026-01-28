@@ -25,6 +25,7 @@ const components = [
   'meter',
   'navigation-menu',
   'number-field',
+  'pagination',
   'popover',
   'preview-card',
   'progress',
@@ -53,6 +54,10 @@ const entry: Record<string, string> = {
 for (const component of components) {
   entry[component] = `src/components/${component}.tsx`
 }
+
+// Folder-based components with separate hook entry points
+entry['table/index'] = 'src/components/table/index.ts'
+entry['table/use-table'] = 'src/components/table/use-table.ts'
 
 export default defineConfig({
   entry,

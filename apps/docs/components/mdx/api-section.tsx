@@ -1,0 +1,24 @@
+import Link from 'next/link'
+import type { ReactNode } from 'react'
+
+interface ApiSectionProps {
+  title: string
+  description?: string
+  children: ReactNode
+}
+
+export function ApiSection({ title, description, children }: ApiSectionProps) {
+  const slug = title.toLowerCase().replace(/ /g, '-')
+
+  return (
+    <div className='space-y-4'>
+      <div>
+        <h2 className='text-lg font-medium mb-2 scroll-mt-20' id={slug}>
+          <Link href={`#${slug}`}>{title}</Link>
+        </h2>
+        {description && <p className='text-muted-foreground text-sm'>{description}</p>}
+      </div>
+      {children}
+    </div>
+  )
+}
