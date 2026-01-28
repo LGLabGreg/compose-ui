@@ -49,7 +49,6 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Popover', href: '/components/popover' },
       { name: 'Preview Card', href: '/components/preview-card' },
       { name: 'Progress', href: '/components/progress' },
-      { name: 'Radio', href: '/components/radio' },
       { name: 'Radio Group', href: '/components/radio-group' },
       { name: 'Scroll Area', href: '/components/scroll-area' },
       { name: 'Select', href: '/components/select' },

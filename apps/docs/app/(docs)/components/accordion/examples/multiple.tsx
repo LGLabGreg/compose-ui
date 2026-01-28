@@ -32,7 +32,7 @@ const items = [
 
 export default function MultipleExample() {
   return (
-    <AccordionRoot multiple>
+    <AccordionRoot multiple className='w-full max-w-md'>
       {items.map((item) => (
         <AccordionItem key={item.title} value={item.title}>
           <AccordionHeader>
@@ -42,7 +42,7 @@ export default function MultipleExample() {
             </AccordionTrigger>
           </AccordionHeader>
           <AccordionPanel>
-            <div className='pb-4'>
+            <div className='pb-4 text-sm'>
               <p>{item.content}</p>
             </div>
           </AccordionPanel>

@@ -12,7 +12,7 @@ import {
 export default function VerticalExample() {
   return (
     <SliderRoot
-      className='mx-auto flex h-40 w-fit flex-col items-center'
+      className='mx-auto flex h-40 w-full max-w-md flex-col items-center'
       orientation='vertical'
       defaultValue={50}
     >

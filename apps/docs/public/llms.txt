@@ -31,7 +31,6 @@ Key features:
 - [Select](https://compose-ui.dev/components/select.md): A common form component for choosing a predefined value in a dropdown menu.
 - [Scroll Area](https://compose-ui.dev/components/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
 - [Radio Group](https://compose-ui.dev/components/radio-group.md): Provides shared state to a series of radio buttons.
-- [Radio](https://compose-ui.dev/components/radio.md): A control that allows the user to select a single option from a group.
 - [Progress](https://compose-ui.dev/components/progress.md): The progressbar range widget indicates that a request has been received and the application is making progress toward completing the requested action.
 - [Preview Card](https://compose-ui.dev/components/preview-card.md): A card that displays contextual content when hovering a link.
 - [Popover](https://compose-ui.dev/components/popover.md): An accessible popup anchored to a button.

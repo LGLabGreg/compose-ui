@@ -4,7 +4,7 @@ import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui/avata
 
 export default function FallbackExample() {
   return (
-    <div className='flex gap-4'>
+    <div className='flex items-center gap-4'>
       <AvatarRoot size='sm'>
         <AvatarFallback>SC</AvatarFallback>
       </AvatarRoot>

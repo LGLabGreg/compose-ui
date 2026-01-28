@@ -12,7 +12,7 @@ import {
 export default function StepExample() {
   return (
     <SliderRoot
-      className='mx-auto lg:w-1/2 space-y-0.5'
+      className='mx-auto w-full max-w-md space-y-0.5'
       defaultValue={100}
       min={25}
       max={200}

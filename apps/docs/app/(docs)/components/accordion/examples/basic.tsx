@@ -26,7 +26,7 @@ const items = [
 
 export default function BasicExample() {
   return (
-    <AccordionRoot>
+    <AccordionRoot className='w-full max-w-md'>
       {items.map((item) => (
         <AccordionItem key={item.title} value={item.title}>
           <AccordionHeader>
@@ -36,7 +36,7 @@ export default function BasicExample() {
             </AccordionTrigger>
           </AccordionHeader>
           <AccordionPanel>
-            <div className='pb-4'>
+            <div className='pb-4 text-sm'>
               <p>{item.content}</p>
             </div>
           </AccordionPanel>

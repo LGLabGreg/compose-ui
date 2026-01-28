@@ -18,7 +18,7 @@ export default function ControlledExample() {
   const [value, setValue] = React.useState<number | null>(50)
 
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col items-center gap-4'>
       <FieldRoot>
         <NumberFieldRoot value={value} onValueChange={setValue}>
           <NumberFieldScrubArea>
