@@ -172,7 +172,7 @@ export default function WithFiltersExample() {
   const selectedEmail = (table.filterValues.email as string) ?? ''
 
   return (
-    <div className='flex flex-col flex-1 gap-4'>
+    <div className='flex flex-col w-full gap-4'>
       <div className='flex flex-wrap items-center gap-2'>
         {/* Status Filter */}
         <PopoverRoot>

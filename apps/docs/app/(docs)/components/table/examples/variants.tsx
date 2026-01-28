@@ -33,7 +33,7 @@ const data = [
 
 export default function VariantsExample() {
   return (
-    <div className='flex flex-col flex-1 gap-8'>
+    <div className='flex flex-col w-full gap-8'>
       <div>
         <h4 className='mb-2 text-sm font-medium'>Default</h4>
         <TableRoot className='w-full'>

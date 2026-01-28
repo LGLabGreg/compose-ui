@@ -6,6 +6,7 @@ import type {
   ColumnDef,
   FilterValues,
   ProcessedColumn,
+  SelectionState,
   SortDirection,
   UseTableOptions,
   UseTableReturn,
@@ -15,7 +16,15 @@ const DEFAULT_PAGE_SIZE = 10
 const DEFAULT_PAGE_SIZE_OPTIONS = [10, 25, 50, 100]
 
 export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
-  const { data, columns: columnDefs, pagination, sort, search, filters } = options
+  const {
+    data,
+    columns: columnDefs,
+    pagination,
+    sort,
+    search,
+    filters,
+    selection: selectionConfig,
+  } = options
 
   const [currentPage, setCurrentPage] = useState(1)
   const [pageSize, setPageSize] = useState(pagination?.pageSize ?? DEFAULT_PAGE_SIZE)
@@ -37,6 +46,18 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
     }
     return initial
   })
+
+  // Selection state (internal, used when uncontrolled)
+  const [internalSelectedKeys, setInternalSelectedKeys] = useState<Set<string | number>>(
+    () => new Set(selectionConfig?.defaultSelectedKeys ?? []),
+  )
+
+  // Determine if controlled or uncontrolled
+  const isControlled = selectionConfig?.selectedKeys !== undefined
+  const selectedKeysSet = useMemo(
+    () => (isControlled ? new Set(selectionConfig?.selectedKeys) : internalSelectedKeys),
+    [isControlled, selectionConfig?.selectedKeys, internalSelectedKeys],
+  )
 
   const sortKey = sortState.key
   const sortDirection = sortState.direction
@@ -136,6 +157,111 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
     [filterValues],
   )
 
+  // Selection: compute current page row keys
+  const currentPageRowKeys = useMemo(() => {
+    if (!selectionConfig) return []
+    return rows.map((row) => selectionConfig.rowKey(row))
+  }, [rows, selectionConfig])
+
+  // Selection: compute page selection state
+  const pageSelectionState = useMemo((): 'all' | 'some' | 'none' => {
+    if (!selectionConfig || currentPageRowKeys.length === 0) return 'none'
+    const selectedOnPage = currentPageRowKeys.filter((key) => selectedKeysSet.has(key))
+    if (selectedOnPage.length === 0) return 'none'
+    if (selectedOnPage.length === currentPageRowKeys.length) return 'all'
+    return 'some'
+  }, [selectionConfig, currentPageRowKeys, selectedKeysSet])
+
+  // Selection: helper to update selection
+  const updateSelection = useCallback(
+    (newKeys: (string | number)[]) => {
+      if (isControlled) {
+        selectionConfig?.onSelectionChange?.(newKeys)
+      } else {
+        setInternalSelectedKeys(new Set(newKeys))
+        selectionConfig?.onSelectionChange?.(newKeys)
+      }
+    },
+    [isControlled, selectionConfig],
+  )
+
+  const isSelected = useCallback(
+    (key: string | number) => selectedKeysSet.has(key),
+    [selectedKeysSet],
+  )
+
+  const toggleRow = useCallback(
+    (key: string | number) => {
+      const newKeys = new Set(selectedKeysSet)
+      if (newKeys.has(key)) {
+        newKeys.delete(key)
+      } else {
+        newKeys.add(key)
+      }
+      updateSelection(Array.from(newKeys))
+    },
+    [selectedKeysSet, updateSelection],
+  )
+
+  // Row-based convenience methods that use rowKey internally
+  const isRowSelected = useCallback(
+    (row: T) => selectedKeysSet.has(selectionConfig!.rowKey(row)),
+    [selectedKeysSet, selectionConfig],
+  )
+
+  const toggleRowSelection = useCallback(
+    (row: T) => toggleRow(selectionConfig!.rowKey(row)),
+    [toggleRow, selectionConfig],
+  )
+
+  const toggleAllOnPage = useCallback(() => {
+    const newKeys = new Set(selectedKeysSet)
+    if (pageSelectionState === 'all') {
+      // Deselect all on current page
+      for (const key of currentPageRowKeys) {
+        newKeys.delete(key)
+      }
+    } else {
+      // Select all on current page
+      for (const key of currentPageRowKeys) {
+        newKeys.add(key)
+      }
+    }
+    updateSelection(Array.from(newKeys))
+  }, [selectedKeysSet, pageSelectionState, currentPageRowKeys, updateSelection])
+
+  const clearSelection = useCallback(() => {
+    updateSelection([])
+  }, [updateSelection])
+
+  // Build selection state object
+  const selection: SelectionState<T> | undefined = useMemo(() => {
+    if (!selectionConfig) return undefined
+    return {
+      selectedKeys: Array.from(selectedKeysSet),
+      selectedCount: selectedKeysSet.size,
+      isSelected,
+      toggleRow,
+      isRowSelected,
+      toggleRowSelection,
+      toggleAllOnPage,
+      clearSelection,
+      pageSelectionState,
+      isIndeterminate: pageSelectionState === 'some',
+      isAllOnPageSelected: pageSelectionState === 'all',
+    }
+  }, [
+    selectionConfig,
+    selectedKeysSet,
+    isSelected,
+    toggleRow,
+    isRowSelected,
+    toggleRowSelection,
+    toggleAllOnPage,
+    clearSelection,
+    pageSelectionState,
+  ])
+
   const columns = useMemo(() => {
     return columnDefs.map((def: ColumnDef<T, keyof T>): ProcessedColumn<T> => {
       const key = def.key
@@ -186,5 +312,6 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
     setFilterValue,
     clearFilters,
     activeFilterCount,
+    selection,
   }
 }

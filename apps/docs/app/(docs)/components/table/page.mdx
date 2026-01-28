@@ -7,6 +7,7 @@ import WithFiltersExample from './examples/with-filters'
 import WithLoadingExample from './examples/with-loading'
 import WithPaginationExample from './examples/with-pagination'
 import WithSearchExample from './examples/with-search'
+import WithSelectionExample from './examples/with-selection'
 import WithSortingExample from './examples/with-sorting'
 
 <ComponentPage
@@ -31,31 +32,38 @@ import WithSortingExample from './examples/with-sorting'
 </ExampleLoader>
 
 <ExampleLoader
-  title='With Pagination'
+  title='Pagination'
   filePath='app/(docs)/components/table/examples/with-pagination.tsx'
 >
   <WithPaginationExample />
 </ExampleLoader>
 
 <ExampleLoader
-  title='With Sorting'
+  title='Sorting'
   filePath='app/(docs)/components/table/examples/with-sorting.tsx'
 >
   <WithSortingExample />
 </ExampleLoader>
 
 <ExampleLoader
-  title='With Search'
+  title='Search'
   filePath='app/(docs)/components/table/examples/with-search.tsx'
 >
   <WithSearchExample />
 </ExampleLoader>
 
 <ExampleLoader
-  title='With Filters'
+  title='Filters'
   filePath='app/(docs)/components/table/examples/with-filters.tsx'
 >
   <WithFiltersExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Row Selection'
+  filePath='app/(docs)/components/table/examples/with-selection.tsx'
+>
+  <WithSelectionExample />
 </ExampleLoader>
 
 <ExampleLoader
@@ -102,6 +110,11 @@ import WithSortingExample from './examples/with-sorting'
         name: 'filters',
         type: 'FiltersConfig<T>',
         description: 'Filter definitions for the table',
+      },
+      {
+        name: 'selection',
+        type: 'SelectionConfig<T>',
+        description: 'Enable row selection functionality',
       },
     ]}
   />
@@ -187,6 +200,12 @@ import WithSortingExample from './examples/with-sorting'
         name: 'activeFilterCount',
         type: 'number',
         description: 'Number of active filters',
+      },
+      {
+        name: 'selection',
+        type: 'SelectionState',
+        description:
+          'Selection state and handlers (only present when selection config provided)',
       },
     ]}
   />
@@ -297,6 +316,104 @@ import WithSortingExample from './examples/with-sorting'
         description: 'Returns true if row passes the filter',
       },
       { name: 'defaultValue', type: 'V', description: 'Initial filter value' },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='SelectionConfig'
+  description='Configuration for row selection. Supports both controlled and uncontrolled modes.'
+>
+  <ApiTable
+    showRequired
+    data={[
+      {
+        name: 'rowKey',
+        type: '(row: T) => string | number',
+        required: true,
+        description: 'Function to extract unique key from each row',
+      },
+      {
+        name: 'defaultSelectedKeys',
+        type: '(string | number)[]',
+        description: 'Initial selected keys (uncontrolled mode)',
+      },
+      {
+        name: 'selectedKeys',
+        type: '(string | number)[]',
+        description: 'Controlled selected keys',
+      },
+      {
+        name: 'onSelectionChange',
+        type: '(keys: (string | number)[]) => void',
+        description: 'Callback when selection changes',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='SelectionState'
+  description='Selection state returned by useTable when selection is enabled.'
+>
+  <ApiTable
+    showDefault={false}
+    data={[
+      {
+        name: 'selectedKeys',
+        type: '(string | number)[]',
+        description: 'Array of currently selected row keys',
+      },
+      {
+        name: 'selectedCount',
+        type: 'number',
+        description: 'Number of selected rows',
+      },
+      {
+        name: 'isSelected',
+        type: '(key: string | number) => boolean',
+        description: 'Check if a row key is selected',
+      },
+      {
+        name: 'toggleRow',
+        type: '(key: string | number) => void',
+        description: 'Toggle selection state by row key',
+      },
+      {
+        name: 'isRowSelected',
+        type: '(row: T) => boolean',
+        description: 'Check if a row is selected (uses rowKey internally)',
+      },
+      {
+        name: 'toggleRowSelection',
+        type: '(row: T) => void',
+        description: 'Toggle selection state of a row (uses rowKey internally)',
+      },
+      {
+        name: 'toggleAllOnPage',
+        type: '() => void',
+        description: 'Toggle selection of all rows on current page',
+      },
+      {
+        name: 'clearSelection',
+        type: '() => void',
+        description: 'Clear all selections',
+      },
+      {
+        name: 'pageSelectionState',
+        type: "'all' | 'some' | 'none'",
+        description: 'Selection state for current page rows',
+      },
+      {
+        name: 'isIndeterminate',
+        type: 'boolean',
+        description: 'True when some (but not all) page rows are selected',
+      },
+      {
+        name: 'isAllOnPageSelected',
+        type: 'boolean',
+        description: 'True when all page rows are selected',
+      },
     ]}
   />
 </ApiSection>
@@ -507,6 +624,21 @@ import WithSortingExample from './examples/with-sorting'
         name: 'UseTableReturn<T>',
         type: 'interface',
         description: 'useTable hook return type',
+      },
+      {
+        name: 'SelectionConfig<T>',
+        type: 'interface',
+        description: 'Selection configuration interface',
+      },
+      {
+        name: 'SelectionState<T>',
+        type: 'interface',
+        description: 'Selection state interface',
+      },
+      {
+        name: 'RowKeyGetter<T>',
+        type: 'type',
+        description: 'Function type to extract row key',
       },
     ]}
   />

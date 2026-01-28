@@ -44,6 +44,34 @@ export type FiltersConfig<T> = Record<string, FilterDef<T, any>>
 // Filter values map: filterId -> current value
 export type FilterValues = Record<string, unknown>
 
+// Row key extraction function
+export type RowKeyGetter<T> = (row: T) => string | number
+
+// Selection configuration
+export interface SelectionConfig<T> {
+  rowKey: RowKeyGetter<T>
+  defaultSelectedKeys?: (string | number)[]
+  selectedKeys?: (string | number)[]
+  onSelectionChange?: (keys: (string | number)[]) => void
+}
+
+// Selection state returned by useTable
+export interface SelectionState<T> {
+  selectedKeys: (string | number)[]
+  selectedCount: number
+  // Key-based methods
+  isSelected: (key: string | number) => boolean
+  toggleRow: (key: string | number) => void
+  // Row-based methods (use rowKey internally)
+  isRowSelected: (row: T) => boolean
+  toggleRowSelection: (row: T) => void
+  toggleAllOnPage: () => void
+  clearSelection: () => void
+  pageSelectionState: 'all' | 'some' | 'none'
+  isIndeterminate: boolean
+  isAllOnPageSelected: boolean
+}
+
 export interface UseTableOptions<T> {
   data: T[]
   columns: ColumnDef<T, keyof T>[]
@@ -51,6 +79,7 @@ export interface UseTableOptions<T> {
   sort?: { key: keyof T; direction: SortDirection }
   search?: SearchConfig<T>
   filters?: FiltersConfig<T>
+  selection?: SelectionConfig<T>
 }
 
 // ============================================================================
@@ -92,4 +121,5 @@ export interface UseTableReturn<T> {
   setFilterValue: (filterId: string, value: unknown) => void
   clearFilters: () => void
   activeFilterCount: number
+  selection?: SelectionState<T>
 }
