@@ -356,15 +356,26 @@ export default function WithFiltersExample() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {table.rows.map((row) => (
-            <TableRow key={row.id}>
-              {table.columns.map((col) => (
-                <TableCell key={col.key} {...col.cell}>
-                  {col.renderCell(row)}
-                </TableCell>
-              ))}
+          {table.rows.length === 0 ? (
+            <TableRow className='hover:bg-transparent'>
+              <TableCell
+                colSpan={table.columns.length}
+                className='h-24 text-center text-muted-foreground'
+              >
+                No results found.
+              </TableCell>
             </TableRow>
-          ))}
+          ) : (
+            table.rows.map((row) => (
+              <TableRow key={row.id}>
+                {table.columns.map((col) => (
+                  <TableCell key={col.key} {...col.cell}>
+                    {col.renderCell(row)}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          )}
         </TableBody>
       </TableRoot>
 

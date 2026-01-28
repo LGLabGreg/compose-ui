@@ -25,7 +25,6 @@ export interface PaginationConfig {
 
 export interface SearchConfig<T> {
   keys: (keyof T)[]
-  debounceMs?: number
 }
 
 // Filter predicate: returns true if row should be included

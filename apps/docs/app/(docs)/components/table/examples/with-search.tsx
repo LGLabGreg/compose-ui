@@ -63,15 +63,26 @@ export default function WithSearchExample() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              {columns.map((col) => (
-                <TableCell key={col.key} {...col.cell}>
-                  {col.renderCell(row)}
-                </TableCell>
-              ))}
+          {rows.length === 0 ? (
+            <TableRow className='hover:bg-transparent'>
+              <TableCell
+                colSpan={columns.length}
+                className='h-24 text-center text-muted-foreground'
+              >
+                No results found.
+              </TableCell>
             </TableRow>
-          ))}
+          ) : (
+            rows.map((row) => (
+              <TableRow key={row.id}>
+                {columns.map((col) => (
+                  <TableCell key={col.key} {...col.cell}>
+                    {col.renderCell(row)}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          )}
         </TableBody>
       </TableRoot>
       <span className='text-sm text-muted-foreground'>{totalItems} results</span>

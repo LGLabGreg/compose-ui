@@ -79,7 +79,7 @@ export default function WithSelectionExample() {
 
   return (
     <div className='flex flex-col w-full gap-4'>
-      <div className='flex flex-col sm:flex-row sm:items-center gap-2 p-3 bg-muted rounded-md'>
+      <div className='flex flex-col sm:flex-row sm:items-center gap-2 py-3 px-5 bg-muted rounded-md'>
         <span className='text-sm font-medium'>
           {table.selection?.selectedCount} row
           {table.selection?.selectedCount !== 1 ? 's' : ''} selected

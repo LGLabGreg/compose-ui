@@ -205,12 +205,18 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
 
   // Row-based convenience methods that use rowKey internally
   const isRowSelected = useCallback(
-    (row: T) => selectedKeysSet.has(selectionConfig!.rowKey(row)),
+    (row: T) => {
+      if (!selectionConfig) return false
+      return selectedKeysSet.has(selectionConfig.rowKey(row))
+    },
     [selectedKeysSet, selectionConfig],
   )
 
   const toggleRowSelection = useCallback(
-    (row: T) => toggleRow(selectionConfig!.rowKey(row)),
+    (row: T) => {
+      if (!selectionConfig) return
+      toggleRow(selectionConfig.rowKey(row))
+    },
     [toggleRow, selectionConfig],
   )
 

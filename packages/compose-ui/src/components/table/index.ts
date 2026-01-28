@@ -6,5 +6,10 @@ export type {
   SelectionConfig,
   SelectionState,
   RowKeyGetter,
+  FilterDef,
+  FiltersConfig,
+  FilterValues,
+  FilterPredicate,
+  SearchConfig,
 } from './types'
 export type * from './types'

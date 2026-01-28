@@ -177,7 +177,6 @@ const TableHead = ({
         className,
       )}
       tabIndex={isInteractive ? 0 : undefined}
-      role={isInteractive ? 'columnheader button' : undefined}
       aria-sort={sortDirection ? ariaSortValues[sortDirection] : undefined}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
