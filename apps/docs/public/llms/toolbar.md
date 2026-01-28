@@ -60,7 +60,7 @@ const fontFaces = [
 export default function DefaultExample() {
   return (
     <ToolbarRoot>
-      <ToggleGroupRoot className='flex gap-0.5' multiple>
+      <ToggleGroupRoot className='flex' multiple>
         <ToolbarButton
           render={<ToggleGroupItem value='bold' size='icon-sm' />}
           aria-label='Bold'
@@ -83,7 +83,7 @@ export default function DefaultExample() {
 
       <ToolbarSeparator />
 
-      <ToggleGroupRoot defaultValue={['left']} className='flex gap-0.5'>
+      <ToggleGroupRoot defaultValue={['left']} className='flex'>
         <ToolbarButton
           render={<ToggleGroupItem value='left' size='icon-sm' />}
           aria-label='Align left'
