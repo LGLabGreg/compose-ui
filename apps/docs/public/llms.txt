@@ -24,6 +24,7 @@ Key features:
 - [Toast](https://compose-ui.dev/components/toast.md): A notification message that appears temporarily to provide feedback.
 - [Textarea](https://compose-ui.dev/components/textarea.md): A multi-line text input element.
 - [Tabs](https://compose-ui.dev/components/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
+- [Table](https://compose-ui.dev/components/table.md): A responsive table component with support for variants, alignment, and a useTable hook for declarative column configuration.
 - [Switch](https://compose-ui.dev/components/switch.md): A control that indicates whether a setting is on or off.
 - [Slider](https://compose-ui.dev/components/slider.md): A control for selecting a value or range from a continuous or discrete set of values.
 - [Skeleton](https://compose-ui.dev/components/skeleton.md): A placeholder component for content that is loading. Use className to define custom shapes and sizes.
@@ -34,6 +35,7 @@ Key features:
 - [Progress](https://compose-ui.dev/components/progress.md): The progressbar range widget indicates that a request has been received and the application is making progress toward completing the requested action.
 - [Preview Card](https://compose-ui.dev/components/preview-card.md): A card that displays contextual content when hovering a link.
 - [Popover](https://compose-ui.dev/components/popover.md): An accessible popup anchored to a button.
+- [Pagination](https://compose-ui.dev/components/pagination.md): A composable pagination component for navigating through paginated content. Use with tables, search results, or any paginated data.
 - [Number Field](https://compose-ui.dev/components/number-field.md): A numeric input element with increment and decrement buttons, and a scrub area.
 - [Navigation Menu](https://compose-ui.dev/components/navigation-menu.md): A navigation component with support for dropdowns and submenus.
 - [Meter](https://compose-ui.dev/components/meter.md): A graphical display of a numeric value within a defined range.
