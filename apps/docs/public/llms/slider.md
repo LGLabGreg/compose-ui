@@ -31,7 +31,7 @@ import {
 export default function DefaultExample() {
   return (
     <SliderRoot
-      className='mx-auto lg:w-1/2 space-y-0.5'
+      className='mx-auto w-full max-w-md space-y-0.5'
       defaultValue={43}
       thumbAlignment='edge'
     >
@@ -65,7 +65,7 @@ import {
 export default function RangeExample() {
   return (
     <SliderRoot
-      className='mx-auto lg:w-1/2 space-y-0.5'
+      className='mx-auto w-full max-w-md space-y-0.5'
       defaultValue={[40, 80]}
       min={10}
       max={120}
@@ -102,7 +102,7 @@ import {
 export default function StepExample() {
   return (
     <SliderRoot
-      className='mx-auto lg:w-1/2 space-y-0.5'
+      className='mx-auto w-full max-w-md space-y-0.5'
       defaultValue={100}
       min={25}
       max={200}
@@ -139,7 +139,7 @@ import {
 export default function VerticalExample() {
   return (
     <SliderRoot
-      className='mx-auto flex h-40 w-fit flex-col items-center'
+      className='mx-auto flex h-40 w-full max-w-md flex-col items-center'
       orientation='vertical'
       defaultValue={50}
     >
