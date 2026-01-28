@@ -20,7 +20,7 @@ const ToolbarRoot = ({ className, ...props }: ToolbarRootProps) => {
   return (
     <BaseToolbar.Root
       className={cn(
-        'flex items-center gap-1 flex-wrap rounded-md border border-border bg-muted p-1',
+        'flex items-center gap-1 flex-wrap rounded-md border border-border p-1',
         className,
       )}
       {...props}
