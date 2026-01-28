@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@lglab/compose-ui/button'
 import { Github } from 'lucide-react'
 import Link from 'next/link'
