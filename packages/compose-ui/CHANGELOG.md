@@ -1,5 +1,11 @@
 # @lglab/compose-ui
 
+## 0.30.1
+
+### Patch Changes
+
+- [#119](https://github.com/LGLabGreg/compose-ui/pull/119) [`5d57534`](https://github.com/LGLabGreg/compose-ui/commit/5d57534d935d5d4538585b0de0c9de7c864f51a6) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Fix toolbar style
+
 ## 0.30.0
 
 ### Minor Changes
