@@ -601,19 +601,19 @@ export default function DefaultExample() {
     <ToolbarRoot>
       <ToggleGroupRoot className='flex gap-0.5' multiple>
         <ToolbarButton
-          render={<ToggleGroupItem value='bold' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='bold' size='icon-sm' />}
           aria-label='Bold'
         >
           <BoldIcon className='size-4' />
         </ToolbarButton>
         <ToolbarButton
-          render={<ToggleGroupItem value='italic' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='italic' size='icon-sm' />}
           aria-label='Italic'
         >
           <ItalicIcon className='size-4' />
         </ToolbarButton>
         <ToolbarButton
-          render={<ToggleGroupItem value='underline' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='underline' size='icon-sm' />}
           aria-label='Underline'
         >
           <UnderlineIcon className='size-4' />
@@ -624,19 +624,19 @@ export default function DefaultExample() {
 
       <ToggleGroupRoot defaultValue={['left']} className='flex gap-0.5'>
         <ToolbarButton
-          render={<ToggleGroupItem value='left' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='left' size='icon-sm' />}
           aria-label='Align left'
         >
           <AlignLeftIcon className='size-4' />
         </ToolbarButton>
         <ToolbarButton
-          render={<ToggleGroupItem value='center' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='center' size='icon-sm' />}
           aria-label='Align center'
         >
           <AlignCenterIcon className='size-4' />
         </ToolbarButton>
         <ToolbarButton
-          render={<ToggleGroupItem value='right' size='icon-sm' variant='ghost' />}
+          render={<ToggleGroupItem value='right' size='icon-sm' />}
           aria-label='Align right'
         >
           <AlignRightIcon className='size-4' />
@@ -646,12 +646,8 @@ export default function DefaultExample() {
       <ToolbarSeparator />
 
       <ToolbarGroup aria-label='Format'>
-        <ToolbarButton size='sm' variant='ghost'>
-          $
-        </ToolbarButton>
-        <ToolbarButton size='sm' variant='ghost'>
-          %
-        </ToolbarButton>
+        <ToolbarButton size='sm'>$</ToolbarButton>
+        <ToolbarButton size='sm'>%</ToolbarButton>
       </ToolbarGroup>
 
       <ToolbarSeparator />
@@ -997,7 +993,7 @@ import { BoldIcon } from 'lucide-react'
 
 export default function SizesExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Toggle aria-label='Toggle bold' size='icon-sm'>
         <BoldIcon className='size-3.5' />
       </Toggle>
@@ -1498,7 +1494,7 @@ import { Textarea } from '@lglab/compose-ui/textarea'
 
 export default function DefaultExample() {
   return (
-    <FieldRoot name='message'>
+    <FieldRoot name='message' className='w-full max-w-md'>
       <FieldLabel>Message</FieldLabel>
       <Textarea placeholder='Enter your message' />
     </FieldRoot>
@@ -3258,7 +3254,7 @@ import {
 export default function DefaultExample() {
   return (
     <SliderRoot
-      className='mx-auto lg:w-1/2 space-y-0.5'
+      className='mx-auto w-full max-w-md space-y-0.5'
       defaultValue={43}
       thumbAlignment='edge'
     >
@@ -3292,7 +3288,7 @@ import {
 export default function RangeExample() {
   return (
     <SliderRoot
-      className='mx-auto lg:w-1/2 space-y-0.5'
+      className='mx-auto w-full max-w-md space-y-0.5'
       defaultValue={[40, 80]}
       min={10}
       max={120}
@@ -3329,7 +3325,7 @@ import {
 export default function StepExample() {
   return (
     <SliderRoot
-      className='mx-auto lg:w-1/2 space-y-0.5'
+      className='mx-auto w-full max-w-md space-y-0.5'
       defaultValue={100}
       min={25}
       max={200}
@@ -3366,7 +3362,7 @@ import {
 export default function VerticalExample() {
   return (
     <SliderRoot
-      className='mx-auto flex h-40 w-fit flex-col items-center'
+      className='mx-auto flex h-40 w-full max-w-md flex-col items-center'
       orientation='vertical'
       defaultValue={50}
     >
@@ -4014,6 +4010,47 @@ export default function DefaultExample() {
 }
 ```
 
+### With Field
+
+```tsx
+import {
+  FieldDescription,
+  FieldItem,
+  FieldLabel,
+  FieldRoot,
+} from '@lglab/compose-ui/field'
+import { FieldsetLegend, FieldsetRoot } from '@lglab/compose-ui/fieldset'
+import { RadioIndicator, RadioRoot } from '@lglab/compose-ui/radio'
+import { RadioGroupRoot } from '@lglab/compose-ui/radio-group'
+
+const fruits = [
+  { value: 'apple', label: 'Apple' },
+  { value: 'banana', label: 'Banana' },
+  { value: 'orange', label: 'Orange' },
+]
+
+export default function WithFieldExample() {
+  return (
+    <FieldRoot name='fruit'>
+      <FieldsetRoot render={<RadioGroupRoot />}>
+        <FieldsetLegend>Favorite Fruit</FieldsetLegend>
+        {fruits.map((fruit) => (
+          <FieldItem key={fruit.value}>
+            <FieldLabel>
+              <RadioRoot value={fruit.value}>
+                <RadioIndicator />
+              </RadioRoot>
+              {fruit.label}
+            </FieldLabel>
+          </FieldItem>
+        ))}
+      </FieldsetRoot>
+      <FieldDescription>Select your favorite fruit.</FieldDescription>
+    </FieldRoot>
+  )
+}
+```
+
 ## Resources
 
 - [Base UI Radio Group Documentation](https://base-ui.com/react/components/radio-group)
@@ -4062,7 +4099,7 @@ export default function BasicExample() {
   }, [])
 
   return (
-    <ProgressRoot className='lg:w-1/2 mx-auto text-sm font-medium ' value={value}>
+    <ProgressRoot className='w-full max-w-md mx-auto text-sm font-medium ' value={value}>
       <div className='flex items-center justify-between mb-2'>
         <ProgressLabel>
           {value < 100 ? 'Uploading file...' : 'File uploaded'}
@@ -5121,7 +5158,7 @@ export default function ControlledExample() {
   const [value, setValue] = React.useState<number | null>(50)
 
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col items-center gap-4'>
       <FieldRoot>
         <NumberFieldRoot value={value} onValueChange={setValue}>
           <NumberFieldScrubArea>
@@ -5426,7 +5463,7 @@ import {
 
 export default function BasicExample() {
   return (
-    <div className='space-y-6 md:w-3/4 mx-auto'>
+    <div className='space-y-6 w-full max-w-md mx-auto'>
       <MeterRoot value={24}>
         <div className='flex items-center justify-between mb-2'>
           <MeterLabel>Storage Used</MeterLabel>
@@ -5474,7 +5511,7 @@ import {
 
 export default function AnimatedExample() {
   return (
-    <div className='space-y-6 md:w-3/4 mx-auto'>
+    <div className='space-y-6 w-full max-w-md mx-auto'>
       <MeterRoot value={24} animated>
         <div className='flex items-center justify-between mb-2'>
           <MeterLabel>Storage Used</MeterLabel>
@@ -5522,7 +5559,7 @@ import {
 
 export default function CustomFormatExample() {
   return (
-    <div className='space-y-6 md:w-3/4 mx-auto'>
+    <div className='space-y-6 w-full max-w-md mx-auto'>
       <MeterRoot
         value={2500}
         min={0}
@@ -10614,7 +10651,7 @@ import { TrashIcon } from 'lucide-react'
 
 export default function DefaultExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Button size='sm'>Small</Button>
       <Button>Default</Button>
       <Button size='lg'>Large</Button>
@@ -10641,7 +10678,7 @@ import { TrashIcon } from 'lucide-react'
 
 export default function SecondaryExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Button variant='secondary' size='sm'>
         Small
       </Button>
@@ -10674,7 +10711,7 @@ import { TrashIcon } from 'lucide-react'
 
 export default function OutlineExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Button variant='outline' size='sm'>
         Small
       </Button>
@@ -10707,7 +10744,7 @@ import { TrashIcon } from 'lucide-react'
 
 export default function DestructiveExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Button variant='destructive' size='sm'>
         Small
       </Button>
@@ -10740,7 +10777,7 @@ import { TrashIcon } from 'lucide-react'
 
 export default function GhostExample() {
   return (
-    <div className='flex flex-wrap gap-2'>
+    <div className='flex items-center flex-wrap gap-2'>
       <Button variant='ghost' size='sm'>
         Small
       </Button>
@@ -11335,7 +11372,7 @@ import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui/avata
 
 export default function BasicExample() {
   return (
-    <div className='flex gap-4'>
+    <div className='flex items-center gap-4'>
       <AvatarRoot size='sm'>
         <AvatarImage
           src='https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80'
@@ -11369,7 +11406,7 @@ import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui/avata
 
 export default function FallbackExample() {
   return (
-    <div className='flex gap-4'>
+    <div className='flex items-center gap-4'>
       <AvatarRoot size='sm'>
         <AvatarFallback>SC</AvatarFallback>
       </AvatarRoot>
@@ -12596,7 +12633,7 @@ const items = [
 
 export default function BasicExample() {
   return (
-    <AccordionRoot>
+    <AccordionRoot className='w-full max-w-md'>
       {items.map((item) => (
         <AccordionItem key={item.title} value={item.title}>
           <AccordionHeader>
@@ -12606,7 +12643,7 @@ export default function BasicExample() {
             </AccordionTrigger>
           </AccordionHeader>
           <AccordionPanel>
-            <div className='pb-4'>
+            <div className='pb-4 text-sm'>
               <p>{item.content}</p>
             </div>
           </AccordionPanel>
@@ -12648,7 +12685,7 @@ const items = [
 
 export default function BasicExample() {
   return (
-    <AccordionRoot>
+    <AccordionRoot className='w-full max-w-md'>
       {items.map((item) => (
         <AccordionItem key={item.title} value={item.title}>
           <AccordionHeader>
@@ -12658,7 +12695,7 @@ export default function BasicExample() {
             </AccordionTrigger>
           </AccordionHeader>
           <AccordionPanel>
-            <div className='pb-4'>
+            <div className='pb-4 text-sm'>
               <p>{item.content}</p>
             </div>
           </AccordionPanel>
@@ -12706,7 +12743,7 @@ const items = [
 
 export default function MultipleExample() {
   return (
-    <AccordionRoot multiple>
+    <AccordionRoot multiple className='w-full max-w-md'>
       {items.map((item) => (
         <AccordionItem key={item.title} value={item.title}>
           <AccordionHeader>
@@ -12716,7 +12753,7 @@ export default function MultipleExample() {
             </AccordionTrigger>
           </AccordionHeader>
           <AccordionPanel>
-            <div className='pb-4'>
+            <div className='pb-4 text-sm'>
               <p>{item.content}</p>
             </div>
           </AccordionPanel>

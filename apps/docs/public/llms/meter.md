@@ -29,7 +29,7 @@ import {
 
 export default function BasicExample() {
   return (
-    <div className='space-y-6 md:w-3/4 mx-auto'>
+    <div className='space-y-6 w-full max-w-md mx-auto'>
       <MeterRoot value={24}>
         <div className='flex items-center justify-between mb-2'>
           <MeterLabel>Storage Used</MeterLabel>
@@ -77,7 +77,7 @@ import {
 
 export default function AnimatedExample() {
   return (
-    <div className='space-y-6 md:w-3/4 mx-auto'>
+    <div className='space-y-6 w-full max-w-md mx-auto'>
       <MeterRoot value={24} animated>
         <div className='flex items-center justify-between mb-2'>
           <MeterLabel>Storage Used</MeterLabel>
@@ -125,7 +125,7 @@ import {
 
 export default function CustomFormatExample() {
   return (
-    <div className='space-y-6 md:w-3/4 mx-auto'>
+    <div className='space-y-6 w-full max-w-md mx-auto'>
       <MeterRoot
         value={2500}
         min={0}
