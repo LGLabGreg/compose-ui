@@ -43,14 +43,6 @@ async function submitForm(_previousState: FormState, formData: FormData) {
         serverErrors: { username: "'admin' is reserved for system use" },
       }
     }
-
-    const success = Math.random() > 0.5
-
-    if (!success) {
-      return {
-        serverErrors: { username: `${username} is unavailable` },
-      }
-    }
   } catch {
     return { serverErrors: { username: 'A server error has occurred' } }
   }
