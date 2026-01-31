@@ -1547,7 +1547,7 @@ export default function BasicExample() {
         <TabsTab value='settings'>Settings</TabsTab>
         <TabsIndicator />
       </TabsList>
-      <TabsPanel value='overview'>
+      <TabsPanel value='overview' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>
             This is the overview panel. Here you can see a summary of your account and
@@ -1555,14 +1555,14 @@ export default function BasicExample() {
           </p>
         </div>
       </TabsPanel>
-      <TabsPanel value='projects'>
+      <TabsPanel value='projects' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>
             View and manage your projects here. Create new projects or edit existing ones.
           </p>
         </div>
       </TabsPanel>
-      <TabsPanel value='settings'>
+      <TabsPanel value='settings' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>Configure your account settings, preferences, and notification options.</p>
         </div>
@@ -1602,17 +1602,67 @@ export default function WithIconsExample() {
         </TabsTab>
         <TabsIndicator />
       </TabsList>
-      <TabsPanel value='account'>
+      <TabsPanel value='account' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>Manage your account details and profile information.</p>
         </div>
       </TabsPanel>
-      <TabsPanel value='projects'>
+      <TabsPanel value='projects' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>Browse and manage all your projects in one place.</p>
         </div>
       </TabsPanel>
-      <TabsPanel value='settings'>
+      <TabsPanel value='settings' className='text-sm'>
+        <div className='rounded-md p-2'>
+          <p>Customize your experience with various settings options.</p>
+        </div>
+      </TabsPanel>
+    </TabsRoot>
+  )
+}
+```
+
+### Custom style
+
+```tsx
+import {
+  TabsIndicator,
+  TabsList,
+  TabsPanel,
+  TabsRoot,
+  TabsTab,
+} from '@lglab/compose-ui/tabs'
+import { FolderIcon, SettingsIcon, UserIcon } from 'lucide-react'
+
+export default function LineExample() {
+  return (
+    <TabsRoot defaultValue='account'>
+      <TabsList className='bg-transparent border-b'>
+        <TabsTab value='account' className='gap-1.5'>
+          <UserIcon className='size-4' />
+          Account
+        </TabsTab>
+        <TabsTab value='projects' className='gap-1.5'>
+          <FolderIcon className='size-4' />
+          Projects
+        </TabsTab>
+        <TabsTab value='settings' className='gap-1.5'>
+          <SettingsIcon className='size-4' />
+          Settings
+        </TabsTab>
+        <TabsIndicator className='top-auto bottom-0 h-[2px] bg-primary rounded-none' />
+      </TabsList>
+      <TabsPanel value='account' className='text-sm'>
+        <div className='rounded-md p-2'>
+          <p>Manage your account details and profile information.</p>
+        </div>
+      </TabsPanel>
+      <TabsPanel value='projects' className='text-sm'>
+        <div className='rounded-md p-2'>
+          <p>Browse and manage all your projects in one place.</p>
+        </div>
+      </TabsPanel>
+      <TabsPanel value='settings' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>Customize your experience with various settings options.</p>
         </div>
@@ -1702,17 +1752,17 @@ export default function DisabledExample() {
         <TabsTab value='another'>Another Tab</TabsTab>
         <TabsIndicator />
       </TabsList>
-      <TabsPanel value='active'>
+      <TabsPanel value='active' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>This tab is active. The middle tab is disabled and cannot be selected.</p>
         </div>
       </TabsPanel>
-      <TabsPanel value='disabled'>
+      <TabsPanel value='disabled' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>You shouldn&apos;t see this content.</p>
         </div>
       </TabsPanel>
-      <TabsPanel value='another'>
+      <TabsPanel value='another' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>This is another active tab panel.</p>
         </div>
@@ -1743,7 +1793,7 @@ export default function VerticalExample() {
         <TabsTab value='billing'>Billing</TabsTab>
         <TabsIndicator orientation='vertical' />
       </TabsList>
-      <div className='flex-1'>
+      <div className='flex-1 text-sm'>
         <TabsPanel value='general' className='mt-0'>
           <div className='rounded-md p-2'>
             <h3 className='font-medium'>General Settings</h3>
