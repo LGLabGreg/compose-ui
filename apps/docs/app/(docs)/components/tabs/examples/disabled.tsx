@@ -17,17 +17,17 @@ export default function DisabledExample() {
         <TabsTab value='another'>Another Tab</TabsTab>
         <TabsIndicator />
       </TabsList>
-      <TabsPanel value='active'>
+      <TabsPanel value='active' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>This tab is active. The middle tab is disabled and cannot be selected.</p>
         </div>
       </TabsPanel>
-      <TabsPanel value='disabled'>
+      <TabsPanel value='disabled' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>You shouldn&apos;t see this content.</p>
         </div>
       </TabsPanel>
-      <TabsPanel value='another'>
+      <TabsPanel value='another' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>This is another active tab panel.</p>
         </div>
