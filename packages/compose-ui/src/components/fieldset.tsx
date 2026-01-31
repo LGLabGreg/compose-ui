@@ -13,12 +13,7 @@ import { cn } from '../lib/utils'
 type FieldsetRootProps = React.ComponentProps<typeof BaseFieldset.Root>
 
 const FieldsetRoot = ({ className, ...props }: FieldsetRootProps) => {
-  return (
-    <BaseFieldset.Root
-      className={cn('flex flex-col items-start gap-2', className)}
-      {...props}
-    />
-  )
+  return <BaseFieldset.Root className={cn('flex flex-col gap-2', className)} {...props} />
 }
 
 FieldsetRoot.displayName = 'FieldsetRoot'

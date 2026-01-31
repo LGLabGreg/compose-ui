@@ -1,35 +1,48 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
-import DefaultExample from './examples/default'
 import ActionStateExample from './examples/action-state'
+import DefaultExample from './examples/default'
+import WithReactHookFormExample from './examples/with-react-hook-form'
+import WithTanstackFormExample from './examples/with-tanstack-form'
 import WithZodExample from './examples/with-zod'
 
 <ComponentPage
   title="Form"
-  description="A native form element with consolidated error handling."
+  description="A native form element with consolidated error handling. Examples include useActionState, Zod schema validation, React Hook Form, and TanStack Form integrations."
   component="form"
   baseUiComponent="form"
 >
 
-<ExampleLoader
-  title='Default'
-  filePath='app/(docs)/components/form/examples/default.tsx'
->
+<ExampleLoader title='Default' filePath='app/(docs)/components/form/examples/default.tsx'>
   <DefaultExample />
 </ExampleLoader>
 
 <ExampleLoader
-  title='Server Action'
+  title='useActionState'
   filePath='app/(docs)/components/form/examples/action-state.tsx'
 >
   <ActionStateExample />
 </ExampleLoader>
 
 <ExampleLoader
-  title='With Zod Validation'
+  title='Zod Validation'
   filePath='app/(docs)/components/form/examples/with-zod.tsx'
 >
   <WithZodExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='React Hook Form'
+  filePath='app/(docs)/components/form/examples/with-react-hook-form.tsx'
+>
+  <WithReactHookFormExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='TanStack Form'
+  filePath='app/(docs)/components/form/examples/with-tanstack-form.tsx'
+>
+  <WithTanstackFormExample />
 </ExampleLoader>
 
 </ComponentPage>
