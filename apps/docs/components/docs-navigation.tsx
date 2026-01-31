@@ -11,13 +11,20 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { docsNavigation } from '@/lib/navigation'
+import { cn } from '@/lib/utils'
 
-export function DocsNavigation({ closeDrawer }: { closeDrawer?: () => void }) {
+export function DocsNavigation({
+  closeDrawer,
+  className,
+}: {
+  closeDrawer?: () => void
+  className?: string
+}) {
   const pathname = usePathname()
 
   return (
     <>
-      <ScrollAreaRoot className='h-full'>
+      <ScrollAreaRoot className={cn('h-full', className)}>
         <ScrollAreaViewport>
           <ScrollAreaContent>
             <div className='space-y-4'>

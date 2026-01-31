@@ -1,5 +1,9 @@
+'use client'
+
 import Link from 'next/link'
-import type { ReactNode } from 'react'
+import { type ReactNode, useEffect } from 'react'
+
+import { useToc } from '@/components/use-toc'
 
 interface ApiSectionProps {
   title: string
@@ -8,7 +12,12 @@ interface ApiSectionProps {
 }
 
 export function ApiSection({ title, description, children }: ApiSectionProps) {
+  const { registerItem } = useToc()
   const slug = title.toLowerCase().replace(/ /g, '-')
+
+  useEffect(() => {
+    registerItem({ title, slug, type: 'api' })
+  }, [title, slug, registerItem])
 
   return (
     <div className='space-y-4'>

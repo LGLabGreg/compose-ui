@@ -9,7 +9,9 @@ import {
 } from '@lglab/compose-ui/tabs'
 import { CodeIcon, EyeIcon } from 'lucide-react'
 import Link from 'next/link'
-import type { ReactNode } from 'react'
+import { type ReactNode, useEffect } from 'react'
+
+import { useToc } from '@/components/use-toc'
 
 interface ExampleProps {
   /** The title/name of this example */
@@ -21,7 +23,15 @@ interface ExampleProps {
 }
 
 export function Example({ title, children, codeBlock }: ExampleProps) {
+  const { registerItem } = useToc()
   const slug = title ? title.toLowerCase().replace(/ /g, '-') : ''
+
+  useEffect(() => {
+    if (title && slug) {
+      registerItem({ title, slug, type: 'example' })
+    }
+  }, [title, slug, registerItem])
+
   return (
     <div className='space-y-2'>
       {title && (
