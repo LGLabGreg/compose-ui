@@ -15,7 +15,7 @@ export default function BasicExample() {
         <TabsTab value='settings'>Settings</TabsTab>
         <TabsIndicator />
       </TabsList>
-      <TabsPanel value='overview'>
+      <TabsPanel value='overview' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>
             This is the overview panel. Here you can see a summary of your account and
@@ -23,14 +23,14 @@ export default function BasicExample() {
           </p>
         </div>
       </TabsPanel>
-      <TabsPanel value='projects'>
+      <TabsPanel value='projects' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>
             View and manage your projects here. Create new projects or edit existing ones.
           </p>
         </div>
       </TabsPanel>
-      <TabsPanel value='settings'>
+      <TabsPanel value='settings' className='text-sm'>
         <div className='rounded-md p-2'>
           <p>Configure your account settings, preferences, and notification options.</p>
         </div>

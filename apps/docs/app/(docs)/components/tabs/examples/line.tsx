@@ -7,10 +7,10 @@ import {
 } from '@lglab/compose-ui/tabs'
 import { FolderIcon, SettingsIcon, UserIcon } from 'lucide-react'
 
-export default function WithIconsExample() {
+export default function LineExample() {
   return (
     <TabsRoot defaultValue='account'>
-      <TabsList>
+      <TabsList className='bg-transparent border-b'>
         <TabsTab value='account' className='gap-1.5'>
           <UserIcon className='size-4' />
           Account
@@ -23,7 +23,7 @@ export default function WithIconsExample() {
           <SettingsIcon className='size-4' />
           Settings
         </TabsTab>
-        <TabsIndicator />
+        <TabsIndicator className='top-auto bottom-0 h-[2px] bg-primary rounded-none' />
       </TabsList>
       <TabsPanel value='account' className='text-sm'>
         <div className='rounded-md p-2'>

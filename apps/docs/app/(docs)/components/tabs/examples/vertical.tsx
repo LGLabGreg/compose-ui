@@ -16,7 +16,7 @@ export default function VerticalExample() {
         <TabsTab value='billing'>Billing</TabsTab>
         <TabsIndicator orientation='vertical' />
       </TabsList>
-      <div className='flex-1'>
+      <div className='flex-1 text-sm'>
         <TabsPanel value='general' className='mt-0'>
           <div className='rounded-md p-2'>
             <h3 className='font-medium'>General Settings</h3>

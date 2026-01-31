@@ -2,6 +2,7 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import BasicExample from './examples/basic'
 import DisabledExample from './examples/disabled'
+import LineExample from './examples/line'
 import SizesExample from './examples/sizes'
 import VerticalExample from './examples/vertical'
 import WithIconsExample from './examples/with-icons'
@@ -22,6 +23,13 @@ import WithIconsExample from './examples/with-icons'
   filePath='app/(docs)/components/tabs/examples/with-icons.tsx'
 >
   <WithIconsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Custom style'
+  filePath='app/(docs)/components/tabs/examples/line.tsx'
+>
+  <LineExample />
 </ExampleLoader>
 
 <ExampleLoader title='Sizes' filePath='app/(docs)/components/tabs/examples/sizes.tsx'>
