@@ -1,0 +1,80 @@
+import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+
+const OVERVIEW_CONTENT = `# Compose UI
+
+> A React component library built on Base UI primitives with Tailwind CSS styling. Install via npm for type-safe, accessible components with modern theming.
+
+Compose UI provides pre-styled, accessible React components built on Base UI. It uses Tailwind CSS for styling and class-variance-authority (CVA) for type-safe variants.
+
+Key features:
+- Built on @base-ui/react primitives (accessibility handled automatically)
+- Styled with Tailwind CSS using design tokens
+- Type-safe variants with CVA
+- CSS variable-based theming (compatible with Tailwind v4)
+- Tree-shakable ESM exports
+
+## Getting Started
+
+- [Quick Start](https://compose-ui.dev/overview/quick-start): Installation and basic usage
+
+## Components
+
+- [Tooltip](https://compose-ui.dev/components/tooltip.md): A popup that appears when an element is hovered or focused, showing a hint for sighted users.
+- [Toolbar](https://compose-ui.dev/components/toolbar.md): A container for grouping a set of buttons and controls.
+- [Toggle Group](https://compose-ui.dev/components/toggle-group.md): Provides a shared state to a series of toggle buttons.
+- [Toggle](https://compose-ui.dev/components/toggle.md): A two-state button that can be on or off.
+- [Toast](https://compose-ui.dev/components/toast.md): A notification message that appears temporarily to provide feedback.
+- [Textarea](https://compose-ui.dev/components/textarea.md): A multi-line text input element.
+- [Tabs](https://compose-ui.dev/components/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
+- [Table](https://compose-ui.dev/components/table.md): A responsive table component with support for variants, alignment, and a useTable hook for declarative column configuration.
+- [Switch](https://compose-ui.dev/components/switch.md): A control that indicates whether a setting is on or off.
+- [Slider](https://compose-ui.dev/components/slider.md): A control for selecting a value or range from a continuous or discrete set of values.
+- [Skeleton](https://compose-ui.dev/components/skeleton.md): A placeholder component for content that is loading. Use className to define custom shapes and sizes.
+- [Separator](https://compose-ui.dev/components/separator.md): A separator element accessible to screen readers.
+- [Select](https://compose-ui.dev/components/select.md): A common form component for choosing a predefined value in a dropdown menu.
+- [Scroll Area](https://compose-ui.dev/components/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
+- [Radio Group](https://compose-ui.dev/components/radio-group.md): Provides shared state to a series of radio buttons.
+- [Progress](https://compose-ui.dev/components/progress.md): The progressbar range widget indicates that a request has been received and the application is making progress toward completing the requested action.
+- [Preview Card](https://compose-ui.dev/components/preview-card.md): A card that displays contextual content when hovering a link.
+- [Popover](https://compose-ui.dev/components/popover.md): An accessible popup anchored to a button.
+- [Pagination](https://compose-ui.dev/components/pagination.md): A composable pagination component for navigating through paginated content. Use with tables, search results, or any paginated data.
+- [Number Field](https://compose-ui.dev/components/number-field.md): A numeric input element with increment and decrement buttons, and a scrub area.
+- [Navigation Menu](https://compose-ui.dev/components/navigation-menu.md): A navigation component with support for dropdowns and submenus.
+- [Meter](https://compose-ui.dev/components/meter.md): A graphical display of a numeric value within a defined range.
+- [Menubar](https://compose-ui.dev/components/menubar.md): A horizontal menu bar with dropdown menus for application commands and options.
+- [Menu](https://compose-ui.dev/components/menu.md): A component that displays a list of options on a temporary surface.
+- [Input](https://compose-ui.dev/components/input.md): A single-line text input element.
+- [Form](https://compose-ui.dev/components/form.md): A native form element with consolidated error handling. Examples include useActionState, Zod schema validation, React Hook Form, and TanStack Form integrations.
+- [Field](https://compose-ui.dev/components/field.md): Provides accessible labeling and validation for form controls.
+- [Drawer](https://compose-ui.dev/components/drawer.md): A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
+- [Dialog](https://compose-ui.dev/components/dialog.md): A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
+- [Context Menu](https://compose-ui.dev/components/context-menu.md): A menu triggered by right-click or long press, rendering at the pointer position.
+- [Combobox](https://compose-ui.dev/components/combobox.md): An input combined with a list of predefined items to select, with filtering support.
+- [Collapsible](https://compose-ui.dev/components/collapsible.md): A component that allows content to be expanded or collapsed.
+- [Checkbox Group](https://compose-ui.dev/components/checkbox-group.md): Provides shared state to a series of checkboxes.
+- [Checkbox](https://compose-ui.dev/components/checkbox.md): A control that allows the user to toggle between checked and unchecked states.
+- [Card](https://compose-ui.dev/components/card.md): A flexible card component with support for media, headers, content sections, and footers. Supports both vertical and horizontal layouts with multiple variants.
+- [Button](https://compose-ui.dev/components/button.md): A versatile button component with multiple variants, sizes, and states including loading indicators.
+- [Badge](https://compose-ui.dev/components/badge.md): A versatile badge component for displaying labels, status indicators, and tags with multiple variants, sizes, and shapes.
+- [Avatar](https://compose-ui.dev/components/avatar.md): An easily stylable avatar component for displaying user profile pictures, initials, or fallback content.
+- [Autocomplete](https://compose-ui.dev/components/autocomplete.md): An input field with a filterable dropdown list of suggestions.
+- [Alert Dialog](https://compose-ui.dev/components/alert-dialog.md): A dialog that requires a user response to proceed.
+- [Accordion](https://compose-ui.dev/components/accordion.md): A set of collapsible panels with headings.
+
+## Optional
+
+- [Base UI Documentation](https://base-ui.com/react/components): Underlying component APIs
+- [GitHub Repository](https://github.com/LGLabGreg/compose-ui): Source code
+`
+
+export function registerOverviewResource(server: McpServer): void {
+  server.resource('overview', 'compose-ui://overview', async () => ({
+    contents: [
+      {
+        uri: 'compose-ui://overview',
+        mimeType: 'text/markdown',
+        text: OVERVIEW_CONTENT,
+      },
+    ],
+  }))
+}

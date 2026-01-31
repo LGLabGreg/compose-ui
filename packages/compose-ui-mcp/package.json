@@ -1,0 +1,50 @@
+{
+  "name": "@lglab/compose-ui-mcp",
+  "version": "0.0.1",
+  "description": "MCP server exposing compose-ui library documentation to AI tools",
+  "author": "LGLab",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LGLabGreg/compose-ui.git",
+    "directory": "packages/compose-ui-mcp"
+  },
+  "homepage": "https://compose-ui.dev",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "compose-ui",
+    "ai",
+    "claude"
+  ],
+  "type": "module",
+  "bin": {
+    "compose-ui-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.1.0",
+    "tsdown": "^0.12.9",
+    "tsx": "^4.21.0",
+    "typescript": "~5.9.3"
+  }
+}
