@@ -1,4 +1,5 @@
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+import { ResourceTemplate } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { readFile, readdir } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -54,6 +55,15 @@ function parseMarkdownFile(content: string, slug: string): ComponentInfo {
   }
 }
 
+async function getComponentContent(slug: string): Promise<string | null> {
+  try {
+    const filePath = resolve(LLMS_DIR, `${slug}.md`)
+    return await readFile(filePath, 'utf-8')
+  } catch {
+    return null
+  }
+}
+
 async function getComponentsList(): Promise<ComponentInfo[]> {
   try {
     const files = await readdir(LLMS_DIR)
@@ -91,5 +101,33 @@ export function registerComponentsResource(server: McpServer): void {
         },
       ],
     }),
+  )
+}
+
+export function registerComponentDocResource(server: McpServer): void {
+  server.registerResource(
+    'component-doc',
+    new ResourceTemplate('compose-ui://components/{slug}', { list: undefined }),
+    {
+      title: 'Component Documentation',
+      description: 'Full markdown documentation for a Compose UI component',
+      mimeType: 'text/markdown',
+    },
+    async (uri, variables) => {
+      const slug = variables.slug as string
+      const content = await getComponentContent(slug)
+      if (!content) {
+        throw new Error(`Component not found: ${slug}`)
+      }
+      return {
+        contents: [
+          {
+            uri: uri.href,
+            mimeType: 'text/markdown',
+            text: content,
+          },
+        ],
+      }
+    },
   )
 }
