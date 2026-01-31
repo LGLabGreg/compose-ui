@@ -44,7 +44,7 @@ export function DocHeader() {
           </DrawerTrigger>
           <DrawerPortal>
             <DrawerBackdrop />
-            <DrawerPopup className='w-full' side='right'>
+            <DrawerPopup className='w-full pr-0' side='right'>
               <DrawerClose
                 aria-label='Close'
                 size='icon-sm'
