@@ -3,11 +3,12 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 import ActionStateExample from './examples/action-state'
 import DefaultExample from './examples/default'
 import WithReactHookFormExample from './examples/with-react-hook-form'
+import WithTanstackFormExample from './examples/with-tanstack-form'
 import WithZodExample from './examples/with-zod'
 
 <ComponentPage
   title="Form"
-  description="A native form element with consolidated error handling."
+  description="A native form element with consolidated error handling. Examples include useActionState, Zod schema validation, React Hook Form, and TanStack Form integrations."
   component="form"
   baseUiComponent="form"
 >
@@ -35,6 +36,13 @@ import WithZodExample from './examples/with-zod'
   filePath='app/(docs)/components/form/examples/with-react-hook-form.tsx'
 >
   <WithReactHookFormExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='TanStack Form'
+  filePath='app/(docs)/components/form/examples/with-tanstack-form.tsx'
+>
+  <WithTanstackFormExample />
 </ExampleLoader>
 
 </ComponentPage>
