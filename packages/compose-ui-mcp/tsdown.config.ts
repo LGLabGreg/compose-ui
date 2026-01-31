@@ -6,4 +6,5 @@ export default defineConfig({
   dts: true,
   clean: true,
   sourcemap: true,
+  copy: [{ from: 'assets', to: 'dist' }],
 })

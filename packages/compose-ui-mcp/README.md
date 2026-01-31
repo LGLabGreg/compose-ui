@@ -1,6 +1,6 @@
 # @lglab/compose-ui-mcp
 
-MCP (Model Context Protocol) server that exposes [Compose UI](https://compose-ui.dev) library documentation to AI tools like Claude.
+MCP (Model Context Protocol) server that exposes [Compose UI](https://compose-ui.dev) library documentation to AI tools like Claude, Cursor etc...
 
 ## Installation
 
@@ -42,6 +42,7 @@ Then add to your MCP client configuration:
 ### `compose-ui://overview`
 
 Returns a markdown overview of the Compose UI library including:
+
 - Library description and key features
 - Getting started guide link
 - Complete list of available components with descriptions
