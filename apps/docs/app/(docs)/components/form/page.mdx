@@ -1,7 +1,8 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
-import DefaultExample from './examples/default'
 import ActionStateExample from './examples/action-state'
+import DefaultExample from './examples/default'
+import WithReactHookFormExample from './examples/with-react-hook-form'
 import WithZodExample from './examples/with-zod'
 
 <ComponentPage
@@ -11,10 +12,7 @@ import WithZodExample from './examples/with-zod'
   baseUiComponent="form"
 >
 
-<ExampleLoader
-  title='Default'
-  filePath='app/(docs)/components/form/examples/default.tsx'
->
+<ExampleLoader title='Default' filePath='app/(docs)/components/form/examples/default.tsx'>
   <DefaultExample />
 </ExampleLoader>
 
@@ -26,10 +24,17 @@ import WithZodExample from './examples/with-zod'
 </ExampleLoader>
 
 <ExampleLoader
-  title='With Zod Validation'
+  title='Zod Validation'
   filePath='app/(docs)/components/form/examples/with-zod.tsx'
 >
   <WithZodExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='React Hook Form'
+  filePath='app/(docs)/components/form/examples/with-react-hook-form.tsx'
+>
+  <WithReactHookFormExample />
 </ExampleLoader>
 
 </ComponentPage>
