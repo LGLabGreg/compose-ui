@@ -20,8 +20,8 @@ Key features:
 - [Tooltip](https://compose-ui.dev/components/tooltip.md): A popup that appears when an element is hovered or focused, showing a hint for sighted users.
 - [Toolbar](https://compose-ui.dev/components/toolbar.md): A container for grouping a set of buttons and controls.
 - [Toggle Group](https://compose-ui.dev/components/toggle-group.md): Provides a shared state to a series of toggle buttons.
-- [Toggle](https://compose-ui.dev/components/toggle.md): A two-state button that can be on or off.
 - [Toast](https://compose-ui.dev/components/toast.md): A notification message that appears temporarily to provide feedback.
+- [Toggle](https://compose-ui.dev/components/toggle.md): A two-state button that can be on or off.
 - [Textarea](https://compose-ui.dev/components/textarea.md): A multi-line text input element.
 - [Tabs](https://compose-ui.dev/components/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
 - [Table](https://compose-ui.dev/components/table.md): A responsive table component with support for variants, alignment, and a useTable hook for declarative column configuration.
@@ -42,7 +42,7 @@ Key features:
 - [Menubar](https://compose-ui.dev/components/menubar.md): A horizontal menu bar with dropdown menus for application commands and options.
 - [Menu](https://compose-ui.dev/components/menu.md): A component that displays a list of options on a temporary surface.
 - [Input](https://compose-ui.dev/components/input.md): A single-line text input element.
-- [Form](https://compose-ui.dev/components/form.md): A native form element with consolidated error handling.
+- [Form](https://compose-ui.dev/components/form.md): A native form element with consolidated error handling. Examples include useActionState, Zod schema validation, React Hook Form, and TanStack Form integrations.
 - [Field](https://compose-ui.dev/components/field.md): Provides accessible labeling and validation for form controls.
 - [Drawer](https://compose-ui.dev/components/drawer.md): A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
 - [Dialog](https://compose-ui.dev/components/dialog.md): A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
