@@ -1,5 +1,11 @@
 # @lglab/compose-ui
 
+## 0.30.2
+
+### Patch Changes
+
+- [#121](https://github.com/LGLabGreg/compose-ui/pull/121) [`3497eec`](https://github.com/LGLabGreg/compose-ui/commit/3497eece84e15496409af6c3103237fc97370f97) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Fieldset styles
+
 ## 0.30.1
 
 ### Patch Changes
