@@ -1,5 +1,13 @@
 import { Button } from '@lglab/compose-ui/button'
-import { ArrowRight } from 'lucide-react'
+import {
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardRoot,
+  CardTitle,
+} from '@lglab/compose-ui/card'
+import { ArrowRight, Keyboard, Palette, Sparkles, SquareCode } from 'lucide-react'
 import Link from 'next/link'
 
 import { Hero } from '@/components/hero'
@@ -7,24 +15,28 @@ import MainNav from '@/components/main-nav'
 
 const features = [
   {
+    icon: SquareCode,
     title: 'Composition First',
     description:
-      'Composable components built on Base UI primitives. Use them whole or extend them with your own styles.',
+      'Composable compound components you can use whole or extend with your own styles.',
     href: '/overview/composition',
   },
   {
+    icon: Keyboard,
     title: 'Accessible by Default',
     description:
-      "Base UI's accessibility foundation handles ARIA, keyboard navigation, and focus management automatically.",
+      'ARIA attributes, keyboard navigation, and focus management work automatically.',
     href: '/overview/accessibility',
   },
   {
+    icon: Sparkles,
     title: 'AI Ready',
     description:
-      'LLM docs give your AI assistant instant knowledge of every component and API.',
+      'LLM docs and MCP server give your AI assistant instant knowledge of every component and API.',
     href: '/overview/llms',
   },
   {
+    icon: Palette,
     title: 'Theming',
     description:
       'Customize colors, radius, and dark mode with CSS variables. Works automatically with system preferences.',
@@ -40,24 +52,30 @@ export default function Home() {
       <div className='container max-w-7xl mx-auto px-6'>
         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mt-10'>
           {features.map((feature) => (
-            <div
-              key={feature.title}
-              className='flex flex-col rounded-lg border p-6 shadow-sm'
-            >
-              <h2 className='text-xl font-semibold mb-3'>{feature.title}</h2>
-              <p className='mb-4 flex-1'>{feature.description}</p>
-              <Button
-                size='sm'
-                variant='outline'
-                className='flex w-fit ml-auto'
-                render={
-                  <Link href={feature.href}>
-                    Learn more <ArrowRight className='size-4' />
-                  </Link>
-                }
-                nativeButton={false}
-              />
-            </div>
+            <CardRoot key={feature.title} className='flex flex-col'>
+              <CardHeader>
+                <CardTitle as='h2' className='flex items-center gap-2'>
+                  <feature.icon className='size-6' />
+                  {feature.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>{feature.description}</CardDescription>
+              </CardContent>
+              <CardFooter>
+                <Button
+                  size='sm'
+                  variant='outline'
+                  className='ml-auto'
+                  render={
+                    <Link href={feature.href}>
+                      Learn more <ArrowRight className='size-4' />
+                    </Link>
+                  }
+                  nativeButton={false}
+                />
+              </CardFooter>
+            </CardRoot>
           ))}
         </div>
       </div>
