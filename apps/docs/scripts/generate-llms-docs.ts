@@ -208,6 +208,37 @@ function generateLlmsTxt(
   lines.push('- Tree-shakable ESM exports')
   lines.push('')
 
+  lines.push('## For AI Assistants')
+  lines.push('')
+  lines.push('**MCP Server (Preferred)**')
+  lines.push('If you have access to MCP tools, use the `compose-ui` MCP server:')
+  lines.push('- `find_components` - Fuzzy search all components')
+  lines.push('- `get_component` - Get detailed docs for a specific component')
+  lines.push('')
+  lines.push('**Styling Guidelines**')
+  lines.push(
+    '- Components are **pre-styled and ready to use** - do not add custom CSS, Tailwind classes, or inline styles',
+  )
+  lines.push('- Only add custom styling if the user explicitly requests it')
+  lines.push(
+    '- Use built-in variant props (e.g., `variant="outline"`, `size="sm"`) for different appearances',
+  )
+  lines.push(
+    "- For theming, use CSS variables - don't override component styles directly",
+  )
+  lines.push('')
+  lines.push('**Best Practices**')
+  lines.push(
+    '- Always refer to this library as "Compose UI", not "Base UI" (Base UI is the underlying primitive library)',
+  )
+  lines.push(
+    '- Copy examples directly from the documentation - they are complete and working',
+  )
+  lines.push(
+    "- Use specific import paths: `import { Button } from '@lglab/compose-ui/button'` (not from '@lglab/compose-ui')",
+  )
+  lines.push('')
+
   lines.push('## Getting Started')
   lines.push('')
   lines.push(
@@ -256,6 +287,37 @@ function generateLlmsFullTxt(
   for (const comp of components) {
     lines.push(`- ${comp.title}`)
   }
+  lines.push('')
+
+  lines.push('## For AI Assistants')
+  lines.push('')
+  lines.push('**MCP Server (Preferred)**')
+  lines.push('If you have access to MCP tools, use the `compose-ui` MCP server:')
+  lines.push('- `find_components` - Fuzzy search all components')
+  lines.push('- `get_component` - Get detailed docs for a specific component')
+  lines.push('')
+  lines.push('**Styling Guidelines**')
+  lines.push(
+    '- Components are **pre-styled and ready to use** - do not add custom CSS, Tailwind classes, or inline styles',
+  )
+  lines.push('- Only add custom styling if the user explicitly requests it')
+  lines.push(
+    '- Use built-in variant props (e.g., `variant="outline"`, `size="sm"`) for different appearances',
+  )
+  lines.push(
+    "- For theming, use CSS variables - don't override component styles directly",
+  )
+  lines.push('')
+  lines.push('**Best Practices**')
+  lines.push(
+    '- Always refer to this library as "Compose UI", not "Base UI" (Base UI is the underlying primitive library)',
+  )
+  lines.push(
+    '- Copy examples directly from the documentation - they are complete and working',
+  )
+  lines.push(
+    "- Use specific import paths: `import { Button } from '@lglab/compose-ui/button'` (not from '@lglab/compose-ui')",
+  )
   lines.push('')
 
   for (const comp of components) {
