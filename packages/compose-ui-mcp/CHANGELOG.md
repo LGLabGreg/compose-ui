@@ -1,5 +1,11 @@
 # @lglab/compose-ui-mcp
 
+## 0.2.2
+
+### Patch Changes
+
+- [#133](https://github.com/LGLabGreg/compose-ui/pull/133) [`9d42956`](https://github.com/LGLabGreg/compose-ui/commit/9d429567258bc94f5a89f9b4a2886882800634d6) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Overview improvements
+
 ## 0.2.1
 
 ### Patch Changes
