@@ -12,8 +12,8 @@ import { cn } from '../lib/utils'
 const cardVariants = cva('rounded-lg bg-card text-card-foreground transition-colors', {
   variants: {
     variant: {
-      default: 'border shadow-xs',
-      outline: 'border',
+      default: 'border border-border shadow-xs',
+      outline: 'border border-border',
       elevated: 'shadow-md',
     },
   },
