@@ -330,6 +330,15 @@ export {
   PreviewCardPopup,
   PreviewCardArrow,
 } from './components/preview-card'
+export {
+  ChartRoot,
+  useChartContext,
+  ChartTooltipContent,
+  ChartLegendContent,
+  ChartXAxis,
+  ChartYAxis,
+  ChartGrid,
+} from './components/chart'
 
 export type { ButtonProps } from './components/button'
 export type { CheckboxRootProps, CheckboxIndicatorProps } from './components/checkbox'
@@ -683,3 +692,13 @@ export type {
   PreviewCardPopupProps,
   PreviewCardArrowProps,
 } from './components/preview-card'
+export type {
+  ChartConfig,
+  ChartRootProps,
+  ChartTooltipContentProps,
+  IndicatorType,
+  ChartLegendContentProps,
+  ChartXAxisProps,
+  ChartYAxisProps,
+  ChartGridProps,
+} from './components/chart'

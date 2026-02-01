@@ -205,6 +205,10 @@
       "import": "./dist/tooltip.js",
       "types": "./dist/tooltip.d.ts"
     },
+    "./chart": {
+      "import": "./dist/chart/index.js",
+      "types": "./dist/chart/index.d.ts"
+    },
     "./styles/*": "./dist/styles/*"
   },
   "files": [
@@ -220,6 +224,7 @@
     "clsx": "^2.1.1",
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19",
+    "recharts": "^3.7.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.0.0"
   },
@@ -231,6 +236,7 @@
     "globals": "^17.2.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "recharts": "^3.7.0",
     "tsdown": "^0.12.9",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.54.0"

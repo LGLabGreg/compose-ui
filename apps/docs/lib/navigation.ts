@@ -31,6 +31,7 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Badge', href: '/components/badge' },
       { name: 'Button', href: '/components/button' },
       { name: 'Card', href: '/components/card' },
+      { name: 'Chart', href: '/components/chart' },
       { name: 'Checkbox', href: '/components/checkbox' },
       { name: 'Checkbox Group', href: '/components/checkbox-group' },
       { name: 'Collapsible', href: '/components/collapsible' },
