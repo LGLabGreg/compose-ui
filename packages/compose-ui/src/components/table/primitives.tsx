@@ -52,7 +52,9 @@ TableRoot.displayName = 'TableRoot'
 type TableHeaderProps = React.ComponentProps<'thead'>
 
 const TableHeader = ({ className, ...props }: TableHeaderProps) => {
-  return <thead className={cn('[&_tr]:border-b', className)} {...props} />
+  return (
+    <thead className={cn('[&_tr]:border-b [&_tr]:border-border', className)} {...props} />
+  )
 }
 
 TableHeader.displayName = 'TableHeader'
@@ -78,7 +80,10 @@ type TableFooterProps = React.ComponentProps<'tfoot'>
 const TableFooter = ({ className, ...props }: TableFooterProps) => {
   return (
     <tfoot
-      className={cn('border-t bg-muted/50 font-medium [&>tr]:last:border-b-0', className)}
+      className={cn(
+        'border-t border-border bg-muted/50 font-medium [&>tr]:last:border-b-0',
+        className,
+      )}
       {...props}
     />
   )
@@ -95,7 +100,10 @@ type TableRowProps = React.ComponentProps<'tr'>
 const TableRow = ({ className, ...props }: TableRowProps) => {
   return (
     <tr
-      className={cn('border-b transition-colors hover:bg-muted/50', className)}
+      className={cn(
+        'border-b border-border transition-colors hover:bg-muted/50',
+        className,
+      )}
       {...props}
     />
   )
