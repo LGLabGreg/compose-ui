@@ -29,8 +29,8 @@ Key features:
 - [Slider](https://compose-ui.dev/components/slider.md): A control for selecting a value or range from a continuous or discrete set of values.
 - [Skeleton](https://compose-ui.dev/components/skeleton.md): A placeholder component for content that is loading. Use className to define custom shapes and sizes.
 - [Separator](https://compose-ui.dev/components/separator.md): A separator element accessible to screen readers.
-- [Scroll Area](https://compose-ui.dev/components/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
 - [Select](https://compose-ui.dev/components/select.md): A common form component for choosing a predefined value in a dropdown menu.
+- [Scroll Area](https://compose-ui.dev/components/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
 - [Radio Group](https://compose-ui.dev/components/radio-group.md): Provides shared state to a series of radio buttons.
 - [Progress](https://compose-ui.dev/components/progress.md): The progressbar range widget indicates that a request has been received and the application is making progress toward completing the requested action.
 - [Preview Card](https://compose-ui.dev/components/preview-card.md): A card that displays contextual content when hovering a link.
