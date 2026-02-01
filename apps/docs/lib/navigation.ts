@@ -18,6 +18,7 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Accessibility', href: '/overview/accessibility' },
       { name: 'Theming', href: '/overview/theming' },
       { name: 'LLMs', href: '/overview/llms' },
+      { name: 'MCP', href: '/overview/mcp' },
     ],
   },
   {

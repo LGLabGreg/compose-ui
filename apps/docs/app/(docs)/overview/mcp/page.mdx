@@ -1,0 +1,70 @@
+import { DocPage } from '@/components/mdx/doc-page'
+
+<DocPage
+  title="MCP Server"
+  description="Integrate Compose UI directly into your AI coding assistant with the Model Context Protocol."
+>
+
+## Overview
+
+The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard that allows AI assistants to interact with external tools and data sources. Compose UI provides an MCP server package (`@lglab/compose-ui-mcp`) that gives your AI assistant direct access to component documentation through interactive tools.
+
+## Benefits
+
+Unlike static documentation files, the MCP server provides:
+
+- **Interactive tools**: Search and retrieve component docs on-demand
+- **Fuzzy search**: Find components without knowing exact names
+- **Selective retrieval**: Get only the sections you need (examples, installation, API, etc.)
+- **Always up-to-date**: Pulls from current documentation
+- **Reduced context**: Only loads relevant info instead of entire docs
+
+## Available Tools
+
+The MCP server exposes two tools:
+
+**`find_components`**
+Fuzzy search all available components. Returns matching component names with similarity scores.
+
+**`get_component`**
+Get detailed documentation for a specific component. Optionally filter by sections like `installation`, `examples`, `anatomy`, or `api`.
+
+## Setup
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=compose-ui&config=eyJjb21tYW5kIjoibnB4IC15IEBsZ2xhYi9jb21wb3NlLXVpLW1jcEBsYXRlc3QifQ%3D%3D)
+
+Follow the instructions of your AI tool to configure custom MCP servers and add the following to enable the Compose UI MCP server
+
+```json
+{
+  "mcpServers": {
+    "compose-ui": {
+      "command": "npx",
+      "args": ["-y", "@lglab/compose-ui-mcp@latest"]
+    }
+  }
+}
+```
+
+## Example Prompts
+
+Once configured, you can ask your AI assistant to use the MCP tools:
+
+```
+Use the compose-ui MCP tools to find a dialog component and show me how to create a confirmation dialog.
+```
+
+```
+Search for form-related components in Compose UI and create a login form with validation.
+```
+
+```
+Find Compose UI components for building a navigation menu with dropdowns.
+```
+
+## See Also
+
+- [LLM-Friendly Docs](/overview/llms) - Static documentation files for AI assistants
+- [MCP Documentation](https://modelcontextprotocol.io/) - Learn more about the Model Context Protocol
+
+</DocPage>
