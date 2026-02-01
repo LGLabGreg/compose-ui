@@ -9,7 +9,7 @@ import { Logo } from './logo'
 export default function MainNav() {
   return (
     <header className='flex flex-1 border-b items-center py-3 px-4 bg-background'>
-      <div className='container max-w-5xl mx-auto flex items-center gap-6'>
+      <div className='container max-w-7xl mx-auto flex items-center gap-6'>
         <Logo />
         <nav>
           <ul className='flex gap-4 text-sm'>

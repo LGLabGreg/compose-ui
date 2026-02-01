@@ -1,6 +1,6 @@
 # Compose UI - Complete Documentation
 
-> A React component library built on Base UI primitives with Tailwind CSS styling.
+> Pre-styled, accessible React components with Tailwind CSS styling.
 
 ## Table of Contents
 

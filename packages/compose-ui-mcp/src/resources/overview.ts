@@ -2,11 +2,11 @@ import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 
 const text = `# Compose UI
 
-A React component library built on Base UI primitives with Tailwind CSS v4 styling.
+A pre-styled, accessible React component library with Tailwind CSS v4 styling.
 
 ## Key Principles
 - Composition over configuration
-- Base UI handles accessibility and behavior
+- Accessibility built-in (ARIA, keyboard navigation, focus management)
 - Tailwind CSS for styling
 - TypeScript-first
 

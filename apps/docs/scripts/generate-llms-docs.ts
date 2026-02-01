@@ -193,15 +193,15 @@ function generateLlmsTxt(
   lines.push('# Compose UI')
   lines.push('')
   lines.push(
-    '> A React component library built on Base UI primitives with Tailwind CSS styling. Install via npm for type-safe, accessible components with modern theming.',
+    '> A pre-styled, accessible React component library with Tailwind CSS styling. Install via npm for type-safe components with modern theming.',
   )
   lines.push('')
   lines.push(
-    'Compose UI provides pre-styled, accessible React components built on Base UI. It uses Tailwind CSS for styling and class-variance-authority (CVA) for type-safe variants.',
+    'Compose UI provides pre-styled, accessible React components with Tailwind CSS styling and class-variance-authority (CVA) for type-safe variants.',
   )
   lines.push('')
   lines.push('Key features:')
-  lines.push('- Built on @base-ui/react primitives (accessibility handled automatically)')
+  lines.push('- Accessible by default (ARIA, keyboard navigation, focus management)')
   lines.push('- Styled with Tailwind CSS using design tokens')
   lines.push('- Type-safe variants with CVA')
   lines.push('- CSS variable-based theming (compatible with Tailwind v4)')
@@ -299,9 +299,7 @@ function generateLlmsFullTxt(
 
   lines.push('# Compose UI - Complete Documentation')
   lines.push('')
-  lines.push(
-    '> A React component library built on Base UI primitives with Tailwind CSS styling.',
-  )
+  lines.push('> Pre-styled, accessible React components with Tailwind CSS styling.')
   lines.push('')
   lines.push('## Table of Contents')
   lines.push('')

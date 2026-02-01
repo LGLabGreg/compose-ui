@@ -2,8 +2,7 @@
 
 ![Beta](https://img.shields.io/badge/status-beta-yellow)
 
-Base UI accessibility meets Tailwind flexibility. Accessible React components
-you can npm install and start using immediately.
+Pre-styled, accessible React components with Tailwind flexibility. npm install and start using immediately.
 
 ## Documentation
 
