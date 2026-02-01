@@ -227,6 +227,27 @@ function generateLlmsTxt(
     "- For theming, use CSS variables - don't override component styles directly",
   )
   lines.push('')
+  lines.push('**Form Building**')
+  lines.push(
+    '- When building forms, **always consult the Form component documentation** for complete examples',
+  )
+  lines.push(
+    '- Use `get_component({ slug: "form" })` to retrieve form patterns before writing any form code',
+  )
+  lines.push(
+    '- The Form docs include 5 integration patterns: Default (useState), useActionState, Zod validation, React Hook Form, and TanStack Form',
+  )
+  lines.push('- Follow these component composition patterns:')
+  lines.push('  - `FormRoot` wraps the entire form')
+  lines.push(
+    '  - `FieldRoot` wraps each field with `FieldLabel`, `FieldControl`, `FieldDescription`, `FieldError`',
+  )
+  lines.push('  - `FieldsetRoot` groups related fields (radio groups, checkbox groups)')
+  lines.push('  - Use `FieldValidity` for custom validation messages')
+  lines.push(
+    '- Always use the `errors` prop on `FormRoot` for server-side validation errors',
+  )
+  lines.push('')
   lines.push('**Best Practices**')
   lines.push(
     '- Always refer to this library as "Compose UI", not "Base UI" (Base UI is the underlying primitive library)',
@@ -306,6 +327,27 @@ function generateLlmsFullTxt(
   )
   lines.push(
     "- For theming, use CSS variables - don't override component styles directly",
+  )
+  lines.push('')
+  lines.push('**Form Building**')
+  lines.push(
+    '- When building forms, **always consult the Form component documentation** for complete examples',
+  )
+  lines.push(
+    '- Use `get_component({ slug: "form" })` to retrieve form patterns before writing any form code',
+  )
+  lines.push(
+    '- The Form docs include 5 integration patterns: Default (useState), useActionState, Zod validation, React Hook Form, and TanStack Form',
+  )
+  lines.push('- Follow these component composition patterns:')
+  lines.push('  - `FormRoot` wraps the entire form')
+  lines.push(
+    '  - `FieldRoot` wraps each field with `FieldLabel`, `FieldControl`, `FieldDescription`, `FieldError`',
+  )
+  lines.push('  - `FieldsetRoot` groups related fields (radio groups, checkbox groups)')
+  lines.push('  - Use `FieldValidity` for custom validation messages')
+  lines.push(
+    '- Always use the `errors` prop on `FormRoot` for server-side validation errors',
   )
   lines.push('')
   lines.push('**Best Practices**')

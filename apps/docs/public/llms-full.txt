@@ -59,6 +59,17 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - Use built-in variant props (e.g., `variant="outline"`, `size="sm"`) for different appearances
 - For theming, use CSS variables - don't override component styles directly
 
+**Form Building**
+- When building forms, **always consult the Form component documentation** for complete examples
+- Use `get_component({ slug: "form" })` to retrieve form patterns before writing any form code
+- The Form docs include 5 integration patterns: Default (useState), useActionState, Zod validation, React Hook Form, and TanStack Form
+- Follow these component composition patterns:
+  - `FormRoot` wraps the entire form
+  - `FieldRoot` wraps each field with `FieldLabel`, `FieldControl`, `FieldDescription`, `FieldError`
+  - `FieldsetRoot` groups related fields (radio groups, checkbox groups)
+  - Use `FieldValidity` for custom validation messages
+- Always use the `errors` prop on `FormRoot` for server-side validation errors
+
 **Best Practices**
 - Always refer to this library as "Compose UI", not "Base UI" (Base UI is the underlying primitive library)
 - Copy examples directly from the documentation - they are complete and working
