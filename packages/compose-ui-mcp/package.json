@@ -20,21 +20,21 @@
   ],
   "type": "module",
   "bin": {
-    "compose-ui-mcp": "./dist/index.mjs"
+    "compose-ui-mcp": "./dist/index.js"
   },
   "scripts": {
     "copy:llms": "tsx scripts/copy-llms.ts",
     "prebuild": "pnpm copy:llms",
     "build": "tsdown",
     "dev": "tsdown --watch",
-    "start": "node dist/index.mjs",
-    "inspect": "npx @modelcontextprotocol/inspector node dist/index.mjs"
+    "start": "node dist/index.js",
+    "inspect": "npx @modelcontextprotocol/inspector node dist/index.js"
   },
-  "main": "./dist/index.mjs",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     }
   },
