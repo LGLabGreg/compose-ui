@@ -25,7 +25,7 @@ FieldsetRoot.displayName = 'FieldsetRoot'
 type FieldsetLegendProps = React.ComponentProps<typeof BaseFieldset.Legend>
 
 const FieldsetLegend = ({ className, ...props }: FieldsetLegendProps) => {
-  return <BaseFieldset.Legend className={cn(labelStyles, className)} {...props} />
+  return <BaseFieldset.Legend className={cn('mb-1', labelStyles, className)} {...props} />
 }
 
 FieldsetLegend.displayName = 'FieldsetLegend'
