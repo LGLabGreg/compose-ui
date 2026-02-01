@@ -1,5 +1,11 @@
 # @lglab/compose-ui-mcp
 
+## 0.2.3
+
+### Patch Changes
+
+- [#136](https://github.com/LGLabGreg/compose-ui/pull/136) [`ef3f9cd`](https://github.com/LGLabGreg/compose-ui/commit/ef3f9cdefb44e19509c88eec2feca3f40ddc7673) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - MCP install instructions
+
 ## 0.2.2
 
 ### Patch Changes
