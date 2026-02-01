@@ -1,5 +1,11 @@
 # @lglab/compose-ui
 
+## 0.30.4
+
+### Patch Changes
+
+- [#135](https://github.com/LGLabGreg/compose-ui/pull/135) [`90a98a5`](https://github.com/LGLabGreg/compose-ui/commit/90a98a5407a49a6ad21a9c32706f1a9f79c9e142) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Fox border style
+
 ## 0.30.3
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@lglab/compose-ui-mcp",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "MCP server exposing compose-ui library documentation to AI tools",
   "author": "LGLab",
   "license": "MIT",
