@@ -25,10 +25,10 @@
       "prettier --write --config .prettierrc"
     ],
     "packages/**/*.{ts,tsx}": [
-      "eslint --config eslint.config.js  --max-warnings=0"
+      "eslint --config eslint.config.js --fix --max-warnings=0"
     ],
     "apps/docs/**/*.{ts,tsx}": [
-      "eslint --config apps/docs/eslint.config.mjs  --max-warnings=0"
+      "eslint --config apps/docs/eslint.config.mjs --fix --max-warnings=0"
     ]
   },
   "devDependencies": {

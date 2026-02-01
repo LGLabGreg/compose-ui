@@ -1,7 +1,9 @@
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { registerFindComponentsTool } from './find-components.js'
+import { registerGetComponentTool } from './get-component.js'
+
 export function registerTools(server: McpServer): void {
-  // Tools will be registered here
-  // Example: registerSearchTool(server)
+  registerFindComponentsTool(server)
+  registerGetComponentTool(server)
 }
