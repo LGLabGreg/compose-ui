@@ -10,6 +10,40 @@ A React component library built on Base UI primitives with Tailwind CSS v4 styli
 - Tailwind CSS for styling
 - TypeScript-first
 
+## Project Setup
+
+When creating a new project with Compose UI, follow these steps:
+
+### 1. Installation
+\`\`\`bash
+npm i @lglab/compose-ui
+\`\`\`
+
+### 2. CSS Configuration (Critical)
+Add these lines to your main CSS file (e.g., \`globals.css\`):
+
+\`\`\`css
+@import 'tailwindcss';
+
+@import '@lglab/compose-ui/styles/default.css';
+@source "../node_modules/@lglab/compose-ui";
+\`\`\`
+
+**Important:**
+- The \`@import\` loads theme CSS variables and base styles
+- The \`@source\` directive is **required** - it tells Tailwind to scan the package for class names
+- Adjust the \`node_modules\` path based on your project structure (e.g., monorepos may need \`../../node_modules\`)
+
+
+### 3. Dark Mode (Optional)
+For manual theme switching, use next-themes or similar:
+
+\`\`\`tsx
+import { ThemeProvider } from 'next-themes'
+
+<ThemeProvider attribute='class'>{children}</ThemeProvider>
+\`\`\`
+
 ## Available Tools
 
 Use these tools to access component documentation:
