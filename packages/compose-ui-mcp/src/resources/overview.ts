@@ -10,12 +10,19 @@ A React component library built on Base UI primitives with Tailwind CSS v4 styli
 - Tailwind CSS for styling
 - TypeScript-first
 
-## Using This MCP Server
+## Available Tools
 
-To work with Compose UI components, use the available tools:
+Use these tools to access component documentation:
 
-- \`compose-ui://components\`: List of available components
-- \`compose-ui://components/{slug}\`: Documentation for a specific component
+- **find_components**: Fuzzy search all components by name
+- **get_component**: Get full documentation for a specific component (supports section filtering)
+
+## Styling Guidelines
+
+- Components are **pre-styled and ready to use** - do not add custom CSS, Tailwind classes, or inline styles
+- Only add custom styling if the user explicitly requests it
+- Use built-in variant props (e.g., \`variant="outline"\`, \`size="sm"\`) for different appearances
+- Use specific import paths: \`import { Button } from '@lglab/compose-ui/button'\`
 `
 
 export function registerOverviewResource(server: McpServer): void {

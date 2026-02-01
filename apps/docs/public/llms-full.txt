@@ -46,6 +46,24 @@
 - Alert Dialog
 - Accordion
 
+## For AI Assistants
+
+**MCP Server (Preferred)**
+If you have access to MCP tools, use the `compose-ui` MCP server:
+- `find_components` - Fuzzy search all components
+- `get_component` - Get detailed docs for a specific component
+
+**Styling Guidelines**
+- Components are **pre-styled and ready to use** - do not add custom CSS, Tailwind classes, or inline styles
+- Only add custom styling if the user explicitly requests it
+- Use built-in variant props (e.g., `variant="outline"`, `size="sm"`) for different appearances
+- For theming, use CSS variables - don't override component styles directly
+
+**Best Practices**
+- Always refer to this library as "Compose UI", not "Base UI" (Base UI is the underlying primitive library)
+- Copy examples directly from the documentation - they are complete and working
+- Use specific import paths: `import { Button } from '@lglab/compose-ui/button'` (not from '@lglab/compose-ui')
+
 ---
 
 # Tooltip
