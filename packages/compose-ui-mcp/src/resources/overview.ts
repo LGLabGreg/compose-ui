@@ -1,18 +1,22 @@
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
-import { readFile } from 'node:fs/promises'
-import { dirname, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const LLMS_TXT_PATH = resolve(__dirname, 'assets/llms.txt')
+const text = `# Compose UI
 
-async function getOverviewContent(): Promise<string> {
-  try {
-    return await readFile(LLMS_TXT_PATH, 'utf-8')
-  } catch {
-    return '# Compose UI\n\nUnable to load overview content. Please ensure llms.txt exists.'
-  }
-}
+A React component library built on Base UI primitives with Tailwind CSS v4 styling.
+
+## Key Principles
+- Composition over configuration
+- Base UI handles accessibility and behavior
+- Tailwind CSS for styling
+- TypeScript-first
+
+## Using This MCP Server
+
+To work with Compose UI components, use the available tools:
+
+- \`compose-ui://components\`: List of available components
+- \`compose-ui://components/{slug}\`: Documentation for a specific component
+`
 
 export function registerOverviewResource(server: McpServer): void {
   server.registerResource(
@@ -28,7 +32,7 @@ export function registerOverviewResource(server: McpServer): void {
         {
           uri: 'compose-ui://overview',
           mimeType: 'text/markdown',
-          text: await getOverviewContent(),
+          text,
         },
       ],
     }),
