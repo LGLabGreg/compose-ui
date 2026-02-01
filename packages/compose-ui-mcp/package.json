@@ -15,7 +15,8 @@
     "model-context-protocol",
     "compose-ui",
     "ai",
-    "claude"
+    "claude",
+    "cursor"
   ],
   "type": "module",
   "bin": {
