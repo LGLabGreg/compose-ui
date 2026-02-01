@@ -1,5 +1,11 @@
 # @lglab/compose-ui-mcp
 
+## 0.1.1
+
+### Patch Changes
+
+- [#127](https://github.com/LGLabGreg/compose-ui/pull/127) [`a8a8c47`](https://github.com/LGLabGreg/compose-ui/commit/a8a8c47ffe620671ddc8d81ab1197720e873816e) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Fix entry point
+
 ## 0.1.0
 
 ### Minor Changes
