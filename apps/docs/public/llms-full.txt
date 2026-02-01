@@ -30,6 +30,7 @@
 - Menu
 - Input
 - Form
+- Fieldset
 - Field
 - Drawer
 - Dialog
@@ -58,6 +59,17 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - Only add custom styling if the user explicitly requests it
 - Use built-in variant props (e.g., `variant="outline"`, `size="sm"`) for different appearances
 - For theming, use CSS variables - don't override component styles directly
+
+**Form Building**
+- When building forms, **always consult the Form component documentation** for complete examples
+- Use `get_component({ slug: "form" })` to retrieve form patterns before writing any form code
+- The Form docs include 5 integration patterns: Default (useState), useActionState, Zod validation, React Hook Form, and TanStack Form
+- Follow these component composition patterns:
+  - `FormRoot` wraps the entire form
+  - `FieldRoot` wraps each field with `FieldLabel`, `FieldControl`, `FieldDescription`, `FieldError`
+  - `FieldsetRoot` groups related fields (radio groups, checkbox groups)
+  - Use `FieldValidity` for custom validation messages
+- Always use the `errors` prop on `FormRoot` for server-side validation errors
 
 **Best Practices**
 - Always refer to this library as "Compose UI", not "Base UI" (Base UI is the underlying primitive library)
@@ -8959,6 +8971,54 @@ export default function WithTanstackFormExample() {
 
 - [Base UI Form Documentation](https://base-ui.com/react/components/form)
 - [API Reference](https://base-ui.com/react/components/form#api-reference)
+
+---
+
+# Fieldset
+
+Groups related form fields together with an accessible legend.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { FieldsetRoot, FieldsetLegend } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Default
+
+```tsx
+import { FieldControl, FieldLabel, FieldRoot } from '@lglab/compose-ui/field'
+import { FieldsetLegend, FieldsetRoot } from '@lglab/compose-ui/fieldset'
+
+export default function DefaultExample() {
+  return (
+    <FieldsetRoot>
+      <FieldsetLegend>Personal Information</FieldsetLegend>
+      <FieldRoot name='firstName'>
+        <FieldLabel>First name</FieldLabel>
+        <FieldControl placeholder='John' />
+      </FieldRoot>
+      <FieldRoot name='lastName'>
+        <FieldLabel>Last name</FieldLabel>
+        <FieldControl placeholder='Doe' />
+      </FieldRoot>
+    </FieldsetRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI Fieldset Documentation](https://base-ui.com/react/components/fieldset)
+- [API Reference](https://base-ui.com/react/components/fieldset#api-reference)
 
 ---
 
