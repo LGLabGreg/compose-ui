@@ -58,6 +58,7 @@ for (const component of components) {
 // Folder-based components with separate hook entry points
 entry['table/index'] = 'src/components/table/index.ts'
 entry['table/use-table'] = 'src/components/table/use-table.ts'
+entry['chart/index'] = 'src/components/chart/index.ts'
 
 export default defineConfig({
   entry,
@@ -69,6 +70,7 @@ export default defineConfig({
     'react/jsx-runtime',
     /^tailwindcss/,
     /^@base-ui\/react/,
+    /^recharts/,
     'clsx',
     'class-variance-authority',
     'tailwind-merge',

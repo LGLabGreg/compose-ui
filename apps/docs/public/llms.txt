@@ -81,6 +81,7 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Collapsible](https://compose-ui.dev/components/collapsible.md): A component that allows content to be expanded or collapsed.
 - [Checkbox Group](https://compose-ui.dev/components/checkbox-group.md): Provides shared state to a series of checkboxes.
 - [Checkbox](https://compose-ui.dev/components/checkbox.md): A control that allows the user to toggle between checked and unchecked states.
+- [Chart](https://compose-ui.dev/components/chart.md): A set of wrapper components that extend Recharts with styled tooltips, legends, and theme-aware colors. For full chart capabilities, refer to the Recharts documentation.
 - [Card](https://compose-ui.dev/components/card.md): A flexible card component with support for media, headers, content sections, and footers. Supports both vertical and horizontal layouts with multiple variants.
 - [Button](https://compose-ui.dev/components/button.md): A versatile button component with multiple variants, sizes, and states including loading indicators.
 - [Badge](https://compose-ui.dev/components/badge.md): A versatile badge component for displaying labels, status indicators, and tags with multiple variants, sizes, and shapes.

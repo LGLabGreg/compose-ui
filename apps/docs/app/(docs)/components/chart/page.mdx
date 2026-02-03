@@ -1,0 +1,224 @@
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import AreaChartExample from './examples/area-chart'
+import BarChartExample from './examples/bar-chart'
+import LineChartExample from './examples/line-chart'
+
+<ComponentPage
+  title="Chart"
+  description="A set of wrapper components that extend Recharts with styled tooltips, legends, and theme-aware colors. For full chart capabilities, refer to the Recharts documentation."
+  component="chart"
+  links={[{ label: 'Recharts', href: 'https://recharts.org' }]}
+>
+
+<ExampleLoader
+  title='Bar Chart'
+  filePath='app/(docs)/components/chart/examples/bar-chart.tsx'
+>
+  <BarChartExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Area Chart'
+  filePath='app/(docs)/components/chart/examples/area-chart.tsx'
+>
+  <AreaChartExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Line Chart'
+  filePath='app/(docs)/components/chart/examples/line-chart.tsx'
+>
+  <LineChartExample />
+</ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='ChartRoot'
+  description='Container component that provides chart configuration context and wraps children in a ResponsiveContainer.'
+>
+  <ApiTable
+    showRequired
+    data={[
+      {
+        name: 'config',
+        type: 'ChartConfig',
+        required: true,
+        description: 'Configuration object mapping data keys to labels, colors, and optional icons',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the container',
+      },
+      {
+        name: 'style',
+        type: 'React.CSSProperties',
+        description: 'Inline styles (merged with generated CSS variables)',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='ChartConfig'
+  description='Configuration object that maps data keys to display properties. Each key corresponds to a dataKey used in your chart series.'
+>
+  <ApiTable
+    showRequired
+    data={[
+      {
+        name: 'label',
+        type: 'string',
+        required: true,
+        description: 'Display label shown in tooltips and legends',
+      },
+      {
+        name: 'color',
+        type: 'string',
+        required: true,
+        description: 'Color value (CSS color, HSL, or CSS variable)',
+      },
+      {
+        name: 'icon',
+        type: 'React.ComponentType<{ className?: string }>',
+        description: 'Optional icon component displayed in tooltips and legends',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='ChartTooltipContent'
+  description='Styled tooltip content component for use with Recharts Tooltip.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'indicator',
+        type: "'dot' | 'line' | 'dashed'",
+        default: "'dot'",
+        description: 'Style of the color indicator next to each item',
+      },
+      {
+        name: 'hideLabel',
+        type: 'boolean',
+        default: 'false',
+        description: 'Hide the tooltip label/title',
+      },
+      {
+        name: 'hideIndicator',
+        type: 'boolean',
+        default: 'false',
+        description: 'Hide the color indicator',
+      },
+      {
+        name: 'labelKey',
+        type: 'string',
+        description: 'Payload property to use as the tooltip label instead of the default label',
+      },
+      {
+        name: 'nameKey',
+        type: 'string',
+        description: 'Payload property to use as item names instead of config labels',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the tooltip container',
+      },
+      {
+        name: 'labelClassName',
+        type: 'string',
+        description: 'Additional CSS classes for the label',
+      },
+      {
+        name: 'formatter',
+        type: '(value, name, item, index, payload) => ReactNode',
+        description: 'Custom formatter function for tooltip values',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='ChartLegendContent'
+  description='Styled legend content component for use with Recharts Legend.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the legend container',
+      },
+      {
+        name: 'nameKey',
+        type: 'string',
+        description: 'Payload property to use as item names instead of config labels',
+      },
+      {
+        name: 'verticalAlign',
+        type: "'top' | 'bottom'",
+        description: 'Vertical alignment (adjusts padding accordingly)',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='useChartContext'
+  description='Hook to access the chart configuration from within child components.'
+>
+  <ApiTable
+    showDefault={false}
+    data={[
+      {
+        name: 'config',
+        type: 'ChartConfig',
+        description: 'The chart configuration object passed to ChartRoot',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection title='Types' description='Type definitions exported from the chart package.'>
+  <ApiTable
+    showDefault={false}
+    data={[
+      {
+        name: 'ChartConfig',
+        type: 'Record<string, { label: string; color: string; icon?: ComponentType }>',
+        description: 'Configuration object type for chart series',
+      },
+      {
+        name: 'ChartRootProps',
+        type: 'interface',
+        description: 'Props for ChartRoot component',
+      },
+      {
+        name: 'ChartTooltipContentProps',
+        type: 'interface',
+        description: 'Props for ChartTooltipContent component',
+      },
+      {
+        name: 'ChartLegendContentProps',
+        type: 'interface',
+        description: 'Props for ChartLegendContent component',
+      },
+      {
+        name: 'IndicatorType',
+        type: "'dot' | 'line' | 'dashed'",
+        description: 'Tooltip indicator style type',
+      },
+    ]}
+  />
+</ApiSection>
+
+</ComponentPage>
