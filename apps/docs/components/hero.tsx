@@ -29,7 +29,7 @@ export function Hero() {
             </span>
           </Link>
           <h1 className='leading-tighter text-4xl font-semibold tracking-tight text-balance lg:leading-[1.2] lg:font-semibold xl:text-5xl xl:tracking-tighter max-w-4xl'>
-            Accessible React Components, Ready to Use
+            AI Ready React UI Toolkit
           </h1>
           <p className='text-foreground max-w-3xl text-base sm:text-lg'>
             Pre-styled, composable components with accessibility built-in. npm install and
