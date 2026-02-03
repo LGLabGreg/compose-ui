@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { ResponsiveContainer } from 'recharts'
 
 import { cn } from '../../lib/utils'
 import type { ChartConfig } from './types'
@@ -29,7 +30,7 @@ function ChartRoot({ config, className, children, style, ...props }: ChartRootPr
         style={{ ...cssVariables, ...style }}
         {...props}
       >
-        {children}
+        <ResponsiveContainer>{children}</ResponsiveContainer>
       </div>
     </ChartContext.Provider>
   )

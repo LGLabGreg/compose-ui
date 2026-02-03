@@ -335,9 +335,6 @@ export {
   useChartContext,
   ChartTooltipContent,
   ChartLegendContent,
-  ChartXAxis,
-  ChartYAxis,
-  ChartGrid,
 } from './components/chart'
 
 export type { ButtonProps } from './components/button'
@@ -698,7 +695,4 @@ export type {
   ChartTooltipContentProps,
   IndicatorType,
   ChartLegendContentProps,
-  ChartXAxisProps,
-  ChartYAxisProps,
-  ChartGridProps,
 } from './components/chart'

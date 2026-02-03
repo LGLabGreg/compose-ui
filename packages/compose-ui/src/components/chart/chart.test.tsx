@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { render } from '~/vitest.utils'
 
 import { ChartRoot } from './context'
@@ -7,6 +7,15 @@ import { ChartLegendContent } from './legend'
 import { ChartTooltipContent } from './tooltip'
 import type { ChartConfig } from './types'
 import { useChartContext } from './use-chart-context'
+
+// Mock ResponsiveContainer since it doesn't render children in test environment
+vi.mock('recharts', async () => {
+  const actual = await vi.importActual('recharts')
+  return {
+    ...actual,
+    ResponsiveContainer: ({ children }: { children: React.ReactNode }) => children,
+  }
+})
 
 const testConfig: ChartConfig = {
   desktop: { label: 'Desktop', color: 'var(--chart-1)' },

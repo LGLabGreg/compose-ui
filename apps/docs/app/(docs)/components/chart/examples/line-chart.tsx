@@ -6,7 +6,7 @@ import {
   ChartRoot,
   ChartTooltipContent,
 } from '@lglab/compose-ui/chart'
-import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis } from 'recharts'
+import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis } from 'recharts'
 
 const data = [
   { month: 'Jan', desktop: 186, mobile: 80 },
@@ -22,17 +22,29 @@ const config: ChartConfig = {
   mobile: { label: 'Mobile', color: 'var(--color-amber-600)' },
 }
 
-export default function BarChartExample() {
+export default function LineChartExample() {
   return (
     <ChartRoot config={config} className='h-[250px] w-full pt-4'>
-      <BarChart data={data} accessibilityLayer>
+      <LineChart data={data} accessibilityLayer>
         <CartesianGrid vertical={false} />
-        <XAxis dataKey='month' interval='preserveStartEnd' />
+        <XAxis dataKey='month' padding={{ left: 12, right: 12 }} />
         <Tooltip content={<ChartTooltipContent />} />
         <Legend content={<ChartLegendContent />} />
-        <Bar dataKey='desktop' fill='var(--color-desktop)' radius={[4, 4, 0, 0]} />
-        <Bar dataKey='mobile' fill='var(--color-mobile)' radius={[4, 4, 0, 0]} />
-      </BarChart>
+        <Line
+          dataKey='desktop'
+          type='natural'
+          stroke='var(--color-desktop)'
+          strokeWidth={2}
+          dot={false}
+        />
+        <Line
+          dataKey='mobile'
+          type='natural'
+          stroke='var(--color-mobile)'
+          strokeWidth={2}
+          dot={false}
+        />
+      </LineChart>
     </ChartRoot>
   )
 }
