@@ -139,6 +139,7 @@ export {
 } from './components/field'
 export { FieldsetRoot, FieldsetLegend } from './components/fieldset'
 export { FormRoot } from './components/form'
+export { GroupRoot, GroupAddon } from './components/group'
 export {
   AccordionRoot,
   AccordionItem,
@@ -493,6 +494,12 @@ export type {
 } from './components/field'
 export type { FieldsetRootProps, FieldsetLegendProps } from './components/fieldset'
 export type { FormRootProps } from './components/form'
+export type {
+  GroupRootProps,
+  GroupAddonProps,
+  GroupAddonVariant,
+  GroupAddonSize,
+} from './components/group'
 export type {
   AccordionRootProps,
   AccordionItemProps,

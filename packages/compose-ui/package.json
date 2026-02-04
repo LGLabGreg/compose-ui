@@ -97,6 +97,10 @@
       "import": "./dist/form.js",
       "types": "./dist/form.d.ts"
     },
+    "./group": {
+      "import": "./dist/group.js",
+      "types": "./dist/group.d.ts"
+    },
     "./input": {
       "import": "./dist/input.js",
       "types": "./dist/input.d.ts"

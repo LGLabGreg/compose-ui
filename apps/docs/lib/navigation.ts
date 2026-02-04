@@ -42,6 +42,7 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Field', href: '/components/field' },
       { name: 'Fieldset', href: '/components/fieldset' },
       { name: 'Form', href: '/components/form' },
+      { name: 'Group', href: '/components/group' },
       { name: 'Input', href: '/components/input' },
       { name: 'Menu', href: '/components/menu' },
       { name: 'Menubar', href: '/components/menubar' },
