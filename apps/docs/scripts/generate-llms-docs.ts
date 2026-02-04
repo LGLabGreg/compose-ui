@@ -155,11 +155,10 @@ async function generateMarkdown(
   }
 
   // Resources
-  lines.push('## Resources')
-  lines.push('')
-
   // Only add Base UI links if baseUiComponent exists
   if (meta.baseUiComponent) {
+    lines.push('## Resources')
+    lines.push('')
     lines.push(
       `- [Base UI ${meta.title} Documentation](https://base-ui.com/react/components/${meta.baseUiComponent})`,
     )
