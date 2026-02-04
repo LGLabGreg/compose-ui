@@ -71,6 +71,7 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Menubar](https://compose-ui.dev/components/menubar.md): A horizontal menu bar with dropdown menus for application commands and options.
 - [Menu](https://compose-ui.dev/components/menu.md): A component that displays a list of options on a temporary surface.
 - [Input](https://compose-ui.dev/components/input.md): A single-line text input element.
+- [Group](https://compose-ui.dev/components/group.md): A generic container for visually connecting elements like inputs, buttons, and badges with a GroupAddon subcomponent for decorative prefixes/suffixes.
 - [Form](https://compose-ui.dev/components/form.md): A native form element with consolidated error handling. Examples include useActionState, Zod schema validation, React Hook Form, and TanStack Form integrations.
 - [Fieldset](https://compose-ui.dev/components/fieldset.md): Groups related form fields together with an accessible legend.
 - [Field](https://compose-ui.dev/components/field.md): Provides accessible labeling and validation for form controls.

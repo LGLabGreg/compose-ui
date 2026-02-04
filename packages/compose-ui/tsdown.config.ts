@@ -19,6 +19,7 @@ const components = [
   'field',
   'fieldset',
   'form',
+  'group',
   'input',
   'menu',
   'menubar',

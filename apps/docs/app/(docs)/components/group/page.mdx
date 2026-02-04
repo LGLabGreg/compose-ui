@@ -1,0 +1,121 @@
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import BadgeGroupExample from './examples/badge-group'
+import ButtonGroupExample from './examples/button-group'
+import InputGroupExample from './examples/input-group'
+import VerticalExample from './examples/vertical'
+import WithPopupExample from './examples/with-popup'
+
+<ComponentPage
+  title="Group"
+  description="A generic container for visually connecting elements like inputs, buttons, and badges with a GroupAddon subcomponent for decorative prefixes/suffixes."
+  component="group"
+>
+
+<ExampleLoader
+  title='Button Group'
+  filePath='app/(docs)/components/group/examples/button-group.tsx'
+>
+  <ButtonGroupExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Input Group'
+  filePath='app/(docs)/components/group/examples/input-group.tsx'
+>
+  <InputGroupExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Badge Group'
+  filePath='app/(docs)/components/group/examples/badge-group.tsx'
+>
+  <BadgeGroupExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Vertical'
+  filePath='app/(docs)/components/group/examples/vertical.tsx'
+>
+  <VerticalExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Popup'
+  filePath='app/(docs)/components/group/examples/with-popup.tsx'
+>
+  <WithPopupExample />
+</ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='GroupRoot'
+  description='Container component that visually connects child elements by collapsing borders and rounding only outer corners.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'orientation',
+        type: "'horizontal' | 'vertical'",
+        default: "'horizontal'",
+        description: 'Layout direction of the grouped elements',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the container',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='GroupAddon'
+  description='Decorative element for displaying icons or text prefixes/suffixes within a Group.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'variant',
+        type: "'primary' | 'secondary' | 'destructive' | 'ghost'",
+        default: "'ghost'",
+        description: 'Visual style variant of the addon',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the addon',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='Accessibility'
+  description='Accessibility features built into the Group component.'
+>
+  <ApiTable
+    showDefault={false}
+    data={[
+      {
+        name: 'role="group"',
+        type: 'attribute',
+        description:
+          'The Group container renders with role="group" for semantic grouping of related elements',
+      },
+    ]}
+  />
+</ApiSection>
+
+</ComponentPage>
