@@ -9,9 +9,14 @@ import SubmenuExample from './examples/submenu'
 import WithArrowExample from './examples/with-arrow'
 import WithIconsExample from './examples/with-icons'
 
+export const metadata = {
+  title: 'Menubar',
+  description: 'A horizontal menu bar with dropdown menus for application commands and options.',
+}
+
 <ComponentPage
-  title="Menubar"
-  description="A horizontal menu bar with dropdown menus for application commands and options."
+  title={metadata.title}
+  description={metadata.description}
   component="menubar"
   baseUiComponent="menubar"
 >

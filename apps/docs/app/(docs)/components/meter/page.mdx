@@ -4,9 +4,14 @@ import AnimatedExample from './examples/animated'
 import BasicExample from './examples/basic'
 import CustomFormatExample from './examples/custom-format'
 
+export const metadata = {
+  title: 'Meter',
+  description: 'A graphical display of a numeric value within a defined range.',
+}
+
 <ComponentPage
-  title="Meter"
-  description="A graphical display of a numeric value within a defined range."
+  title={metadata.title}
+  description={metadata.description}
   component="meter"
   baseUiComponent="meter"
 >

@@ -9,9 +9,14 @@ import SidesExample from './examples/sides'
 import TrackCursorExample from './examples/track-cursor'
 import VariantsExample from './examples/variants'
 
+export const metadata = {
+  title: 'Tooltip',
+  description: 'A popup that appears when an element is hovered or focused, showing a hint for sighted users.',
+}
+
 <ComponentPage
-  title="Tooltip"
-  description="A popup that appears when an element is hovered or focused, showing a hint for sighted users."
+  title={metadata.title}
+  description={metadata.description}
   component="tooltip"
   baseUiComponent="tooltip"
 >

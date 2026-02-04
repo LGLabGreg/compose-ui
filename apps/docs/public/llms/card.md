@@ -258,7 +258,3 @@ export default function CardVariants() {
 }
 ```
 
-## Resources
-
-- [Base UI Card Documentation](https://base-ui.com/react/components/card)
-- [API Reference](https://base-ui.com/react/components/card#api-reference)

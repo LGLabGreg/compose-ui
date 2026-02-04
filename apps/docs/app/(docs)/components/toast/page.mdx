@@ -6,9 +6,14 @@ import PromiseExample from './examples/promise'
 import StackedExample from './examples/stacked'
 import WithActionExample from './examples/with-action'
 
+export const metadata = {
+  title: 'Toast',
+  description: 'A notification message that appears temporarily to provide feedback.',
+}
+
 <ComponentPage
-  title="Toast"
-  description="A notification message that appears temporarily to provide feedback."
+  title={metadata.title}
+  description={metadata.description}
   component="toast"
   baseUiComponent="toast"
 >

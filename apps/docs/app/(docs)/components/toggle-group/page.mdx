@@ -9,9 +9,14 @@ import OrientationExample from './examples/orientation'
 import SizesExample from './examples/sizes'
 import WithTextExample from './examples/with-text'
 
+export const metadata = {
+  title: 'Toggle Group',
+  description: 'Provides a shared state to a series of toggle buttons.',
+}
+
 <ComponentPage
-  title="Toggle Group"
-  description="Provides a shared state to a series of toggle buttons."
+  title={metadata.title}
+  description={metadata.description}
   component="toggle-group"
   baseUiComponent="toggle-group"
 >

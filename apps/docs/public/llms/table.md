@@ -1319,7 +1319,3 @@ export default function WithLoadingExample() {
 }
 ```
 
-## Resources
-
-- [Base UI Table Documentation](https://base-ui.com/react/components/table)
-- [API Reference](https://base-ui.com/react/components/table#api-reference)

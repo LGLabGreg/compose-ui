@@ -4,9 +4,14 @@ import DefaultExample from './examples/default'
 import ParentCheckboxExample from './examples/parent-checkbox'
 import WithFieldExample from './examples/with-field'
 
+export const metadata = {
+  title: 'Checkbox Group',
+  description: 'Provides shared state to a series of checkboxes.',
+}
+
 <ComponentPage
-  title="Checkbox Group"
-  description="Provides shared state to a series of checkboxes."
+  title={metadata.title}
+  description={metadata.description}
   component="checkbox-group"
   baseUiComponent="checkbox-group"
 >

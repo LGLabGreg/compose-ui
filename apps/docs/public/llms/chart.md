@@ -173,7 +173,3 @@ export default function LineChartExample() {
 }
 ```
 
-## Resources
-
-- [Base UI Chart Documentation](https://base-ui.com/react/components/chart)
-- [API Reference](https://base-ui.com/react/components/chart#api-reference)

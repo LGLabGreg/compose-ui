@@ -242,16 +242,21 @@ Add exports for all component parts and their types.
 
 **Location**: `apps/docs/app/(docs)/components/$ARGUMENTS/page.mdx`
 
-Create the MDX page with examples:
+Create the MDX page with examples. **IMPORTANT**: Export metadata for SEO:
 
 ```mdx
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import DefaultExample from './examples/default'
 
+export const metadata = {
+  title: '{Component Name}',
+  description: 'Brief description of the component.',
+}
+
 <ComponentPage
-  title="{Component Name}"
-  description="Brief description of the component."
+  title={metadata.title}
+  description={metadata.description}
   component="$ARGUMENTS"
 >
 

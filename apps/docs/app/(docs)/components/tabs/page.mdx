@@ -7,9 +7,14 @@ import SizesExample from './examples/sizes'
 import VerticalExample from './examples/vertical'
 import WithIconsExample from './examples/with-icons'
 
+export const metadata = {
+  title: 'Tabs',
+  description: 'A component for toggling between related panels on the same page with an animated indicator.',
+}
+
 <ComponentPage
-  title="Tabs"
-  description="A component for toggling between related panels on the same page with an animated indicator."
+  title={metadata.title}
+  description={metadata.description}
   component="tabs"
   baseUiComponent="tabs"
 >

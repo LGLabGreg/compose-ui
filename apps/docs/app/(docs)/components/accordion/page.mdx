@@ -4,9 +4,14 @@ import BasicExample from './examples/basic'
 import IconExample from './examples/custom-icon'
 import MultipleExample from './examples/multiple'
 
+export const metadata = {
+  title: 'Accordion',
+  description: 'A set of collapsible panels with headings.',
+}
+
 <ComponentPage
-  title="Accordion"
-  description="A set of collapsible panels with headings."
+  title={metadata.title}
+  description={metadata.description}
   component="accordion"
   baseUiComponent="accordion"
 >

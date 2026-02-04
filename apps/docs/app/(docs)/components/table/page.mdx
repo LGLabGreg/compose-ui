@@ -10,9 +10,14 @@ import WithSearchExample from './examples/with-search'
 import WithSelectionExample from './examples/with-selection'
 import WithSortingExample from './examples/with-sorting'
 
+export const metadata = {
+  title: 'Table',
+  description: 'A responsive table component with support for variants, alignment, and a useTable hook for declarative column configuration.',
+}
+
 <ComponentPage
-  title="Table"
-  description="A responsive table component with support for variants, alignment, and a useTable hook for declarative column configuration."
+  title={metadata.title}
+  description={metadata.description}
   component="table"
 >
 

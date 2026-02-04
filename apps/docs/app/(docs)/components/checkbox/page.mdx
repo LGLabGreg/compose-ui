@@ -3,9 +3,14 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 import DefaultExample from './examples/default'
 import IndeterminateExample from './examples/indeterminate'
 
+export const metadata = {
+  title: 'Checkbox',
+  description: 'A control that allows the user to toggle between checked and unchecked states.',
+}
+
 <ComponentPage
-  title="Checkbox"
-  description="A control that allows the user to toggle between checked and unchecked states."
+  title={metadata.title}
+  description={metadata.description}
   component="checkbox"
   baseUiComponent="checkbox"
 >

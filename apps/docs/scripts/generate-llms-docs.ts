@@ -12,6 +12,7 @@ interface ComponentMeta {
   title: string
   description: string
   component: string
+  baseUiComponent?: string
   examples: Example[]
 }
 
@@ -19,17 +20,37 @@ interface ComponentMeta {
  * Parse ComponentPage props from MDX content
  */
 function parseComponentPage(mdxContent: string): Partial<ComponentMeta> {
-  // Extract title
-  const titleMatch = mdxContent.match(/title=["']([^"']+)["']/)
-  // Extract description
-  const descMatch = mdxContent.match(/description=["']([^"']+)["']/)
-  // Extract component
+  // Extract component and baseUiComponent from ComponentPage props (needed in both paths)
   const compMatch = mdxContent.match(/component=["']([^"']+)["']/)
+  const baseUiMatch = mdxContent.match(/baseUiComponent=["']([^"']+)["']/)
+
+  // First, try to parse from metadata export
+  const metadataMatch = mdxContent.match(/export\s+const\s+metadata\s*=\s*\{([\s\S]+?)\}/)
+
+  if (metadataMatch) {
+    const metadataContent = metadataMatch[1]
+    const titleMatch = metadataContent.match(/title:\s*["']([^"']+)["']/)
+    const descMatch = metadataContent.match(/description:\s*["']([^"']+)["']/)
+
+    if (titleMatch && descMatch) {
+      return {
+        title: titleMatch[1],
+        description: descMatch[1],
+        component: compMatch?.[1],
+        baseUiComponent: baseUiMatch?.[1],
+      }
+    }
+  }
+
+  // Fallback to old method (ComponentPage props)
+  const titleMatch = mdxContent.match(/title=["']([^"']+)["']/)
+  const descMatch = mdxContent.match(/description=["']([^"']+)["']/)
 
   return {
     title: titleMatch?.[1],
     description: descMatch?.[1],
     component: compMatch?.[1],
+    baseUiComponent: baseUiMatch?.[1],
   }
 }
 
@@ -134,14 +155,17 @@ async function generateMarkdown(
   }
 
   // Resources
-  lines.push('## Resources')
-  lines.push('')
-  lines.push(
-    `- [Base UI ${meta.title} Documentation](https://base-ui.com/react/components/${meta.component})`,
-  )
-  lines.push(
-    `- [API Reference](https://base-ui.com/react/components/${meta.component}#api-reference)`,
-  )
+  // Only add Base UI links if baseUiComponent exists
+  if (meta.baseUiComponent) {
+    lines.push('## Resources')
+    lines.push('')
+    lines.push(
+      `- [Base UI ${meta.title} Documentation](https://base-ui.com/react/components/${meta.baseUiComponent})`,
+    )
+    lines.push(
+      `- [API Reference](https://base-ui.com/react/components/${meta.baseUiComponent}#api-reference)`,
+    )
+  }
   lines.push('')
 
   return lines.join('\n')
@@ -418,6 +442,7 @@ async function main() {
       title: meta.title,
       description: meta.description,
       component: meta.component,
+      baseUiComponent: meta.baseUiComponent,
       examples,
     }
 

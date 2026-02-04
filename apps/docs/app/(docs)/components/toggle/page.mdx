@@ -8,9 +8,14 @@ import PressedExample from './examples/pressed'
 import SizesExample from './examples/sizes'
 import WithTextExample from './examples/with-text'
 
+export const metadata = {
+  title: 'Toggle',
+  description: 'A two-state button that can be on or off.',
+}
+
 <ComponentPage
-  title="Toggle"
-  description="A two-state button that can be on or off."
+  title={metadata.title}
+  description={metadata.description}
   component="toggle"
   baseUiComponent="toggle"
 >

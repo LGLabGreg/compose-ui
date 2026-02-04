@@ -4,9 +4,14 @@ import DefaultExample from './examples/default'
 import SidebarMenuExample from './examples/sidebar-menu'
 import SidebarMenuDefaultOpenExample from './examples/sidebar-menu-default-open'
 
+export const metadata = {
+  title: 'Collapsible',
+  description: 'A component that allows content to be expanded or collapsed.',
+}
+
 <ComponentPage
-  title="Collapsible"
-  description="A component that allows content to be expanded or collapsed."
+  title={metadata.title}
+  description={metadata.description}
   component="collapsible"
   baseUiComponent="collapsible"
 >

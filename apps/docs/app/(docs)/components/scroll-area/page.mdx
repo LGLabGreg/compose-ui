@@ -4,9 +4,14 @@ import BothScrollbarsExample from './examples/both-scrollbars'
 import HorizontalScrollExample from './examples/horizontal'
 import VerticalScrollExample from './examples/vertical'
 
+export const metadata = {
+  title: 'Scroll Area',
+  description: 'A native scroll container with custom scrollbars for consistent styling across browsers.',
+}
+
 <ComponentPage
-  title="Scroll Area"
-  description="A native scroll container with custom scrollbars for consistent styling across browsers."
+  title={metadata.title}
+  description={metadata.description}
   component="scroll-area"
   baseUiComponent="scroll-area"
 >

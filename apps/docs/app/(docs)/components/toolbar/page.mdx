@@ -2,9 +2,14 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import DefaultExample from './examples/default'
 
+export const metadata = {
+  title: 'Toolbar',
+  description: 'A container for grouping a set of buttons and controls.',
+}
+
 <ComponentPage
-  title="Toolbar"
-  description="A container for grouping a set of buttons and controls."
+  title={metadata.title}
+  description={metadata.description}
   component="toolbar"
   baseUiComponent="toolbar"
 >

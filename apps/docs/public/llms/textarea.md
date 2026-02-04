@@ -32,7 +32,3 @@ export default function DefaultExample() {
 }
 ```
 
-## Resources
-
-- [Base UI Textarea Documentation](https://base-ui.com/react/components/textarea)
-- [API Reference](https://base-ui.com/react/components/textarea#api-reference)

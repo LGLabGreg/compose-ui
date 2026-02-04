@@ -6,9 +6,14 @@ import ControlledMultipleExample from './examples/controlled-multiple'
 import DetachedTriggersExample from './examples/detached-triggers'
 import MultipleTriggersExample from './examples/multiple-triggers'
 
+export const metadata = {
+  title: 'Alert Dialog',
+  description: 'A dialog that requires a user response to proceed.',
+}
+
 <ComponentPage
-  title="Alert Dialog"
-  description="A dialog that requires a user response to proceed."
+  title={metadata.title}
+  description={metadata.description}
   component="alert-dialog"
   baseUiComponent="alert-dialog"
 >
