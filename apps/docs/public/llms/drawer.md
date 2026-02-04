@@ -433,5 +433,5 @@ export default function FooterExample() {
 
 ## Resources
 
-- [Base UI Drawer Documentation](https://base-ui.com/react/components/drawer)
-- [API Reference](https://base-ui.com/react/components/drawer#api-reference)
+- [Base UI Drawer Documentation](https://base-ui.com/react/components/dialog)
+- [API Reference](https://base-ui.com/react/components/dialog#api-reference)

@@ -474,5 +474,3 @@ export default function CustomColorsExample() {
 
 ## Resources
 
-- [Base UI Badge Documentation](https://base-ui.com/react/components/badge)
-- [API Reference](https://base-ui.com/react/components/badge#api-reference)

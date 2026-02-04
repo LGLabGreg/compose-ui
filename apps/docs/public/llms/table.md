@@ -1,6 +1,6 @@
-# Basic
+# Table
 
-Options passed to the useTable hook.
+A responsive table component with support for variants, alignment, and a useTable hook for declarative column configuration.
 
 ## Installation
 
@@ -1321,5 +1321,3 @@ export default function WithLoadingExample() {
 
 ## Resources
 
-- [Base UI Basic Documentation](https://base-ui.com/react/components/table)
-- [API Reference](https://base-ui.com/react/components/table#api-reference)
