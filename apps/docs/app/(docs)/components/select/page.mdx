@@ -4,9 +4,14 @@ import DefaultExample from './examples/default'
 import MultipleExample from './examples/multiple'
 import ObjectValuesExample from './examples/object-values'
 
+export const metadata = {
+  title: 'Select',
+  description: 'A common form component for choosing a predefined value in a dropdown menu.',
+}
+
 <ComponentPage
-  title="Select"
-  description="A common form component for choosing a predefined value in a dropdown menu."
+  title={metadata.title}
+  description={metadata.description}
   component="select"
   baseUiComponent="select"
 >

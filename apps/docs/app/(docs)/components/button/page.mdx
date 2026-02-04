@@ -8,9 +8,14 @@ import LoadingExample from './examples/loading'
 import OutlineExample from './examples/outline'
 import SecondaryExample from './examples/secondary'
 
+export const metadata = {
+  title: 'Button',
+  description: 'A versatile button component with multiple variants, sizes, and states including loading indicators.',
+}
+
 <ComponentPage
-  title="Button"
-  description="A versatile button component with multiple variants, sizes, and states including loading indicators."
+  title={metadata.title}
+  description={metadata.description}
   component="button"
   baseUiComponent="button"
 >

@@ -1,9 +1,11 @@
 import { DocPage } from '@/components/mdx/doc-page'
 
-<DocPage
-  title="Composition"
-  description="Composable compound components you can use whole or extend with your own styles."
->
+export const metadata = {
+  title: 'Composition',
+  description: 'Composable compound components you can use whole or extend with your own styles.',
+}
+
+<DocPage title={metadata.title} description={metadata.description}>
 
 ## How Composition Works
 

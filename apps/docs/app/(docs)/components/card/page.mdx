@@ -8,9 +8,14 @@ import SplitLayoutExample from './examples/split-layout'
 import VariantsExample from './examples/variants'
 import VerticalMediaExample from './examples/vertical-media'
 
+export const metadata = {
+  title: 'Card',
+  description: 'A flexible card component with support for media, headers, content sections, and footers. Supports both vertical and horizontal layouts with multiple variants.',
+}
+
 <ComponentPage
-  title="Card"
-  description="A flexible card component with support for media, headers, content sections, and footers. Supports both vertical and horizontal layouts with multiple variants."
+  title={metadata.title}
+  description={metadata.description}
   component="card"
 >
 

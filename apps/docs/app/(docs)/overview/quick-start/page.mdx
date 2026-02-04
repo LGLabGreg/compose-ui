@@ -1,10 +1,12 @@
 import { BetaBanner } from '@/components/beta-banner'
 import { DocPage } from '@/components/mdx/doc-page'
 
-<DocPage
-  title="Quick Start"
-  description="Get started with Compose UI in your React project."
->
+export const metadata = {
+  title: 'Quick Start',
+  description: 'Get started with Compose UI in your React project.',
+}
+
+<DocPage title={metadata.title} description={metadata.description}>
 
 <BetaBanner />
 

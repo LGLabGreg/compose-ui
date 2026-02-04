@@ -5,9 +5,14 @@ import OpenOnHoverExample from './examples/open-on-hover'
 import SidesExample from './examples/sides'
 import WithCloseExample from './examples/with-close'
 
+export const metadata = {
+  title: 'Popover',
+  description: 'An accessible popup anchored to a button.',
+}
+
 <ComponentPage
-  title="Popover"
-  description="An accessible popup anchored to a button."
+  title={metadata.title}
+  description={metadata.description}
   component="popover"
   baseUiComponent="popover"
 >

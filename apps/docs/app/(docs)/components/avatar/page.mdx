@@ -5,9 +5,14 @@ import FallbackExample from './examples/fallback'
 import StackExample from './examples/stack'
 import StackOverflowExample from './examples/stack-overflow'
 
+export const metadata = {
+  title: 'Avatar',
+  description: 'An easily stylable avatar component for displaying user profile pictures, initials, or fallback content.',
+}
+
 <ComponentPage
-  title="Avatar"
-  description="An easily stylable avatar component for displaying user profile pictures, initials, or fallback content."
+  title={metadata.title}
+  description={metadata.description}
   component="avatar"
   baseUiComponent="avatar"
 >

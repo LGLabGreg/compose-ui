@@ -3,9 +3,14 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 import DefaultExample from './examples/default'
 import WithFieldExample from './examples/with-field'
 
+export const metadata = {
+  title: 'Radio Group',
+  description: 'Provides shared state to a series of radio buttons.',
+}
+
 <ComponentPage
-  title="Radio Group"
-  description="Provides shared state to a series of radio buttons."
+  title={metadata.title}
+  description={metadata.description}
   component="radio-group"
   baseUiComponent="radio-group"
 >

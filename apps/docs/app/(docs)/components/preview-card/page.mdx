@@ -4,9 +4,14 @@ import DefaultExample from './examples/default'
 import SidesExample from './examples/sides'
 import WithDelayExample from './examples/with-delay'
 
+export const metadata = {
+  title: 'Preview Card',
+  description: 'A card that displays contextual content when hovering a link.',
+}
+
 <ComponentPage
-  title="Preview Card"
-  description="A card that displays contextual content when hovering a link."
+  title={metadata.title}
+  description={metadata.description}
   component="preview-card"
   baseUiComponent="preview-card"
 >

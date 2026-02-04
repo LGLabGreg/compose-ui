@@ -4,9 +4,14 @@ import AreaChartExample from './examples/area-chart'
 import BarChartExample from './examples/bar-chart'
 import LineChartExample from './examples/line-chart'
 
+export const metadata = {
+  title: 'Chart',
+  description: 'A set of wrapper components that extend Recharts with styled tooltips, legends, and theme-aware colors. For full chart capabilities, refer to the Recharts documentation.',
+}
+
 <ComponentPage
-  title="Chart"
-  description="A set of wrapper components that extend Recharts with styled tooltips, legends, and theme-aware colors. For full chart capabilities, refer to the Recharts documentation."
+  title={metadata.title}
+  description={metadata.description}
   component="chart"
   links={[{ label: 'Recharts', href: 'https://recharts.org' }]}
 >

@@ -9,9 +9,14 @@ import ScrollableExample from './examples/scrollable'
 import SidesExample from './examples/sides'
 import SizeExample from './examples/size'
 
+export const metadata = {
+  title: 'Drawer',
+  description: 'A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.',
+}
+
 <ComponentPage
-  title="Drawer"
-  description="A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content."
+  title={metadata.title}
+  description={metadata.description}
   component="drawer"
   baseUiComponent="dialog"
 >

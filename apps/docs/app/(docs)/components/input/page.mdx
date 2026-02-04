@@ -2,9 +2,14 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import DefaultExample from './examples/default'
 
+export const metadata = {
+  title: 'Input',
+  description: 'A single-line text input element.',
+}
+
 <ComponentPage
-  title="Input"
-  description="A single-line text input element."
+  title={metadata.title}
+  description={metadata.description}
   component="input"
   baseUiComponent="input"
 >

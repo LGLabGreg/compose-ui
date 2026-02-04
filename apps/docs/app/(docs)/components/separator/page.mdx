@@ -3,9 +3,14 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 import DefaultExample from './examples/default'
 import VerticalExample from './examples/vertical'
 
+export const metadata = {
+  title: 'Separator',
+  description: 'A separator element accessible to screen readers.',
+}
+
 <ComponentPage
-  title="Separator"
-  description="A separator element accessible to screen readers."
+  title={metadata.title}
+  description={metadata.description}
   component="separator"
   baseUiComponent="separator"
 >
