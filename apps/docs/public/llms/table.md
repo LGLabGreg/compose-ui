@@ -1319,5 +1319,3 @@ export default function WithLoadingExample() {
 }
 ```
 
-## Resources
-

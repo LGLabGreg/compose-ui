@@ -90,5 +90,3 @@ export default function NoAnimationExample() {
 }
 ```
 
-## Resources
-

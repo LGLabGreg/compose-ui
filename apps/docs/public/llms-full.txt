@@ -1534,8 +1534,6 @@ export default function DefaultExample() {
 }
 ```
 
-## Resources
-
 
 ---
 
@@ -3190,8 +3188,6 @@ export default function WithLoadingExample() {
 }
 ```
 
-## Resources
-
 
 ---
 
@@ -3554,8 +3550,6 @@ export default function NoAnimationExample() {
   )
 }
 ```
-
-## Resources
 
 
 ---
@@ -5064,8 +5058,6 @@ export default function SizesExample() {
   )
 }
 ```
-
-## Resources
 
 
 ---
@@ -7295,8 +7287,6 @@ export default function WithPopupExample() {
   )
 }
 ```
-
-## Resources
 
 
 ---
@@ -12617,8 +12607,6 @@ export default function LineChartExample() {
 }
 ```
 
-## Resources
-
 
 ---
 
@@ -12881,8 +12869,6 @@ export default function CardVariants() {
   )
 }
 ```
-
-## Resources
 
 
 ---
@@ -13601,8 +13587,6 @@ export default function CustomColorsExample() {
   )
 }
 ```
-
-## Resources
 
 
 ---
