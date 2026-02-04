@@ -1,6 +1,6 @@
-# Group
+# Button Group
 
-A generic container for visually connecting elements like inputs, buttons, and badges with a GroupAddon subcomponent for decorative prefixes/suffixes.
+Container component that visually connects child elements by collapsing borders and rounding only outer corners.
 
 ## Installation
 
@@ -262,5 +262,5 @@ export default function WithPopupExample() {
 
 ## Resources
 
-- [Base UI Group Documentation](https://base-ui.com/react/components/group)
+- [Base UI Button Group Documentation](https://base-ui.com/react/components/group)
 - [API Reference](https://base-ui.com/react/components/group#api-reference)

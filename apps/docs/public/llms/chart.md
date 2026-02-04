@@ -1,6 +1,6 @@
-# Chart
+# Bar Chart
 
-A set of wrapper components that extend Recharts with styled tooltips, legends, and theme-aware colors. For full chart capabilities, refer to the Recharts documentation.
+Container component that provides chart configuration context and wraps children in a ResponsiveContainer.
 
 ## Installation
 
@@ -175,5 +175,5 @@ export default function LineChartExample() {
 
 ## Resources
 
-- [Base UI Chart Documentation](https://base-ui.com/react/components/chart)
+- [Base UI Bar Chart Documentation](https://base-ui.com/react/components/chart)
 - [API Reference](https://base-ui.com/react/components/chart#api-reference)
