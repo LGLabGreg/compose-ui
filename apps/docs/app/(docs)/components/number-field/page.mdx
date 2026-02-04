@@ -6,9 +6,14 @@ import FormatExample from './examples/format'
 import MinMaxExample from './examples/min-max'
 import StepExample from './examples/step'
 
+export const metadata = {
+  title: 'Number Field',
+  description: 'A numeric input element with increment and decrement buttons, and a scrub area.',
+}
+
 <ComponentPage
-  title="Number Field"
-  description="A numeric input element with increment and decrement buttons, and a scrub area."
+  title={metadata.title}
+  description={metadata.description}
   component="number-field"
   baseUiComponent="number-field"
 >

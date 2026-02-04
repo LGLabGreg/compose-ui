@@ -90,7 +90,3 @@ export default function NoAnimationExample() {
 }
 ```
 
-## Resources
-
-- [Base UI Skeleton Documentation](https://base-ui.com/react/components/skeleton)
-- [API Reference](https://base-ui.com/react/components/skeleton#api-reference)

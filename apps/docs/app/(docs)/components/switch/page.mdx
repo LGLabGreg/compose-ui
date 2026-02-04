@@ -5,9 +5,14 @@ import ControlledExample from './examples/controlled'
 import DefaultExample from './examples/default'
 import DisabledExample from './examples/disabled'
 
+export const metadata = {
+  title: 'Switch',
+  description: 'A control that indicates whether a setting is on or off.',
+}
+
 <ComponentPage
-  title="Switch"
-  description="A control that indicates whether a setting is on or off."
+  title={metadata.title}
+  description={metadata.description}
   component="switch"
   baseUiComponent="switch"
 >

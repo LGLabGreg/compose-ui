@@ -2,9 +2,14 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import BasicExample from './examples/basic'
 
+export const metadata = {
+  title: 'Progress',
+  description: 'The progressbar range widget indicates that a request has been received and the application is making progress toward completing the requested action.',
+}
+
 <ComponentPage
-  title="Progress"
-  description="The progressbar range widget indicates that a request has been received and the application is making progress toward completing the requested action."
+  title={metadata.title}
+  description={metadata.description}
   component="progress"
   baseUiComponent="progress"
 >

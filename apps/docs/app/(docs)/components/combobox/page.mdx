@@ -8,9 +8,14 @@ import GroupedExample from './examples/grouped'
 import InputInsidePopupExample from './examples/input-inside-popup'
 import MultiselectExample from './examples/multiselect'
 
+export const metadata = {
+  title: 'Combobox',
+  description: 'An input combined with a list of predefined items to select, with filtering support.',
+}
+
 <ComponentPage
-  title="Combobox"
-  description="An input combined with a list of predefined items to select, with filtering support."
+  title={metadata.title}
+  description={metadata.description}
   component="combobox"
   baseUiComponent="combobox"
 >

@@ -9,9 +9,14 @@ import ScrollableExample from './examples/scrollable'
 import SizesExample from './examples/sizes'
 import VariantsExample from './examples/variants'
 
+export const metadata = {
+  title: 'Dialog',
+  description: 'A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.',
+}
+
 <ComponentPage
-  title="Dialog"
-  description="A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages."
+  title={metadata.title}
+  description={metadata.description}
   component="dialog"
   baseUiComponent="dialog"
 >

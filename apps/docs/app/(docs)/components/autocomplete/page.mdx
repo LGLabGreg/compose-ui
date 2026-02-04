@@ -7,9 +7,14 @@ import GroupedExample from './examples/grouped'
 import InlineExample from './examples/inline'
 import LimitResultsExample from './examples/limit-results'
 
+export const metadata = {
+  title: 'Autocomplete',
+  description: 'An input field with a filterable dropdown list of suggestions.',
+}
+
 <ComponentPage
-  title="Autocomplete"
-  description="An input field with a filterable dropdown list of suggestions."
+  title={metadata.title}
+  description={metadata.description}
   component="autocomplete"
   baseUiComponent="autocomplete"
 >

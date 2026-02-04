@@ -6,9 +6,14 @@ import WithReactHookFormExample from './examples/with-react-hook-form'
 import WithTanstackFormExample from './examples/with-tanstack-form'
 import WithZodExample from './examples/with-zod'
 
+export const metadata = {
+  title: 'Form',
+  description: 'A native form element with consolidated error handling. Examples include useActionState, Zod schema validation, React Hook Form, and TanStack Form integrations.',
+}
+
 <ComponentPage
-  title="Form"
-  description="A native form element with consolidated error handling. Examples include useActionState, Zod schema validation, React Hook Form, and TanStack Form integrations."
+  title={metadata.title}
+  description={metadata.description}
   component="form"
   baseUiComponent="form"
 >

@@ -1,9 +1,11 @@
 import { DocPage } from '@/components/mdx/doc-page'
 
-<DocPage
-  title="Theming"
-  description="Customize Compose UI with CSS variables for colors, radius, and dark mode support."
->
+export const metadata = {
+  title: 'Theming',
+  description: 'Customize Compose UI with CSS variables for colors, radius, and dark mode support.',
+}
+
+<DocPage title={metadata.title} description={metadata.description}>
 
 ## How Theming Works
 

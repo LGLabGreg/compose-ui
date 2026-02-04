@@ -1,9 +1,11 @@
 import { DocPage } from '@/components/mdx/doc-page'
 
-<DocPage
-  title="MCP Server"
-  description="Integrate Compose UI directly into your AI coding assistant with the Model Context Protocol."
->
+export const metadata = {
+  title: 'MCP Server',
+  description: 'Integrate Compose UI directly into your AI coding assistant with the Model Context Protocol.',
+}
+
+<DocPage title={metadata.title} description={metadata.description}>
 
 ## Overview
 

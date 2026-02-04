@@ -1,9 +1,11 @@
 import { DocPage } from '@/components/mdx/doc-page'
 
-<DocPage
-  title="Accessibility"
-  description="Accessibility built-in—ARIA attributes, keyboard navigation, and focus management work automatically."
->
+export const metadata = {
+  title: 'Accessibility',
+  description: 'Accessibility built-in—ARIA attributes, keyboard navigation, and focus management work automatically.',
+}
+
+<DocPage title={metadata.title} description={metadata.description}>
 
 ## What You Get for Free
 

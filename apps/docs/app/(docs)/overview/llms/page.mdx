@@ -1,9 +1,11 @@
 import { DocPage } from '@/components/mdx/doc-page'
 
-<DocPage
-  title="LLM-Friendly Docs"
-  description="Use Compose UI documentation with AI coding assistants like Cursor, Claude, and ChatGPT."
->
+export const metadata = {
+  title: 'LLM-Friendly Docs',
+  description: 'Use Compose UI documentation with AI coding assistants like Cursor, Claude, and ChatGPT.',
+}
+
+<DocPage title={metadata.title} description={metadata.description}>
 
 ## Overview
 

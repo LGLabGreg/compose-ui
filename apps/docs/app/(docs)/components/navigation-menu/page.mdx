@@ -2,10 +2,14 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import DefaultExample from './examples/default'
 
+export const metadata = {
+  title: 'Navigation Menu',
+  description: 'A navigation component with support for dropdowns and submenus.',
+}
 
 <ComponentPage
-  title="Navigation Menu"
-  description="A navigation component with support for dropdowns and submenus."
+  title={metadata.title}
+  description={metadata.description}
   component="navigation-menu"
   baseUiComponent="navigation-menu"
 >

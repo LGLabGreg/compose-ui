@@ -508,7 +508,3 @@ export default function SizesExample() {
 }
 ```
 
-## Resources
-
-- [Base UI Pagination Documentation](https://base-ui.com/react/components/pagination)
-- [API Reference](https://base-ui.com/react/components/pagination#api-reference)

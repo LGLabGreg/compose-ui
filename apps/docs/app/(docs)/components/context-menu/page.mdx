@@ -7,9 +7,14 @@ import RadioGroupExample from './examples/radio-group'
 import SubmenuExample from './examples/submenu'
 import WithIconsExample from './examples/with-icons'
 
+export const metadata = {
+  title: 'Context Menu',
+  description: 'A menu triggered by right-click or long press, rendering at the pointer position.',
+}
+
 <ComponentPage
-  title="Context Menu"
-  description="A menu triggered by right-click or long press, rendering at the pointer position."
+  title={metadata.title}
+  description={metadata.description}
   component="context-menu"
   baseUiComponent="context-menu"
 >

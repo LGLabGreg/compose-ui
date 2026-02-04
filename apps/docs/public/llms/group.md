@@ -260,7 +260,3 @@ export default function WithPopupExample() {
 }
 ```
 
-## Resources
-
-- [Base UI Group Documentation](https://base-ui.com/react/components/group)
-- [API Reference](https://base-ui.com/react/components/group#api-reference)

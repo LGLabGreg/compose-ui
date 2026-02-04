@@ -5,9 +5,14 @@ import ShimmerExample from './examples/shimmer'
 import CardExample from './examples/card'
 import NoAnimationExample from './examples/no-animation'
 
+export const metadata = {
+  title: 'Skeleton',
+  description: 'A placeholder component for content that is loading. Use className to define custom shapes and sizes.',
+}
+
 <ComponentPage
-  title="Skeleton"
-  description="A placeholder component for content that is loading. Use className to define custom shapes and sizes."
+  title={metadata.title}
+  description={metadata.description}
   component="skeleton"
 >
 

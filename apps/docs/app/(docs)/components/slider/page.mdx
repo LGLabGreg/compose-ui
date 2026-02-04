@@ -5,9 +5,14 @@ import RangeExample from './examples/range'
 import StepExample from './examples/step'
 import VerticalExample from './examples/vertical'
 
+export const metadata = {
+  title: 'Slider',
+  description: 'A control for selecting a value or range from a continuous or discrete set of values.',
+}
+
 <ComponentPage
-  title="Slider"
-  description="A control for selecting a value or range from a continuous or discrete set of values."
+  title={metadata.title}
+  description={metadata.description}
   component="slider"
   baseUiComponent="slider"
 >

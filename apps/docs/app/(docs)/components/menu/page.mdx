@@ -9,9 +9,14 @@ import SidesExample from './examples/sides'
 import SubmenuExample from './examples/submenu'
 import WithIconsExample from './examples/with-icons'
 
+export const metadata = {
+  title: 'Menu',
+  description: 'A component that displays a list of options on a temporary surface.',
+}
+
 <ComponentPage
-  title="Menu"
-  description="A component that displays a list of options on a temporary surface."
+  title={metadata.title}
+  description={metadata.description}
   component="menu"
   baseUiComponent="menu"
 >
