@@ -8,6 +8,7 @@ const components = [
   'autocomplete',
   'avatar',
   'badge',
+  'breadcrumb',
   'button',
   'calendar',
   'card',

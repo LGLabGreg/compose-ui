@@ -30,6 +30,7 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Autocomplete', href: '/components/autocomplete' },
       { name: 'Avatar', href: '/components/avatar' },
       { name: 'Badge', href: '/components/badge' },
+      { name: 'Breadcrumb', href: '/components/breadcrumb' },
       { name: 'Button', href: '/components/button' },
       { name: 'Calendar', href: '/components/calendar' },
       { name: 'Card', href: '/components/card' },
