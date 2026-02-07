@@ -75,6 +75,7 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Form](https://compose-ui.dev/components/form.md): A native form element with consolidated error handling. Examples include useActionState, Zod schema validation, React Hook Form, and TanStack Form integrations.
 - [Fieldset](https://compose-ui.dev/components/fieldset.md): Groups related form fields together with an accessible legend.
 - [Field](https://compose-ui.dev/components/field.md): Provides accessible labeling and validation for form controls.
+- [Empty](https://compose-ui.dev/components/empty.md): A composable empty state component for displaying when there is no content, such as empty search results, empty lists, or first-time experiences.
 - [Drawer](https://compose-ui.dev/components/drawer.md): A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
 - [Dialog](https://compose-ui.dev/components/dialog.md): A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
 - [Date Picker](https://compose-ui.dev/components/calendar.md): Compose a date picker using Calendar and Popover primitives.
