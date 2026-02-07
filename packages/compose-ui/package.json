@@ -1,6 +1,6 @@
 {
   "name": "@lglab/compose-ui",
-  "version": "0.35.0",
+  "version": "0.36.0",
   "description": "A collection of components built with Base UI & Tailwind CSS",
   "author": "LGLab",
   "license": "MIT",
