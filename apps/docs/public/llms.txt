@@ -91,6 +91,7 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Avatar](https://compose-ui.dev/components/avatar.md): An easily stylable avatar component for displaying user profile pictures, initials, or fallback content.
 - [Autocomplete](https://compose-ui.dev/components/autocomplete.md): An input field with a filterable dropdown list of suggestions.
 - [Alert Dialog](https://compose-ui.dev/components/alert-dialog.md): A dialog that requires a user response to proceed.
+- [Alert](https://compose-ui.dev/components/alert.md): A composable alert component for displaying important messages with multiple variants, appearances, and sizes.
 - [Accordion](https://compose-ui.dev/components/accordion.md): A set of collapsible panels with headings.
 
 ## Optional
