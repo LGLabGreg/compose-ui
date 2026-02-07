@@ -23,7 +23,7 @@ import { Calendar } from '@lglab/compose-ui/calendar'
 import { useState } from 'react'
 
 export default function DefaultExample() {
-  const [date, setDate] = useState<Date | undefined>(new Date())
+  const [date, setDate] = useState<Date | undefined>()
 
   return (
     <Calendar
@@ -151,7 +151,7 @@ function CustomDropdown({
 }
 
 export default function DropdownExample() {
-  const [date, setDate] = useState<Date | undefined>(new Date())
+  const [date, setDate] = useState<Date | undefined>()
 
   return (
     <Calendar
@@ -172,8 +172,8 @@ export default function DropdownExample() {
 import { Calendar } from '@lglab/compose-ui/calendar'
 import { useState } from 'react'
 
-export default function DefaultExample() {
-  const [date, setDate] = useState<Date | undefined>(new Date())
+export default function FooterExample() {
+  const [date, setDate] = useState<Date | undefined>()
 
   return (
     <Calendar
