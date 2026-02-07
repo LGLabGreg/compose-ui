@@ -144,6 +144,14 @@ export {
   DrawerContent,
   DrawerFooter,
 } from './components/drawer'
+export {
+  EmptyRoot,
+  EmptyBackground,
+  EmptyIcon,
+  EmptyTitle,
+  EmptyDescription,
+  EmptyActions,
+} from './components/empty'
 export { Input } from './components/input'
 export { Textarea } from './components/textarea'
 export {
@@ -520,6 +528,16 @@ export type {
   DrawerContentProps,
   DrawerFooterProps,
 } from './components/drawer'
+export type {
+  EmptyRootProps,
+  EmptyBackgroundProps,
+  EmptyIconProps,
+  EmptyTitleProps,
+  EmptyDescriptionProps,
+  EmptyActionsProps,
+  EmptySize,
+  EmptyIconSize,
+} from './components/empty'
 export type { InputProps } from './components/input'
 export type { TextareaProps } from './components/textarea'
 export type {

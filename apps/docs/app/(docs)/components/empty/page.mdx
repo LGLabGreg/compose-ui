@@ -1,0 +1,169 @@
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import FullPageExample from './examples/full-page'
+import NoActionsExample from './examples/no-actions'
+import SizesExample from './examples/sizes'
+import WithBackgroundExample from './examples/with-background'
+
+export const metadata = {
+  title: 'Empty',
+  description:
+    'A composable empty state component for displaying when there is no content, such as empty search results, empty lists, or first-time experiences.',
+}
+
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component="empty"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/empty/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Background'
+  filePath='app/(docs)/components/empty/examples/with-background.tsx'
+>
+  <WithBackgroundExample />
+</ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='EmptyRoot'
+  description='Container component that centers content and provides size variants.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'size',
+        type: "'sm' | 'md' | 'lg'",
+        default: "'md'",
+        description: 'Controls padding and gap of the empty state',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='EmptyBackground'
+  description='Absolutely positioned decorative background with a radial gradient mask. Marked as aria-hidden.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='EmptyIcon'
+  description='Rounded container for icons or illustrations with a muted background.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'size',
+        type: "'sm' | 'md' | 'lg'",
+        default: "'md'",
+        description: 'Size of the media container and inner icon',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection title='EmptyTitle' description='Heading element for the empty state message.'>
+  <ApiTable
+    data={[
+      {
+        name: 'as',
+        type: 'React.ElementType',
+        default: "'h2'",
+        description: 'HTML element to render as (e.g. h3, h4)',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"h2">',
+        description: 'Standard heading element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='EmptyDescription'
+  description='Muted paragraph text with constrained width for readability.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"p">',
+        description: 'Standard paragraph element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection title='EmptyActions' description='Flex container for action buttons.'>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+</ComponentPage>

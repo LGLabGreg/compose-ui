@@ -179,7 +179,7 @@ const TableHead = ({
   return (
     <th
       className={cn(
-        'h-10 px-4 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0 *:[[role=checkbox]]:translate-y-[2px]',
+        'h-10 px-4 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0',
         isInteractive &&
           'cursor-pointer select-none hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset',
         className,
@@ -190,7 +190,7 @@ const TableHead = ({
       onKeyDown={handleKeyDown}
       {...props}
     >
-      <span className='inline-flex items-center'>
+      <span className='inline-flex items-center h-full'>
         {children}
         {sortable && <SortIcon direction={sortDirection} />}
       </span>
@@ -209,10 +209,7 @@ type TableCellProps = React.ComponentProps<'td'>
 const TableCell = ({ className, ...props }: TableCellProps) => {
   return (
     <td
-      className={cn(
-        'p-4 align-middle [&:has([role=checkbox])]:pr-0 *:[[role=checkbox]]:translate-y-[2px]',
-        className,
-      )}
+      className={cn('p-4 align-middle [&:has([role=checkbox])]:pr-0', className)}
       {...props}
     />
   )
