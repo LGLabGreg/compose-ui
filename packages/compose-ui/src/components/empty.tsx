@@ -165,7 +165,7 @@ const EmptyActions = ({ className, ...props }: EmptyActionsProps) => {
   return (
     <div
       data-slot='empty-actions'
-      className={cn('relative z-10 flex items-center gap-2', className)}
+      className={cn('relative z-10 flex items-center gap-2 mt-2', className)}
       {...props}
     />
   )
