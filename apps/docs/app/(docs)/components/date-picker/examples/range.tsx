@@ -12,25 +12,29 @@ import {
 import { format } from 'date-fns'
 import { CalendarIcon } from 'lucide-react'
 import { useState } from 'react'
+import type { DateRange } from 'react-day-picker'
 
-export default function DefaultExample() {
-  const [date, setDate] = useState<Date | undefined>()
-  const [open, setOpen] = useState(false)
+export default function RangeExample() {
+  const [range, setRange] = useState<DateRange | undefined>()
+
+  const displayText = range?.from
+    ? range.to
+      ? `${format(range.from, 'PPP')} - ${format(range.to, 'PPP')}`
+      : format(range.from, 'PPP')
+    : null
 
   return (
-    <PopoverRoot open={open} onOpenChange={setOpen}>
+    <PopoverRoot>
       <PopoverTrigger
         render={(props) => (
           <Button
             {...props}
             variant='outline'
-            className='min-w-[200px] justify-start gap-2'
+            className='min-w-[260px] justify-start gap-2'
           >
             <CalendarIcon className='size-4' />
-            {date ? (
-              format(date, 'PPP')
-            ) : (
-              <span className='text-muted-foreground'>Pick a date</span>
+            {displayText ?? (
+              <span className='text-muted-foreground'>Pick a date range</span>
             )}
           </Button>
         )}
@@ -39,12 +43,10 @@ export default function DefaultExample() {
         <PopoverPositioner>
           <PopoverPopup className='w-auto p-0'>
             <Calendar
-              mode='single'
-              selected={date}
-              onSelect={(d) => {
-                setDate(d)
-                if (d) setOpen(false)
-              }}
+              mode='range'
+              selected={range}
+              onSelect={setRange}
+              numberOfMonths={2}
             />
           </PopoverPopup>
         </PopoverPositioner>

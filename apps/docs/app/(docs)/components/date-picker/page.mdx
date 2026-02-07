@@ -1,16 +1,17 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import DefaultExample from './examples/default'
+import RangeExample from './examples/range'
 
 export const metadata = {
-  title: 'DatePicker',
-  description: 'A date picker input that combines a Calendar with a Popover.',
+  title: 'Date Picker',
+  description: 'Compose a date picker using Calendar and Popover primitives.',
 }
 
 <ComponentPage
   title={metadata.title}
   description={metadata.description}
-  component="date-picker"
+  component="calendar"
 >
 
 <ExampleLoader
@@ -18,6 +19,13 @@ export const metadata = {
   filePath='app/(docs)/components/date-picker/examples/default.tsx'
 >
   <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Range'
+  filePath='app/(docs)/components/date-picker/examples/range.tsx'
+>
+  <RangeExample />
 </ExampleLoader>
 
 </ComponentPage>

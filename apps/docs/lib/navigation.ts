@@ -39,7 +39,6 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Combobox', href: '/components/combobox' },
       { name: 'Context Menu', href: '/components/context-menu' },
       { name: 'Date Picker', href: '/components/date-picker' },
-      { name: 'Date Range Picker', href: '/components/date-range-picker' },
       { name: 'Dialog', href: '/components/dialog' },
       { name: 'Drawer', href: '/components/drawer' },
       { name: 'Field', href: '/components/field' },

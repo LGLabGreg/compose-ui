@@ -21,7 +21,7 @@ function Calendar({ className, classNames, captionLayout, ...props }: CalendarPr
           'relative [--cell-radius:var(--radius-md)] [--cell-size:--spacing(8)]',
           classNames?.root,
         ),
-        months: cn('flex gap-4', classNames?.months),
+        months: cn('flex gap-4 flex-col md:flex-row relative', classNames?.months),
         month: cn('flex flex-col gap-4', classNames?.month),
         month_caption: cn(
           'flex items-center justify-center h-(--cell-size) w-full px-(--cell-size)',
@@ -50,7 +50,7 @@ function Calendar({ className, classNames, captionLayout, ...props }: CalendarPr
         years_dropdown: cn(classNames?.years_dropdown),
         chevron: cn('size-4 fill-muted-foreground', classNames?.chevron),
         nav: cn(
-          'absolute top-0 inset-x-0 flex w-full justify-between p-3 pointer-events-none',
+          'absolute top-0 inset-x-0 flex w-full justify-between pointer-events-none',
           classNames?.nav,
         ),
         button_previous: cn(

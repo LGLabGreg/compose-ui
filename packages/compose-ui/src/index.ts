@@ -3,16 +3,6 @@ export { Calendar } from './components/calendar'
 export { CheckboxRoot, CheckboxIndicator } from './components/checkbox'
 export { CheckboxGroupRoot } from './components/checkbox-group'
 export {
-  DatePickerRoot,
-  DatePickerTrigger,
-  DatePickerContent,
-} from './components/date-picker'
-export {
-  DateRangePickerRoot,
-  DateRangePickerTrigger,
-  DateRangePickerContent,
-} from './components/date-range-picker'
-export {
   CollapsibleRoot,
   CollapsibleTrigger,
   CollapsiblePanel,
@@ -351,16 +341,6 @@ export {
 
 export type { ButtonProps } from './components/button'
 export type { CalendarProps } from './components/calendar'
-export type {
-  DatePickerRootProps,
-  DatePickerTriggerProps,
-  DatePickerContentProps,
-} from './components/date-picker'
-export type {
-  DateRangePickerRootProps,
-  DateRangePickerTriggerProps,
-  DateRangePickerContentProps,
-} from './components/date-range-picker'
 export type { CheckboxRootProps, CheckboxIndicatorProps } from './components/checkbox'
 export type { CheckboxGroupRootProps } from './components/checkbox-group'
 export type {

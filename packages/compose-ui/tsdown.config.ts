@@ -15,8 +15,6 @@ const components = [
   'collapsible',
   'combobox',
   'context-menu',
-  'date-picker',
-  'date-range-picker',
   'dialog',
   'drawer',
   'field',

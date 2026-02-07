@@ -217,14 +217,6 @@
       "import": "./dist/calendar.js",
       "types": "./dist/calendar.d.ts"
     },
-    "./date-picker": {
-      "import": "./dist/date-picker.js",
-      "types": "./dist/date-picker.d.ts"
-    },
-    "./date-range-picker": {
-      "import": "./dist/date-range-picker.js",
-      "types": "./dist/date-range-picker.d.ts"
-    },
     "./styles/*": "./dist/styles/*"
   },
   "files": [
