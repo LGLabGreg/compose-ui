@@ -32,7 +32,7 @@ export function ApiTable({
   return (
     <div className='rounded-md border border-border'>
       <TableRoot variant='bordered'>
-        <TableHeader>
+        <TableHeader className='bg-muted'>
           <TableRow>
             <TableHead>Prop</TableHead>
             <TableHead>Type</TableHead>

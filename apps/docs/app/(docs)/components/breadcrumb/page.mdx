@@ -1,0 +1,200 @@
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import WithCustomSeparatorExample from './examples/with-custom-separator'
+import WithEllipsisExample from './examples/with-ellipsis'
+import WithIconExample from './examples/with-icon'
+import WithNextLinkExample from './examples/with-next-link'
+
+export const metadata = {
+  title: 'Breadcrumb',
+  description:
+    "A composable breadcrumb navigation component that shows the user's current location within a site hierarchy.",
+}
+
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component="breadcrumb"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/breadcrumb/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Custom Separator'
+  filePath='app/(docs)/components/breadcrumb/examples/with-custom-separator.tsx'
+>
+  <WithCustomSeparatorExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Ellipsis'
+  filePath='app/(docs)/components/breadcrumb/examples/with-ellipsis.tsx'
+>
+  <WithEllipsisExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Icon'
+  filePath='app/(docs)/components/breadcrumb/examples/with-icon.tsx'
+>
+  <WithIconExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Next.js Link'
+  filePath='app/(docs)/components/breadcrumb/examples/with-next-link.tsx'
+>
+  <WithNextLinkExample />
+</ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='BreadcrumbRoot'
+  description='Navigation container that renders a <nav> with an inner <ol>. Props are spread onto the <nav> element.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the nav element',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"nav">',
+        description: 'Standard nav element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='BreadcrumbItem'
+  description='List item wrapper for breadcrumb elements. Renders as a <li>.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"li">',
+        description: 'Standard li element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='BreadcrumbLink'
+  description='Navigable link within a breadcrumb item. Renders as an <a> by default. Use the render prop to replace with a custom link component (e.g. Next.js Link).'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'render',
+        type: 'ReactElement | (props, state) => ReactElement',
+        description: 'Replaces the default <a> element with a custom component.',
+      },
+      {
+        name: 'href',
+        type: 'string',
+        description: 'URL the link points to',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"a">',
+        description: 'Standard anchor element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='BreadcrumbPage'
+  description='Current page indicator. Renders as a <span> with aria-current="page".'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"span">',
+        description: 'Standard span element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='BreadcrumbSeparator'
+  description='Visual separator between breadcrumb items. Renders as a <li> with role="presentation". Defaults to "/" when no children provided.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'children',
+        type: 'React.ReactNode',
+        default: '"/"',
+        description: 'Custom separator content (e.g., a chevron icon)',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"li">',
+        description: 'Standard li element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='BreadcrumbEllipsis'
+  description='Collapsed items indicator. Renders as a <li> with role="presentation". Defaults to "..." when no children provided.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'children',
+        type: 'React.ReactNode',
+        default: '"..."',
+        description: 'Custom ellipsis content',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"li">',
+        description: 'Standard li element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+</ComponentPage>

@@ -53,6 +53,10 @@
       "import": "./dist/badge.js",
       "types": "./dist/badge.d.ts"
     },
+    "./breadcrumb": {
+      "import": "./dist/breadcrumb.js",
+      "types": "./dist/breadcrumb.d.ts"
+    },
     "./button": {
       "import": "./dist/button.js",
       "types": "./dist/button.d.ts"
