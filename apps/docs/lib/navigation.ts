@@ -43,6 +43,7 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Date Picker', href: '/components/date-picker' },
       { name: 'Dialog', href: '/components/dialog' },
       { name: 'Drawer', href: '/components/drawer' },
+      { name: 'Empty', href: '/components/empty' },
       { name: 'Field', href: '/components/field' },
       { name: 'Fieldset', href: '/components/fieldset' },
       { name: 'Form', href: '/components/form' },

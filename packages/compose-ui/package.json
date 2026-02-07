@@ -93,6 +93,10 @@
       "import": "./dist/drawer.js",
       "types": "./dist/drawer.d.ts"
     },
+    "./empty": {
+      "import": "./dist/empty.js",
+      "types": "./dist/empty.d.ts"
+    },
     "./field": {
       "import": "./dist/field.js",
       "types": "./dist/field.d.ts"
