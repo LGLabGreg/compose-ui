@@ -1,3 +1,12 @@
+export {
+  Alert,
+  AlertIcon,
+  AlertContent,
+  AlertTitle,
+  AlertDescription,
+  AlertAction,
+  AlertClose,
+} from './components/alert'
 export { Button } from './components/button'
 export { Calendar } from './components/calendar'
 export { CheckboxRoot, CheckboxIndicator } from './components/checkbox'
@@ -339,6 +348,18 @@ export {
   ChartLegendContent,
 } from './components/chart'
 
+export type {
+  AlertProps,
+  AlertIconProps,
+  AlertContentProps,
+  AlertTitleProps,
+  AlertDescriptionProps,
+  AlertActionProps,
+  AlertCloseProps,
+  AlertVariant,
+  AlertAppearance,
+  AlertSize,
+} from './components/alert'
 export type { ButtonProps } from './components/button'
 export type { CalendarProps } from './components/calendar'
 export type { CheckboxRootProps, CheckboxIndicatorProps } from './components/checkbox'

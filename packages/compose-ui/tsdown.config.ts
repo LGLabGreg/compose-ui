@@ -3,6 +3,7 @@ import { defineConfig } from 'tsdown'
 // Component entry points for subpath exports
 const components = [
   'accordion',
+  'alert',
   'alert-dialog',
   'autocomplete',
   'avatar',

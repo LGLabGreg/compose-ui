@@ -30,34 +30,34 @@ export function ApiTable({
   showDefault = true,
 }: ApiTableProps) {
   return (
-    <TableRoot size='compact'>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Prop</TableHead>
-          <TableHead>Type</TableHead>
-          {showDefault && <TableHead>Default</TableHead>}
-          <TableHead>Description</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {data.map((row) => (
-          <TableRow key={row.name}>
-            <TableCell className='font-mono text-sm'>
-              {row.name}
-              {showRequired && row.required && (
-                <span className='text-destructive ml-0.5'>*</span>
-              )}
-            </TableCell>
-            <TableCell className='font-mono text-sm text-muted-foreground'>
-              {row.type}
-            </TableCell>
-            {showDefault && (
-              <TableCell className='font-mono text-sm'>{row.default ?? '-'}</TableCell>
-            )}
-            <TableCell className='text-sm'>{row.description}</TableCell>
+    <div className='rounded-md border border-border'>
+      <TableRoot variant='bordered'>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Prop</TableHead>
+            <TableHead>Type</TableHead>
+            {showDefault && <TableHead>Default</TableHead>}
+            <TableHead>Description</TableHead>
           </TableRow>
-        ))}
-      </TableBody>
-    </TableRoot>
+        </TableHeader>
+        <TableBody>
+          {data.map((row) => (
+            <TableRow key={row.name}>
+              <TableCell className='font-mono text-sm'>
+                {row.name}
+                {showRequired && row.required && (
+                  <span className='text-destructive ml-0.5'>*</span>
+                )}
+              </TableCell>
+              <TableCell className='font-mono text-sm'>{row.type}</TableCell>
+              {showDefault && (
+                <TableCell className='font-mono text-sm'>{row.default ?? '-'}</TableCell>
+              )}
+              <TableCell className='text-sm'>{row.description}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </TableRoot>
+    </div>
   )
 }

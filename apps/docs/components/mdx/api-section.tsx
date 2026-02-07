@@ -25,7 +25,7 @@ export function ApiSection({ title, description, children }: ApiSectionProps) {
         <h2 className='text-lg font-medium mb-2 scroll-mt-20' id={slug}>
           <Link href={`#${slug}`}>{title}</Link>
         </h2>
-        {description && <p className='text-muted-foreground text-sm'>{description}</p>}
+        {description && <p className='text-sm'>{description}</p>}
       </div>
       {children}
     </div>
