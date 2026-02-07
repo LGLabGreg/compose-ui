@@ -245,7 +245,7 @@ Add exports for all component parts and their types.
 Create the MDX page with examples. **IMPORTANT**: Export metadata for SEO:
 
 ```mdx
-import { ComponentPage, ExampleLoader } from '@/components/mdx'
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import DefaultExample from './examples/default'
 
@@ -267,8 +267,44 @@ export const metadata = {
   <DefaultExample />
 </ExampleLoader>
 
+## API Reference
+
+<ApiSection
+  title='{ComponentName}'
+  description='Brief description of the component.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'variant',
+        type: "'default' | 'secondary'",
+        default: "'default'",
+        description: 'Visual style variant',
+      },
+      {
+        name: 'size',
+        type: "'sm' | 'md' | 'lg'",
+        default: "'md'",
+        description: 'Size of the component',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"element">',
+        description: 'Standard element props',
+      },
+    ]}
+  />
+</ApiSection>
+
 </ComponentPage>
 ```
+
+**Note**: Add one `<ApiSection>` per sub-component with its own `<ApiTable>`. For hooks, use `showRequired` on the `<ApiTable>` and add `required: true` to required props. See the Group or Pagination docs for reference.
 
 ### 6. Example Files
 
@@ -363,6 +399,7 @@ Add the component to the Components section in alphabetical order:
 - [ ] Component added to tsdown.config.ts components array
 - [ ] Documentation page created
 - [ ] At least one example created
+- [ ] API Reference section added (for components with variants/custom props)
 - [ ] Navigation updated
 - [ ] Run tests to verify: `pnpm test`
 - [ ] No lint errors in any file

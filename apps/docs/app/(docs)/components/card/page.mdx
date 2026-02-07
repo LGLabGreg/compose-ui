@@ -1,4 +1,4 @@
-import { ComponentPage, ExampleLoader } from '@/components/mdx'
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import CustomHeadingExample from './examples/custom-heading'
 import GridStatsExample from './examples/grid-stats'
@@ -67,5 +67,79 @@ export const metadata = {
 >
   <VariantsExample />
 </ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='CardRoot'
+  description='Root container for the card. Renders as an <article> element.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'variant',
+        type: "'default' | 'outline' | 'elevated'",
+        default: "'default'",
+        description: 'Visual style variant of the card',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"article">',
+        description: 'Standard article element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='CardTitle'
+  description='The card heading. Renders as an <h3> by default.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'as',
+        type: "'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+        default: "'h3'",
+        description: 'The heading level to render',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"h3">',
+        description: 'Standard heading element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='CardMedia, CardHeader, CardDescription, CardContent, CardSection, CardFooter'
+  description='Layout sub-components for structuring card content. Each accepts className and standard HTML element props.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div" | "header" | "p" | "section" | "footer">',
+        description: 'Standard HTML element props for the respective element',
+      },
+    ]}
+  />
+</ApiSection>
 
 </ComponentPage>

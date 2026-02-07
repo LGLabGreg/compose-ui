@@ -1,4 +1,4 @@
-import { ComponentPage, ExampleLoader } from '@/components/mdx'
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import AppearancesExample from './examples/appearances'
 import CustomColorsExample from './examples/custom-colors'
@@ -69,5 +69,91 @@ export const metadata = {
 >
   <CustomColorsExample />
 </ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='Badge'
+  description='Inline label component for displaying status, categories, or counts.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'variant',
+        type: "'default' | 'secondary' | 'destructive' | 'success' | 'warning' | 'info'",
+        default: "'default'",
+        description: 'Color variant of the badge',
+      },
+      {
+        name: 'appearance',
+        type: "'default' | 'outline' | 'light' | 'ghost'",
+        default: "'default'",
+        description: 'Visual appearance style',
+      },
+      {
+        name: 'size',
+        type: "'sm' | 'md' | 'lg'",
+        default: "'md'",
+        description: 'Size of the badge',
+      },
+      {
+        name: 'shape',
+        type: "'pill' | 'rounded'",
+        default: "'rounded'",
+        description: 'Border radius shape',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"span">',
+        description: 'Standard span element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='BadgeDot'
+  description='Small circular dot indicator used inside a Badge.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"span">',
+        description: 'Standard span element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='BadgeButton'
+  description='Interactive button element used inside a Badge for actions like dismiss.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"button">',
+        description: 'Standard button element props',
+      },
+    ]}
+  />
+</ApiSection>
 
 </ComponentPage>

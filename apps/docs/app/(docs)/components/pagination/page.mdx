@@ -1,4 +1,4 @@
-import { ComponentPage, ExampleLoader } from '@/components/mdx'
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import DefaultExample from './examples/default'
 import SizesExample from './examples/sizes'
@@ -51,5 +51,220 @@ export const metadata = {
 >
   <SizesExample />
 </ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='usePagination'
+  description='Hook that computes page ranges with ellipsis and provides navigation helpers.'
+>
+  <ApiTable
+    showRequired
+    data={[
+      {
+        name: 'currentPage',
+        type: 'number',
+        required: true,
+        description: 'Current active page (1-indexed)',
+      },
+      {
+        name: 'totalPages',
+        type: 'number',
+        required: true,
+        description: 'Total number of pages',
+      },
+      {
+        name: 'onPageChange',
+        type: '(page: number) => void',
+        required: true,
+        description: 'Callback when page changes',
+      },
+      {
+        name: 'siblingCount',
+        type: 'number',
+        default: '1',
+        description: 'Number of pages to show on each side of current page',
+      },
+      {
+        name: 'pageSize',
+        type: 'number',
+        default: '10',
+        description: 'Current page size',
+      },
+      {
+        name: 'pageSizeOptions',
+        type: 'number[]',
+        default: '[10, 25, 50, 100]',
+        description: 'Available page size options',
+      },
+      {
+        name: 'onPageSizeChange',
+        type: '(pageSize: number) => void',
+        description: 'Callback when page size changes',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='PaginationRoot'
+  description='Navigation container for pagination. Renders as a <nav> with aria-label="pagination".'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"nav">',
+        description: 'Standard nav element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='PaginationContent'
+  description='List container for pagination items. Renders as a <ul>.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"ul">',
+        description: 'Standard ul element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='PaginationItem'
+  description='List item wrapper for pagination elements. Renders as a <li>.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"li">',
+        description: 'Standard li element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='PaginationButton'
+  description='Page number button. Sets aria-current="page" when active.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'isActive',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether this button represents the current active page',
+      },
+      {
+        name: 'variant',
+        type: "'default' | 'ghost'",
+        default: "'default'",
+        description: 'Visual style of the button',
+      },
+      {
+        name: 'size',
+        type: "'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'",
+        default: "'icon-sm'",
+        description: 'Size of the button',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"button">',
+        description: 'Standard button element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='PaginationPrevious / PaginationNext / PaginationFirst / PaginationLast'
+  description='Directional navigation buttons with built-in aria-labels and disabled state styling.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'variant',
+        type: "'default' | 'ghost'",
+        default: "'default'",
+        description: 'Visual style of the button',
+      },
+      {
+        name: 'size',
+        type: "'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'",
+        default: "'icon-sm'",
+        description: 'Size of the button',
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        description: 'Whether the button is disabled',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"button">',
+        description: 'Standard button element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='PaginationEllipsis'
+  description='Non-interactive ellipsis indicator for skipped page ranges.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'size',
+        type: "'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'",
+        default: "'icon-sm'",
+        description: 'Size of the ellipsis container',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"span">',
+        description: 'Standard span element props',
+      },
+    ]}
+  />
+</ApiSection>
 
 </ComponentPage>
