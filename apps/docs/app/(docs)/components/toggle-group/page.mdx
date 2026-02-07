@@ -1,4 +1,4 @@
-import { ComponentPage, ExampleLoader } from '@/components/mdx'
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import ControlledExample from './examples/controlled'
 import DefaultExample from './examples/default'
@@ -76,5 +76,59 @@ export const metadata = {
 >
   <GhostExample />
 </ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='ToggleGroupRoot'
+  description='Container that provides shared state to a series of toggle buttons. Built on Base UI ToggleGroup.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<typeof BaseToggleGroup>',
+        description: 'Base UI ToggleGroup props including value, onValueChange, toggleMultiple, disabled',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='ToggleGroupItem'
+  description='Individual toggle button within a ToggleGroup.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'variant',
+        type: "'default' | 'ghost'",
+        default: "'default'",
+        description: 'Visual style of the toggle item',
+      },
+      {
+        name: 'size',
+        type: "'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'",
+        default: "'default'",
+        description: 'Size of the toggle item',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<typeof Toggle>',
+        description: 'Base UI Toggle props including value, disabled',
+      },
+    ]}
+  />
+</ApiSection>
 
 </ComponentPage>

@@ -1,4 +1,4 @@
-import { ComponentPage, ExampleLoader } from '@/components/mdx'
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import AsLinkExample from './examples/as-link'
 import DefaultExample from './examples/default'
@@ -65,5 +65,45 @@ export const metadata = {
 >
   <AsLinkExample />
 </ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='Button'
+  description='Interactive button component built on Base UI Button with variant and size styling.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'variant',
+        type: "'default' | 'secondary' | 'outline' | 'ghost' | 'destructive' | 'link'",
+        default: "'default'",
+        description: 'Visual style variant of the button',
+      },
+      {
+        name: 'size',
+        type: "'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'",
+        default: "'default'",
+        description: 'Size of the button',
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether the button is disabled',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<typeof BaseButton>',
+        description: 'Base UI Button props including render prop',
+      },
+    ]}
+  />
+</ApiSection>
 
 </ComponentPage>

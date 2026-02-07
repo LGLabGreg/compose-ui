@@ -1,4 +1,4 @@
-import { ComponentPage, ExampleLoader } from '@/components/mdx'
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import DefaultExample from './examples/default'
 import ShimmerExample from './examples/shimmer'
@@ -43,5 +43,33 @@ export const metadata = {
 >
   <NoAnimationExample />
 </ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='Skeleton'
+  description='Placeholder element for loading states. Use className to define custom shapes and sizes.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'animation',
+        type: "'pulse' | 'shimmer' | 'none'",
+        default: "'pulse'",
+        description: 'Animation style for the skeleton',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for sizing and shape',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
 
 </ComponentPage>

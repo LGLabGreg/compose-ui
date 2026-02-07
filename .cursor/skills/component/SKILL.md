@@ -52,6 +52,8 @@ When creating a custom component not based on Base UI (use `@cursor/commands/cre
 
 Create `apps/docs/app/(docs)/components/{component-name}/page.mdx` and add to navigation in `apps/docs/lib/navigation.ts`
 
+**API Reference**: Custom components with CVA variants or custom props should include an `## API Reference` section after the examples, using `ApiSection` and `ApiTable` components. See the Group or Badge docs for reference.
+
 **Note**: LLM documentation files (`apps/docs/public/llms/{component-name}.md`) are automatically generated in CI - do not create them manually.
 
 ## Testing (Applies to All Components)

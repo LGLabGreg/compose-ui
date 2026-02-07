@@ -1,4 +1,4 @@
-import { ComponentPage, ExampleLoader } from '@/components/mdx'
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import ControlledExample from './examples/controlled'
 import DefaultExample from './examples/default'
@@ -62,5 +62,39 @@ export const metadata = {
 <ExampleLoader title='Ghost' filePath='app/(docs)/components/toggle/examples/ghost.tsx'>
   <GhostExample />
 </ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='Toggle'
+  description='A two-state button built on Base UI Toggle with variant and size styling.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'variant',
+        type: "'default' | 'ghost'",
+        default: "'default'",
+        description: 'Visual style of the toggle',
+      },
+      {
+        name: 'size',
+        type: "'sm' | 'default' | 'lg' | 'icon' | 'icon-sm' | 'icon-lg'",
+        default: "'default'",
+        description: 'Size of the toggle',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<typeof BaseToggle>',
+        description: 'Base UI Toggle props including pressed, onPressedChange, disabled',
+      },
+    ]}
+  />
+</ApiSection>
 
 </ComponentPage>
