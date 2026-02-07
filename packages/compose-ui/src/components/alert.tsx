@@ -138,17 +138,10 @@ type AlertProps = React.ComponentProps<'div'> & {
   size?: AlertSize
 }
 
-const Alert = ({
-  className,
-  variant,
-  appearance,
-  size,
-  role = 'alert',
-  ...props
-}: AlertProps) => {
+const Alert = ({ className, variant, appearance, size, ...props }: AlertProps) => {
   return (
     <div
-      role={role}
+      role='alert'
       className={cn(alertVariants({ variant, appearance, size }), className)}
       {...props}
     />
