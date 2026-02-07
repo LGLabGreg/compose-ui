@@ -77,8 +77,8 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Field](https://compose-ui.dev/components/field.md): Provides accessible labeling and validation for form controls.
 - [Drawer](https://compose-ui.dev/components/drawer.md): A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
 - [Dialog](https://compose-ui.dev/components/dialog.md): A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
-- [Context Menu](https://compose-ui.dev/components/context-menu.md): A menu triggered by right-click or long press, rendering at the pointer position.
 - [Date Picker](https://compose-ui.dev/components/calendar.md): Compose a date picker using Calendar and Popover primitives.
+- [Context Menu](https://compose-ui.dev/components/context-menu.md): A menu triggered by right-click or long press, rendering at the pointer position.
 - [Combobox](https://compose-ui.dev/components/combobox.md): An input combined with a list of predefined items to select, with filtering support.
 - [Collapsible](https://compose-ui.dev/components/collapsible.md): A component that allows content to be expanded or collapsed.
 - [Checkbox Group](https://compose-ui.dev/components/checkbox-group.md): Provides shared state to a series of checkboxes.
