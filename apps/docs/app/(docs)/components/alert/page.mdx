@@ -1,0 +1,228 @@
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import AppearancesExample from './examples/appearances'
+import DefaultExample from './examples/default'
+import SizesExample from './examples/sizes'
+import WithActionExample from './examples/with-action'
+import WithCloseExample from './examples/with-close'
+import WithIconExample from './examples/with-icon'
+
+export const metadata = {
+  title: 'Alert',
+  description: 'A composable alert component for displaying important messages with multiple variants, appearances, and sizes.',
+}
+
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component="alert"
+>
+
+<ExampleLoader
+  title='Variants'
+  filePath='app/(docs)/components/alert/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Appearances'
+  filePath='app/(docs)/components/alert/examples/appearances.tsx'
+>
+  <AppearancesExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Sizes'
+  filePath='app/(docs)/components/alert/examples/sizes.tsx'
+>
+  <SizesExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Icon'
+  filePath='app/(docs)/components/alert/examples/with-icon.tsx'
+>
+  <WithIconExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Close'
+  filePath='app/(docs)/components/alert/examples/with-close.tsx'
+>
+  <WithCloseExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Action'
+  filePath='app/(docs)/components/alert/examples/with-action.tsx'
+>
+  <WithActionExample />
+</ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='Alert'
+  description='Root container for alert messages. Renders with role="alert" by default.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'variant',
+        type: "'default' | 'destructive' | 'success' | 'warning' | 'info'",
+        default: "'default'",
+        description: 'Color variant of the alert',
+      },
+      {
+        name: 'appearance',
+        type: "'default' | 'outline' | 'filled'",
+        default: "'default'",
+        description: 'Visual appearance style',
+      },
+      {
+        name: 'size',
+        type: "'sm' | 'md' | 'lg'",
+        default: "'md'",
+        description: 'Size of the alert',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='AlertContent'
+  description='Wrapper for title and description with vertical spacing.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='AlertIcon'
+  description='Icon slot that inherits color from the alert variant.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"span">',
+        description: 'Standard span element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='AlertTitle'
+  description='Bold title text rendered as an h5 element.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"h5">',
+        description: 'Standard h5 element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='AlertDescription'
+  description='Body text for the alert message.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='AlertAction'
+  description='Action slot positioned at the end of the alert for buttons or links.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='AlertClose'
+  description='Dismiss button for closing the alert. Handle state externally via onClick.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'onClick',
+        type: '() => void',
+        description: 'Callback when the close button is clicked',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"button">',
+        description: 'Standard button element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+</ComponentPage>
