@@ -1,0 +1,23 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+
+export const metadata = {
+  title: 'DatePicker',
+  description: 'A date picker input that combines a Calendar with a Popover.',
+}
+
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component="date-picker"
+>
+
+<ExampleLoader
+  title='Basic'
+  filePath='app/(docs)/components/date-picker/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+</ComponentPage>

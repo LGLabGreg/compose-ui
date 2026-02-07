@@ -1,0 +1,55 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import DropdownExample from './examples/dropdown'
+import FooterExample from './examples/footer'
+import MultipleExample from './examples/multiple'
+import RangeExample from './examples/range'
+
+export const metadata = {
+  title: 'Calendar',
+  description: 'A date calendar component built on react-day-picker.',
+}
+
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component="calendar"
+>
+
+<ExampleLoader
+  title='Single Date'
+  filePath='app/(docs)/components/calendar/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Date Range'
+  filePath='app/(docs)/components/calendar/examples/range.tsx'
+>
+  <RangeExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Multiple Dates'
+  filePath='app/(docs)/components/calendar/examples/multiple.tsx'
+>
+  <MultipleExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Dropdown Caption'
+  filePath='app/(docs)/components/calendar/examples/dropdown.tsx'
+>
+  <DropdownExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Footer'
+  filePath='app/(docs)/components/calendar/examples/footer.tsx'
+>
+  <FooterExample />
+</ExampleLoader>
+
+</ComponentPage>

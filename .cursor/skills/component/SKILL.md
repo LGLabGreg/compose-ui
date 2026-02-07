@@ -50,7 +50,7 @@ When creating a custom component not based on Base UI (use `@cursor/commands/cre
 
 ## Preview Page (Applies to All Components)
 
-Create `apps/docs/app/(docs)/components/{component-name}/page.tsx` and add to sidebar in `components-sidebar.tsx`
+Create `apps/docs/app/(docs)/components/{component-name}/page.mdx` and add to navigation in `apps/docs/lib/navigation.ts`
 
 **Note**: LLM documentation files (`apps/docs/public/llms/{component-name}.md`) are automatically generated in CI - do not create them manually.
 
