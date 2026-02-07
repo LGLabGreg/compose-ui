@@ -30,7 +30,7 @@ export default function RangeExample() {
           <Button
             {...props}
             variant='outline'
-            className='min-w-[260px] justify-start gap-2'
+            className='min-w-[200px] justify-start gap-2'
           >
             <CalendarIcon className='size-4' />
             {displayText ?? (

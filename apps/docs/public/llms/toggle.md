@@ -157,5 +157,4 @@ export default function GhostExample() {
 
 ## Resources
 
-- [Base UI Toggle Documentation](https://base-ui.com/react/components/toggle)
-- [API Reference](https://base-ui.com/react/components/toggle#api-reference)
+- [Base UI](https://base-ui.com/react/components/toggle)

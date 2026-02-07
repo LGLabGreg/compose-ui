@@ -154,5 +154,4 @@ export default function WithFieldExample() {
 
 ## Resources
 
-- [Base UI Checkbox Group Documentation](https://base-ui.com/react/components/checkbox-group)
-- [API Reference](https://base-ui.com/react/components/checkbox-group#api-reference)
+- [Base UI](https://base-ui.com/react/components/checkbox-group)

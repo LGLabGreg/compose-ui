@@ -43,5 +43,4 @@ export default function DefaultExample() {
 
 ## Resources
 
-- [Base UI Input Documentation](https://base-ui.com/react/components/input)
-- [API Reference](https://base-ui.com/react/components/input#api-reference)
+- [Base UI](https://base-ui.com/react/components/input)

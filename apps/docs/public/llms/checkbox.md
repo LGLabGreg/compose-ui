@@ -79,5 +79,4 @@ export default function IndeterminateExample() {
 
 ## Resources
 
-- [Base UI Checkbox Documentation](https://base-ui.com/react/components/checkbox)
-- [API Reference](https://base-ui.com/react/components/checkbox#api-reference)
+- [Base UI](https://base-ui.com/react/components/checkbox)

@@ -2,6 +2,11 @@ import type { ReactNode } from 'react'
 
 import { DocLinks } from '@/components/doc-links'
 
+interface ExternalLink {
+  label: string
+  href: string
+}
+
 interface ComponentPageProps {
   /** The component title */
   title: string
@@ -9,8 +14,8 @@ interface ComponentPageProps {
   description: string
   /** Component name for DocLinks (e.g., 'tabs', 'dialog') */
   component: string
-  /** Base UI component name for DocLinks (e.g., 'tabs', 'dialog') */
-  baseUiComponent: string
+  /** External links (e.g., Base UI API Reference, React Day Picker) */
+  links?: ExternalLink[]
   /** The examples and content */
   children: ReactNode
 }
@@ -19,7 +24,7 @@ export function ComponentPage({
   title,
   description,
   component,
-  baseUiComponent,
+  links,
   children,
 }: ComponentPageProps) {
   return (
@@ -28,7 +33,7 @@ export function ComponentPage({
         <h1 className='text-3xl font-bold tracking-tight'>{title}</h1>
         <p className='mt-2'>{description}</p>
         <div className='mt-4'>
-          <DocLinks component={component} baseUiComponent={baseUiComponent} />
+          <DocLinks component={component} links={links} />
         </div>
       </div>
       <div className='grid grid-cols-1 gap-6'>{children}</div>

@@ -4,16 +4,20 @@ import { ArrowUpRight, Check, Copy, FileText, LoaderCircle } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
-interface DocLinksProps {
-  component: string
-  baseUiComponent?: string
+interface ExternalLink {
+  label: string
+  href: string
 }
 
-export function DocLinks({ component, baseUiComponent }: DocLinksProps) {
+interface DocLinksProps {
+  component: string
+  links?: ExternalLink[]
+}
+
+export function DocLinks({ component, links }: DocLinksProps) {
   const [copied, setCopied] = useState(false)
   const [copying, setCopying] = useState(false)
 
-  const baseUIAPIUrl = `https://base-ui.com/react/components/${baseUiComponent}#api-reference`
   const markdownUrl = `/components/${component}.md`
 
   const handleCopyMarkdown = async () => {
@@ -36,17 +40,18 @@ export function DocLinks({ component, baseUiComponent }: DocLinksProps) {
 
   return (
     <div className='flex flex-wrap items-center gap-2'>
-      {baseUiComponent && (
+      {links?.map((link) => (
         <Link
-          href={baseUIAPIUrl}
+          key={link.href}
+          href={link.href}
           target='_blank'
           rel='noopener noreferrer'
           className='inline-flex items-center gap-1 rounded-md border px-3 py-1 text-xs font-medium transition-colors hover:bg-muted'
         >
-          API Reference
+          {link.label}
           <ArrowUpRight className='size-3.5' />
         </Link>
-      )}
+      ))}
       <Link
         href={markdownUrl}
         target='_blank'

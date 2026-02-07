@@ -162,5 +162,4 @@ export default function StackOverflowExample() {
 
 ## Resources
 
-- [Base UI Avatar Documentation](https://base-ui.com/react/components/avatar)
-- [API Reference](https://base-ui.com/react/components/avatar#api-reference)
+- [Base UI](https://base-ui.com/react/components/avatar)

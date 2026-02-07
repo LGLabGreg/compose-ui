@@ -45,5 +45,4 @@ export default function DefaultExample() {
 
 ## Resources
 
-- [Base UI Separator Documentation](https://base-ui.com/react/components/separator)
-- [API Reference](https://base-ui.com/react/components/separator#api-reference)
+- [Base UI](https://base-ui.com/react/components/separator)

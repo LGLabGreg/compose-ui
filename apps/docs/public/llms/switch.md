@@ -97,5 +97,4 @@ export default function DisabledExample() {
 
 ## Resources
 
-- [Base UI Switch Documentation](https://base-ui.com/react/components/switch)
-- [API Reference](https://base-ui.com/react/components/switch#api-reference)
+- [Base UI](https://base-ui.com/react/components/switch)

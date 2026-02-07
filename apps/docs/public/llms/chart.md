@@ -173,3 +173,6 @@ export default function LineChartExample() {
 }
 ```
 
+## Resources
+
+- [Recharts](https://recharts.org)

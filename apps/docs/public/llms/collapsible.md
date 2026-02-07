@@ -161,5 +161,4 @@ export default function SidebarMenuDefaultOpenExample() {
 
 ## Resources
 
-- [Base UI Collapsible Documentation](https://base-ui.com/react/components/collapsible)
-- [API Reference](https://base-ui.com/react/components/collapsible#api-reference)
+- [Base UI](https://base-ui.com/react/components/collapsible)

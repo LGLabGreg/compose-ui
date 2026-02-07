@@ -180,5 +180,4 @@ export default function MultipleExample() {
 
 ## Resources
 
-- [Base UI Accordion Documentation](https://base-ui.com/react/components/accordion)
-- [API Reference](https://base-ui.com/react/components/accordion#api-reference)
+- [Base UI](https://base-ui.com/react/components/accordion)

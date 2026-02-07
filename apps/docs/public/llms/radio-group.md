@@ -101,5 +101,4 @@ export default function WithFieldExample() {
 
 ## Resources
 
-- [Base UI Radio Group Documentation](https://base-ui.com/react/components/radio-group)
-- [API Reference](https://base-ui.com/react/components/radio-group#api-reference)
+- [Base UI](https://base-ui.com/react/components/radio-group)

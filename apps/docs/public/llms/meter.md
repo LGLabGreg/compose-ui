@@ -177,5 +177,4 @@ export default function CustomFormatExample() {
 
 ## Resources
 
-- [Base UI Meter Documentation](https://base-ui.com/react/components/meter)
-- [API Reference](https://base-ui.com/react/components/meter#api-reference)
+- [Base UI](https://base-ui.com/react/components/meter)

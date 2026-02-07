@@ -482,5 +482,4 @@ export default function AnchorElementExample() {
 
 ## Resources
 
-- [Base UI Tooltip Documentation](https://base-ui.com/react/components/tooltip)
-- [API Reference](https://base-ui.com/react/components/tooltip#api-reference)
+- [Base UI](https://base-ui.com/react/components/tooltip)

@@ -128,5 +128,4 @@ export default function BothScrollbarsExample() {
 
 ## Resources
 
-- [Base UI Scroll Area Documentation](https://base-ui.com/react/components/scroll-area)
-- [API Reference](https://base-ui.com/react/components/scroll-area#api-reference)
+- [Base UI](https://base-ui.com/react/components/scroll-area)

@@ -1927,5 +1927,4 @@ export default function WithTanstackFormExample() {
 
 ## Resources
 
-- [Base UI Form Documentation](https://base-ui.com/react/components/form)
-- [API Reference](https://base-ui.com/react/components/form#api-reference)
+- [Base UI](https://base-ui.com/react/components/form)

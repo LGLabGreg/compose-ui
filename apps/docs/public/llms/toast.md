@@ -345,5 +345,4 @@ export default function PositionsExample() {
 
 ## Resources
 
-- [Base UI Toast Documentation](https://base-ui.com/react/components/toast)
-- [API Reference](https://base-ui.com/react/components/toast#api-reference)
+- [Base UI](https://base-ui.com/react/components/toast)

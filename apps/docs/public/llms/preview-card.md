@@ -142,5 +142,4 @@ export default function SidesExample() {
 
 ## Resources
 
-- [Base UI Preview Card Documentation](https://base-ui.com/react/components/preview-card)
-- [API Reference](https://base-ui.com/react/components/preview-card#api-reference)
+- [Base UI](https://base-ui.com/react/components/preview-card)

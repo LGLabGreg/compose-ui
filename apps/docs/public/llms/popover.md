@@ -202,5 +202,4 @@ export default function SidesExample() {
 
 ## Resources
 
-- [Base UI Popover Documentation](https://base-ui.com/react/components/popover)
-- [API Reference](https://base-ui.com/react/components/popover#api-reference)
+- [Base UI](https://base-ui.com/react/components/popover)
