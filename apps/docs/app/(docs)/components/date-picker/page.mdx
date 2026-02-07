@@ -1,0 +1,32 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import DefaultExample from './examples/default'
+import RangeExample from './examples/range'
+
+export const metadata = {
+  title: 'Date Picker',
+  description: 'Compose a date picker using Calendar and Popover primitives.',
+}
+
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component="calendar"
+  links={[{ label: 'React Day Picker', href: 'https://daypicker.dev' }]}
+>
+
+<ExampleLoader
+  title='Basic'
+  filePath='app/(docs)/components/date-picker/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Range'
+  filePath='app/(docs)/components/date-picker/examples/range.tsx'
+>
+  <RangeExample />
+</ExampleLoader>
+
+</ComponentPage>

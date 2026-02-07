@@ -1251,5 +1251,4 @@ export default function CreatableExample() {
 
 ## Resources
 
-- [Base UI Combobox Documentation](https://base-ui.com/react/components/combobox)
-- [API Reference](https://base-ui.com/react/components/combobox#api-reference)
+- [Base UI](https://base-ui.com/react/components/combobox)

@@ -752,5 +752,4 @@ const top100Movies: Movie[] = [
 
 ## Resources
 
-- [Base UI Autocomplete Documentation](https://base-ui.com/react/components/autocomplete)
-- [API Reference](https://base-ui.com/react/components/autocomplete#api-reference)
+- [Base UI](https://base-ui.com/react/components/autocomplete)

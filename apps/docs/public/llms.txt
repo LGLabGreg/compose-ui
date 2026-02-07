@@ -77,6 +77,7 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Field](https://compose-ui.dev/components/field.md): Provides accessible labeling and validation for form controls.
 - [Drawer](https://compose-ui.dev/components/drawer.md): A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
 - [Dialog](https://compose-ui.dev/components/dialog.md): A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
+- [Date Picker](https://compose-ui.dev/components/calendar.md): Compose a date picker using Calendar and Popover primitives.
 - [Context Menu](https://compose-ui.dev/components/context-menu.md): A menu triggered by right-click or long press, rendering at the pointer position.
 - [Combobox](https://compose-ui.dev/components/combobox.md): An input combined with a list of predefined items to select, with filtering support.
 - [Collapsible](https://compose-ui.dev/components/collapsible.md): A component that allows content to be expanded or collapsed.
@@ -84,6 +85,7 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Checkbox](https://compose-ui.dev/components/checkbox.md): A control that allows the user to toggle between checked and unchecked states.
 - [Chart](https://compose-ui.dev/components/chart.md): A set of wrapper components that extend Recharts with styled tooltips, legends, and theme-aware colors. For full chart capabilities, refer to the Recharts documentation.
 - [Card](https://compose-ui.dev/components/card.md): A flexible card component with support for media, headers, content sections, and footers. Supports both vertical and horizontal layouts with multiple variants.
+- [Calendar](https://compose-ui.dev/components/calendar.md): A date calendar component built on react-day-picker.
 - [Button](https://compose-ui.dev/components/button.md): A versatile button component with multiple variants, sizes, and states including loading indicators.
 - [Badge](https://compose-ui.dev/components/badge.md): A versatile badge component for displaying labels, status indicators, and tags with multiple variants, sizes, and shapes.
 - [Avatar](https://compose-ui.dev/components/avatar.md): An easily stylable avatar component for displaying user profile pictures, initials, or fallback content.

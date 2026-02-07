@@ -800,5 +800,4 @@ export default function SizesExample() {
 
 ## Resources
 
-- [Base UI Menubar Documentation](https://base-ui.com/react/components/menubar)
-- [API Reference](https://base-ui.com/react/components/menubar#api-reference)
+- [Base UI](https://base-ui.com/react/components/menubar)

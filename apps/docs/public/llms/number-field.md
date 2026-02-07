@@ -239,5 +239,4 @@ export default function FormatExample() {
 
 ## Resources
 
-- [Base UI Number Field Documentation](https://base-ui.com/react/components/number-field)
-- [API Reference](https://base-ui.com/react/components/number-field#api-reference)
+- [Base UI](https://base-ui.com/react/components/number-field)

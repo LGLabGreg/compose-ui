@@ -272,5 +272,4 @@ export default function ObjectValuesExample() {
 
 ## Resources
 
-- [Base UI Select Documentation](https://base-ui.com/react/components/select)
-- [API Reference](https://base-ui.com/react/components/select#api-reference)
+- [Base UI](https://base-ui.com/react/components/select)

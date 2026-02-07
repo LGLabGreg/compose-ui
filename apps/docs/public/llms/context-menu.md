@@ -367,5 +367,4 @@ export default function SubmenuExample() {
 
 ## Resources
 
-- [Base UI Context Menu Documentation](https://base-ui.com/react/components/context-menu)
-- [API Reference](https://base-ui.com/react/components/context-menu#api-reference)
+- [Base UI](https://base-ui.com/react/components/context-menu)

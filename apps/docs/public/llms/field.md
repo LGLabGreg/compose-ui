@@ -70,5 +70,4 @@ export default function WithErrorExample() {
 
 ## Resources
 
-- [Base UI Field Documentation](https://base-ui.com/react/components/field)
-- [API Reference](https://base-ui.com/react/components/field#api-reference)
+- [Base UI](https://base-ui.com/react/components/field)

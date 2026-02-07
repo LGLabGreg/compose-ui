@@ -56,5 +56,4 @@ export default function BasicExample() {
 
 ## Resources
 
-- [Base UI Progress Documentation](https://base-ui.com/react/components/progress)
-- [API Reference](https://base-ui.com/react/components/progress#api-reference)
+- [Base UI](https://base-ui.com/react/components/progress)

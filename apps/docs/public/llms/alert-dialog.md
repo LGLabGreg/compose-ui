@@ -302,5 +302,4 @@ export default function ControlledMultipleExample() {
 
 ## Resources
 
-- [Base UI Alert Dialog Documentation](https://base-ui.com/react/components/alert-dialog)
-- [API Reference](https://base-ui.com/react/components/alert-dialog#api-reference)
+- [Base UI](https://base-ui.com/react/components/alert-dialog)

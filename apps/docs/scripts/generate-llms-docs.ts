@@ -2,6 +2,11 @@ import { glob } from 'glob'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 
+interface ExternalLink {
+  label: string
+  href: string
+}
+
 interface Example {
   title: string
   filePath: string
@@ -12,7 +17,7 @@ interface ComponentMeta {
   title: string
   description: string
   component: string
-  baseUiComponent?: string
+  links?: ExternalLink[]
   examples: Example[]
 }
 
@@ -20,9 +25,22 @@ interface ComponentMeta {
  * Parse ComponentPage props from MDX content
  */
 function parseComponentPage(mdxContent: string): Partial<ComponentMeta> {
-  // Extract component and baseUiComponent from ComponentPage props (needed in both paths)
+  // Extract component from ComponentPage props
   const compMatch = mdxContent.match(/component=["']([^"']+)["']/)
-  const baseUiMatch = mdxContent.match(/baseUiComponent=["']([^"']+)["']/)
+
+  // Extract links array: links={[{ label: '...', href: '...' }, ...]}
+  const linksMatch = mdxContent.match(/links=\{\[([^\]]*)\]\}/)
+  let links: ExternalLink[] | undefined
+  if (linksMatch) {
+    const linksContent = linksMatch[1]
+    const linkRegex = /\{\s*label:\s*'([^']+)',\s*href:\s*'([^']+)'\s*\}/g
+    links = []
+    let linkMatch
+    while ((linkMatch = linkRegex.exec(linksContent)) !== null) {
+      links.push({ label: linkMatch[1], href: linkMatch[2] })
+    }
+    if (links.length === 0) links = undefined
+  }
 
   // First, try to parse from metadata export
   const metadataMatch = mdxContent.match(/export\s+const\s+metadata\s*=\s*\{([\s\S]+?)\}/)
@@ -37,7 +55,7 @@ function parseComponentPage(mdxContent: string): Partial<ComponentMeta> {
         title: titleMatch[1],
         description: descMatch[1],
         component: compMatch?.[1],
-        baseUiComponent: baseUiMatch?.[1],
+        links,
       }
     }
   }
@@ -50,7 +68,7 @@ function parseComponentPage(mdxContent: string): Partial<ComponentMeta> {
     title: titleMatch?.[1],
     description: descMatch?.[1],
     component: compMatch?.[1],
-    baseUiComponent: baseUiMatch?.[1],
+    links,
   }
 }
 
@@ -155,16 +173,12 @@ async function generateMarkdown(
   }
 
   // Resources
-  // Only add Base UI links if baseUiComponent exists
-  if (meta.baseUiComponent) {
+  if (meta.links && meta.links.length > 0) {
     lines.push('## Resources')
     lines.push('')
-    lines.push(
-      `- [Base UI ${meta.title} Documentation](https://base-ui.com/react/components/${meta.baseUiComponent})`,
-    )
-    lines.push(
-      `- [API Reference](https://base-ui.com/react/components/${meta.baseUiComponent}#api-reference)`,
-    )
+    for (const link of meta.links) {
+      lines.push(`- [${link.label}](${link.href})`)
+    }
   }
   lines.push('')
 
@@ -442,7 +456,7 @@ async function main() {
       title: meta.title,
       description: meta.description,
       component: meta.component,
-      baseUiComponent: meta.baseUiComponent,
+      links: meta.links,
       examples,
     }
 

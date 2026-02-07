@@ -234,5 +234,4 @@ export default function AsLinkExample() {
 
 ## Resources
 
-- [Base UI Button Documentation](https://base-ui.com/react/components/button)
-- [API Reference](https://base-ui.com/react/components/button#api-reference)
+- [Base UI](https://base-ui.com/react/components/button)

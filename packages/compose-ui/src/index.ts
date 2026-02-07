@@ -1,4 +1,5 @@
 export { Button } from './components/button'
+export { Calendar } from './components/calendar'
 export { CheckboxRoot, CheckboxIndicator } from './components/checkbox'
 export { CheckboxGroupRoot } from './components/checkbox-group'
 export {
@@ -339,6 +340,7 @@ export {
 } from './components/chart'
 
 export type { ButtonProps } from './components/button'
+export type { CalendarProps } from './components/calendar'
 export type { CheckboxRootProps, CheckboxIndicatorProps } from './components/checkbox'
 export type { CheckboxGroupRootProps } from './components/checkbox-group'
 export type {

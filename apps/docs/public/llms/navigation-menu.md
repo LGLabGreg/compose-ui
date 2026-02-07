@@ -183,5 +183,4 @@ export default function NavigationMenuExample() {
 
 ## Resources
 
-- [Base UI Navigation Menu Documentation](https://base-ui.com/react/components/navigation-menu)
-- [API Reference](https://base-ui.com/react/components/navigation-menu#api-reference)
+- [Base UI](https://base-ui.com/react/components/navigation-menu)

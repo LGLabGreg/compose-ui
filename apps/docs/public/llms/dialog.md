@@ -588,5 +588,4 @@ export default function NestedExample() {
 
 ## Resources
 
-- [Base UI Dialog Documentation](https://base-ui.com/react/components/dialog)
-- [API Reference](https://base-ui.com/react/components/dialog#api-reference)
+- [Base UI](https://base-ui.com/react/components/dialog)

@@ -323,5 +323,4 @@ export default function VerticalExample() {
 
 ## Resources
 
-- [Base UI Tabs Documentation](https://base-ui.com/react/components/tabs)
-- [API Reference](https://base-ui.com/react/components/tabs#api-reference)
+- [Base UI](https://base-ui.com/react/components/tabs)

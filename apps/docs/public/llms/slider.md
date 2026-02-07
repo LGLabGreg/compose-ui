@@ -157,5 +157,4 @@ export default function VerticalExample() {
 
 ## Resources
 
-- [Base UI Slider Documentation](https://base-ui.com/react/components/slider)
-- [API Reference](https://base-ui.com/react/components/slider#api-reference)
+- [Base UI](https://base-ui.com/react/components/slider)
