@@ -29,9 +29,9 @@ function Calendar({ className, classNames, captionLayout, ...props }: CalendarPr
         ),
         caption_label: cn(
           'text-sm font-medium text-foreground',
-          captionLayout === 'label'
-            ? ''
-            : 'flex items-center gap-1 [&>svg]:text-muted-foreground [&>svg]:size-3.5',
+          captionLayout === 'dropdown'
+            ? 'flex items-center gap-1 [&>svg]:text-muted-foreground [&>svg]:size-3.5'
+            : '',
           classNames?.caption_label,
         ),
         dropdowns: cn(
@@ -56,10 +56,12 @@ function Calendar({ className, classNames, captionLayout, ...props }: CalendarPr
         button_previous: cn(
           buttonVariants({ variant: 'ghost' }),
           'size-(--cell-size) text-muted-foreground/80 hover:text-foreground p-0 pointer-events-auto',
+          classNames?.button_previous,
         ),
         button_next: cn(
           buttonVariants({ variant: 'ghost' }),
           'size-(--cell-size) text-muted-foreground/80 hover:text-foreground p-0 pointer-events-auto',
+          classNames?.button_next,
         ),
         month_grid: cn('w-full border-collapse space-y-1', classNames?.month_grid),
         weekdays: cn('flex', classNames?.weekdays),

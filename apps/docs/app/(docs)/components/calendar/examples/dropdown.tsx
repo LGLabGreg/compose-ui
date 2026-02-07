@@ -70,7 +70,7 @@ function CustomDropdown({
 }
 
 export default function DropdownExample() {
-  const [date, setDate] = useState<Date | undefined>(new Date())
+  const [date, setDate] = useState<Date | undefined>()
 
   return (
     <Calendar

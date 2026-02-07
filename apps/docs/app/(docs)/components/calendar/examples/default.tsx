@@ -4,7 +4,7 @@ import { Calendar } from '@lglab/compose-ui/calendar'
 import { useState } from 'react'
 
 export default function DefaultExample() {
-  const [date, setDate] = useState<Date | undefined>(new Date())
+  const [date, setDate] = useState<Date | undefined>()
 
   return (
     <Calendar
