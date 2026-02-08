@@ -48,7 +48,7 @@ export function DocHeader() {
               <DrawerClose
                 aria-label='Close'
                 size='icon-sm'
-                className='absolute top-3 right-3'
+                className='absolute top-3 right-3 z-10'
               >
                 <X className='size-4' />
               </DrawerClose>
