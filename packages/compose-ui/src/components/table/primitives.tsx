@@ -179,7 +179,7 @@ const TableHead = ({
   return (
     <th
       className={cn(
-        'h-10 px-4 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0',
+        'h-10 px-4 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0 bg-muted',
         isInteractive &&
           'cursor-pointer select-none hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset',
         className,

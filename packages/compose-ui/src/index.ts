@@ -108,6 +108,16 @@ export {
   useTable,
 } from './components/table'
 export {
+  TimelineRoot,
+  TimelineItem,
+  TimelineMarker,
+  TimelineContent,
+  TimelineSpacer,
+  TimelineTitle,
+  TimelineDescription,
+  TimelineTime,
+} from './components/timeline'
+export {
   Toast,
   ToastProvider,
   ToastViewport,
@@ -492,6 +502,7 @@ export type {
   SortDirection,
   PaginationConfig,
 } from './components/table'
+export type { TimelineRootProps, TimelineMarkerProps } from './components/timeline'
 export type {
   ToastProviderProps,
   ToastViewportProps,

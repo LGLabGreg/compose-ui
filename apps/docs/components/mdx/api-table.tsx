@@ -32,7 +32,7 @@ export function ApiTable({
   return (
     <div className='rounded-md border border-border'>
       <TableRoot variant='bordered'>
-        <TableHeader className='bg-muted'>
+        <TableHeader>
           <TableRow>
             <TableHead>Prop</TableHead>
             <TableHead>Type</TableHead>
@@ -43,15 +43,15 @@ export function ApiTable({
         <TableBody>
           {data.map((row) => (
             <TableRow key={row.name}>
-              <TableCell className='font-mono text-sm'>
+              <TableCell className='text-sm'>
                 {row.name}
                 {showRequired && row.required && (
                   <span className='text-destructive ml-0.5'>*</span>
                 )}
               </TableCell>
-              <TableCell className='font-mono text-sm'>{row.type}</TableCell>
+              <TableCell className='text-sm'>{row.type}</TableCell>
               {showDefault && (
-                <TableCell className='font-mono text-sm'>{row.default ?? '-'}</TableCell>
+                <TableCell className='text-sm'>{row.default ?? '-'}</TableCell>
               )}
               <TableCell className='text-sm'>{row.description}</TableCell>
             </TableRow>
