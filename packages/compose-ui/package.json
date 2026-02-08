@@ -201,6 +201,10 @@
       "import": "./dist/textarea.js",
       "types": "./dist/textarea.d.ts"
     },
+    "./timeline": {
+      "import": "./dist/timeline.js",
+      "types": "./dist/timeline.d.ts"
+    },
     "./toast": {
       "import": "./dist/toast.js",
       "types": "./dist/toast.d.ts"

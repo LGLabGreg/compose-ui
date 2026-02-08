@@ -1,0 +1,265 @@
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import AlternateExample from './examples/alternate'
+import CenterExample from './examples/center'
+import DefaultExample from './examples/default'
+import RightExample from './examples/right'
+import VariantsExample from './examples/variants'
+import WithAvatarExample from './examples/with-avatar'
+import WithIconsExample from './examples/with-icons'
+
+export const metadata = {
+  title: 'Timeline',
+  description:
+    'A composable timeline component for displaying chronological events with multiple layout positions, marker variants, and custom icons.',
+}
+
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component="timeline"
+>
+
+<ExampleLoader
+  title='Default'
+  filePath='app/(docs)/components/timeline/examples/default.tsx'
+>
+  <DefaultExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Variants'
+  filePath='app/(docs)/components/timeline/examples/variants.tsx'
+>
+  <VariantsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Icons'
+  filePath='app/(docs)/components/timeline/examples/with-icons.tsx'
+>
+  <WithIconsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='With Custom Marker'
+  filePath='app/(docs)/components/timeline/examples/with-avatar.tsx'
+>
+  <WithAvatarExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Right Aligned'
+  filePath='app/(docs)/components/timeline/examples/right.tsx'
+>
+  <RightExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Alternate'
+  filePath='app/(docs)/components/timeline/examples/alternate.tsx'
+>
+  <AlternateExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Center'
+  filePath='app/(docs)/components/timeline/examples/center.tsx'
+>
+  <CenterExample />
+</ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='TimelineRoot'
+  description='Root container rendered as a semantic ordered list. Provides layout context to all child items.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'position',
+        type: "'left' | 'right' | 'alternate' | 'center'",
+        default: "'left'",
+        description:
+          'Controls the layout of content relative to the marker line. Left and right place all content on one side. Alternate switches sides for each item. Center uses a grid layout with content on both sides.',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the root ordered list',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"ol">',
+        description: 'Standard ordered list element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='TimelineItem'
+  description='Individual timeline entry rendered as a list item. Automatically receives position and index context from the parent TimelineRoot.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the list item',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"li">',
+        description: 'Standard list item element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='TimelineMarker'
+  description='Visual indicator on the timeline line. Renders a colored dot by default, a custom icon, or fully custom content such as an avatar when children are provided.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'children',
+        type: 'React.ReactNode',
+        description:
+          'Custom content to render instead of the default dot or icon. When provided, variant and icon props are ignored and no default styling is applied to the marker.',
+      },
+      {
+        name: 'variant',
+        type: "'default' | 'primary' | 'success' | 'warning' | 'destructive'",
+        default: "'default'",
+        description:
+          'Color variant of the marker circle. Ignored when children are provided.',
+      },
+      {
+        name: 'icon',
+        type: 'React.ReactNode',
+        description:
+          'Custom icon to display inside the marker instead of the default dot. Ignored when children are provided.',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the marker element',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='TimelineContent'
+  description='Wrapper for the main content of a timeline entry. Handles text alignment and spacing based on the timeline position.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the content wrapper',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='TimelineSpacer'
+  description='Empty flex spacer used with alternate and center positions to fill the opposite side of content.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the spacer element',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"div">',
+        description: 'Standard div element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='TimelineTitle'
+  description='Bold title text for a timeline entry. Rendered as a paragraph element with semibold font weight.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the title',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"p">',
+        description: 'Standard paragraph element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='TimelineDescription'
+  description='Secondary descriptive text for a timeline entry. Rendered in a smaller, muted style.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the description',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"p">',
+        description: 'Standard paragraph element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='TimelineTime'
+  description='Semantic time element for displaying timestamps. Supports the native dateTime attribute for machine-readable values.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'dateTime',
+        type: 'string',
+        description: 'Machine-readable date/time value for accessibility and SEO',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'Additional CSS classes for the time element',
+      },
+      {
+        name: '...props',
+        type: 'React.ComponentProps<"time">',
+        description: 'Standard time element props',
+      },
+    ]}
+  />
+</ApiSection>
+
+</ComponentPage>
