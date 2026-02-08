@@ -52,7 +52,7 @@ export function DocHeader() {
               >
                 <X className='size-4' />
               </DrawerClose>
-              <DocsNavigation closeDrawer={() => setOpen(false)} />
+              <DocsNavigation closeDrawer={() => setOpen(false)} collapsible={false} />
             </DrawerPopup>
           </DrawerPortal>
         </DrawerRoot>
