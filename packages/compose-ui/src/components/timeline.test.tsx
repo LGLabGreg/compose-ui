@@ -205,25 +205,22 @@ describe('TimelineMarker', () => {
 
   it('renders primary variant', () => {
     render(<TimelineMarker data-testid='marker' variant='primary' />)
-    expect(screen.getByTestId('marker')).toHaveClass('border-primary', 'bg-primary')
+    expect(screen.getByTestId('marker')).toHaveClass('bg-primary')
   })
 
   it('renders success variant', () => {
     render(<TimelineMarker data-testid='marker' variant='success' />)
-    expect(screen.getByTestId('marker')).toHaveClass('border-success', 'bg-success')
+    expect(screen.getByTestId('marker')).toHaveClass('bg-success')
   })
 
   it('renders warning variant', () => {
     render(<TimelineMarker data-testid='marker' variant='warning' />)
-    expect(screen.getByTestId('marker')).toHaveClass('border-warning', 'bg-warning')
+    expect(screen.getByTestId('marker')).toHaveClass('bg-warning')
   })
 
   it('renders destructive variant', () => {
     render(<TimelineMarker data-testid='marker' variant='destructive' />)
-    expect(screen.getByTestId('marker')).toHaveClass(
-      'border-destructive',
-      'bg-destructive',
-    )
+    expect(screen.getByTestId('marker')).toHaveClass('bg-destructive')
   })
 
   it('renders with custom icon', () => {

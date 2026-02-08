@@ -117,15 +117,15 @@ TimelineItem.displayName = 'TimelineItem'
 // 3. TimelineMarker
 // ============================================
 const timelineMarkerVariants = cva(
-  'relative z-10 flex size-6 shrink-0 items-center justify-center rounded-full border-2',
+  'relative z-10 flex size-6 shrink-0 items-center justify-center rounded-full',
   {
     variants: {
       variant: {
-        default: 'border-border bg-background',
-        primary: 'border-primary bg-primary text-white',
-        success: 'border-success bg-success text-white',
-        warning: 'border-warning bg-warning text-white',
-        destructive: 'border-destructive bg-destructive text-white',
+        default: 'border border-border bg-background',
+        primary: 'bg-primary text-white',
+        success: 'bg-success text-white',
+        warning: 'bg-warning text-white',
+        destructive: 'bg-destructive text-white',
       },
     },
     defaultVariants: {
@@ -187,12 +187,7 @@ const TimelineMarker = ({
               {icon}
             </div>
           ) : (
-            <div
-              className={cn(
-                'size-2 rounded-full',
-                variant === 'default' ? 'bg-muted-foreground' : 'bg-current',
-              )}
-            />
+            <div className={cn('size-2 rounded-full bg-current')} />
           )}
         </div>
       )}
