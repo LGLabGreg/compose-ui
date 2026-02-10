@@ -44,16 +44,13 @@ export default function SimpleStatsBlock() {
     <section className='w-full' aria-label='Simple statistics overview'>
       <div className='grid gap-4 lg:grid-cols-3'>
         {stats.map((stat) => (
-          <CardRoot
-            key={stat.label}
-            className='group relative overflow-hidden transition-transform duration-300 hover:-translate-y-0.5'
-          >
+          <CardRoot key={stat.label} className='group relative overflow-hidden'>
             <span
               aria-hidden='true'
-              className={`absolute left-0 top-0 h-0.5 w-14 transition-all duration-300 group-hover:w-full ${stat.accentClassName}`}
+              className={`absolute left-0 top-0 h-px w-14 transition-all duration-300 group-hover:w-full ${stat.accentClassName}`}
             />
 
-            <CardHeader className='pb-2 text-sm text-muted-foreground'>
+            <CardHeader className='text-sm text-muted-foreground'>
               {stat.label}
             </CardHeader>
 

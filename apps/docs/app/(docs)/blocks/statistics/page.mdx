@@ -1,6 +1,8 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import SimpleStatsExample from './examples/simple-stats'
+import StatsWithIconExample from './examples/stats-with-icon'
+import StatsWithSparklineExample from './examples/stats-with-sparkline'
 
 export const metadata = {
   title: 'Statistics',
@@ -19,6 +21,20 @@ export const metadata = {
   filePath='app/(docs)/blocks/statistics/examples/simple-stats.tsx'
 >
   <SimpleStatsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats with Icon'
+  filePath='app/(docs)/blocks/statistics/examples/stats-with-icon.tsx'
+>
+  <StatsWithIconExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats with Sparkline'
+  filePath='app/(docs)/blocks/statistics/examples/stats-with-sparkline.tsx'
+>
+  <StatsWithSparklineExample />
 </ExampleLoader>
 
 </ComponentPage>
