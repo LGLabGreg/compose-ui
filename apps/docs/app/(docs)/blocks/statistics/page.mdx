@@ -1,17 +1,24 @@
-import { DocPage } from '@/components/mdx/doc-page'
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import SimpleStatsExample from './examples/simple-stats'
 
 export const metadata = {
   title: 'Statistics',
   description:
-    'Dashboard statistics block patterns for key metrics, trends, and KPI summaries.',
+    'Dashboard statistics blocks for key metrics, trend indicators, and KPI summaries.',
 }
 
-<DocPage title={metadata.title} description={metadata.description}>
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component='blocks-statistics'
+>
 
-## Coming Soon
+<ExampleLoader
+  title='Simple Stats'
+  filePath='app/(docs)/blocks/statistics/examples/simple-stats.tsx'
+>
+  <SimpleStatsExample />
+</ExampleLoader>
 
-This page establishes the structure for the new Blocks section.
-
-Statistics block examples will be added in a follow-up update.
-
-</DocPage>
+</ComponentPage>
