@@ -17,26 +17,28 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
 
-import { docsNavigation } from '@/lib/navigation'
+import { type DocsNavigationSection, docsNavigation } from '@/lib/navigation'
 import { cn } from '@/lib/utils'
 
 export function DocsNavigation({
   closeDrawer,
   className,
   collapsible = true,
+  navigation = docsNavigation,
 }: {
   closeDrawer?: () => void
   className?: string
   collapsible?: boolean
+  navigation?: DocsNavigationSection[]
 }) {
   const pathname = usePathname()
   const defaultOpenSection = React.useMemo(() => {
-    const matchedSection = docsNavigation.find((section) =>
+    const matchedSection = navigation.find((section) =>
       section.items.some((item) => item.href === pathname),
     )
 
-    return matchedSection?.name ?? docsNavigation[0]?.name ?? null
-  }, [pathname])
+    return matchedSection?.name ?? navigation[0]?.name ?? null
+  }, [navigation, pathname])
   const [openSection, setOpenSection] = React.useState<string | null>(defaultOpenSection)
 
   React.useEffect(() => {
@@ -49,7 +51,7 @@ export function DocsNavigation({
         <ScrollAreaViewport>
           <ScrollAreaContent>
             <div className='space-y-2'>
-              {docsNavigation.map((section) => {
+              {navigation.map((section) => {
                 if (!collapsible) {
                   return (
                     <div key={section.name}>

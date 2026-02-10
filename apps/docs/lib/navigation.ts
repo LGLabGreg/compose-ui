@@ -1,10 +1,10 @@
-interface DocsNavigationItem {
+export interface DocsNavigationItem {
   name: string
   href: string
   items?: DocsNavigationItem[]
 }
 
-interface DocsNavigationSection {
+export interface DocsNavigationSection {
   name: string
   items: DocsNavigationItem[]
 }
@@ -75,5 +75,12 @@ export const docsNavigation: DocsNavigationSection[] = [
       { name: 'Toolbar', href: '/components/toolbar' },
       { name: 'Tooltip', href: '/components/tooltip' },
     ],
+  },
+]
+
+export const blocksNavigation: DocsNavigationSection[] = [
+  {
+    name: 'Blocks',
+    items: [{ name: 'Statistics', href: '/blocks/statistics' }],
   },
 ]

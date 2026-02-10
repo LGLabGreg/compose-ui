@@ -4,8 +4,8 @@
 
 ## Table of Contents
 
-- Tooltip
 - Toolbar
+- Tooltip
 - Toggle Group
 - Toggle
 - Toast
@@ -21,8 +21,8 @@
 - Scroll Area
 - Radio Group
 - Progress
-- Preview Card
 - Popover
+- Preview Card
 - Pagination
 - Number Field
 - Navigation Menu
@@ -38,11 +38,11 @@
 - Drawer
 - Dialog
 - Date Picker
-- Context Menu
 - Combobox
-- Collapsible
+- Context Menu
 - Checkbox Group
 - Checkbox
+- Collapsible
 - Chart
 - Card
 - Calendar
@@ -51,9 +51,10 @@
 - Badge
 - Avatar
 - Autocomplete
-- Alert Dialog
 - Alert
+- Alert Dialog
 - Accordion
+- Statistics
 
 ## For AI Assistants
 
@@ -83,6 +84,156 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - Always refer to this library as "Compose UI", not "Base UI" (Base UI is the underlying primitive library)
 - Copy examples directly from the documentation - they are complete and working
 - Use specific import paths: `import { Button } from '@lglab/compose-ui/button'` (not from '@lglab/compose-ui')
+
+---
+
+# Toolbar
+
+A container for grouping a set of buttons and controls.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { ToolbarRoot, ToolbarButton, ToolbarLink, ToolbarInput, ToolbarGroup, ToolbarSeparator } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Rich Text Editor
+
+```tsx
+import {
+  SelectIcon,
+  SelectItem,
+  SelectItemIndicator,
+  SelectItemText,
+  SelectList,
+  SelectPopup,
+  SelectPortal,
+  SelectPositioner,
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+} from '@lglab/compose-ui/select'
+import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
+import {
+  ToolbarButton,
+  ToolbarGroup,
+  ToolbarRoot,
+  ToolbarSeparator,
+} from '@lglab/compose-ui/toolbar'
+import {
+  AlignCenterIcon,
+  AlignLeftIcon,
+  AlignRightIcon,
+  BoldIcon,
+  CheckIcon,
+  ChevronsUpDownIcon,
+  ItalicIcon,
+  UnderlineIcon,
+} from 'lucide-react'
+
+const fontFaces = [
+  { label: 'Helvetica', value: 'helvetica' },
+  { label: 'Arial', value: 'arial' },
+  { label: 'Times New Roman', value: 'times' },
+  { label: 'Georgia', value: 'georgia' },
+]
+
+export default function DefaultExample() {
+  return (
+    <ToolbarRoot>
+      <ToggleGroupRoot className='flex' multiple>
+        <ToolbarButton
+          render={<ToggleGroupItem value='bold' size='icon-sm' />}
+          aria-label='Bold'
+        >
+          <BoldIcon className='size-4' />
+        </ToolbarButton>
+        <ToolbarButton
+          render={<ToggleGroupItem value='italic' size='icon-sm' />}
+          aria-label='Italic'
+        >
+          <ItalicIcon className='size-4' />
+        </ToolbarButton>
+        <ToolbarButton
+          render={<ToggleGroupItem value='underline' size='icon-sm' />}
+          aria-label='Underline'
+        >
+          <UnderlineIcon className='size-4' />
+        </ToolbarButton>
+      </ToggleGroupRoot>
+
+      <ToolbarSeparator />
+
+      <ToggleGroupRoot defaultValue={['left']} className='flex'>
+        <ToolbarButton
+          render={<ToggleGroupItem value='left' size='icon-sm' />}
+          aria-label='Align left'
+        >
+          <AlignLeftIcon className='size-4' />
+        </ToolbarButton>
+        <ToolbarButton
+          render={<ToggleGroupItem value='center' size='icon-sm' />}
+          aria-label='Align center'
+        >
+          <AlignCenterIcon className='size-4' />
+        </ToolbarButton>
+        <ToolbarButton
+          render={<ToggleGroupItem value='right' size='icon-sm' />}
+          aria-label='Align right'
+        >
+          <AlignRightIcon className='size-4' />
+        </ToolbarButton>
+      </ToggleGroupRoot>
+
+      <ToolbarSeparator />
+
+      <ToolbarGroup aria-label='Format'>
+        <ToolbarButton size='sm'>$</ToolbarButton>
+        <ToolbarButton size='sm'>%</ToolbarButton>
+      </ToolbarGroup>
+
+      <ToolbarSeparator />
+
+      <SelectRoot items={fontFaces} defaultValue='helvetica'>
+        <ToolbarButton render={<SelectTrigger />}>
+          <SelectValue />
+          <SelectIcon>
+            <ChevronsUpDownIcon className='size-4 opacity-50' />
+          </SelectIcon>
+        </ToolbarButton>
+        <SelectPortal>
+          <SelectPositioner>
+            <SelectPopup>
+              <SelectList>
+                {fontFaces.map((fontFace) => (
+                  <SelectItem key={fontFace.value} value={fontFace.value}>
+                    <SelectItemText>{fontFace.label}</SelectItemText>
+                    <SelectItemIndicator>
+                      <CheckIcon className='size-4' />
+                    </SelectItemIndicator>
+                  </SelectItem>
+                ))}
+              </SelectList>
+            </SelectPopup>
+          </SelectPositioner>
+        </SelectPortal>
+      </SelectRoot>
+    </ToolbarRoot>
+  )
+}
+```
+
+## Resources
+
+- [Base UI](https://base-ui.com/react/components/toolbar)
 
 ---
 
@@ -571,156 +722,6 @@ export default function AnchorElementExample() {
 ## Resources
 
 - [Base UI](https://base-ui.com/react/components/tooltip)
-
----
-
-# Toolbar
-
-A container for grouping a set of buttons and controls.
-
-## Installation
-
-```bash
-npm install @lglab/compose-ui
-```
-
-## Import
-
-```tsx
-import { ToolbarRoot, ToolbarButton, ToolbarLink, ToolbarInput, ToolbarGroup, ToolbarSeparator } from '@lglab/compose-ui'
-```
-
-## Examples
-
-### Rich Text Editor
-
-```tsx
-import {
-  SelectIcon,
-  SelectItem,
-  SelectItemIndicator,
-  SelectItemText,
-  SelectList,
-  SelectPopup,
-  SelectPortal,
-  SelectPositioner,
-  SelectRoot,
-  SelectTrigger,
-  SelectValue,
-} from '@lglab/compose-ui/select'
-import { ToggleGroupItem, ToggleGroupRoot } from '@lglab/compose-ui/toggle-group'
-import {
-  ToolbarButton,
-  ToolbarGroup,
-  ToolbarRoot,
-  ToolbarSeparator,
-} from '@lglab/compose-ui/toolbar'
-import {
-  AlignCenterIcon,
-  AlignLeftIcon,
-  AlignRightIcon,
-  BoldIcon,
-  CheckIcon,
-  ChevronsUpDownIcon,
-  ItalicIcon,
-  UnderlineIcon,
-} from 'lucide-react'
-
-const fontFaces = [
-  { label: 'Helvetica', value: 'helvetica' },
-  { label: 'Arial', value: 'arial' },
-  { label: 'Times New Roman', value: 'times' },
-  { label: 'Georgia', value: 'georgia' },
-]
-
-export default function DefaultExample() {
-  return (
-    <ToolbarRoot>
-      <ToggleGroupRoot className='flex' multiple>
-        <ToolbarButton
-          render={<ToggleGroupItem value='bold' size='icon-sm' />}
-          aria-label='Bold'
-        >
-          <BoldIcon className='size-4' />
-        </ToolbarButton>
-        <ToolbarButton
-          render={<ToggleGroupItem value='italic' size='icon-sm' />}
-          aria-label='Italic'
-        >
-          <ItalicIcon className='size-4' />
-        </ToolbarButton>
-        <ToolbarButton
-          render={<ToggleGroupItem value='underline' size='icon-sm' />}
-          aria-label='Underline'
-        >
-          <UnderlineIcon className='size-4' />
-        </ToolbarButton>
-      </ToggleGroupRoot>
-
-      <ToolbarSeparator />
-
-      <ToggleGroupRoot defaultValue={['left']} className='flex'>
-        <ToolbarButton
-          render={<ToggleGroupItem value='left' size='icon-sm' />}
-          aria-label='Align left'
-        >
-          <AlignLeftIcon className='size-4' />
-        </ToolbarButton>
-        <ToolbarButton
-          render={<ToggleGroupItem value='center' size='icon-sm' />}
-          aria-label='Align center'
-        >
-          <AlignCenterIcon className='size-4' />
-        </ToolbarButton>
-        <ToolbarButton
-          render={<ToggleGroupItem value='right' size='icon-sm' />}
-          aria-label='Align right'
-        >
-          <AlignRightIcon className='size-4' />
-        </ToolbarButton>
-      </ToggleGroupRoot>
-
-      <ToolbarSeparator />
-
-      <ToolbarGroup aria-label='Format'>
-        <ToolbarButton size='sm'>$</ToolbarButton>
-        <ToolbarButton size='sm'>%</ToolbarButton>
-      </ToolbarGroup>
-
-      <ToolbarSeparator />
-
-      <SelectRoot items={fontFaces} defaultValue='helvetica'>
-        <ToolbarButton render={<SelectTrigger />}>
-          <SelectValue />
-          <SelectIcon>
-            <ChevronsUpDownIcon className='size-4 opacity-50' />
-          </SelectIcon>
-        </ToolbarButton>
-        <SelectPortal>
-          <SelectPositioner>
-            <SelectPopup>
-              <SelectList>
-                {fontFaces.map((fontFace) => (
-                  <SelectItem key={fontFace.value} value={fontFace.value}>
-                    <SelectItemText>{fontFace.label}</SelectItemText>
-                    <SelectItemIndicator>
-                      <CheckIcon className='size-4' />
-                    </SelectItemIndicator>
-                  </SelectItem>
-                ))}
-              </SelectList>
-            </SelectPopup>
-          </SelectPositioner>
-        </SelectPortal>
-      </SelectRoot>
-    </ToolbarRoot>
-  )
-}
-```
-
-## Resources
-
-- [Base UI](https://base-ui.com/react/components/toolbar)
 
 ---
 
@@ -4757,154 +4758,6 @@ export default function BasicExample() {
 
 ---
 
-# Preview Card
-
-A card that displays contextual content when hovering a link.
-
-## Installation
-
-```bash
-npm install @lglab/compose-ui
-```
-
-## Import
-
-```tsx
-import { PreviewCardRoot, PreviewCardTrigger, PreviewCardPortal, PreviewCardBackdrop, PreviewCardPositioner, PreviewCardPopup, PreviewCardArrow } from '@lglab/compose-ui'
-```
-
-## Examples
-
-### Basic
-
-```tsx
-import {
-  PreviewCardArrow,
-  PreviewCardPopup,
-  PreviewCardPortal,
-  PreviewCardPositioner,
-  PreviewCardRoot,
-  PreviewCardTrigger,
-} from '@lglab/compose-ui/preview-card'
-
-export default function DefaultExample() {
-  return (
-    <p className='text-sm'>
-      The{' '}
-      <PreviewCardRoot>
-        <PreviewCardTrigger href='https://en.wikipedia.org/wiki/Nile'>
-          Nile
-        </PreviewCardTrigger>
-        <PreviewCardPortal>
-          <PreviewCardPositioner>
-            <PreviewCardPopup className='space-y-2'>
-              <PreviewCardArrow />
-              <img
-                src='https://images.unsplash.com/photo-1680356217112-dad9300ce49d?q=80&w=448&h=300'
-                alt='Satellite image of the Nile'
-                className='w-full rounded'
-              />
-              <p className='text-sm'>
-                The Nile is a major north-flowing river in northeastern Africa. It is the
-                longest river in Africa and is among the longest in the world.
-              </p>
-            </PreviewCardPopup>
-          </PreviewCardPositioner>
-        </PreviewCardPortal>
-      </PreviewCardRoot>{' '}
-      is the longest river in Africa.
-    </p>
-  )
-}
-```
-
-### Custom Delay
-
-```tsx
-import {
-  PreviewCardArrow,
-  PreviewCardPopup,
-  PreviewCardPortal,
-  PreviewCardPositioner,
-  PreviewCardRoot,
-  PreviewCardTrigger,
-} from '@lglab/compose-ui/preview-card'
-
-export default function WithDelayExample() {
-  return (
-    <p className='text-sm'>
-      Read about{' '}
-      <PreviewCardRoot>
-        <PreviewCardTrigger
-          href='https://en.wikipedia.org/wiki/Machine_learning'
-          delay={300}
-          closeDelay={200}
-        >
-          machine learning
-        </PreviewCardTrigger>
-        <PreviewCardPortal>
-          <PreviewCardPositioner>
-            <PreviewCardPopup className='space-y-2'>
-              <PreviewCardArrow />
-              <p className='text-sm font-semibold'>Machine Learning</p>
-              <p className='text-sm text-muted-foreground'>
-                Machine learning is a branch of artificial intelligence that focuses on
-                building applications that learn from data and improve their accuracy over
-                time.
-              </p>
-            </PreviewCardPopup>
-          </PreviewCardPositioner>
-        </PreviewCardPortal>
-      </PreviewCardRoot>{' '}
-      to understand AI better.
-    </p>
-  )
-}
-```
-
-### Sides
-
-```tsx
-import {
-  PreviewCardArrow,
-  PreviewCardPopup,
-  PreviewCardPortal,
-  PreviewCardPositioner,
-  PreviewCardRoot,
-  PreviewCardTrigger,
-} from '@lglab/compose-ui/preview-card'
-
-export default function SidesExample() {
-  const sides = ['top', 'right', 'bottom', 'left'] as const
-
-  return (
-    <div className='flex flex-wrap gap-4'>
-      {sides.map((side) => (
-        <PreviewCardRoot key={side}>
-          <PreviewCardTrigger className='text-sm' href='#'>
-            {side}
-          </PreviewCardTrigger>
-          <PreviewCardPortal>
-            <PreviewCardPositioner side={side}>
-              <PreviewCardPopup>
-                <PreviewCardArrow />
-                <p className='text-sm'>Preview card positioned on the {side}</p>
-              </PreviewCardPopup>
-            </PreviewCardPositioner>
-          </PreviewCardPortal>
-        </PreviewCardRoot>
-      ))}
-    </div>
-  )
-}
-```
-
-## Resources
-
-- [Base UI](https://base-ui.com/react/components/preview-card)
-
----
-
 # Popover
 
 An accessible popup anchored to a button.
@@ -5110,6 +4963,154 @@ export default function SidesExample() {
 ## Resources
 
 - [Base UI](https://base-ui.com/react/components/popover)
+
+---
+
+# Preview Card
+
+A card that displays contextual content when hovering a link.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { PreviewCardRoot, PreviewCardTrigger, PreviewCardPortal, PreviewCardBackdrop, PreviewCardPositioner, PreviewCardPopup, PreviewCardArrow } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Basic
+
+```tsx
+import {
+  PreviewCardArrow,
+  PreviewCardPopup,
+  PreviewCardPortal,
+  PreviewCardPositioner,
+  PreviewCardRoot,
+  PreviewCardTrigger,
+} from '@lglab/compose-ui/preview-card'
+
+export default function DefaultExample() {
+  return (
+    <p className='text-sm'>
+      The{' '}
+      <PreviewCardRoot>
+        <PreviewCardTrigger href='https://en.wikipedia.org/wiki/Nile'>
+          Nile
+        </PreviewCardTrigger>
+        <PreviewCardPortal>
+          <PreviewCardPositioner>
+            <PreviewCardPopup className='space-y-2'>
+              <PreviewCardArrow />
+              <img
+                src='https://images.unsplash.com/photo-1680356217112-dad9300ce49d?q=80&w=448&h=300'
+                alt='Satellite image of the Nile'
+                className='w-full rounded'
+              />
+              <p className='text-sm'>
+                The Nile is a major north-flowing river in northeastern Africa. It is the
+                longest river in Africa and is among the longest in the world.
+              </p>
+            </PreviewCardPopup>
+          </PreviewCardPositioner>
+        </PreviewCardPortal>
+      </PreviewCardRoot>{' '}
+      is the longest river in Africa.
+    </p>
+  )
+}
+```
+
+### Custom Delay
+
+```tsx
+import {
+  PreviewCardArrow,
+  PreviewCardPopup,
+  PreviewCardPortal,
+  PreviewCardPositioner,
+  PreviewCardRoot,
+  PreviewCardTrigger,
+} from '@lglab/compose-ui/preview-card'
+
+export default function WithDelayExample() {
+  return (
+    <p className='text-sm'>
+      Read about{' '}
+      <PreviewCardRoot>
+        <PreviewCardTrigger
+          href='https://en.wikipedia.org/wiki/Machine_learning'
+          delay={300}
+          closeDelay={200}
+        >
+          machine learning
+        </PreviewCardTrigger>
+        <PreviewCardPortal>
+          <PreviewCardPositioner>
+            <PreviewCardPopup className='space-y-2'>
+              <PreviewCardArrow />
+              <p className='text-sm font-semibold'>Machine Learning</p>
+              <p className='text-sm text-muted-foreground'>
+                Machine learning is a branch of artificial intelligence that focuses on
+                building applications that learn from data and improve their accuracy over
+                time.
+              </p>
+            </PreviewCardPopup>
+          </PreviewCardPositioner>
+        </PreviewCardPortal>
+      </PreviewCardRoot>{' '}
+      to understand AI better.
+    </p>
+  )
+}
+```
+
+### Sides
+
+```tsx
+import {
+  PreviewCardArrow,
+  PreviewCardPopup,
+  PreviewCardPortal,
+  PreviewCardPositioner,
+  PreviewCardRoot,
+  PreviewCardTrigger,
+} from '@lglab/compose-ui/preview-card'
+
+export default function SidesExample() {
+  const sides = ['top', 'right', 'bottom', 'left'] as const
+
+  return (
+    <div className='flex flex-wrap gap-4'>
+      {sides.map((side) => (
+        <PreviewCardRoot key={side}>
+          <PreviewCardTrigger className='text-sm' href='#'>
+            {side}
+          </PreviewCardTrigger>
+          <PreviewCardPortal>
+            <PreviewCardPositioner side={side}>
+              <PreviewCardPopup>
+                <PreviewCardArrow />
+                <p className='text-sm'>Preview card positioned on the {side}</p>
+              </PreviewCardPopup>
+            </PreviewCardPositioner>
+          </PreviewCardPortal>
+        </PreviewCardRoot>
+      ))}
+    </div>
+  )
+}
+```
+
+## Resources
+
+- [Base UI](https://base-ui.com/react/components/preview-card)
 
 ---
 
@@ -11170,379 +11171,6 @@ export default function RangeExample() {
 
 ---
 
-# Context Menu
-
-A menu triggered by right-click or long press, rendering at the pointer position.
-
-## Installation
-
-```bash
-npm install @lglab/compose-ui
-```
-
-## Import
-
-```tsx
-import { ContextMenuRoot, ContextMenuTrigger, ContextMenuPortal, ContextMenuPositioner, ContextMenuPopup, ContextMenuArrow, ContextMenuItem, ContextMenuSeparator, ContextMenuGroup, ContextMenuGroupLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuRadioItemIndicator, ContextMenuRadioItemLabel, ContextMenuCheckboxItem, ContextMenuCheckboxItemIndicator, ContextMenuCheckboxItemLabel, ContextMenuSubmenuTrigger, ContextMenuSubmenuRoot } from '@lglab/compose-ui'
-```
-
-## Examples
-
-### Basic
-
-```tsx
-import {
-  ContextMenuItem,
-  ContextMenuPopup,
-  ContextMenuPortal,
-  ContextMenuPositioner,
-  ContextMenuRoot,
-  ContextMenuSeparator,
-  ContextMenuTrigger,
-} from '@lglab/compose-ui/context-menu'
-
-export default function DefaultExample() {
-  return (
-    <ContextMenuRoot>
-      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
-        Right-click here
-      </ContextMenuTrigger>
-      <ContextMenuPortal>
-        <ContextMenuPositioner>
-          <ContextMenuPopup>
-            <ContextMenuItem>Profile</ContextMenuItem>
-            <ContextMenuItem>Settings</ContextMenuItem>
-            <ContextMenuSeparator />
-            <ContextMenuItem>Logout</ContextMenuItem>
-          </ContextMenuPopup>
-        </ContextMenuPositioner>
-      </ContextMenuPortal>
-    </ContextMenuRoot>
-  )
-}
-```
-
-### With Icons
-
-```tsx
-import {
-  ContextMenuItem,
-  ContextMenuPopup,
-  ContextMenuPortal,
-  ContextMenuPositioner,
-  ContextMenuRoot,
-  ContextMenuSeparator,
-  ContextMenuTrigger,
-} from '@lglab/compose-ui/context-menu'
-import { Copy, LogOut, PenLine, Settings, Trash2, User } from 'lucide-react'
-
-export default function WithIconsExample() {
-  return (
-    <ContextMenuRoot>
-      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
-        Right-click here
-      </ContextMenuTrigger>
-      <ContextMenuPortal>
-        <ContextMenuPositioner>
-          <ContextMenuPopup>
-            <ContextMenuItem>
-              <User className='size-4' />
-              Profile
-            </ContextMenuItem>
-            <ContextMenuItem>
-              <Settings className='size-4' />
-              Settings
-            </ContextMenuItem>
-            <ContextMenuSeparator />
-            <ContextMenuItem>
-              <PenLine className='size-4' />
-              Edit
-            </ContextMenuItem>
-            <ContextMenuItem>
-              <Copy className='size-4' />
-              Duplicate
-            </ContextMenuItem>
-            <ContextMenuSeparator />
-            <ContextMenuItem className='text-destructive'>
-              <Trash2 className='size-4' />
-              Delete
-            </ContextMenuItem>
-            <ContextMenuItem>
-              <LogOut className='size-4' />
-              Logout
-            </ContextMenuItem>
-          </ContextMenuPopup>
-        </ContextMenuPositioner>
-      </ContextMenuPortal>
-    </ContextMenuRoot>
-  )
-}
-```
-
-### Groups
-
-```tsx
-import {
-  ContextMenuGroup,
-  ContextMenuGroupLabel,
-  ContextMenuItem,
-  ContextMenuPopup,
-  ContextMenuPortal,
-  ContextMenuPositioner,
-  ContextMenuRoot,
-  ContextMenuSeparator,
-  ContextMenuTrigger,
-} from '@lglab/compose-ui/context-menu'
-import { Copy, FilePlus, FolderOpen, Save, Settings, User } from 'lucide-react'
-
-export default function GroupsExample() {
-  return (
-    <ContextMenuRoot>
-      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
-        Right-click for grouped options
-      </ContextMenuTrigger>
-      <ContextMenuPortal>
-        <ContextMenuPositioner>
-          <ContextMenuPopup>
-            <ContextMenuGroup>
-              <ContextMenuGroupLabel>File</ContextMenuGroupLabel>
-              <ContextMenuItem>
-                <FilePlus className='size-4' />
-                New File
-              </ContextMenuItem>
-              <ContextMenuItem>
-                <FolderOpen className='size-4' />
-                Open
-              </ContextMenuItem>
-              <ContextMenuItem>
-                <Save className='size-4' />
-                Save
-              </ContextMenuItem>
-            </ContextMenuGroup>
-            <ContextMenuSeparator />
-            <ContextMenuGroup>
-              <ContextMenuGroupLabel>Edit</ContextMenuGroupLabel>
-              <ContextMenuItem>
-                <Copy className='size-4' />
-                Copy
-              </ContextMenuItem>
-            </ContextMenuGroup>
-            <ContextMenuSeparator />
-            <ContextMenuGroup>
-              <ContextMenuGroupLabel>Account</ContextMenuGroupLabel>
-              <ContextMenuItem>
-                <User className='size-4' />
-                Profile
-              </ContextMenuItem>
-              <ContextMenuItem>
-                <Settings className='size-4' />
-                Settings
-              </ContextMenuItem>
-            </ContextMenuGroup>
-          </ContextMenuPopup>
-        </ContextMenuPositioner>
-      </ContextMenuPortal>
-    </ContextMenuRoot>
-  )
-}
-```
-
-### Checkbox Items
-
-```tsx
-import {
-  ContextMenuCheckboxItem,
-  ContextMenuCheckboxItemIndicator,
-  ContextMenuCheckboxItemLabel,
-  ContextMenuPopup,
-  ContextMenuPortal,
-  ContextMenuPositioner,
-  ContextMenuRoot,
-  ContextMenuSeparator,
-  ContextMenuTrigger,
-} from '@lglab/compose-ui/context-menu'
-import { Check } from 'lucide-react'
-import * as React from 'react'
-
-export default function CheckboxItemsExample() {
-  const [showStatusBar, setShowStatusBar] = React.useState(true)
-  const [showActivityBar, setShowActivityBar] = React.useState(false)
-  const [showPanel, setShowPanel] = React.useState(false)
-
-  return (
-    <ContextMenuRoot>
-      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
-        Right-click to toggle options
-      </ContextMenuTrigger>
-      <ContextMenuPortal>
-        <ContextMenuPositioner>
-          <ContextMenuPopup>
-            <ContextMenuCheckboxItem
-              checked={showStatusBar}
-              onCheckedChange={setShowStatusBar}
-            >
-              <ContextMenuCheckboxItemIndicator>
-                <Check className='size-3.5' />
-              </ContextMenuCheckboxItemIndicator>
-              <ContextMenuCheckboxItemLabel>Status Bar</ContextMenuCheckboxItemLabel>
-            </ContextMenuCheckboxItem>
-            <ContextMenuCheckboxItem
-              checked={showActivityBar}
-              onCheckedChange={setShowActivityBar}
-            >
-              <ContextMenuCheckboxItemIndicator>
-                <Check className='size-3.5' />
-              </ContextMenuCheckboxItemIndicator>
-              <ContextMenuCheckboxItemLabel>Activity Bar</ContextMenuCheckboxItemLabel>
-            </ContextMenuCheckboxItem>
-            <ContextMenuSeparator />
-            <ContextMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
-              <ContextMenuCheckboxItemIndicator>
-                <Check className='size-3.5' />
-              </ContextMenuCheckboxItemIndicator>
-              <ContextMenuCheckboxItemLabel>Panel</ContextMenuCheckboxItemLabel>
-            </ContextMenuCheckboxItem>
-          </ContextMenuPopup>
-        </ContextMenuPositioner>
-      </ContextMenuPortal>
-    </ContextMenuRoot>
-  )
-}
-```
-
-### Radio Group
-
-```tsx
-import {
-  ContextMenuGroup,
-  ContextMenuGroupLabel,
-  ContextMenuPopup,
-  ContextMenuPortal,
-  ContextMenuPositioner,
-  ContextMenuRadioGroup,
-  ContextMenuRadioItem,
-  ContextMenuRadioItemIndicator,
-  ContextMenuRadioItemLabel,
-  ContextMenuRoot,
-  ContextMenuTrigger,
-} from '@lglab/compose-ui/context-menu'
-import { Check } from 'lucide-react'
-import * as React from 'react'
-
-export default function RadioGroupExample() {
-  const [theme, setTheme] = React.useState('system')
-
-  return (
-    <ContextMenuRoot>
-      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
-        Right-click to select theme
-      </ContextMenuTrigger>
-      <ContextMenuPortal>
-        <ContextMenuPositioner>
-          <ContextMenuPopup>
-            <ContextMenuGroup>
-              <ContextMenuGroupLabel>Theme</ContextMenuGroupLabel>
-              <ContextMenuRadioGroup value={theme} onValueChange={setTheme}>
-                <ContextMenuRadioItem value='light'>
-                  <ContextMenuRadioItemIndicator>
-                    <Check className='size-3.5' />
-                  </ContextMenuRadioItemIndicator>
-                  <ContextMenuRadioItemLabel>Light</ContextMenuRadioItemLabel>
-                </ContextMenuRadioItem>
-                <ContextMenuRadioItem value='dark'>
-                  <ContextMenuRadioItemIndicator>
-                    <Check className='size-3.5' />
-                  </ContextMenuRadioItemIndicator>
-                  <ContextMenuRadioItemLabel>Dark</ContextMenuRadioItemLabel>
-                </ContextMenuRadioItem>
-                <ContextMenuRadioItem value='system'>
-                  <ContextMenuRadioItemIndicator>
-                    <Check className='size-3.5' />
-                  </ContextMenuRadioItemIndicator>
-                  <ContextMenuRadioItemLabel>System</ContextMenuRadioItemLabel>
-                </ContextMenuRadioItem>
-              </ContextMenuRadioGroup>
-            </ContextMenuGroup>
-          </ContextMenuPopup>
-        </ContextMenuPositioner>
-      </ContextMenuPortal>
-    </ContextMenuRoot>
-  )
-}
-```
-
-### Submenu
-
-```tsx
-import {
-  ContextMenuItem,
-  ContextMenuPopup,
-  ContextMenuPortal,
-  ContextMenuPositioner,
-  ContextMenuRoot,
-  ContextMenuSeparator,
-  ContextMenuSubmenuRoot,
-  ContextMenuSubmenuTrigger,
-  ContextMenuTrigger,
-} from '@lglab/compose-ui/context-menu'
-import { ChevronRight } from 'lucide-react'
-
-export default function SubmenuExample() {
-  return (
-    <ContextMenuRoot>
-      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
-        Right-click for share options
-      </ContextMenuTrigger>
-      <ContextMenuPortal>
-        <ContextMenuPositioner>
-          <ContextMenuPopup>
-            <ContextMenuItem>Copy Link</ContextMenuItem>
-            <ContextMenuItem>Email Link</ContextMenuItem>
-            <ContextMenuSeparator />
-            <ContextMenuSubmenuRoot>
-              <ContextMenuSubmenuTrigger>
-                Social Media
-                <ChevronRight className='size-4' />
-              </ContextMenuSubmenuTrigger>
-              <ContextMenuPortal>
-                <ContextMenuPositioner side='right' sideOffset={4}>
-                  <ContextMenuPopup>
-                    <ContextMenuItem>Twitter</ContextMenuItem>
-                    <ContextMenuItem>Facebook</ContextMenuItem>
-                    <ContextMenuItem>LinkedIn</ContextMenuItem>
-                    <ContextMenuSubmenuRoot>
-                      <ContextMenuSubmenuTrigger>
-                        More
-                        <ChevronRight className='size-4' />
-                      </ContextMenuSubmenuTrigger>
-                      <ContextMenuPortal>
-                        <ContextMenuPositioner side='right' sideOffset={4}>
-                          <ContextMenuPopup>
-                            <ContextMenuItem>Reddit</ContextMenuItem>
-                            <ContextMenuItem>Pinterest</ContextMenuItem>
-                            <ContextMenuItem>Mastodon</ContextMenuItem>
-                          </ContextMenuPopup>
-                        </ContextMenuPositioner>
-                      </ContextMenuPortal>
-                    </ContextMenuSubmenuRoot>
-                  </ContextMenuPopup>
-                </ContextMenuPositioner>
-              </ContextMenuPortal>
-            </ContextMenuSubmenuRoot>
-          </ContextMenuPopup>
-        </ContextMenuPositioner>
-      </ContextMenuPortal>
-    </ContextMenuRoot>
-  )
-}
-```
-
-## Resources
-
-- [Base UI](https://base-ui.com/react/components/context-menu)
-
----
-
 # Combobox
 
 An input combined with a list of predefined items to select, with filtering support.
@@ -12800,9 +12428,9 @@ export default function CreatableExample() {
 
 ---
 
-# Collapsible
+# Context Menu
 
-A component that allows content to be expanded or collapsed.
+A menu triggered by right-click or long press, rendering at the pointer position.
 
 ## Installation
 
@@ -12813,7 +12441,7 @@ npm install @lglab/compose-ui
 ## Import
 
 ```tsx
-import { CollapsibleRoot, CollapsibleTrigger, CollapsiblePanel } from '@lglab/compose-ui'
+import { ContextMenuRoot, ContextMenuTrigger, ContextMenuPortal, ContextMenuPositioner, ContextMenuPopup, ContextMenuArrow, ContextMenuItem, ContextMenuSeparator, ContextMenuGroup, ContextMenuGroupLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuRadioItemIndicator, ContextMenuRadioItemLabel, ContextMenuCheckboxItem, ContextMenuCheckboxItemIndicator, ContextMenuCheckboxItemLabel, ContextMenuSubmenuTrigger, ContextMenuSubmenuRoot } from '@lglab/compose-ui'
 ```
 
 ## Examples
@@ -12821,149 +12449,355 @@ import { CollapsibleRoot, CollapsibleTrigger, CollapsiblePanel } from '@lglab/co
 ### Basic
 
 ```tsx
-import { Button } from '@lglab/compose-ui/button'
 import {
-  CollapsiblePanel,
-  CollapsibleRoot,
-  CollapsibleTrigger,
-} from '@lglab/compose-ui/collapsible'
-import { ChevronDown } from 'lucide-react'
+  ContextMenuItem,
+  ContextMenuPopup,
+  ContextMenuPortal,
+  ContextMenuPositioner,
+  ContextMenuRoot,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
+} from '@lglab/compose-ui/context-menu'
 
 export default function DefaultExample() {
   return (
-    <CollapsibleRoot className='group w-full max-w-md'>
-      <CollapsibleTrigger
-        render={(props) => (
-          <Button {...props} variant='outline' className='w-full justify-between'>
-            <span>What is Compose UI?</span>
-            <ChevronDown className='size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-data-open:rotate-180' />
-          </Button>
-        )}
-      />
-      <CollapsiblePanel>
-        <div className='p-2 text-sm'>
-          <p>
-            Compose UI is a collection of accessible React components built with Base UI
-            and Tailwind CSS, ready to use in your design systems and web apps.
-          </p>
-        </div>
-      </CollapsiblePanel>
-    </CollapsibleRoot>
+    <ContextMenuRoot>
+      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
+        Right-click here
+      </ContextMenuTrigger>
+      <ContextMenuPortal>
+        <ContextMenuPositioner>
+          <ContextMenuPopup>
+            <ContextMenuItem>Profile</ContextMenuItem>
+            <ContextMenuItem>Settings</ContextMenuItem>
+            <ContextMenuSeparator />
+            <ContextMenuItem>Logout</ContextMenuItem>
+          </ContextMenuPopup>
+        </ContextMenuPositioner>
+      </ContextMenuPortal>
+    </ContextMenuRoot>
   )
 }
 ```
 
-### Sidebar Menu
+### With Icons
 
 ```tsx
 import {
-  CollapsiblePanel,
-  CollapsibleRoot,
-  CollapsibleTrigger,
-} from '@lglab/compose-ui/collapsible'
-import { ChevronDown, Settings } from 'lucide-react'
+  ContextMenuItem,
+  ContextMenuPopup,
+  ContextMenuPortal,
+  ContextMenuPositioner,
+  ContextMenuRoot,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
+} from '@lglab/compose-ui/context-menu'
+import { Copy, LogOut, PenLine, Settings, Trash2, User } from 'lucide-react'
 
-const menuItems = [
-  {
-    title: 'Settings',
-    icon: Settings,
-    items: ['Preferences', 'Notifications', 'Privacy', 'Security'],
-  },
-]
-
-export default function SidebarMenuExample() {
+export default function WithIconsExample() {
   return (
-    <nav className='w-3xs'>
-      {menuItems.map((item) => {
-        const Icon = item.icon
-        return (
-          <CollapsibleRoot key={item.title} className='group'>
-            <CollapsibleTrigger className='flex w-full items-center gap-2 px-2 py-1.5 text-sm text-left font-medium text-foreground transition-colors hover:bg-muted'>
-              <Icon className='size-4 shrink-0' />
-              <span className='flex-1'>{item.title}</span>
-              <ChevronDown className='size-4 shrink-0 text-muted-foreground transition-transform duration-200 rotate-270 group-data-open:rotate-360' />
-            </CollapsibleTrigger>
-            <CollapsiblePanel>
-              <div className='ml-4 border-l border-border pl-4 pt-1'>
-                <ul className='space-y-0.5'>
-                  {item.items.map((subItem) => (
-                    <li key={subItem}>
-                      <a
-                        href='#'
-                        className='block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground'
-                      >
-                        {subItem}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </CollapsiblePanel>
-          </CollapsibleRoot>
-        )
-      })}
-    </nav>
+    <ContextMenuRoot>
+      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
+        Right-click here
+      </ContextMenuTrigger>
+      <ContextMenuPortal>
+        <ContextMenuPositioner>
+          <ContextMenuPopup>
+            <ContextMenuItem>
+              <User className='size-4' />
+              Profile
+            </ContextMenuItem>
+            <ContextMenuItem>
+              <Settings className='size-4' />
+              Settings
+            </ContextMenuItem>
+            <ContextMenuSeparator />
+            <ContextMenuItem>
+              <PenLine className='size-4' />
+              Edit
+            </ContextMenuItem>
+            <ContextMenuItem>
+              <Copy className='size-4' />
+              Duplicate
+            </ContextMenuItem>
+            <ContextMenuSeparator />
+            <ContextMenuItem className='text-destructive'>
+              <Trash2 className='size-4' />
+              Delete
+            </ContextMenuItem>
+            <ContextMenuItem>
+              <LogOut className='size-4' />
+              Logout
+            </ContextMenuItem>
+          </ContextMenuPopup>
+        </ContextMenuPositioner>
+      </ContextMenuPortal>
+    </ContextMenuRoot>
   )
 }
 ```
 
-### Default Open
+### Groups
 
 ```tsx
 import {
-  CollapsiblePanel,
-  CollapsibleRoot,
-  CollapsibleTrigger,
-} from '@lglab/compose-ui/collapsible'
-import { ChevronDown, Settings } from 'lucide-react'
+  ContextMenuGroup,
+  ContextMenuGroupLabel,
+  ContextMenuItem,
+  ContextMenuPopup,
+  ContextMenuPortal,
+  ContextMenuPositioner,
+  ContextMenuRoot,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
+} from '@lglab/compose-ui/context-menu'
+import { Copy, FilePlus, FolderOpen, Save, Settings, User } from 'lucide-react'
 
-const menuItems = [
-  {
-    title: 'Settings',
-    icon: Settings,
-    items: ['Preferences', 'Notifications', 'Privacy', 'Security'],
-  },
-]
-
-export default function SidebarMenuDefaultOpenExample() {
+export default function GroupsExample() {
   return (
-    <nav className='w-3xs'>
-      {menuItems.map((item) => {
-        const Icon = item.icon
-        return (
-          <CollapsibleRoot key={item.title} className='group' defaultOpen>
-            <CollapsibleTrigger className='flex w-full items-center gap-2 px-2 py-1.5 text-sm text-left font-medium text-foreground transition-colors hover:bg-muted'>
-              <Icon className='size-4 shrink-0' />
-              <span className='flex-1'>{item.title}</span>
-              <ChevronDown className='size-4 shrink-0 text-muted-foreground transition-transform duration-200 rotate-270 group-data-open:rotate-360' />
-            </CollapsibleTrigger>
-            <CollapsiblePanel>
-              <div className='ml-4 border-l border-border pl-4 pt-1'>
-                <ul className='space-y-0.5'>
-                  {item.items.map((subItem) => (
-                    <li key={subItem}>
-                      <a
-                        href='#'
-                        className='block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground'
-                      >
-                        {subItem}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </CollapsiblePanel>
-          </CollapsibleRoot>
-        )
-      })}
-    </nav>
+    <ContextMenuRoot>
+      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
+        Right-click for grouped options
+      </ContextMenuTrigger>
+      <ContextMenuPortal>
+        <ContextMenuPositioner>
+          <ContextMenuPopup>
+            <ContextMenuGroup>
+              <ContextMenuGroupLabel>File</ContextMenuGroupLabel>
+              <ContextMenuItem>
+                <FilePlus className='size-4' />
+                New File
+              </ContextMenuItem>
+              <ContextMenuItem>
+                <FolderOpen className='size-4' />
+                Open
+              </ContextMenuItem>
+              <ContextMenuItem>
+                <Save className='size-4' />
+                Save
+              </ContextMenuItem>
+            </ContextMenuGroup>
+            <ContextMenuSeparator />
+            <ContextMenuGroup>
+              <ContextMenuGroupLabel>Edit</ContextMenuGroupLabel>
+              <ContextMenuItem>
+                <Copy className='size-4' />
+                Copy
+              </ContextMenuItem>
+            </ContextMenuGroup>
+            <ContextMenuSeparator />
+            <ContextMenuGroup>
+              <ContextMenuGroupLabel>Account</ContextMenuGroupLabel>
+              <ContextMenuItem>
+                <User className='size-4' />
+                Profile
+              </ContextMenuItem>
+              <ContextMenuItem>
+                <Settings className='size-4' />
+                Settings
+              </ContextMenuItem>
+            </ContextMenuGroup>
+          </ContextMenuPopup>
+        </ContextMenuPositioner>
+      </ContextMenuPortal>
+    </ContextMenuRoot>
+  )
+}
+```
+
+### Checkbox Items
+
+```tsx
+import {
+  ContextMenuCheckboxItem,
+  ContextMenuCheckboxItemIndicator,
+  ContextMenuCheckboxItemLabel,
+  ContextMenuPopup,
+  ContextMenuPortal,
+  ContextMenuPositioner,
+  ContextMenuRoot,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
+} from '@lglab/compose-ui/context-menu'
+import { Check } from 'lucide-react'
+import * as React from 'react'
+
+export default function CheckboxItemsExample() {
+  const [showStatusBar, setShowStatusBar] = React.useState(true)
+  const [showActivityBar, setShowActivityBar] = React.useState(false)
+  const [showPanel, setShowPanel] = React.useState(false)
+
+  return (
+    <ContextMenuRoot>
+      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
+        Right-click to toggle options
+      </ContextMenuTrigger>
+      <ContextMenuPortal>
+        <ContextMenuPositioner>
+          <ContextMenuPopup>
+            <ContextMenuCheckboxItem
+              checked={showStatusBar}
+              onCheckedChange={setShowStatusBar}
+            >
+              <ContextMenuCheckboxItemIndicator>
+                <Check className='size-3.5' />
+              </ContextMenuCheckboxItemIndicator>
+              <ContextMenuCheckboxItemLabel>Status Bar</ContextMenuCheckboxItemLabel>
+            </ContextMenuCheckboxItem>
+            <ContextMenuCheckboxItem
+              checked={showActivityBar}
+              onCheckedChange={setShowActivityBar}
+            >
+              <ContextMenuCheckboxItemIndicator>
+                <Check className='size-3.5' />
+              </ContextMenuCheckboxItemIndicator>
+              <ContextMenuCheckboxItemLabel>Activity Bar</ContextMenuCheckboxItemLabel>
+            </ContextMenuCheckboxItem>
+            <ContextMenuSeparator />
+            <ContextMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
+              <ContextMenuCheckboxItemIndicator>
+                <Check className='size-3.5' />
+              </ContextMenuCheckboxItemIndicator>
+              <ContextMenuCheckboxItemLabel>Panel</ContextMenuCheckboxItemLabel>
+            </ContextMenuCheckboxItem>
+          </ContextMenuPopup>
+        </ContextMenuPositioner>
+      </ContextMenuPortal>
+    </ContextMenuRoot>
+  )
+}
+```
+
+### Radio Group
+
+```tsx
+import {
+  ContextMenuGroup,
+  ContextMenuGroupLabel,
+  ContextMenuPopup,
+  ContextMenuPortal,
+  ContextMenuPositioner,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
+  ContextMenuRadioItemIndicator,
+  ContextMenuRadioItemLabel,
+  ContextMenuRoot,
+  ContextMenuTrigger,
+} from '@lglab/compose-ui/context-menu'
+import { Check } from 'lucide-react'
+import * as React from 'react'
+
+export default function RadioGroupExample() {
+  const [theme, setTheme] = React.useState('system')
+
+  return (
+    <ContextMenuRoot>
+      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
+        Right-click to select theme
+      </ContextMenuTrigger>
+      <ContextMenuPortal>
+        <ContextMenuPositioner>
+          <ContextMenuPopup>
+            <ContextMenuGroup>
+              <ContextMenuGroupLabel>Theme</ContextMenuGroupLabel>
+              <ContextMenuRadioGroup value={theme} onValueChange={setTheme}>
+                <ContextMenuRadioItem value='light'>
+                  <ContextMenuRadioItemIndicator>
+                    <Check className='size-3.5' />
+                  </ContextMenuRadioItemIndicator>
+                  <ContextMenuRadioItemLabel>Light</ContextMenuRadioItemLabel>
+                </ContextMenuRadioItem>
+                <ContextMenuRadioItem value='dark'>
+                  <ContextMenuRadioItemIndicator>
+                    <Check className='size-3.5' />
+                  </ContextMenuRadioItemIndicator>
+                  <ContextMenuRadioItemLabel>Dark</ContextMenuRadioItemLabel>
+                </ContextMenuRadioItem>
+                <ContextMenuRadioItem value='system'>
+                  <ContextMenuRadioItemIndicator>
+                    <Check className='size-3.5' />
+                  </ContextMenuRadioItemIndicator>
+                  <ContextMenuRadioItemLabel>System</ContextMenuRadioItemLabel>
+                </ContextMenuRadioItem>
+              </ContextMenuRadioGroup>
+            </ContextMenuGroup>
+          </ContextMenuPopup>
+        </ContextMenuPositioner>
+      </ContextMenuPortal>
+    </ContextMenuRoot>
+  )
+}
+```
+
+### Submenu
+
+```tsx
+import {
+  ContextMenuItem,
+  ContextMenuPopup,
+  ContextMenuPortal,
+  ContextMenuPositioner,
+  ContextMenuRoot,
+  ContextMenuSeparator,
+  ContextMenuSubmenuRoot,
+  ContextMenuSubmenuTrigger,
+  ContextMenuTrigger,
+} from '@lglab/compose-ui/context-menu'
+import { ChevronRight } from 'lucide-react'
+
+export default function SubmenuExample() {
+  return (
+    <ContextMenuRoot>
+      <ContextMenuTrigger className='flex h-40 w-full sm:w-72 p-2 items-center justify-center rounded-lg border border-dashed border-border bg-muted/50 text-sm text-muted-foreground text-center'>
+        Right-click for share options
+      </ContextMenuTrigger>
+      <ContextMenuPortal>
+        <ContextMenuPositioner>
+          <ContextMenuPopup>
+            <ContextMenuItem>Copy Link</ContextMenuItem>
+            <ContextMenuItem>Email Link</ContextMenuItem>
+            <ContextMenuSeparator />
+            <ContextMenuSubmenuRoot>
+              <ContextMenuSubmenuTrigger>
+                Social Media
+                <ChevronRight className='size-4' />
+              </ContextMenuSubmenuTrigger>
+              <ContextMenuPortal>
+                <ContextMenuPositioner side='right' sideOffset={4}>
+                  <ContextMenuPopup>
+                    <ContextMenuItem>Twitter</ContextMenuItem>
+                    <ContextMenuItem>Facebook</ContextMenuItem>
+                    <ContextMenuItem>LinkedIn</ContextMenuItem>
+                    <ContextMenuSubmenuRoot>
+                      <ContextMenuSubmenuTrigger>
+                        More
+                        <ChevronRight className='size-4' />
+                      </ContextMenuSubmenuTrigger>
+                      <ContextMenuPortal>
+                        <ContextMenuPositioner side='right' sideOffset={4}>
+                          <ContextMenuPopup>
+                            <ContextMenuItem>Reddit</ContextMenuItem>
+                            <ContextMenuItem>Pinterest</ContextMenuItem>
+                            <ContextMenuItem>Mastodon</ContextMenuItem>
+                          </ContextMenuPopup>
+                        </ContextMenuPositioner>
+                      </ContextMenuPortal>
+                    </ContextMenuSubmenuRoot>
+                  </ContextMenuPopup>
+                </ContextMenuPositioner>
+              </ContextMenuPortal>
+            </ContextMenuSubmenuRoot>
+          </ContextMenuPopup>
+        </ContextMenuPositioner>
+      </ContextMenuPortal>
+    </ContextMenuRoot>
   )
 }
 ```
 
 ## Resources
 
-- [Base UI](https://base-ui.com/react/components/collapsible)
+- [Base UI](https://base-ui.com/react/components/context-menu)
 
 ---
 
@@ -13209,6 +13043,173 @@ export default function IndeterminateExample() {
 ## Resources
 
 - [Base UI](https://base-ui.com/react/components/checkbox)
+
+---
+
+# Collapsible
+
+A component that allows content to be expanded or collapsed.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { CollapsibleRoot, CollapsibleTrigger, CollapsiblePanel } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Basic
+
+```tsx
+import { Button } from '@lglab/compose-ui/button'
+import {
+  CollapsiblePanel,
+  CollapsibleRoot,
+  CollapsibleTrigger,
+} from '@lglab/compose-ui/collapsible'
+import { ChevronDown } from 'lucide-react'
+
+export default function DefaultExample() {
+  return (
+    <CollapsibleRoot className='group w-full max-w-md'>
+      <CollapsibleTrigger
+        render={(props) => (
+          <Button {...props} variant='outline' className='w-full justify-between'>
+            <span>What is Compose UI?</span>
+            <ChevronDown className='size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-data-open:rotate-180' />
+          </Button>
+        )}
+      />
+      <CollapsiblePanel>
+        <div className='p-2 text-sm'>
+          <p>
+            Compose UI is a collection of accessible React components built with Base UI
+            and Tailwind CSS, ready to use in your design systems and web apps.
+          </p>
+        </div>
+      </CollapsiblePanel>
+    </CollapsibleRoot>
+  )
+}
+```
+
+### Sidebar Menu
+
+```tsx
+import {
+  CollapsiblePanel,
+  CollapsibleRoot,
+  CollapsibleTrigger,
+} from '@lglab/compose-ui/collapsible'
+import { ChevronDown, Settings } from 'lucide-react'
+
+const menuItems = [
+  {
+    title: 'Settings',
+    icon: Settings,
+    items: ['Preferences', 'Notifications', 'Privacy', 'Security'],
+  },
+]
+
+export default function SidebarMenuExample() {
+  return (
+    <nav className='w-3xs'>
+      {menuItems.map((item) => {
+        const Icon = item.icon
+        return (
+          <CollapsibleRoot key={item.title} className='group'>
+            <CollapsibleTrigger className='flex w-full items-center gap-2 px-2 py-1.5 text-sm text-left font-medium text-foreground transition-colors hover:bg-muted'>
+              <Icon className='size-4 shrink-0' />
+              <span className='flex-1'>{item.title}</span>
+              <ChevronDown className='size-4 shrink-0 text-muted-foreground transition-transform duration-200 rotate-270 group-data-open:rotate-360' />
+            </CollapsibleTrigger>
+            <CollapsiblePanel>
+              <div className='ml-4 border-l border-border pl-4 pt-1'>
+                <ul className='space-y-0.5'>
+                  {item.items.map((subItem) => (
+                    <li key={subItem}>
+                      <a
+                        href='#'
+                        className='block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground'
+                      >
+                        {subItem}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </CollapsiblePanel>
+          </CollapsibleRoot>
+        )
+      })}
+    </nav>
+  )
+}
+```
+
+### Default Open
+
+```tsx
+import {
+  CollapsiblePanel,
+  CollapsibleRoot,
+  CollapsibleTrigger,
+} from '@lglab/compose-ui/collapsible'
+import { ChevronDown, Settings } from 'lucide-react'
+
+const menuItems = [
+  {
+    title: 'Settings',
+    icon: Settings,
+    items: ['Preferences', 'Notifications', 'Privacy', 'Security'],
+  },
+]
+
+export default function SidebarMenuDefaultOpenExample() {
+  return (
+    <nav className='w-3xs'>
+      {menuItems.map((item) => {
+        const Icon = item.icon
+        return (
+          <CollapsibleRoot key={item.title} className='group' defaultOpen>
+            <CollapsibleTrigger className='flex w-full items-center gap-2 px-2 py-1.5 text-sm text-left font-medium text-foreground transition-colors hover:bg-muted'>
+              <Icon className='size-4 shrink-0' />
+              <span className='flex-1'>{item.title}</span>
+              <ChevronDown className='size-4 shrink-0 text-muted-foreground transition-transform duration-200 rotate-270 group-data-open:rotate-360' />
+            </CollapsibleTrigger>
+            <CollapsiblePanel>
+              <div className='ml-4 border-l border-border pl-4 pt-1'>
+                <ul className='space-y-0.5'>
+                  {item.items.map((subItem) => (
+                    <li key={subItem}>
+                      <a
+                        href='#'
+                        className='block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground'
+                      >
+                        {subItem}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </CollapsiblePanel>
+          </CollapsibleRoot>
+        )
+      })}
+    </nav>
+  )
+}
+```
+
+## Resources
+
+- [Base UI](https://base-ui.com/react/components/collapsible)
 
 ---
 
@@ -15687,6 +15688,283 @@ const top100Movies: Movie[] = [
 
 ---
 
+# Alert
+
+A composable alert component for displaying important messages with multiple variants, appearances, and sizes.
+
+## Installation
+
+```bash
+npm install @lglab/compose-ui
+```
+
+## Import
+
+```tsx
+import { Alert, AlertIcon, AlertContent, AlertTitle, AlertDescription, AlertAction, AlertClose } from '@lglab/compose-ui'
+```
+
+## Examples
+
+### Variants
+
+```tsx
+import {
+  Alert,
+  AlertContent,
+  AlertDescription,
+  AlertTitle,
+} from '@lglab/compose-ui/alert'
+
+export default function DefaultExample() {
+  return (
+    <div className='flex flex-col flex-1 gap-3'>
+      <Alert variant='default'>
+        <AlertContent>
+          <AlertTitle>Default</AlertTitle>
+          <AlertDescription>This is a default alert message.</AlertDescription>
+        </AlertContent>
+      </Alert>
+      <Alert variant='destructive'>
+        <AlertContent>
+          <AlertTitle>Destructive</AlertTitle>
+          <AlertDescription>This is a destructive alert message.</AlertDescription>
+        </AlertContent>
+      </Alert>
+      <Alert variant='success'>
+        <AlertContent>
+          <AlertTitle>Success</AlertTitle>
+          <AlertDescription>This is a success alert message.</AlertDescription>
+        </AlertContent>
+      </Alert>
+      <Alert variant='warning'>
+        <AlertContent>
+          <AlertTitle>Warning</AlertTitle>
+          <AlertDescription>This is a warning alert message.</AlertDescription>
+        </AlertContent>
+      </Alert>
+      <Alert variant='info'>
+        <AlertContent>
+          <AlertTitle>Info</AlertTitle>
+          <AlertDescription>This is an info alert message.</AlertDescription>
+        </AlertContent>
+      </Alert>
+    </div>
+  )
+}
+```
+
+### Appearances
+
+```tsx
+import {
+  Alert,
+  AlertContent,
+  AlertDescription,
+  AlertTitle,
+} from '@lglab/compose-ui/alert'
+
+export default function AppearancesExample() {
+  return (
+    <div className='flex flex-col flex-1 gap-3'>
+      <Alert variant='info' appearance='default'>
+        <AlertContent>
+          <AlertTitle>Default</AlertTitle>
+          <AlertDescription>Light background with colored text.</AlertDescription>
+        </AlertContent>
+      </Alert>
+      <Alert variant='info' appearance='outline'>
+        <AlertContent>
+          <AlertTitle>Outline</AlertTitle>
+          <AlertDescription>Border with light background.</AlertDescription>
+        </AlertContent>
+      </Alert>
+      <Alert variant='info' appearance='filled'>
+        <AlertContent>
+          <AlertTitle>Filled</AlertTitle>
+          <AlertDescription>Solid background with white text.</AlertDescription>
+        </AlertContent>
+      </Alert>
+    </div>
+  )
+}
+```
+
+### Sizes
+
+```tsx
+import {
+  Alert,
+  AlertContent,
+  AlertDescription,
+  AlertTitle,
+} from '@lglab/compose-ui/alert'
+
+export default function SizesExample() {
+  return (
+    <div className='flex flex-col flex-1 gap-3'>
+      <Alert variant='info' size='sm'>
+        <AlertContent>
+          <AlertTitle>Small Alert</AlertTitle>
+          <AlertDescription>This is a small alert with compact padding.</AlertDescription>
+        </AlertContent>
+      </Alert>
+      <Alert variant='info' size='md'>
+        <AlertContent>
+          <AlertTitle>Medium Alert</AlertTitle>
+          <AlertDescription>This is the default medium alert.</AlertDescription>
+        </AlertContent>
+      </Alert>
+      <Alert variant='info' size='lg'>
+        <AlertContent>
+          <AlertTitle>Large Alert</AlertTitle>
+          <AlertDescription>This is a large alert with bigger padding.</AlertDescription>
+        </AlertContent>
+      </Alert>
+    </div>
+  )
+}
+```
+
+### With Icon
+
+```tsx
+import {
+  Alert,
+  AlertContent,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+} from '@lglab/compose-ui/alert'
+import {
+  AlertTriangleIcon,
+  CheckCircle2Icon,
+  InfoIcon,
+  ShieldAlertIcon,
+} from 'lucide-react'
+
+export default function WithIconExample() {
+  return (
+    <div className='flex flex-col flex-1 gap-3'>
+      <Alert variant='success'>
+        <AlertIcon>
+          <CheckCircle2Icon />
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Success</AlertTitle>
+          <AlertDescription>Your changes have been saved successfully.</AlertDescription>
+        </AlertContent>
+      </Alert>
+      <Alert variant='info'>
+        <AlertIcon>
+          <InfoIcon />
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Information</AlertTitle>
+          <AlertDescription>This feature is currently in beta.</AlertDescription>
+        </AlertContent>
+      </Alert>
+      <Alert variant='warning'>
+        <AlertIcon>
+          <AlertTriangleIcon />
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Warning</AlertTitle>
+          <AlertDescription>Your session is about to expire.</AlertDescription>
+        </AlertContent>
+      </Alert>
+      <Alert variant='destructive'>
+        <AlertIcon>
+          <ShieldAlertIcon />
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>Something went wrong. Please try again.</AlertDescription>
+        </AlertContent>
+      </Alert>
+    </div>
+  )
+}
+```
+
+### With Close
+
+```tsx
+import {
+  Alert,
+  AlertClose,
+  AlertContent,
+  AlertDescription,
+  AlertTitle,
+} from '@lglab/compose-ui/alert'
+import { XIcon } from 'lucide-react'
+import { useState } from 'react'
+
+export default function WithCloseExample() {
+  const [visible, setVisible] = useState(true)
+
+  if (!visible) {
+    return (
+      <button
+        type='button'
+        className='text-sm text-primary underline'
+        onClick={() => setVisible(true)}
+      >
+        Show alert again
+      </button>
+    )
+  }
+
+  return (
+    <Alert variant='warning'>
+      <AlertContent>
+        <AlertTitle>Dismissible Alert</AlertTitle>
+        <AlertDescription>Click the close button to dismiss this alert.</AlertDescription>
+      </AlertContent>
+      <AlertClose onClick={() => setVisible(false)}>
+        <XIcon className='size-4' />
+      </AlertClose>
+    </Alert>
+  )
+}
+```
+
+### With Action
+
+```tsx
+import {
+  Alert,
+  AlertAction,
+  AlertContent,
+  AlertDescription,
+  AlertTitle,
+} from '@lglab/compose-ui/alert'
+
+export default function WithActionExample() {
+  return (
+    <Alert variant='info'>
+      <AlertContent>
+        <AlertTitle>Update Available</AlertTitle>
+        <AlertDescription>
+          A new version is available. Update now to get the latest features.
+        </AlertDescription>
+      </AlertContent>
+      <AlertAction>
+        <button
+          type='button'
+          className='rounded-md bg-info px-3 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-90'
+        >
+          Update
+        </button>
+      </AlertAction>
+    </Alert>
+  )
+}
+```
+
+
+---
+
 # Alert Dialog
 
 A dialog that requires a user response to proceed.
@@ -15995,283 +16273,6 @@ export default function ControlledMultipleExample() {
 
 ---
 
-# Alert
-
-A composable alert component for displaying important messages with multiple variants, appearances, and sizes.
-
-## Installation
-
-```bash
-npm install @lglab/compose-ui
-```
-
-## Import
-
-```tsx
-import { Alert, AlertIcon, AlertContent, AlertTitle, AlertDescription, AlertAction, AlertClose } from '@lglab/compose-ui'
-```
-
-## Examples
-
-### Variants
-
-```tsx
-import {
-  Alert,
-  AlertContent,
-  AlertDescription,
-  AlertTitle,
-} from '@lglab/compose-ui/alert'
-
-export default function DefaultExample() {
-  return (
-    <div className='flex flex-col flex-1 gap-3'>
-      <Alert variant='default'>
-        <AlertContent>
-          <AlertTitle>Default</AlertTitle>
-          <AlertDescription>This is a default alert message.</AlertDescription>
-        </AlertContent>
-      </Alert>
-      <Alert variant='destructive'>
-        <AlertContent>
-          <AlertTitle>Destructive</AlertTitle>
-          <AlertDescription>This is a destructive alert message.</AlertDescription>
-        </AlertContent>
-      </Alert>
-      <Alert variant='success'>
-        <AlertContent>
-          <AlertTitle>Success</AlertTitle>
-          <AlertDescription>This is a success alert message.</AlertDescription>
-        </AlertContent>
-      </Alert>
-      <Alert variant='warning'>
-        <AlertContent>
-          <AlertTitle>Warning</AlertTitle>
-          <AlertDescription>This is a warning alert message.</AlertDescription>
-        </AlertContent>
-      </Alert>
-      <Alert variant='info'>
-        <AlertContent>
-          <AlertTitle>Info</AlertTitle>
-          <AlertDescription>This is an info alert message.</AlertDescription>
-        </AlertContent>
-      </Alert>
-    </div>
-  )
-}
-```
-
-### Appearances
-
-```tsx
-import {
-  Alert,
-  AlertContent,
-  AlertDescription,
-  AlertTitle,
-} from '@lglab/compose-ui/alert'
-
-export default function AppearancesExample() {
-  return (
-    <div className='flex flex-col flex-1 gap-3'>
-      <Alert variant='info' appearance='default'>
-        <AlertContent>
-          <AlertTitle>Default</AlertTitle>
-          <AlertDescription>Light background with colored text.</AlertDescription>
-        </AlertContent>
-      </Alert>
-      <Alert variant='info' appearance='outline'>
-        <AlertContent>
-          <AlertTitle>Outline</AlertTitle>
-          <AlertDescription>Border with light background.</AlertDescription>
-        </AlertContent>
-      </Alert>
-      <Alert variant='info' appearance='filled'>
-        <AlertContent>
-          <AlertTitle>Filled</AlertTitle>
-          <AlertDescription>Solid background with white text.</AlertDescription>
-        </AlertContent>
-      </Alert>
-    </div>
-  )
-}
-```
-
-### Sizes
-
-```tsx
-import {
-  Alert,
-  AlertContent,
-  AlertDescription,
-  AlertTitle,
-} from '@lglab/compose-ui/alert'
-
-export default function SizesExample() {
-  return (
-    <div className='flex flex-col flex-1 gap-3'>
-      <Alert variant='info' size='sm'>
-        <AlertContent>
-          <AlertTitle>Small Alert</AlertTitle>
-          <AlertDescription>This is a small alert with compact padding.</AlertDescription>
-        </AlertContent>
-      </Alert>
-      <Alert variant='info' size='md'>
-        <AlertContent>
-          <AlertTitle>Medium Alert</AlertTitle>
-          <AlertDescription>This is the default medium alert.</AlertDescription>
-        </AlertContent>
-      </Alert>
-      <Alert variant='info' size='lg'>
-        <AlertContent>
-          <AlertTitle>Large Alert</AlertTitle>
-          <AlertDescription>This is a large alert with bigger padding.</AlertDescription>
-        </AlertContent>
-      </Alert>
-    </div>
-  )
-}
-```
-
-### With Icon
-
-```tsx
-import {
-  Alert,
-  AlertContent,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
-} from '@lglab/compose-ui/alert'
-import {
-  AlertTriangleIcon,
-  CheckCircle2Icon,
-  InfoIcon,
-  ShieldAlertIcon,
-} from 'lucide-react'
-
-export default function WithIconExample() {
-  return (
-    <div className='flex flex-col flex-1 gap-3'>
-      <Alert variant='success'>
-        <AlertIcon>
-          <CheckCircle2Icon />
-        </AlertIcon>
-        <AlertContent>
-          <AlertTitle>Success</AlertTitle>
-          <AlertDescription>Your changes have been saved successfully.</AlertDescription>
-        </AlertContent>
-      </Alert>
-      <Alert variant='info'>
-        <AlertIcon>
-          <InfoIcon />
-        </AlertIcon>
-        <AlertContent>
-          <AlertTitle>Information</AlertTitle>
-          <AlertDescription>This feature is currently in beta.</AlertDescription>
-        </AlertContent>
-      </Alert>
-      <Alert variant='warning'>
-        <AlertIcon>
-          <AlertTriangleIcon />
-        </AlertIcon>
-        <AlertContent>
-          <AlertTitle>Warning</AlertTitle>
-          <AlertDescription>Your session is about to expire.</AlertDescription>
-        </AlertContent>
-      </Alert>
-      <Alert variant='destructive'>
-        <AlertIcon>
-          <ShieldAlertIcon />
-        </AlertIcon>
-        <AlertContent>
-          <AlertTitle>Error</AlertTitle>
-          <AlertDescription>Something went wrong. Please try again.</AlertDescription>
-        </AlertContent>
-      </Alert>
-    </div>
-  )
-}
-```
-
-### With Close
-
-```tsx
-import {
-  Alert,
-  AlertClose,
-  AlertContent,
-  AlertDescription,
-  AlertTitle,
-} from '@lglab/compose-ui/alert'
-import { XIcon } from 'lucide-react'
-import { useState } from 'react'
-
-export default function WithCloseExample() {
-  const [visible, setVisible] = useState(true)
-
-  if (!visible) {
-    return (
-      <button
-        type='button'
-        className='text-sm text-primary underline'
-        onClick={() => setVisible(true)}
-      >
-        Show alert again
-      </button>
-    )
-  }
-
-  return (
-    <Alert variant='warning'>
-      <AlertContent>
-        <AlertTitle>Dismissible Alert</AlertTitle>
-        <AlertDescription>Click the close button to dismiss this alert.</AlertDescription>
-      </AlertContent>
-      <AlertClose onClick={() => setVisible(false)}>
-        <XIcon className='size-4' />
-      </AlertClose>
-    </Alert>
-  )
-}
-```
-
-### With Action
-
-```tsx
-import {
-  Alert,
-  AlertAction,
-  AlertContent,
-  AlertDescription,
-  AlertTitle,
-} from '@lglab/compose-ui/alert'
-
-export default function WithActionExample() {
-  return (
-    <Alert variant='info'>
-      <AlertContent>
-        <AlertTitle>Update Available</AlertTitle>
-        <AlertDescription>
-          A new version is available. Update now to get the latest features.
-        </AlertDescription>
-      </AlertContent>
-      <AlertAction>
-        <button
-          type='button'
-          className='rounded-md bg-info px-3 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-90'
-        >
-          Update
-        </button>
-      </AlertAction>
-    </Alert>
-  )
-}
-```
-
-
----
-
 # Accordion
 
 A set of collapsible panels with headings.
@@ -16455,3 +16456,10 @@ export default function MultipleExample() {
 ## Resources
 
 - [Base UI](https://base-ui.com/react/components/accordion)
+
+---
+
+# Statistics
+
+Dashboard statistics block patterns for key metrics, trends, and KPI summaries.
+

@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
         source: '/components/:component.md',
         destination: '/llms/:component.md',
       },
+      {
+        source: '/blocks/:block.md',
+        destination: '/llms/blocks/:block.md',
+      },
     ]
   },
 }
