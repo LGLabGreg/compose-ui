@@ -27,10 +27,11 @@ Use this skill to implement blocks one-by-one while preserving:
 2. A block cannot move to `DONE` unless it has:
    - inspiration references,
    - implementation file paths,
-   - quality checklist completed.
+   - quality checklist completed (including semantics/a11y checks).
 3. Do not skip phase order unless the user explicitly reprioritizes.
 4. Use design inspiration as direction, never direct copying.
 5. Update tracking files in the same turn as implementation.
+6. If a previously `DONE` block is revised, append a maintenance entry in `.blocks/done-log.md`.
 
 ## Status Lifecycle
 
@@ -69,6 +70,19 @@ Transition policy:
 7. Append completed record to `.blocks/done-log.md`.
 8. Pick the next block.
 
+## Execution Workflow (Maintenance Pass on Existing Blocks)
+
+Use this workflow when the request is to refine already shipped blocks (for example, semantics, accessibility, responsiveness, or consistency updates):
+
+1. Keep board status unchanged unless scope expands into a net-new block.
+2. Implement fixes directly in existing block files.
+3. Re-run quality pass with emphasis on semantics/a11y and regression checks.
+4. Append a dated maintenance entry to `.blocks/done-log.md` capturing:
+   - affected block(s),
+   - files updated,
+   - checks performed,
+   - reusable pattern learned.
+
 ## Design Quality Gates
 
 Before marking a block as `DONE`, verify:
@@ -79,6 +93,8 @@ Before marking a block as `DONE`, verify:
 - Responsive behavior included.
 - Realistic content/data states included.
 - At least one polish detail beyond baseline layout.
+- Semantic HTML structure is intentional (headings/landmarks/data semantics where relevant).
+- Accessibility labels are explicit for compact visuals (badges, icons, charts, trend indicators).
 
 ## Cadence
 
@@ -99,4 +115,5 @@ When reporting completion, include:
 2. Inspiration links used
 3. Files created/updated
 4. Quality checks completed
-5. Reusable design pattern learned
+5. Accessibility/semantics checks completed
+6. Reusable design pattern learned

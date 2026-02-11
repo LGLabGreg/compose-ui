@@ -1,13 +1,14 @@
 'use client'
 
 import { Badge } from '@lglab/compose-ui/badge'
-import { CardContent, CardHeader, CardRoot } from '@lglab/compose-ui/card'
+import { CardContent, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui/card'
 import { type ChartConfig, ChartRoot, ChartTooltipContent } from '@lglab/compose-ui/chart'
 import { Area, AreaChart, Tooltip } from 'recharts'
 
 type SparklineStat = {
   label: string
-  value: string
+  value: number
+  valueFormat: 'currency' | 'number' | 'percent'
   change: string
   comparedTo: string
   badgeVariant: 'success' | 'destructive' | 'secondary'
@@ -49,7 +50,8 @@ const conversionData = [
 const stats: SparklineStat[] = [
   {
     label: 'Weekly Revenue',
-    value: '$35,600',
+    value: 35600,
+    valueFormat: 'currency',
     change: '+14.2%',
     comparedTo: 'vs last week',
     badgeVariant: 'success',
@@ -59,7 +61,8 @@ const stats: SparklineStat[] = [
   },
   {
     label: 'Active Sessions',
-    value: '7,180',
+    value: 7180,
+    valueFormat: 'number',
     change: '-9.8%',
     comparedTo: 'vs last week',
     badgeVariant: 'destructive',
@@ -69,7 +72,8 @@ const stats: SparklineStat[] = [
   },
   {
     label: 'Conversion Rate',
-    value: '3.5%',
+    value: 3.5,
+    valueFormat: 'percent',
     change: '+0.3%',
     comparedTo: 'vs last week',
     badgeVariant: 'success',
@@ -85,6 +89,23 @@ const chartDataMap: Record<string, Record<string, string | number>[]> = {
   conversion: conversionData,
 }
 
+function formatValue(value: number, valueFormat: SparklineStat['valueFormat']) {
+  if (valueFormat === 'currency') {
+    return value.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    })
+  }
+
+  if (valueFormat === 'percent') {
+    return `${value.toLocaleString('en-US', { maximumFractionDigits: 1 })}%`
+  }
+
+  return value.toLocaleString()
+}
+
 function SparklineCard({ stat }: { stat: SparklineStat }) {
   const config: ChartConfig = {
     [stat.dataKey]: { label: stat.label, color: stat.color },
@@ -92,8 +113,10 @@ function SparklineCard({ stat }: { stat: SparklineStat }) {
 
   return (
     <CardRoot className='group'>
-      <CardHeader className='flex flex-row items-center justify-between text-sm text-muted-foreground'>
-        {stat.label}
+      <CardHeader className='flex flex-row items-center justify-between'>
+        <CardTitle className='text-sm font-normal text-muted-foreground'>
+          {stat.label}
+        </CardTitle>
         <Badge variant={stat.badgeVariant} appearance='light' size='sm' shape='pill'>
           {stat.change}
         </Badge>
@@ -101,9 +124,12 @@ function SparklineCard({ stat }: { stat: SparklineStat }) {
 
       <CardContent className='space-y-2'>
         <div className='flex flex-col gap-1'>
-          <span className='text-2xl font-semibold tracking-tight leading-none'>
-            {stat.value}
-          </span>
+          <data
+            value={String(stat.value)}
+            className='text-2xl font-semibold tracking-tight leading-none'
+          >
+            {formatValue(stat.value, stat.valueFormat)}
+          </data>
           <span className='text-xs text-muted-foreground'>{stat.comparedTo}</span>
         </div>
       </CardContent>
@@ -112,6 +138,7 @@ function SparklineCard({ stat }: { stat: SparklineStat }) {
         <AreaChart
           data={chartDataMap[stat.dataKey]}
           margin={{ top: 2, right: 0, bottom: 0, left: 0 }}
+          accessibilityLayer
         >
           <defs>
             <linearGradient id={stat.fillId} x1='0' y1='0' x2='0' y2='1'>
@@ -137,7 +164,7 @@ function SparklineCard({ stat }: { stat: SparklineStat }) {
 
 export default function StatsWithSparklineBlock() {
   return (
-    <section className='w-full' aria-label='Statistics with sparkline charts'>
+    <section className='w-full'>
       <div className='grid gap-4 lg:grid-cols-3'>
         {stats.map((stat) => (
           <SparklineCard key={stat.label} stat={stat} />

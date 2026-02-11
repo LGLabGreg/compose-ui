@@ -1,12 +1,13 @@
 'use client'
 
 import { Badge } from '@lglab/compose-ui/badge'
-import { CardContent, CardHeader, CardRoot } from '@lglab/compose-ui/card'
+import { CardContent, CardHeader, CardRoot, CardTitle } from '@lglab/compose-ui/card'
 import { ShoppingCart, TrendingUp, Users } from 'lucide-react'
 
 type IconStat = {
   label: string
-  value: string
+  value: number
+  valueFormat: 'currency' | 'number' | 'percent'
   change: string
   comparedTo: string
   badgeVariant: 'success' | 'destructive' | 'secondary'
@@ -17,7 +18,8 @@ type IconStat = {
 const stats: IconStat[] = [
   {
     label: 'New Customers',
-    value: '2,340',
+    value: 2340,
+    valueFormat: 'number',
     change: '+8.1%',
     comparedTo: 'vs last month',
     badgeVariant: 'success',
@@ -26,7 +28,8 @@ const stats: IconStat[] = [
   },
   {
     label: 'Total Orders',
-    value: '1,029',
+    value: 1029,
+    valueFormat: 'number',
     change: '-3.2%',
     comparedTo: 'vs last month',
     badgeVariant: 'destructive',
@@ -36,7 +39,8 @@ const stats: IconStat[] = [
   },
   {
     label: 'Growth Rate',
-    value: '24.5%',
+    value: 24.5,
+    valueFormat: 'percent',
     change: '+2.4%',
     comparedTo: 'vs last quarter',
     badgeVariant: 'success',
@@ -46,9 +50,26 @@ const stats: IconStat[] = [
   },
 ]
 
+function formatValue(value: number, valueFormat: IconStat['valueFormat']) {
+  if (valueFormat === 'currency') {
+    return value.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    })
+  }
+
+  if (valueFormat === 'percent') {
+    return `${value.toLocaleString('en-US', { maximumFractionDigits: 1 })}%`
+  }
+
+  return value.toLocaleString()
+}
+
 export default function StatsWithIconBlock() {
   return (
-    <section className='w-full' aria-label='Statistics with icons'>
+    <section className='w-full'>
       <div className='grid gap-4 lg:grid-cols-3'>
         {stats.map((stat) => {
           const Icon = stat.icon
@@ -60,11 +81,18 @@ export default function StatsWithIconBlock() {
                 >
                   <Icon className='size-5' aria-hidden='true' />
                 </span>
-                <span className='text-sm text-muted-foreground'>{stat.label}</span>
+                <CardTitle className='text-sm font-normal text-muted-foreground'>
+                  {stat.label}
+                </CardTitle>
               </CardHeader>
 
               <CardContent className='space-y-3'>
-                <p className='text-2xl font-semibold tracking-tight'>{stat.value}</p>
+                <data
+                  value={String(stat.value)}
+                  className='block text-2xl font-semibold tracking-tight'
+                >
+                  {formatValue(stat.value, stat.valueFormat)}
+                </data>
                 <div className='flex items-center justify-between gap-3'>
                   <Badge
                     variant={stat.badgeVariant}
