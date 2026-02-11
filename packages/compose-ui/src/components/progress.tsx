@@ -47,7 +47,7 @@ const ProgressIndicator = ({ className, ...props }: ProgressIndicatorProps) => {
   return (
     <BaseProgress.Indicator
       className={cn(
-        'h-full rounded-full bg-primary transition-all duration-1000 ease-out-expo',
+        'h-full rounded-full bg-primary transition-all duration-500 ease-out-expo',
         className,
       )}
       {...props}
@@ -92,10 +92,104 @@ const ProgressLabel = ({ className, ...props }: ProgressLabelProps) => {
 ProgressLabel.displayName = 'ProgressLabel'
 
 // ============================================================================
+// ProgressCircle
+// ============================================================================
+
+type ProgressCircleProps = {
+  value?: number | null
+  min?: number
+  max?: number
+  size?: number
+  strokeWidth?: number
+  className?: string
+  trackClassName?: string
+  children?: React.ReactNode
+}
+
+const indeterminateKeyframes = `
+@keyframes progress-circle-spin {
+  0% { stroke-dashoffset: var(--pc-circumference); transform: rotate(0deg); }
+  50% { stroke-dashoffset: calc(var(--pc-circumference) * 0.25); transform: rotate(180deg); }
+  100% { stroke-dashoffset: var(--pc-circumference); transform: rotate(720deg); }
+}
+`
+
+const ProgressCircle = ({
+  value = 0,
+  min = 0,
+  max = 100,
+  size = 120,
+  strokeWidth = 8,
+  className,
+  trackClassName,
+  children,
+}: ProgressCircleProps) => {
+  const radius = (size - strokeWidth) / 2
+  const circumference = 2 * Math.PI * radius
+  const center = size / 2
+
+  const isIndeterminate = value === null
+  const percentage = isIndeterminate ? 0 : ((value - min) / (max - min)) * 100
+  const offset = circumference - (percentage / 100) * circumference
+
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+      {isIndeterminate && <style>{indeterminateKeyframes}</style>}
+      <circle
+        cx={center}
+        cy={center}
+        r={radius}
+        fill='none'
+        strokeWidth={strokeWidth}
+        className={cn('stroke-primary/20', trackClassName)}
+      />
+      <circle
+        cx={center}
+        cy={center}
+        r={radius}
+        fill='none'
+        strokeWidth={strokeWidth}
+        strokeLinecap='round'
+        strokeDasharray={circumference}
+        strokeDashoffset={isIndeterminate ? circumference : offset}
+        className={cn(
+          'origin-center stroke-primary',
+          !isIndeterminate && 'transition-[stroke-dashoffset] duration-500 ease-out-expo',
+          className,
+        )}
+        style={
+          isIndeterminate
+            ? ({
+                '--pc-circumference': circumference,
+                transformOrigin: 'center',
+                animation: 'progress-circle-spin 1.4s ease-in-out infinite',
+              } as React.CSSProperties)
+            : { transform: 'rotate(-90deg)', transformOrigin: 'center' }
+        }
+      />
+      {children && (
+        <foreignObject x={0} y={0} width={size} height={size}>
+          <div className='flex h-full w-full items-center justify-center'>{children}</div>
+        </foreignObject>
+      )}
+    </svg>
+  )
+}
+
+ProgressCircle.displayName = 'ProgressCircle'
+
+// ============================================================================
 // Exports
 // ============================================================================
 
-export { ProgressRoot, ProgressTrack, ProgressIndicator, ProgressValue, ProgressLabel }
+export {
+  ProgressRoot,
+  ProgressTrack,
+  ProgressIndicator,
+  ProgressValue,
+  ProgressLabel,
+  ProgressCircle,
+}
 
 export type {
   ProgressRootProps,
@@ -103,4 +197,5 @@ export type {
   ProgressIndicatorProps,
   ProgressValueProps,
   ProgressLabelProps,
+  ProgressCircleProps,
 }

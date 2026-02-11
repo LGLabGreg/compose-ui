@@ -1,6 +1,7 @@
-import { ComponentPage, ExampleLoader } from '@/components/mdx'
+import { ApiSection, ApiTable, ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import BasicExample from './examples/basic'
+import CircularExample from './examples/circular'
 
 export const metadata = {
   title: 'Progress',
@@ -17,5 +18,66 @@ export const metadata = {
 <ExampleLoader title='Basic' filePath='app/(docs)/components/progress/examples/basic.tsx'>
   <BasicExample />
 </ExampleLoader>
+
+<ExampleLoader title='Circular' filePath='app/(docs)/components/progress/examples/circular.tsx'>
+  <CircularExample />
+</ExampleLoader>
+
+## API Reference
+
+<ApiSection
+  title='ProgressCircle'
+  description='Circular progress indicator rendered as an SVG ring. Use inside ProgressRoot for ARIA semantics, or standalone for visual-only display.'
+>
+  <ApiTable
+    data={[
+      {
+        name: 'value',
+        type: 'number | null',
+        default: '0',
+        description: 'Current progress value. Set to null for indeterminate state.',
+      },
+      {
+        name: 'min',
+        type: 'number',
+        default: '0',
+        description: 'Minimum value of the progress range.',
+      },
+      {
+        name: 'max',
+        type: 'number',
+        default: '100',
+        description: 'Maximum value of the progress range.',
+      },
+      {
+        name: 'size',
+        type: 'number',
+        default: '120',
+        description: 'Width and height of the SVG element in pixels.',
+      },
+      {
+        name: 'strokeWidth',
+        type: 'number',
+        default: '8',
+        description: 'Thickness of the ring stroke in pixels.',
+      },
+      {
+        name: 'className',
+        type: 'string',
+        description: 'CSS class applied to the indicator circle. Use stroke-* utilities to change the fill color.',
+      },
+      {
+        name: 'trackClassName',
+        type: 'string',
+        description: 'CSS class applied to the background track circle.',
+      },
+      {
+        name: 'children',
+        type: 'ReactNode',
+        description: 'Content rendered centered inside the ring (e.g. ProgressValue, icons).',
+      },
+    ]}
+  />
+</ApiSection>
 
 </ComponentPage>

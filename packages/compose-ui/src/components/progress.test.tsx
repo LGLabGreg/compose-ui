@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { render } from '~/vitest.utils'
 
 import {
+  ProgressCircle,
   ProgressIndicator,
   ProgressLabel,
   ProgressRoot,
@@ -70,5 +71,82 @@ describe('Progress', () => {
     const progressbar = screen.getByRole('progressbar')
     expect(progressbar).not.toHaveAttribute('aria-valuenow')
     expect(progressbar).toHaveAttribute('data-indeterminate')
+  })
+})
+
+describe('ProgressCircle', () => {
+  it('renders SVG with two circles', () => {
+    const { container } = render(<ProgressCircle value={50} />)
+
+    const svg = container.querySelector('svg')
+    expect(svg).toBeInTheDocument()
+
+    const circles = container.querySelectorAll('circle')
+    expect(circles).toHaveLength(2)
+  })
+
+  it('computes correct strokeDashoffset for given value', () => {
+    const size = 120
+    const strokeWidth = 8
+    const radius = (size - strokeWidth) / 2
+    const circumference = 2 * Math.PI * radius
+
+    const { container } = render(
+      <ProgressCircle value={75} size={size} strokeWidth={strokeWidth} />,
+    )
+
+    const circles = container.querySelectorAll('circle')
+    const indicator = circles[1]
+    const expectedOffset = circumference - (75 / 100) * circumference
+    expect(indicator).toHaveAttribute('stroke-dashoffset', String(expectedOffset))
+  })
+
+  it('renders children centered inside the circle', () => {
+    render(
+      <ProgressCircle value={50}>
+        <span>50%</span>
+      </ProgressCircle>,
+    )
+
+    expect(screen.getByText('50%')).toBeInTheDocument()
+  })
+
+  it('works with custom min/max', () => {
+    const size = 120
+    const strokeWidth = 8
+    const radius = (size - strokeWidth) / 2
+    const circumference = 2 * Math.PI * radius
+
+    const { container } = render(
+      <ProgressCircle
+        value={50}
+        min={0}
+        max={200}
+        size={size}
+        strokeWidth={strokeWidth}
+      />,
+    )
+
+    const circles = container.querySelectorAll('circle')
+    const indicator = circles[1]
+    // 50 out of 200 = 25%
+    const expectedOffset = circumference - (25 / 100) * circumference
+    expect(indicator).toHaveAttribute('stroke-dashoffset', String(expectedOffset))
+  })
+
+  it('handles indeterminate state (value={null})', () => {
+    const { container } = render(<ProgressCircle value={null} />)
+
+    const svg = container.querySelector('svg')
+    expect(svg).toBeInTheDocument()
+
+    // Indeterminate injects a <style> for the spin keyframes
+    const style = svg?.querySelector('style')
+    expect(style).toBeInTheDocument()
+
+    // Indicator circle gets the spin animation
+    const circles = container.querySelectorAll('circle')
+    const indicator = circles[1]
+    expect(indicator?.style.animation).toContain('progress-circle-spin')
   })
 })
