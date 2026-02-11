@@ -1,7 +1,10 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import SimpleStatsExample from './examples/simple-stats'
+import StatsGridExample from './examples/stats-grid'
+import StatsTrendExample from './examples/stats-trend'
 import StatsWithIconExample from './examples/stats-with-icon'
+import StatsWithProgressExample from './examples/stats-with-progress'
 import StatsWithSparklineExample from './examples/stats-with-sparkline'
 
 export const metadata = {
@@ -35,6 +38,27 @@ export const metadata = {
   filePath='app/(docs)/blocks/statistics/examples/stats-with-sparkline.tsx'
 >
   <StatsWithSparklineExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats with Progress'
+  filePath='app/(docs)/blocks/statistics/examples/stats-with-progress.tsx'
+>
+  <StatsWithProgressExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats Trend'
+  filePath='app/(docs)/blocks/statistics/examples/stats-trend.tsx'
+>
+  <StatsTrendExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats Grid'
+  filePath='app/(docs)/blocks/statistics/examples/stats-grid.tsx'
+>
+  <StatsGridExample />
 </ExampleLoader>
 
 </ComponentPage>

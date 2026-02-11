@@ -32,6 +32,7 @@ Use this skill to implement blocks one-by-one while preserving:
 4. Use design inspiration as direction, never direct copying.
 5. Update tracking files in the same turn as implementation.
 6. If a previously `DONE` block is revised, append a maintenance entry in `.blocks/done-log.md`.
+7. **Always prefer Compose UI components over raw HTML.** Blocks are a showcase of the library — every visual element that has a matching component (Progress, Meter, Badge, Separator, etc.) must use it. Never build custom divs for progress bars, meters, badges, or any pattern already covered by the component library. When unsure, check `packages/compose-ui/src/components/` for available primitives before writing raw markup.
 
 ## Status Lifecycle
 
@@ -87,6 +88,7 @@ Use this workflow when the request is to refine already shipped blocks (for exam
 
 Before marking a block as `DONE`, verify:
 
+- **Every visual element uses a Compose UI component when one exists** (blocks showcase the library — no raw divs for bars, badges, meters, separators, etc.).
 - Clear visual hierarchy and readable metric emphasis.
 - Spacing rhythm is consistent and intentional.
 - Contrast-safe text and semantic color usage.
