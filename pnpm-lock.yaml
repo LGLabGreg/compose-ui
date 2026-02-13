@@ -199,9 +199,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      eslint:
-        specifier: 9.39.2
-        version: 9.39.2(jiti@2.6.1)
       tailwind-merge:
         specifier: ^3.4.0
         version: 3.4.0
@@ -254,9 +251,6 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.26.0
         version: 1.26.0(zod@4.3.6)
-      eslint:
-        specifier: 9.39.2
-        version: 9.39.2(jiti@2.6.1)
       zod:
         specifier: ^4.3.6
         version: 4.3.6
