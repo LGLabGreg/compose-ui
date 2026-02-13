@@ -58,6 +58,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }))
 
+  const blockPages = docsPages
+    .filter((page) => page.slug.startsWith('blocks'))
+    .map((page) => ({
+      url: `${baseUrl}/${page.slug}`,
+      lastModified: page.lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.75,
+    }))
+
   return [
     {
       url: baseUrl,
@@ -66,6 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...componentPages,
+    ...blockPages,
     ...overviewPages,
   ]
 }

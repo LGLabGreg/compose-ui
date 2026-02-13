@@ -1,0 +1,97 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import SimpleStatsExample from './examples/simple-stats'
+import StatsBannerExample from './examples/stats-banner'
+import StatsComparisonExample from './examples/stats-comparison'
+import StatsGridExample from './examples/stats-grid'
+import StatsRingExample from './examples/stats-ring'
+import StatsTrendExample from './examples/stats-trend'
+import StatsWithIconExample from './examples/stats-with-icon'
+import StatsWithMeterExample from './examples/stats-with-meter'
+import StatsWithProgressExample from './examples/stats-with-progress'
+import StatsWithSparklineExample from './examples/stats-with-sparkline'
+
+export const metadata = {
+  title: 'Statistics',
+  description:
+    'Dashboard statistics blocks for key metrics, trend indicators, and KPI summaries.',
+}
+
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component='statistics'
+  section='blocks'
+>
+
+<ExampleLoader
+  title='Simple Stats'
+  filePath='app/(docs)/blocks/statistics/examples/simple-stats.tsx'
+>
+  <SimpleStatsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats with Icon'
+  filePath='app/(docs)/blocks/statistics/examples/stats-with-icon.tsx'
+>
+  <StatsWithIconExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats with Sparkline'
+  filePath='app/(docs)/blocks/statistics/examples/stats-with-sparkline.tsx'
+>
+  <StatsWithSparklineExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats with Progress'
+  filePath='app/(docs)/blocks/statistics/examples/stats-with-progress.tsx'
+>
+  <StatsWithProgressExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats with Meter'
+  filePath='app/(docs)/blocks/statistics/examples/stats-with-meter.tsx'
+>
+  <StatsWithMeterExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats Ring'
+  filePath='app/(docs)/blocks/statistics/examples/stats-ring.tsx'
+>
+  <StatsRingExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats Trend'
+  filePath='app/(docs)/blocks/statistics/examples/stats-trend.tsx'
+>
+  <StatsTrendExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats Grid'
+  filePath='app/(docs)/blocks/statistics/examples/stats-grid.tsx'
+>
+  <StatsGridExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats Comparison'
+  filePath='app/(docs)/blocks/statistics/examples/stats-comparison.tsx'
+>
+  <StatsComparisonExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats Banner'
+  filePath='app/(docs)/blocks/statistics/examples/stats-banner.tsx'
+>
+  <StatsBannerExample />
+</ExampleLoader>
+
+</ComponentPage>

@@ -1,5 +1,6 @@
 'use client'
 
+import { Badge } from '@lglab/compose-ui/badge'
 import {
   CollapsiblePanel,
   CollapsibleRoot,
@@ -17,26 +18,28 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
 
-import { docsNavigation } from '@/lib/navigation'
+import { type DocsNavigationSection, docsNavigation } from '@/lib/navigation'
 import { cn } from '@/lib/utils'
 
 export function DocsNavigation({
   closeDrawer,
   className,
   collapsible = true,
+  navigation = docsNavigation,
 }: {
   closeDrawer?: () => void
   className?: string
   collapsible?: boolean
+  navigation?: DocsNavigationSection[]
 }) {
   const pathname = usePathname()
   const defaultOpenSection = React.useMemo(() => {
-    const matchedSection = docsNavigation.find((section) =>
+    const matchedSection = navigation.find((section) =>
       section.items.some((item) => item.href === pathname),
     )
 
-    return matchedSection?.name ?? docsNavigation[0]?.name ?? null
-  }, [pathname])
+    return matchedSection?.name ?? navigation[0]?.name ?? null
+  }, [navigation, pathname])
   const [openSection, setOpenSection] = React.useState<string | null>(defaultOpenSection)
 
   React.useEffect(() => {
@@ -49,7 +52,7 @@ export function DocsNavigation({
         <ScrollAreaViewport>
           <ScrollAreaContent>
             <div className='space-y-2'>
-              {docsNavigation.map((section) => {
+              {navigation.map((section) => {
                 if (!collapsible) {
                   return (
                     <div key={section.name}>
@@ -60,17 +63,31 @@ export function DocsNavigation({
                         <ul className='space-y-1'>
                           {section.items.map((item) => (
                             <li key={item.href}>
-                              <Link
-                                href={item.href}
-                                className={`block rounded-md px-2 py-1.5 text-sm transition-colors ${
-                                  pathname === item.href
-                                    ? 'bg-muted font-medium text-foreground'
-                                    : 'hover:bg-muted/50 hover:text-foreground'
-                                }`}
-                                onClick={closeDrawer}
-                              >
-                                {item.name}
-                              </Link>
+                              {item.badge ? (
+                                <span className='flex items-center justify-between rounded-md px-2 py-1.5 text-sm text-muted-foreground cursor-default'>
+                                  {item.name}
+                                  <Badge
+                                    variant='secondary'
+                                    size='sm'
+                                    shape='pill'
+                                    appearance='light'
+                                  >
+                                    {item.badge}
+                                  </Badge>
+                                </span>
+                              ) : (
+                                <Link
+                                  href={item.href}
+                                  className={`block rounded-md px-2 py-1.5 text-sm transition-colors ${
+                                    pathname === item.href
+                                      ? 'bg-muted font-medium text-foreground'
+                                      : 'hover:bg-muted/50 hover:text-foreground'
+                                  }`}
+                                  onClick={closeDrawer}
+                                >
+                                  {item.name}
+                                </Link>
+                              )}
                             </li>
                           ))}
                         </ul>
@@ -95,17 +112,31 @@ export function DocsNavigation({
                         <ul className='space-y-1'>
                           {section.items.map((item) => (
                             <li key={item.href}>
-                              <Link
-                                href={item.href}
-                                className={`block rounded-md px-2 py-1.5 text-sm transition-colors ${
-                                  pathname === item.href
-                                    ? 'bg-muted font-medium text-foreground'
-                                    : 'hover:bg-muted/50 hover:text-foreground'
-                                }`}
-                                onClick={closeDrawer}
-                              >
-                                {item.name}
-                              </Link>
+                              {item.badge ? (
+                                <span className='flex items-center justify-between rounded-md px-2 py-1.5 text-sm text-muted-foreground cursor-default'>
+                                  {item.name}
+                                  <Badge
+                                    variant='secondary'
+                                    size='sm'
+                                    shape='pill'
+                                    appearance='light'
+                                  >
+                                    {item.badge}
+                                  </Badge>
+                                </span>
+                              ) : (
+                                <Link
+                                  href={item.href}
+                                  className={`block rounded-md px-2 py-1.5 text-sm transition-colors ${
+                                    pathname === item.href
+                                      ? 'bg-muted font-medium text-foreground'
+                                      : 'hover:bg-muted/50 hover:text-foreground'
+                                  }`}
+                                  onClick={closeDrawer}
+                                >
+                                  {item.name}
+                                </Link>
+                              )}
                             </li>
                           ))}
                         </ul>

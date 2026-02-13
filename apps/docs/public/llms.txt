@@ -97,6 +97,10 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Alert](https://compose-ui.dev/components/alert.md): A composable alert component for displaying important messages with multiple variants, appearances, and sizes.
 - [Accordion](https://compose-ui.dev/components/accordion.md): A set of collapsible panels with headings.
 
+## Blocks
+
+- [Statistics](https://compose-ui.dev/blocks/statistics.md): Dashboard statistics blocks for key metrics, trend indicators, and KPI summaries.
+
 ## Optional
 
 - [Base UI Documentation](https://base-ui.com/react/components): Underlying component APIs

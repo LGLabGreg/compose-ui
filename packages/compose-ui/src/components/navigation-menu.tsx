@@ -12,7 +12,7 @@ import { cn } from '../lib/utils'
 
 const rootItemStyles = [
   'inline-flex items-center justify-center rounded-md text-sm font-medium outline-none select-none',
-  'h-9 px-4 py-2',
+  'h-9 px-3 py-2',
   'transition-colors',
   'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
   'focus:bg-accent focus:text-accent-foreground',

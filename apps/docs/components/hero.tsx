@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@lglab/compose-ui/button'
-import { ArrowRight, LayoutDashboard } from 'lucide-react'
+import { ArrowRight, Cuboid, Puzzle } from 'lucide-react'
 import Link from 'next/link'
 
 import { SquareGrid } from './square-grid'
@@ -29,14 +29,14 @@ export function Hero() {
             </span>
           </Link>
           <h1 className='leading-tighter text-4xl font-semibold tracking-tight text-balance lg:leading-[1.2] lg:font-semibold xl:text-5xl xl:tracking-tighter max-w-4xl'>
-            AI Ready React UI Toolkit
+            Agent Ready React UI Toolkit
           </h1>
           <p className='text-foreground max-w-3xl text-base sm:text-lg'>
             Pre-styled, composable components with accessibility built-in. npm install and
             start building immediately.
           </p>
         </div>
-        <div className='flex gap-4'>
+        <div className='flex flex-wrap justify-center gap-4'>
           <Button
             size='lg'
             render={
@@ -52,7 +52,17 @@ export function Hero() {
             size='lg'
             render={
               <Link href='/components/accordion'>
-                <LayoutDashboard /> Components
+                <Puzzle /> Components
+              </Link>
+            }
+            nativeButton={false}
+          />
+          <Button
+            variant='outline'
+            size='lg'
+            render={
+              <Link href='/blocks/statistics'>
+                <Cuboid /> Blocks
               </Link>
             }
             nativeButton={false}

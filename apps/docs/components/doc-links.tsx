@@ -11,14 +11,15 @@ interface ExternalLink {
 
 interface DocLinksProps {
   component: string
+  section?: 'components' | 'blocks'
   links?: ExternalLink[]
 }
 
-export function DocLinks({ component, links }: DocLinksProps) {
+export function DocLinks({ component, section = 'components', links }: DocLinksProps) {
   const [copied, setCopied] = useState(false)
   const [copying, setCopying] = useState(false)
 
-  const markdownUrl = `/components/${component}.md`
+  const markdownUrl = `/${section}/${component}.md`
 
   const handleCopyMarkdown = async () => {
     try {

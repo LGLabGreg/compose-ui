@@ -276,6 +276,7 @@ export {
   ProgressIndicator,
   ProgressValue,
   ProgressLabel,
+  ProgressCircle,
 } from './components/progress'
 export { RadioRoot, RadioIndicator } from './components/radio'
 export { RadioGroupRoot } from './components/radio-group'
@@ -670,6 +671,7 @@ export type {
   ProgressIndicatorProps,
   ProgressValueProps,
   ProgressLabelProps,
+  ProgressCircleProps,
 } from './components/progress'
 export type { RadioRootProps, RadioIndicatorProps } from './components/radio'
 export type { RadioGroupRootProps } from './components/radio-group'

@@ -30,7 +30,7 @@ const features = [
   },
   {
     icon: Sparkles,
-    title: 'AI Ready',
+    title: 'Agent Ready',
     description:
       'LLM docs and MCP server give your AI assistant instant knowledge of every component and API.',
     href: '/overview/llms',

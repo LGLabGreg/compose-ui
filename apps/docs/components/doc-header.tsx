@@ -9,9 +9,17 @@ import {
   DrawerRoot,
   DrawerTrigger,
 } from '@lglab/compose-ui/drawer'
+import {
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuRoot,
+} from '@lglab/compose-ui/navigation-menu'
 import { Github, Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+
+import { blocksNavigation, docsNavigation } from '@/lib/navigation'
 
 import { DocsNavigation } from './docs-navigation'
 import { Logo } from './logo'
@@ -20,11 +28,29 @@ import { ThemeToggle } from './theme-toggle'
 
 export function DocHeader() {
   const [open, setOpen] = useState(false)
+
   return (
     <header className='fixed top-0 left-0 right-0 z-50 flex h-14 items-center border-b px-6 bg-background'>
       <Link href='/' className='flex items-center'>
         <Logo />
       </Link>
+      <nav className='ml-6 hidden items-center gap-4 text-sm font-medium md:flex'>
+        <NavigationMenuRoot>
+          <NavigationMenuList>
+            <NavigationMenuItem value='components'>
+              <NavigationMenuLink render={<Link href='/components/accordion' />}>
+                Components
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem value='blocks'>
+              <NavigationMenuLink render={<Link href='/blocks/statistics' />}>
+                Blocks
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenuRoot>
+      </nav>
       <div className='flex items-center gap-1 ml-auto'>
         <ThemeColorSelector />
         <ThemeToggle />
@@ -52,7 +78,11 @@ export function DocHeader() {
               >
                 <X className='size-4' />
               </DrawerClose>
-              <DocsNavigation closeDrawer={() => setOpen(false)} collapsible={false} />
+              <DocsNavigation
+                closeDrawer={() => setOpen(false)}
+                collapsible={false}
+                navigation={[...docsNavigation, ...blocksNavigation]}
+              />
             </DrawerPopup>
           </DrawerPortal>
         </DrawerRoot>

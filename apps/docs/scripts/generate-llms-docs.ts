@@ -13,18 +13,24 @@ interface Example {
   code: string
 }
 
-interface ComponentMeta {
+interface DocMeta {
   title: string
   description: string
-  component: string
+  section: 'components' | 'blocks'
+  slug: string
+  component?: string
   links?: ExternalLink[]
   examples: Example[]
 }
 
 /**
- * Parse ComponentPage props from MDX content
+ * Parse doc metadata from MDX content
  */
-function parseComponentPage(mdxContent: string): Partial<ComponentMeta> {
+function parseDocPage(
+  mdxContent: string,
+  section: 'components' | 'blocks',
+  slug: string,
+): Partial<DocMeta> {
   // Extract component from ComponentPage props
   const compMatch = mdxContent.match(/component=["']([^"']+)["']/)
 
@@ -54,6 +60,8 @@ function parseComponentPage(mdxContent: string): Partial<ComponentMeta> {
       return {
         title: titleMatch[1],
         description: descMatch[1],
+        section,
+        slug,
         component: compMatch?.[1],
         links,
       }
@@ -67,6 +75,8 @@ function parseComponentPage(mdxContent: string): Partial<ComponentMeta> {
   return {
     title: titleMatch?.[1],
     description: descMatch?.[1],
+    section,
+    slug,
     component: compMatch?.[1],
     links,
   }
@@ -125,10 +135,7 @@ function cleanExampleCode(code: string): string {
 /**
  * Generate markdown for a component
  */
-async function generateMarkdown(
-  meta: ComponentMeta,
-  docsAppDir: string,
-): Promise<string> {
+async function generateMarkdown(meta: DocMeta, docsAppDir: string): Promise<string> {
   const lines: string[] = []
 
   // Header
@@ -137,25 +144,27 @@ async function generateMarkdown(
   lines.push(meta.description)
   lines.push('')
 
-  // Installation
-  lines.push('## Installation')
-  lines.push('')
-  lines.push('```bash')
-  lines.push('npm install @lglab/compose-ui')
-  lines.push('```')
-  lines.push('')
+  if (meta.section === 'components' && meta.component) {
+    // Installation
+    lines.push('## Installation')
+    lines.push('')
+    lines.push('```bash')
+    lines.push('npm install @lglab/compose-ui')
+    lines.push('```')
+    lines.push('')
 
-  // Basic import
-  const componentParts = await getComponentParts(
-    meta.component,
-    path.resolve(docsAppDir, '../../packages/compose-ui'),
-  )
-  lines.push('## Import')
-  lines.push('')
-  lines.push('```tsx')
-  lines.push(`import { ${componentParts.join(', ')} } from '@lglab/compose-ui'`)
-  lines.push('```')
-  lines.push('')
+    // Basic import
+    const componentParts = await getComponentParts(
+      meta.component,
+      path.resolve(docsAppDir, '../../packages/compose-ui'),
+    )
+    lines.push('## Import')
+    lines.push('')
+    lines.push('```tsx')
+    lines.push(`import { ${componentParts.join(', ')} } from '@lglab/compose-ui'`)
+    lines.push('```')
+    lines.push('')
+  }
 
   // Examples
   if (meta.examples.length > 0) {
@@ -223,7 +232,8 @@ async function getComponentParts(
  * Generate llms.txt index file
  */
 function generateLlmsTxt(
-  components: Array<{ title: string; component: string; description: string }>,
+  components: Array<{ title: string; slug: string; description: string }>,
+  blocks: Array<{ title: string; slug: string; description: string }>,
   baseUrl: string,
 ): string {
   const lines: string[] = []
@@ -309,7 +319,16 @@ function generateLlmsTxt(
   lines.push('')
   for (const comp of components) {
     lines.push(
-      `- [${comp.title}](${baseUrl}/components/${comp.component}.md): ${comp.description}`,
+      `- [${comp.title}](${baseUrl}/components/${comp.slug}.md): ${comp.description}`,
+    )
+  }
+  lines.push('')
+
+  lines.push('## Blocks')
+  lines.push('')
+  for (const block of blocks) {
+    lines.push(
+      `- [${block.title}](${baseUrl}/blocks/${block.slug}.md): ${block.description}`,
     )
   }
   lines.push('')
@@ -330,9 +349,7 @@ function generateLlmsTxt(
 /**
  * Generate llms-full.txt complete documentation
  */
-function generateLlmsFullTxt(
-  components: Array<{ markdown: string; title: string }>,
-): string {
+function generateLlmsFullTxt(docs: Array<{ markdown: string; title: string }>): string {
   const lines: string[] = []
 
   lines.push('# Compose UI - Complete Documentation')
@@ -341,8 +358,8 @@ function generateLlmsFullTxt(
   lines.push('')
   lines.push('## Table of Contents')
   lines.push('')
-  for (const comp of components) {
-    lines.push(`- ${comp.title}`)
+  for (const doc of docs) {
+    lines.push(`- ${doc.title}`)
   }
   lines.push('')
 
@@ -398,10 +415,10 @@ function generateLlmsFullTxt(
   )
   lines.push('')
 
-  for (const comp of components) {
+  for (const doc of docs) {
     lines.push('---')
     lines.push('')
-    lines.push(comp.markdown)
+    lines.push(doc.markdown)
   }
 
   return lines.join('\n')
@@ -421,79 +438,120 @@ async function main() {
   // Create output directory
   await fs.mkdir(outputDir, { recursive: true })
 
-  // Find all component MDX files
-  const mdxPattern = 'app/(docs)/components/*/page.mdx'
-  const mdxFiles = await glob(mdxPattern, { cwd: docsAppDir })
+  // Find all docs MDX files
+  const componentPattern = 'app/(docs)/components/*/page.mdx'
+  const blockPattern = 'app/(docs)/blocks/*/page.mdx'
+  const componentMdxFiles = await glob(componentPattern, { cwd: docsAppDir })
+  const blockMdxFiles = await glob(blockPattern, { cwd: docsAppDir })
 
-  console.log(`📁 Found ${mdxFiles.length} component pages`)
+  console.log(`📁 Found ${componentMdxFiles.length} component pages`)
+  console.log(`📁 Found ${blockMdxFiles.length} block pages`)
   console.log(`📂 Docs app dir: ${docsAppDir}`)
   console.log('')
 
   const componentDocs: Array<{
     title: string
-    component: string
+    slug: string
+    description: string
+    markdown: string
+  }> = []
+  const blockDocs: Array<{
+    title: string
+    slug: string
     description: string
     markdown: string
   }> = []
 
-  for (const mdxFile of mdxFiles) {
+  async function processDoc(
+    mdxFile: string,
+    section: 'components' | 'blocks',
+  ): Promise<void> {
     const mdxPath = path.join(docsAppDir, mdxFile)
     const mdxContent = await fs.readFile(mdxPath, 'utf-8')
+    const slug = path.basename(path.dirname(mdxFile))
 
-    const meta = parseComponentPage(mdxContent)
+    const meta = parseDocPage(mdxContent, section, slug)
 
-    if (!meta.title || !meta.description || !meta.component) {
+    if (!meta.title || !meta.description || !meta.section || !meta.slug) {
       console.log(`⚠ Skipping ${mdxFile} - missing metadata`)
-      continue
+      return
     }
 
-    console.log(`📄 Processing: ${meta.title}`)
+    console.log(`📄 Processing ${section.slice(0, -1)}: ${meta.title}`)
 
     // Extract examples - pass the docs app directory for path resolution
     const examples = await extractExamples(mdxContent, docsAppDir)
 
-    const fullMeta: ComponentMeta = {
+    const fullMeta: DocMeta = {
       title: meta.title,
       description: meta.description,
+      section: meta.section,
+      slug: meta.slug,
       component: meta.component,
       links: meta.links,
       examples,
     }
 
     const markdown = await generateMarkdown(fullMeta, docsAppDir)
+    const markdownSlug =
+      section === 'components' ? (meta.component ?? meta.slug) : meta.slug
 
-    // Write individual component markdown
-    const outputPath = path.join(outputDir, `${meta.component}.md`)
+    const outputPath =
+      section === 'components'
+        ? path.join(outputDir, `${markdownSlug}.md`)
+        : path.join(outputDir, 'blocks', `${meta.slug}.md`)
+    await fs.mkdir(path.dirname(outputPath), { recursive: true })
     await fs.writeFile(outputPath, markdown)
-    console.log(`   → Generated: ${meta.component}.md (${examples.length} examples)`)
+    console.log(
+      `   → Generated: ${path.relative(outputDir, outputPath)} (${examples.length} examples)`,
+    )
     console.log('')
 
-    componentDocs.push({
+    if (section === 'components') {
+      componentDocs.push({
+        title: meta.title,
+        slug: markdownSlug,
+        description: meta.description,
+        markdown,
+      })
+      return
+    }
+
+    blockDocs.push({
       title: meta.title,
-      component: meta.component,
+      slug: meta.slug,
       description: meta.description,
       markdown,
     })
   }
 
+  for (const mdxFile of componentMdxFiles) {
+    await processDoc(mdxFile, 'components')
+  }
+
+  for (const mdxFile of blockMdxFiles) {
+    await processDoc(mdxFile, 'blocks')
+  }
+
   // Generate llms.txt
-  const llmsTxt = generateLlmsTxt(componentDocs, baseUrl)
+  const llmsTxt = generateLlmsTxt(componentDocs, blockDocs, baseUrl)
   await fs.writeFile(path.join(docsAppDir, 'public', 'llms.txt'), llmsTxt)
   console.log('✅ Generated: public/llms.txt')
 
   // Generate llms-full.txt
-  const llmsFullTxt = generateLlmsFullTxt(componentDocs)
+  const llmsFullTxt = generateLlmsFullTxt([...componentDocs, ...blockDocs])
   await fs.writeFile(path.join(docsAppDir, 'public', 'llms-full.txt'), llmsFullTxt)
   console.log('✅ Generated: public/llms-full.txt')
 
   // Summary
-  const totalExamples = componentDocs.reduce(
+  const allDocs = [...componentDocs, ...blockDocs]
+  const totalExamples = allDocs.reduce(
     (sum, c) => sum + c.markdown.split('### ').length - 1,
     0,
   )
   console.log('')
   console.log(
-    `📊 Summary: ${componentDocs.length} components, ~${totalExamples} examples`,
+    `📊 Summary: ${componentDocs.length} components, ${blockDocs.length} blocks, ~${totalExamples} examples`,
   )
   console.log('✅ Done!')
 }
