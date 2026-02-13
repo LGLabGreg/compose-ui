@@ -1,6 +1,8 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import SimpleStatsExample from './examples/simple-stats'
+import StatsBannerExample from './examples/stats-banner'
+import StatsComparisonExample from './examples/stats-comparison'
 import StatsGridExample from './examples/stats-grid'
 import StatsRingExample from './examples/stats-ring'
 import StatsTrendExample from './examples/stats-trend'
@@ -75,6 +77,20 @@ export const metadata = {
   filePath='app/(docs)/blocks/statistics/examples/stats-grid.tsx'
 >
   <StatsGridExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats Comparison'
+  filePath='app/(docs)/blocks/statistics/examples/stats-comparison.tsx'
+>
+  <StatsComparisonExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Stats Banner'
+  filePath='app/(docs)/blocks/statistics/examples/stats-banner.tsx'
+>
+  <StatsBannerExample />
 </ExampleLoader>
 
 </ComponentPage>

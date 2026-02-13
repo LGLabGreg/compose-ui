@@ -9,10 +9,10 @@ export default function ComponentsLayout({ children }: { children: React.ReactNo
       <div className='flex min-h-screen flex-col'>
         <DocHeader />
         <div className='flex flex-1 pt-14'>
-          <aside className='hidden md:block fixed left-0 top-14 bottom-0 w-56 border-r bg-background py-6'>
+          <aside className='hidden md:block fixed left-0 top-14 bottom-0 w-60 border-r bg-background py-6'>
             <SectionNavigation className='px-4' />
           </aside>
-          <main className='flex-1 overflow-auto md:pl-56 xl:pr-64'>{children}</main>
+          <main className='flex-1 overflow-auto md:pl-60 xl:pr-64'>{children}</main>
           <aside className='hidden xl:block fixed right-0 top-14 bottom-0 w-64 border-l bg-background py-6 px-4'>
             <TableOfContents />
           </aside>

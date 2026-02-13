@@ -1,6 +1,7 @@
 export interface DocsNavigationItem {
   name: string
   href: string
+  badge?: string
   items?: DocsNavigationItem[]
 }
 
@@ -81,6 +82,11 @@ export const docsNavigation: DocsNavigationSection[] = [
 export const blocksNavigation: DocsNavigationSection[] = [
   {
     name: 'Blocks',
-    items: [{ name: 'Statistics', href: '/blocks/statistics' }],
+    items: [
+      { name: 'Statistics', href: '/blocks/statistics' },
+      { name: 'Chart Cards', href: '/blocks/chart-cards', badge: 'Soon' },
+      { name: 'Data Tables', href: '/blocks/data-tables', badge: 'Soon' },
+      { name: 'Headers & Toolbars', href: '/blocks/headers-toolbars', badge: 'Soon' },
+    ],
   },
 ]

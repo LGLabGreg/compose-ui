@@ -1,5 +1,6 @@
 'use client'
 
+import { Badge } from '@lglab/compose-ui/badge'
 import {
   CollapsiblePanel,
   CollapsibleRoot,
@@ -62,17 +63,31 @@ export function DocsNavigation({
                         <ul className='space-y-1'>
                           {section.items.map((item) => (
                             <li key={item.href}>
-                              <Link
-                                href={item.href}
-                                className={`block rounded-md px-2 py-1.5 text-sm transition-colors ${
-                                  pathname === item.href
-                                    ? 'bg-muted font-medium text-foreground'
-                                    : 'hover:bg-muted/50 hover:text-foreground'
-                                }`}
-                                onClick={closeDrawer}
-                              >
-                                {item.name}
-                              </Link>
+                              {item.badge ? (
+                                <span className='flex items-center justify-between rounded-md px-2 py-1.5 text-sm text-muted-foreground cursor-default'>
+                                  {item.name}
+                                  <Badge
+                                    variant='secondary'
+                                    size='sm'
+                                    shape='pill'
+                                    appearance='light'
+                                  >
+                                    {item.badge}
+                                  </Badge>
+                                </span>
+                              ) : (
+                                <Link
+                                  href={item.href}
+                                  className={`block rounded-md px-2 py-1.5 text-sm transition-colors ${
+                                    pathname === item.href
+                                      ? 'bg-muted font-medium text-foreground'
+                                      : 'hover:bg-muted/50 hover:text-foreground'
+                                  }`}
+                                  onClick={closeDrawer}
+                                >
+                                  {item.name}
+                                </Link>
+                              )}
                             </li>
                           ))}
                         </ul>
@@ -97,17 +112,31 @@ export function DocsNavigation({
                         <ul className='space-y-1'>
                           {section.items.map((item) => (
                             <li key={item.href}>
-                              <Link
-                                href={item.href}
-                                className={`block rounded-md px-2 py-1.5 text-sm transition-colors ${
-                                  pathname === item.href
-                                    ? 'bg-muted font-medium text-foreground'
-                                    : 'hover:bg-muted/50 hover:text-foreground'
-                                }`}
-                                onClick={closeDrawer}
-                              >
-                                {item.name}
-                              </Link>
+                              {item.badge ? (
+                                <span className='flex items-center justify-between rounded-md px-2 py-1.5 text-sm text-muted-foreground cursor-default'>
+                                  {item.name}
+                                  <Badge
+                                    variant='secondary'
+                                    size='sm'
+                                    shape='pill'
+                                    appearance='light'
+                                  >
+                                    {item.badge}
+                                  </Badge>
+                                </span>
+                              ) : (
+                                <Link
+                                  href={item.href}
+                                  className={`block rounded-md px-2 py-1.5 text-sm transition-colors ${
+                                    pathname === item.href
+                                      ? 'bg-muted font-medium text-foreground'
+                                      : 'hover:bg-muted/50 hover:text-foreground'
+                                  }`}
+                                  onClick={closeDrawer}
+                                >
+                                  {item.name}
+                                </Link>
+                              )}
                             </li>
                           ))}
                         </ul>

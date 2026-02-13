@@ -19,8 +19,10 @@ import { Github, Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
+import { blocksNavigation, docsNavigation } from '@/lib/navigation'
+
+import { DocsNavigation } from './docs-navigation'
 import { Logo } from './logo'
-import { SectionNavigation } from './section-navigation'
 import { ThemeColorSelector } from './theme-color-selector'
 import { ThemeToggle } from './theme-toggle'
 
@@ -76,7 +78,11 @@ export function DocHeader() {
               >
                 <X className='size-4' />
               </DrawerClose>
-              <SectionNavigation closeDrawer={() => setOpen(false)} collapsible={false} />
+              <DocsNavigation
+                closeDrawer={() => setOpen(false)}
+                collapsible={false}
+                navigation={[...docsNavigation, ...blocksNavigation]}
+              />
             </DrawerPopup>
           </DrawerPortal>
         </DrawerRoot>
