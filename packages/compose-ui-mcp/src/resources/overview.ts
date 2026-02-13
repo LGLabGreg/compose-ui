@@ -50,6 +50,8 @@ Use these tools to access component documentation:
 
 - **find_components**: Fuzzy search all components by name
 - **get_component**: Get full documentation for a specific component (supports section filtering)
+- **find_blocks**: Fuzzy search all blocks (pre-built dashboard patterns) by name
+- **get_block**: Get full documentation for a specific block (supports section filtering)
 
 ## Styling Guidelines
 
