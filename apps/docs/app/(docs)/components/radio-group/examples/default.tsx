@@ -9,7 +9,11 @@ export default function DefaultExample() {
   const [value, setValue] = React.useState<string>('fuji')
 
   return (
-    <RadioGroupRoot aria-labelledby={id} value={value} onValueChange={setValue}>
+    <RadioGroupRoot
+      aria-labelledby={id}
+      value={value}
+      onValueChange={(value) => setValue(value as string)}
+    >
       <div className='text-sm font-medium text-foreground' id={id}>
         Best apple
       </div>
