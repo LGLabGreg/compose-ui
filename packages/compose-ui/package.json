@@ -242,7 +242,7 @@
     "*.css"
   ],
   "peerDependencies": {
-    "@base-ui/react": "^1.0.0",
+    "@base-ui/react": "^1.2.0",
     "@types/react": "^18 || ^19",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -255,18 +255,18 @@
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
-    "@base-ui/react": "^1.1.0",
-    "@types/node": "^25.2.1",
-    "@types/react": "^19.2.13",
+    "@base-ui/react": "^1.2.0",
+    "@types/node": "^25.2.3",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "date-fns": "^4.1.0",
     "globals": "^17.3.0",
     "react": "^19.2.4",
-    "react-day-picker": "^9.13.1",
+    "react-day-picker": "^9.13.2",
     "react-dom": "^19.2.4",
     "recharts": "^3.7.0",
     "tsdown": "^0.12.9",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.54.0"
+    "typescript-eslint": "^8.55.0"
   }
 }
