@@ -46,8 +46,8 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 
 ## Components
 
-- [Toolbar](https://compose-ui.dev/components/toolbar.md): A container for grouping a set of buttons and controls.
 - [Tooltip](https://compose-ui.dev/components/tooltip.md): A popup that appears when an element is hovered or focused, showing a hint for sighted users.
+- [Toolbar](https://compose-ui.dev/components/toolbar.md): A container for grouping a set of buttons and controls.
 - [Toggle Group](https://compose-ui.dev/components/toggle-group.md): Provides a shared state to a series of toggle buttons.
 - [Toggle](https://compose-ui.dev/components/toggle.md): A two-state button that can be on or off.
 - [Toast](https://compose-ui.dev/components/toast.md): A notification message that appears temporarily to provide feedback.
@@ -63,8 +63,8 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Scroll Area](https://compose-ui.dev/components/scroll-area.md): A native scroll container with custom scrollbars for consistent styling across browsers.
 - [Radio Group](https://compose-ui.dev/components/radio-group.md): Provides shared state to a series of radio buttons.
 - [Progress](https://compose-ui.dev/components/progress.md): The progressbar range widget indicates that a request has been received and the application is making progress toward completing the requested action.
-- [Popover](https://compose-ui.dev/components/popover.md): An accessible popup anchored to a button.
 - [Preview Card](https://compose-ui.dev/components/preview-card.md): A card that displays contextual content when hovering a link.
+- [Popover](https://compose-ui.dev/components/popover.md): An accessible popup anchored to a button.
 - [Pagination](https://compose-ui.dev/components/pagination.md): A composable pagination component for navigating through paginated content. Use with tables, search results, or any paginated data.
 - [Number Field](https://compose-ui.dev/components/number-field.md): A numeric input element with increment and decrement buttons, and a scrub area.
 - [Navigation Menu](https://compose-ui.dev/components/navigation-menu.md): A navigation component with support for dropdowns and submenus.
@@ -80,11 +80,11 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Drawer](https://compose-ui.dev/components/drawer.md): A panel that slides in from the edge of the screen, commonly used for navigation, filters, or supplementary content.
 - [Dialog](https://compose-ui.dev/components/dialog.md): A popup that opens on top of the entire page with a backdrop, commonly used for confirmations, forms, and important messages.
 - [Date Picker](https://compose-ui.dev/components/calendar.md): Compose a date picker using Calendar and Popover primitives.
-- [Combobox](https://compose-ui.dev/components/combobox.md): An input combined with a list of predefined items to select, with filtering support.
 - [Context Menu](https://compose-ui.dev/components/context-menu.md): A menu triggered by right-click or long press, rendering at the pointer position.
+- [Combobox](https://compose-ui.dev/components/combobox.md): An input combined with a list of predefined items to select, with filtering support.
+- [Collapsible](https://compose-ui.dev/components/collapsible.md): A component that allows content to be expanded or collapsed.
 - [Checkbox Group](https://compose-ui.dev/components/checkbox-group.md): Provides shared state to a series of checkboxes.
 - [Checkbox](https://compose-ui.dev/components/checkbox.md): A control that allows the user to toggle between checked and unchecked states.
-- [Collapsible](https://compose-ui.dev/components/collapsible.md): A component that allows content to be expanded or collapsed.
 - [Chart](https://compose-ui.dev/components/chart.md): A set of wrapper components that extend Recharts with styled tooltips, legends, and theme-aware colors. For full chart capabilities, refer to the Recharts documentation.
 - [Card](https://compose-ui.dev/components/card.md): A flexible card component with support for media, headers, content sections, and footers. Supports both vertical and horizontal layouts with multiple variants.
 - [Calendar](https://compose-ui.dev/components/calendar.md): A date calendar component built on react-day-picker.
@@ -93,13 +93,13 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Badge](https://compose-ui.dev/components/badge.md): A versatile badge component for displaying labels, status indicators, and tags with multiple variants, sizes, and shapes.
 - [Avatar](https://compose-ui.dev/components/avatar.md): An easily stylable avatar component for displaying user profile pictures, initials, or fallback content.
 - [Autocomplete](https://compose-ui.dev/components/autocomplete.md): An input field with a filterable dropdown list of suggestions.
-- [Alert](https://compose-ui.dev/components/alert.md): A composable alert component for displaying important messages with multiple variants, appearances, and sizes.
 - [Alert Dialog](https://compose-ui.dev/components/alert-dialog.md): A dialog that requires a user response to proceed.
+- [Alert](https://compose-ui.dev/components/alert.md): A composable alert component for displaying important messages with multiple variants, appearances, and sizes.
 - [Accordion](https://compose-ui.dev/components/accordion.md): A set of collapsible panels with headings.
 
 ## Blocks
 
-- [Statistics](https://compose-ui.dev/blocks/statistics.md): Dashboard statistics block patterns for key metrics, trends, and KPI summaries.
+- [Statistics](https://compose-ui.dev/blocks/statistics.md): Dashboard statistics blocks for key metrics, trend indicators, and KPI summaries.
 
 ## Optional
 
