@@ -50,8 +50,8 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 - [Toolbar](https://compose-ui.dev/components/toolbar.md): A container for grouping a set of buttons and controls.
 - [Toggle Group](https://compose-ui.dev/components/toggle-group.md): Provides a shared state to a series of toggle buttons.
 - [Toggle](https://compose-ui.dev/components/toggle.md): A two-state button that can be on or off.
-- [Timeline](https://compose-ui.dev/components/timeline.md): A composable timeline component for displaying chronological events with multiple layout positions, marker variants, and custom icons.
 - [Toast](https://compose-ui.dev/components/toast.md): A notification message that appears temporarily to provide feedback.
+- [Timeline](https://compose-ui.dev/components/timeline.md): A composable timeline component for displaying chronological events with multiple layout positions, marker variants, and custom icons.
 - [Textarea](https://compose-ui.dev/components/textarea.md): A multi-line text input element.
 - [Tabs](https://compose-ui.dev/components/tabs.md): A component for toggling between related panels on the same page with an animated indicator.
 - [Table](https://compose-ui.dev/components/table.md): A responsive table component with support for variants, alignment, and a useTable hook for declarative column configuration.
