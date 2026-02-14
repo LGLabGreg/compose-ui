@@ -197,9 +197,7 @@ export default function StackedBarChartCardBlock() {
                 tickLine={false}
                 axisLine={false}
                 tickMargin={8}
-                tickFormatter={(v: number) =>
-                  v >= 1000 ? `${(v / 1000).toFixed(v >= 10000 ? 0 : 1)}K` : String(v)
-                }
+                tickFormatter={(v: number) => formatCurrency(v)}
                 width={40}
               />
               <Tooltip

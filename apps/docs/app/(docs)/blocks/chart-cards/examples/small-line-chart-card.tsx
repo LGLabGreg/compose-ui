@@ -123,7 +123,7 @@ export default function SmallLineChartCardBlock() {
                 {formatCurrency(total)}
               </data>
               <span
-                className={`text-xs font-medium ${isPositive ? 'text-success' : 'text-danger'}`}
+                className={`text-xs font-medium ${isPositive ? 'text-success' : 'text-destructive'}`}
                 aria-label={`Change: ${isPositive ? '+' : ''}${change}%`}
               >
                 {isPositive ? '+' : ''}

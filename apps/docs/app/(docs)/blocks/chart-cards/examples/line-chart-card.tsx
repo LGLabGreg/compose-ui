@@ -167,7 +167,7 @@ export default function LineChartCardBlock() {
 
         <CardContent className='py-6'>
           <div className='flex flex-col gap-2 lg:flex-row lg:items-stretch'>
-            <ChartRoot config={config} className='h-[200px] w-full'>
+            <ChartRoot config={config} className='h-[160px] w-full'>
               <LineChart
                 data={filtered}
                 accessibilityLayer

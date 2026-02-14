@@ -59,7 +59,13 @@ export default function SmallAreaChartCardBlock() {
                 margin={{ top: 4, right: 0, bottom: 0, left: 0 }}
               >
                 <defs>
-                  <linearGradient id='smallAreaFill' x1='0' y1='0' x2='0' y2='1'>
+                  <linearGradient
+                    id='small-area-fill-sessions'
+                    x1='0'
+                    y1='0'
+                    x2='0'
+                    y2='1'
+                  >
                     <stop
                       offset='0%'
                       stopColor='var(--color-sessions)'
@@ -87,7 +93,7 @@ export default function SmallAreaChartCardBlock() {
                   dataKey='sessions'
                   stroke='var(--color-sessions)'
                   strokeWidth={2}
-                  fill='url(#smallAreaFill)'
+                  fill='url(#small-area-fill-sessions)'
                   activeDot={{ r: 4, strokeWidth: 2, fill: 'var(--color-background)' }}
                 />
               </AreaChart>

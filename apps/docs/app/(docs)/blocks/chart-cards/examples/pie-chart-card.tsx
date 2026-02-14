@@ -156,7 +156,7 @@ export default function PieChartCardBlock() {
             <div
               role='group'
               aria-label='Traffic source breakdown'
-              className='flex-1 space-y-3'
+              className='flex-1 space-y-2'
             >
               {sources.map((s) => {
                 const share = Math.round((s.visitors / total) * 100)

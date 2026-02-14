@@ -33,15 +33,36 @@ const data = [
   { date: 'Dec', pageViews: 8700, uniqueVisitors: 4800 },
 ]
 
-const config: ChartConfig = {
-  pageViews: { label: 'Page Views', color: 'var(--color-teal-600)' },
-  uniqueVisitors: { label: 'Unique Visitors', color: 'var(--color-amber-600)' },
-}
+const series = [
+  { key: 'pageViews', label: 'Page Views', color: 'var(--color-teal-600)' },
+  { key: 'uniqueVisitors', label: 'Unique Visitors', color: 'var(--color-amber-600)' },
+] as const
+
+type SeriesKey = (typeof series)[number]['key']
+
+const config: ChartConfig = Object.fromEntries(
+  series.map((s) => [s.key, { label: s.label, color: s.color }]),
+)
+
+const formatCompact = (v: number) =>
+  new Intl.NumberFormat('en-US', {
+    notation: 'compact',
+    compactDisplay: 'short',
+    maximumFractionDigits: 1,
+  }).format(v)
+
+const totals = Object.fromEntries(
+  series.map((s) => [s.key, data.reduce((sum, d) => sum + d[s.key], 0)]),
+) as Record<SeriesKey, number>
 
 const summaryStats = [
-  { label: 'Total Views', value: '88.6K', rawValue: 88600, change: '+23.1%' },
-  { label: 'Unique Visitors', value: '43.5K', rawValue: 43500, change: '+18.7%' },
-  { label: 'Avg. per Month', value: '7.4K', rawValue: 7400, change: '+15.4%' },
+  { label: 'Total Views', rawValue: totals.pageViews, change: 23.1 },
+  { label: 'Unique Visitors', rawValue: totals.uniqueVisitors, change: 18.7 },
+  {
+    label: 'Avg. per Month',
+    rawValue: Math.round(totals.pageViews / data.length),
+    change: 15.4,
+  },
 ]
 
 export default function AreaChartCardBlock() {
@@ -80,13 +101,13 @@ export default function AreaChartCardBlock() {
                     value={stat.rawValue}
                     className='text-lg font-semibold tracking-tight'
                   >
-                    {stat.value}
+                    {formatCompact(stat.rawValue)}
                   </data>
                   <span
                     className='text-xs font-medium text-success'
-                    aria-label={`Change: ${stat.change}`}
+                    aria-label={`Change: +${stat.change}%`}
                   >
-                    {stat.change}
+                    +{stat.change}%
                   </span>
                 </div>
               </div>
@@ -100,30 +121,27 @@ export default function AreaChartCardBlock() {
           <ChartRoot config={config} className='h-[280px] w-full'>
             <AreaChart data={data} accessibilityLayer>
               <defs>
-                <linearGradient id='fillPageViews' x1='0' y1='0' x2='0' y2='1'>
-                  <stop
-                    offset='0%'
-                    stopColor='var(--color-pageViews)'
-                    stopOpacity={0.25}
-                  />
-                  <stop
-                    offset='100%'
-                    stopColor='var(--color-pageViews)'
-                    stopOpacity={0.02}
-                  />
-                </linearGradient>
-                <linearGradient id='fillUniqueVisitors' x1='0' y1='0' x2='0' y2='1'>
-                  <stop
-                    offset='0%'
-                    stopColor='var(--color-uniqueVisitors)'
-                    stopOpacity={0.25}
-                  />
-                  <stop
-                    offset='100%'
-                    stopColor='var(--color-uniqueVisitors)'
-                    stopOpacity={0.02}
-                  />
-                </linearGradient>
+                {series.map((s) => (
+                  <linearGradient
+                    key={s.key}
+                    id={`area-card-fill-${s.key}`}
+                    x1='0'
+                    y1='0'
+                    x2='0'
+                    y2='1'
+                  >
+                    <stop
+                      offset='0%'
+                      stopColor={`var(--color-${s.key})`}
+                      stopOpacity={0.25}
+                    />
+                    <stop
+                      offset='100%'
+                      stopColor={`var(--color-${s.key})`}
+                      stopOpacity={0.02}
+                    />
+                  </linearGradient>
+                ))}
               </defs>
               <CartesianGrid vertical={false} />
               <XAxis dataKey='date' tickLine={false} axisLine={false} tickMargin={8} />
@@ -133,24 +151,18 @@ export default function AreaChartCardBlock() {
                 verticalAlign='bottom'
                 wrapperStyle={{ paddingTop: 14 }}
               />
-              <Area
-                dataKey='uniqueVisitors'
-                type='monotone'
-                fill='url(#fillUniqueVisitors)'
-                stroke='var(--color-uniqueVisitors)'
-                strokeWidth={2}
-                dot={false}
-                activeDot={{ r: 4, strokeWidth: 0 }}
-              />
-              <Area
-                dataKey='pageViews'
-                type='monotone'
-                fill='url(#fillPageViews)'
-                stroke='var(--color-pageViews)'
-                strokeWidth={2}
-                dot={false}
-                activeDot={{ r: 4, strokeWidth: 0 }}
-              />
+              {series.map((s) => (
+                <Area
+                  key={s.key}
+                  dataKey={s.key}
+                  type='monotone'
+                  fill={`url(#area-card-fill-${s.key})`}
+                  stroke={`var(--color-${s.key})`}
+                  strokeWidth={2}
+                  dot={false}
+                  activeDot={{ r: 4, strokeWidth: 0 }}
+                />
+              ))}
             </AreaChart>
           </ChartRoot>
         </CardContent>

@@ -189,7 +189,7 @@ export default function ComposedChartCardBlock() {
             <ChartRoot config={chartConfig} className='h-[260px] w-full'>
               <ComposedChart data={data} accessibilityLayer>
                 <defs>
-                  <linearGradient id='fillMixedRevenue' x1='0' y1='0' x2='0' y2='1'>
+                  <linearGradient id='composed-fill-revenue' x1='0' y1='0' x2='0' y2='1'>
                     <stop
                       offset='0%'
                       stopColor='var(--color-revenue)'
@@ -233,7 +233,7 @@ export default function ComposedChartCardBlock() {
                 <Area
                   dataKey='revenue'
                   type='monotone'
-                  fill='url(#fillMixedRevenue)'
+                  fill='url(#composed-fill-revenue)'
                   stroke='var(--color-revenue)'
                   strokeWidth={2}
                   dot={false}

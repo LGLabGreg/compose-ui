@@ -111,9 +111,9 @@ function TabChart({ tab }: { tab: TabKey }) {
     [tab]: { label: meta.label, color: meta.color },
   }
 
-  const tooltipContent = ({ active, payload, label }: Record<string, unknown>) => (
+  const renderTooltip = ({ active, payload, label }: Record<string, unknown>) => (
     <ChartTooltipContent
-      active={active as boolean}
+      active={active as boolean | undefined}
       payload={payload as ChartTooltipContentProps['payload']}
       indicator='line'
       label={label != null ? String(label) : undefined}
@@ -126,7 +126,7 @@ function TabChart({ tab }: { tab: TabKey }) {
       {tab === 'revenue' ? (
         <AreaChart data={data} accessibilityLayer>
           <defs>
-            <linearGradient id='fillRevenue' x1='0' y1='0' x2='0' y2='1'>
+            <linearGradient id='tabs-fill-revenue' x1='0' y1='0' x2='0' y2='1'>
               <stop offset='0%' stopColor={meta.color} stopOpacity={0.25} />
               <stop offset='100%' stopColor={meta.color} stopOpacity={0.02} />
             </linearGradient>
@@ -139,11 +139,11 @@ function TabChart({ tab }: { tab: TabKey }) {
             width={40}
             tickFormatter={(v: number) => meta.format(v)}
           />
-          <Tooltip content={tooltipContent} />
+          <Tooltip content={renderTooltip} />
           <Area
             dataKey={tab}
             type='monotone'
-            fill='url(#fillRevenue)'
+            fill='url(#tabs-fill-revenue)'
             stroke={meta.color}
             strokeWidth={2}
             dot={false}
@@ -155,7 +155,7 @@ function TabChart({ tab }: { tab: TabKey }) {
           <CartesianGrid vertical={false} />
           <XAxis dataKey='month' tickLine={false} axisLine={false} tickMargin={8} />
           <YAxis tickLine={false} axisLine={false} width={40} />
-          <Tooltip content={tooltipContent} />
+          <Tooltip content={renderTooltip} />
           <Bar dataKey={tab} fill={meta.color} radius={[4, 4, 0, 0]} />
         </BarChart>
       ) : (
@@ -168,7 +168,7 @@ function TabChart({ tab }: { tab: TabKey }) {
             width={40}
             tickFormatter={(v: number) => meta.format(v)}
           />
-          <Tooltip content={tooltipContent} />
+          <Tooltip content={renderTooltip} />
           <Line
             dataKey={tab}
             stroke={meta.color}
