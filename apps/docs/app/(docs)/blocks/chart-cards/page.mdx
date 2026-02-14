@@ -1,0 +1,41 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import AreaChartCardExample from './examples/area-chart-card'
+import BarChartCardExample from './examples/bar-chart-card'
+import LineChartCardExample from './examples/line-chart-card'
+
+export const metadata = {
+  title: 'Chart Cards',
+  description:
+    'Dashboard chart card blocks that wrap charts with headers, legends, filters, and summary statistics.',
+}
+
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component='chart-cards'
+  section='blocks'
+>
+
+<ExampleLoader
+  title='Area Chart Card'
+  filePath='app/(docs)/blocks/chart-cards/examples/area-chart-card.tsx'
+>
+  <AreaChartCardExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Bar Chart Card'
+  filePath='app/(docs)/blocks/chart-cards/examples/bar-chart-card.tsx'
+>
+  <BarChartCardExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Line Chart Card'
+  filePath='app/(docs)/blocks/chart-cards/examples/line-chart-card.tsx'
+>
+  <LineChartCardExample />
+</ExampleLoader>
+
+</ComponentPage>
