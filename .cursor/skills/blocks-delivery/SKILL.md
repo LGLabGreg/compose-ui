@@ -107,6 +107,8 @@ Before marking a block as `DONE`, verify:
 - Realistic content/data states included.
 - At least one polish detail beyond baseline layout.
 - **Layout is structurally distinct** from other blocks in the same section.
+- **Small cards**: CTA present (ghost button + Separator at card bottom). Small cards are entry points — no dead ends.
+- **Small cards**: unique analytical/interactive element beyond chart type swap (e.g., reference line, peak callout, goal indicator, threshold color shift).
 
 ### Semantics & Accessibility (mandatory — check every item)
 - `<section>` wrapper has `aria-labelledby` pointing to the `CardTitle` id.

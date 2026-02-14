@@ -59,13 +59,7 @@ export default function MiniBarChartCardBlock() {
           <ChartRoot config={config} className='h-[120px] w-full'>
             <BarChart data={data} accessibilityLayer>
               <Tooltip content={<ChartTooltipContent hideLabel />} />
-              <XAxis
-                dataKey='hour'
-                tickLine={false}
-                axisLine={false}
-                tickMargin={4}
-                tick={{ fontSize: 12 }}
-              />
+              <XAxis dataKey='hour' tickLine={false} axisLine={false} tickMargin={4} />
               <Bar
                 dataKey='visitors'
                 fill='var(--color-visitors)'
@@ -73,7 +67,7 @@ export default function MiniBarChartCardBlock() {
               />
             </BarChart>
           </ChartRoot>
-          <Separator className='my-2' />
+          <Separator className='mb-2' />
           <Button variant='ghost' size='sm' className='flex ml-auto'>
             View full report
             <ArrowRight className='size-3' />

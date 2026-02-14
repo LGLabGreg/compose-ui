@@ -81,7 +81,7 @@ export default function LineChartCardBlock() {
     <section className='w-full' aria-labelledby='line-chart-card-title'>
       <CardRoot>
         <CardHeader>
-          <div className='flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between'>
             <div className='space-y-1'>
               <CardTitle id='line-chart-card-title' className='flex items-center gap-2'>
                 <TrendingUp className='size-4' aria-hidden='true' />
