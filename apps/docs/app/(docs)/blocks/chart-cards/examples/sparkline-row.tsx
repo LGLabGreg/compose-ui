@@ -6,17 +6,7 @@ import { type ChartConfig, ChartRoot, ChartTooltipContent } from '@lglab/compose
 import { ArrowDown, ArrowUp, BarChart3 } from 'lucide-react'
 import { Area, AreaChart, Tooltip } from 'recharts'
 
-interface MetricRow {
-  label: string
-  value: string
-  rawValue: number
-  change: number
-  sparkline: number[]
-  color: string
-  configKey: string
-}
-
-const metrics: MetricRow[] = [
+const metrics = [
   {
     label: 'Revenue',
     value: '$48.2K',
@@ -41,7 +31,7 @@ const metrics: MetricRow[] = [
     rawValue: 342,
     change: -3.2,
     sparkline: [38, 35, 32, 28, 30, 27, 31, 29, 26, 28, 25, 27],
-    color: 'var(--color-rose-600)',
+    color: 'var(--color-cyan-600)',
     configKey: 'customers',
   },
   {
@@ -54,6 +44,41 @@ const metrics: MetricRow[] = [
     configKey: 'aov',
   },
 ]
+
+function Sparkline({
+  data,
+  color,
+  gradientId,
+}: {
+  data: { i: number; v: number }[]
+  color: string
+  gradientId: string
+}) {
+  const config: ChartConfig = { v: { label: '', color } }
+
+  return (
+    <ChartRoot config={config} className='h-[32px] w-full'>
+      <AreaChart data={data} margin={{ top: 2, right: 2, bottom: 2, left: 2 }}>
+        <defs>
+          <linearGradient id={gradientId} x1='0' y1='0' x2='0' y2='1'>
+            <stop offset='0%' stopColor={color} stopOpacity={0.25} />
+            <stop offset='100%' stopColor={color} stopOpacity={0.02} />
+          </linearGradient>
+        </defs>
+        <Tooltip content={<ChartTooltipContent hideLabel indicator='line' />} />
+        <Area
+          dataKey='v'
+          type='monotone'
+          fill={`url(#${gradientId})`}
+          stroke={color}
+          strokeWidth={1.5}
+          dot={false}
+          activeDot={{ r: 3, strokeWidth: 0 }}
+        />
+      </AreaChart>
+    </ChartRoot>
+  )
+}
 
 export default function SparklineRowBlock() {
   return (
@@ -70,9 +95,6 @@ export default function SparklineRowBlock() {
           {metrics.map((metric) => {
             const isPositive = metric.change >= 0
             const sparkData = metric.sparkline.map((v, i) => ({ i, v }))
-            const sparkConfig: ChartConfig = {
-              v: { label: metric.label, color: metric.color },
-            }
 
             return (
               <div
@@ -82,12 +104,10 @@ export default function SparklineRowBlock() {
                 className='py-3'
               >
                 <div className='flex items-center gap-4'>
-                  {/* Label */}
                   <span className='w-28 shrink-0 text-sm text-muted-foreground sm:w-32'>
                     {metric.label}
                   </span>
 
-                  {/* Value */}
                   <data
                     value={metric.rawValue}
                     className='w-20 shrink-0 text-sm font-semibold tabular-nums sm:w-24'
@@ -95,7 +115,6 @@ export default function SparklineRowBlock() {
                     {metric.value}
                   </data>
 
-                  {/* Change badge */}
                   <Badge
                     variant={isPositive ? 'success' : 'destructive'}
                     appearance='light'
@@ -113,87 +132,21 @@ export default function SparklineRowBlock() {
                     {metric.change}%
                   </Badge>
 
-                  {/* Sparkline — inline on desktop */}
                   <div className='hidden flex-1 sm:block'>
-                    <ChartRoot config={sparkConfig} className='h-[32px] w-full'>
-                      <AreaChart
-                        data={sparkData}
-                        margin={{ top: 2, right: 2, bottom: 2, left: 2 }}
-                      >
-                        <defs>
-                          <linearGradient
-                            id={`fill-${metric.configKey}`}
-                            x1='0'
-                            y1='0'
-                            x2='0'
-                            y2='1'
-                          >
-                            <stop
-                              offset='0%'
-                              stopColor={metric.color}
-                              stopOpacity={0.25}
-                            />
-                            <stop
-                              offset='100%'
-                              stopColor={metric.color}
-                              stopOpacity={0.02}
-                            />
-                          </linearGradient>
-                        </defs>
-                        <Tooltip
-                          content={<ChartTooltipContent hideLabel indicator='line' />}
-                        />
-                        <Area
-                          dataKey='v'
-                          type='monotone'
-                          fill={`url(#fill-${metric.configKey})`}
-                          stroke={metric.color}
-                          strokeWidth={1.5}
-                          dot={false}
-                          activeDot={{ r: 3, strokeWidth: 0 }}
-                        />
-                      </AreaChart>
-                    </ChartRoot>
+                    <Sparkline
+                      data={sparkData}
+                      color={metric.color}
+                      gradientId={`fill-${metric.configKey}`}
+                    />
                   </div>
                 </div>
 
-                {/* Sparkline — below on mobile */}
                 <div className='mt-2 sm:hidden'>
-                  <ChartRoot config={sparkConfig} className='h-[32px] w-full'>
-                    <AreaChart
-                      data={sparkData}
-                      margin={{ top: 2, right: 2, bottom: 2, left: 2 }}
-                    >
-                      <defs>
-                        <linearGradient
-                          id={`fill-${metric.configKey}-mobile`}
-                          x1='0'
-                          y1='0'
-                          x2='0'
-                          y2='1'
-                        >
-                          <stop offset='0%' stopColor={metric.color} stopOpacity={0.25} />
-                          <stop
-                            offset='100%'
-                            stopColor={metric.color}
-                            stopOpacity={0.02}
-                          />
-                        </linearGradient>
-                      </defs>
-                      <Tooltip
-                        content={<ChartTooltipContent hideLabel indicator='line' />}
-                      />
-                      <Area
-                        dataKey='v'
-                        type='monotone'
-                        fill={`url(#fill-${metric.configKey}-mobile)`}
-                        stroke={metric.color}
-                        strokeWidth={1.5}
-                        dot={false}
-                        activeDot={{ r: 3, strokeWidth: 0 }}
-                      />
-                    </AreaChart>
-                  </ChartRoot>
+                  <Sparkline
+                    data={sparkData}
+                    color={metric.color}
+                    gradientId={`fill-${metric.configKey}-mobile`}
+                  />
                 </div>
               </div>
             )

@@ -43,41 +43,40 @@ const data = [
   { month: 'Dec', electronics: 9500, clothing: 6200, home: 4800 },
 ]
 
-const config: ChartConfig = {
-  electronics: { label: 'Electronics', color: 'var(--color-teal-600)' },
-  clothing: { label: 'Clothing', color: 'var(--color-amber-600)' },
-  home: { label: 'Home & Garden', color: 'var(--color-cyan-600)' },
-}
-
 const categories = [
   {
     key: 'electronics',
     label: 'Electronics',
-    value: '$78.6K',
-    rawValue: 78600,
-    share: 47,
-    color: 'bg-teal-600',
-    lightColor: 'bg-teal-600/15',
+    chartColor: 'var(--color-teal-600)',
+    bgColor: 'bg-teal-600',
+    bgLight: 'bg-teal-600/15',
   },
   {
     key: 'clothing',
     label: 'Clothing',
-    value: '$52.0K',
-    rawValue: 52000,
-    share: 31,
-    color: 'bg-amber-600',
-    lightColor: 'bg-amber-600/15',
+    chartColor: 'var(--color-amber-600)',
+    bgColor: 'bg-amber-600',
+    bgLight: 'bg-amber-600/15',
   },
   {
     key: 'home',
     label: 'Home & Garden',
-    value: '$36.3K',
-    rawValue: 36300,
-    share: 22,
-    color: 'bg-cyan-600',
-    lightColor: 'bg-cyan-600/15',
+    chartColor: 'var(--color-cyan-600)',
+    bgColor: 'bg-cyan-600',
+    bgLight: 'bg-cyan-600/15',
   },
-]
+] as const
+
+const config: ChartConfig = Object.fromEntries(
+  categories.map((c) => [c.key, { label: c.label, color: c.chartColor }]),
+)
+
+const totalByCategory = categories.map((cat) => {
+  const total = data.reduce((sum, d) => sum + d[cat.key], 0)
+  return { ...cat, total }
+})
+
+const grandTotal = totalByCategory.reduce((sum, c) => sum + c.total, 0)
 
 export default function BarChartCardBlock() {
   return (
@@ -110,9 +109,7 @@ export default function BarChartCardBlock() {
         <Separator />
 
         <CardContent className='pt-6'>
-          {/* Side-by-side: chart left, category breakdown right */}
           <div className='flex flex-col gap-6 lg:flex-row lg:gap-8'>
-            {/* Chart area — takes 2/3 */}
             <div className='min-w-0 flex-1'>
               <ChartRoot config={config} className='h-[260px] w-full'>
                 <BarChart data={data} accessibilityLayer>
@@ -145,73 +142,71 @@ export default function BarChartCardBlock() {
                       />
                     )}
                   />
-                  <Bar
-                    dataKey='electronics'
-                    fill='var(--color-electronics)'
-                    radius={[4, 4, 0, 0]}
-                  />
-                  <Bar
-                    dataKey='clothing'
-                    fill='var(--color-clothing)'
-                    radius={[4, 4, 0, 0]}
-                  />
-                  <Bar dataKey='home' fill='var(--color-home)' radius={[4, 4, 0, 0]} />
+                  {categories.map((cat) => (
+                    <Bar
+                      key={cat.key}
+                      dataKey={cat.key}
+                      fill={`var(--color-${cat.key})`}
+                      radius={[4, 4, 0, 0]}
+                    />
+                  ))}
                 </BarChart>
               </ChartRoot>
             </div>
 
-            {/* Category breakdown — takes 1/3 */}
             <div
               className='flex flex-col justify-center gap-5 lg:w-56 lg:shrink-0'
               role='group'
               aria-label='Category breakdown'
             >
               <div className='space-y-1'>
-                <p className='text-xs font-medium text-muted-foreground uppercase tracking-wider'>
+                <p className='text-xs font-medium uppercase tracking-wider text-muted-foreground'>
                   Total Revenue
                 </p>
-                <data value={166900} className='text-2xl font-bold tracking-tight'>
-                  $166.9K
+                <data value={grandTotal} className='text-2xl font-bold tracking-tight'>
+                  {formatCurrencyCompact(grandTotal)}
                 </data>
               </div>
 
               <Separator />
 
               <div className='space-y-4'>
-                {categories.map((cat) => (
-                  <div key={cat.key} className='space-y-1.5'>
-                    <div className='flex items-center justify-between'>
-                      <div className='flex items-center gap-2'>
-                        <span
-                          className={`size-2.5 shrink-0 rounded-full ${cat.color}`}
-                          aria-hidden='true'
-                        />
-                        <span className='text-sm font-medium'>{cat.label}</span>
+                {totalByCategory.map((cat) => {
+                  const share = Math.round((cat.total / grandTotal) * 100)
+                  return (
+                    <div key={cat.key} className='space-y-1.5'>
+                      <div className='flex items-center justify-between'>
+                        <div className='flex items-center gap-2'>
+                          <span
+                            className={`size-2.5 shrink-0 rounded-full ${cat.bgColor}`}
+                            aria-hidden='true'
+                          />
+                          <span className='text-sm font-medium'>{cat.label}</span>
+                        </div>
+                        <data
+                          value={cat.total}
+                          className='text-sm font-semibold tabular-nums'
+                        >
+                          {formatCurrencyCompact(cat.total)}
+                        </data>
                       </div>
-                      <data
-                        value={cat.rawValue}
-                        className='text-sm font-semibold tabular-nums'
-                      >
-                        {cat.value}
-                      </data>
+                      <div className='flex items-center gap-2'>
+                        <MeterRoot
+                          value={share}
+                          aria-label={`${cat.label} revenue share`}
+                          animated
+                        >
+                          <MeterTrack className={`h-1.5 ${cat.bgLight}`}>
+                            <MeterIndicator className={cat.bgColor} />
+                          </MeterTrack>
+                        </MeterRoot>
+                        <span className='w-8 text-right text-xs tabular-nums text-muted-foreground'>
+                          {share}%
+                        </span>
+                      </div>
                     </div>
-                    {/* Share meter */}
-                    <div className='flex items-center gap-2'>
-                      <MeterRoot
-                        value={cat.share}
-                        aria-label={`${cat.label} revenue share`}
-                        animated
-                      >
-                        <MeterTrack className={`h-1.5 ${cat.lightColor}`}>
-                          <MeterIndicator className={cat.color} />
-                        </MeterTrack>
-                      </MeterRoot>
-                      <span className='text-xs tabular-nums text-muted-foreground w-8 text-right'>
-                        {cat.share}%
-                      </span>
-                    </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           </div>

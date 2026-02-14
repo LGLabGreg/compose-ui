@@ -125,7 +125,6 @@ export default function ChartWithFiltersBlock() {
               <CardDescription>Sessions by acquisition channel</CardDescription>
             </div>
 
-            {/* Filter toolbar */}
             <div
               role='group'
               aria-label='Chart filters'
@@ -187,7 +186,6 @@ export default function ChartWithFiltersBlock() {
             </div>
           </div>
 
-          {/* Hero metric */}
           <div className='mt-4 flex flex-wrap items-center gap-2'>
             <data value={stats.total} className='text-3xl font-bold tracking-tight'>
               {formatCompact(stats.total)}

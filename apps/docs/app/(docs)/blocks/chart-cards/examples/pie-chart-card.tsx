@@ -14,30 +14,52 @@ import { Separator } from '@lglab/compose-ui/separator'
 import { ArrowUp, PieChartIcon } from 'lucide-react'
 import { Label, Pie, PieChart, Tooltip } from 'recharts'
 
-const data = [
-  { source: 'direct', visitors: 42800, fill: 'var(--color-direct)' },
-  { source: 'organic', visitors: 31200, fill: 'var(--color-organic)' },
-  { source: 'social', visitors: 18600, fill: 'var(--color-social)' },
-  { source: 'referral', visitors: 12400, fill: 'var(--color-referral)' },
-]
+const sources = [
+  {
+    key: 'direct',
+    label: 'Direct',
+    visitors: 42800,
+    chartColor: 'var(--color-teal-600)',
+    bgColor: 'bg-teal-600',
+    bgLight: 'bg-teal-600/15',
+  },
+  {
+    key: 'organic',
+    label: 'Organic Search',
+    visitors: 31200,
+    chartColor: 'var(--color-amber-600)',
+    bgColor: 'bg-amber-600',
+    bgLight: 'bg-amber-600/15',
+  },
+  {
+    key: 'social',
+    label: 'Social Media',
+    visitors: 18600,
+    chartColor: 'var(--color-rose-600)',
+    bgColor: 'bg-rose-600',
+    bgLight: 'bg-rose-600/15',
+  },
+  {
+    key: 'referral',
+    label: 'Referral',
+    visitors: 12400,
+    chartColor: 'var(--color-cyan-600)',
+    bgColor: 'bg-cyan-600',
+    bgLight: 'bg-cyan-600/15',
+  },
+] as const
 
-const config: ChartConfig = {
-  direct: { label: 'Direct', color: 'var(--color-teal-600)' },
-  organic: { label: 'Organic Search', color: 'var(--color-amber-600)' },
-  social: { label: 'Social Media', color: 'var(--color-rose-600)' },
-  referral: { label: 'Referral', color: 'var(--color-cyan-600)' },
-}
+const total = sources.reduce((sum, s) => sum + s.visitors, 0)
 
-const total = data.reduce((sum, d) => sum + d.visitors, 0)
-
-const categories = data.map((d) => ({
-  key: d.source,
-  label: config[d.source].label,
-  value: d.visitors,
-  share: Math.round((d.visitors / total) * 100),
-  color: `bg-${d.source === 'direct' ? 'teal' : d.source === 'organic' ? 'amber' : d.source === 'social' ? 'violet' : d.source === 'referral' ? 'cyan' : 'rose'}-600`,
-  lightColor: `bg-${d.source === 'direct' ? 'teal' : d.source === 'organic' ? 'amber' : d.source === 'social' ? 'violet' : d.source === 'referral' ? 'cyan' : 'rose'}-600/15`,
+const pieData = sources.map((s) => ({
+  source: s.key,
+  visitors: s.visitors,
+  fill: `var(--color-${s.key})`,
 }))
+
+const config: ChartConfig = Object.fromEntries(
+  sources.map((s) => [s.key, { label: s.label, color: s.chartColor }]),
+)
 
 const formatCompact = (v: number) =>
   new Intl.NumberFormat('en-US', {
@@ -88,7 +110,7 @@ export default function PieChartCardBlock() {
                     }
                   />
                   <Pie
-                    data={data}
+                    data={pieData}
                     dataKey='visitors'
                     nameKey='source'
                     innerRadius={70}
@@ -136,47 +158,50 @@ export default function PieChartCardBlock() {
               aria-label='Traffic source breakdown'
               className='flex-1 space-y-3'
             >
-              {categories.map((cat) => (
-                <div
-                  key={cat.key}
-                  className='rounded-lg px-3 py-2 transition-colors hover:bg-muted/50'
-                >
-                  <div className='flex items-center justify-between'>
-                    <div className='flex items-center gap-2'>
-                      <span
-                        className={`size-2.5 shrink-0 rounded-full ${cat.color}`}
-                        aria-hidden='true'
-                      />
-                      <span className='text-sm font-medium'>{cat.label}</span>
+              {sources.map((s) => {
+                const share = Math.round((s.visitors / total) * 100)
+                return (
+                  <div
+                    key={s.key}
+                    className='rounded-lg px-3 py-2 transition-colors hover:bg-muted/50'
+                  >
+                    <div className='flex items-center justify-between'>
+                      <div className='flex items-center gap-2'>
+                        <span
+                          className={`size-2.5 shrink-0 rounded-full ${s.bgColor}`}
+                          aria-hidden='true'
+                        />
+                        <span className='text-sm font-medium'>{s.label}</span>
+                      </div>
+                      <div className='flex items-center gap-2'>
+                        <data
+                          value={s.visitors}
+                          className='text-sm font-semibold tabular-nums'
+                        >
+                          {formatCompact(s.visitors)}
+                        </data>
+                        <span
+                          className='w-8 text-right text-xs tabular-nums text-muted-foreground'
+                          aria-label={`${s.label} share: ${share}%`}
+                        >
+                          {share}%
+                        </span>
+                      </div>
                     </div>
-                    <div className='flex items-center gap-2'>
-                      <data
-                        value={cat.value}
-                        className='text-sm font-semibold tabular-nums'
+                    <div className='mt-1.5'>
+                      <MeterRoot
+                        value={share}
+                        aria-label={`${s.label} traffic share`}
+                        animated
                       >
-                        {formatCompact(cat.value)}
-                      </data>
-                      <span
-                        className='text-xs tabular-nums text-muted-foreground w-8 text-right'
-                        aria-label={`${cat.label} share: ${cat.share}%`}
-                      >
-                        {cat.share}%
-                      </span>
+                        <MeterTrack className={`h-1.5 ${s.bgLight}`}>
+                          <MeterIndicator className={s.bgColor} />
+                        </MeterTrack>
+                      </MeterRoot>
                     </div>
                   </div>
-                  <div className='mt-1.5'>
-                    <MeterRoot
-                      value={cat.share}
-                      aria-label={`${cat.label} traffic share`}
-                      animated
-                    >
-                      <MeterTrack className={`h-1.5 ${cat.lightColor}`}>
-                        <MeterIndicator className={cat.color} />
-                      </MeterTrack>
-                    </MeterRoot>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </CardContent>

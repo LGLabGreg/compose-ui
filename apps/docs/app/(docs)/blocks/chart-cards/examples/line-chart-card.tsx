@@ -116,7 +116,6 @@ export default function LineChartCardBlock() {
             </div>
           </div>
 
-          {/* Hero metric */}
           <div className='mt-2 grid gap-4 sm:items-end'>
             <div className='space-y-1'>
               <div className='flex flex-wrap items-center gap-2'>
@@ -168,7 +167,6 @@ export default function LineChartCardBlock() {
 
         <CardContent className='py-6'>
           <div className='flex flex-col gap-2 lg:flex-row lg:items-stretch'>
-            {/* Chart */}
             <ChartRoot config={config} className='h-[200px] w-full'>
               <LineChart
                 data={filtered}
@@ -205,7 +203,6 @@ export default function LineChartCardBlock() {
             <Separator orientation='horizontal' className='lg:hidden' />
             <Separator orientation='vertical' className='hidden lg:block' />
 
-            {/* Metrics */}
             <div className='lg:w-[280px] lg:pl-6'>
               <div className='flex lg:flex-col gap-4'>
                 <div className='space-y-1'>

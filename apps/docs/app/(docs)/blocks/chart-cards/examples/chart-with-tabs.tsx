@@ -215,7 +215,6 @@ export default function ChartWithTabsBlock() {
               </TabsList>
             </div>
 
-            {/* Hero metric for active tab */}
             <div className='mt-4 flex flex-wrap items-center gap-2'>
               <data value={stats.total} className='text-3xl font-bold tracking-tight'>
                 {meta.format(stats.total)}
