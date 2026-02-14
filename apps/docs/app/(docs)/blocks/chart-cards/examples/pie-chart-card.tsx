@@ -35,9 +35,9 @@ const sources = [
     key: 'social',
     label: 'Social Media',
     visitors: 18600,
-    chartColor: 'var(--color-rose-600)',
-    bgColor: 'bg-rose-600',
-    bgLight: 'bg-rose-600/15',
+    chartColor: 'var(--color-purple-600)',
+    bgColor: 'bg-purple-600',
+    bgLight: 'bg-purple-600/15',
   },
   {
     key: 'referral',

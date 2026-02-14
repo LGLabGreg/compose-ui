@@ -84,7 +84,7 @@ const tabMeta: Record<TabKey, TabMeta> = {
   customers: {
     label: 'Customers',
     icon: Users,
-    color: 'var(--color-violet-600)',
+    color: 'var(--color-purple-600)',
     format: (v) =>
       new Intl.NumberFormat('en-US', {
         notation: 'compact',
@@ -193,7 +193,7 @@ export default function ChartWithTabsBlock() {
       <CardRoot>
         <TabsRoot value={activeTab} onValueChange={(v) => setActiveTab(v as TabKey)}>
           <CardHeader>
-            <div className='flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between'>
+            <div className='flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between'>
               <div className='space-y-1'>
                 <CardTitle id='chart-tabs-title'>Performance Overview</CardTitle>
                 <CardDescription>

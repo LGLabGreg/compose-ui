@@ -52,7 +52,7 @@ type ChannelKey = (typeof channelKeys)[number]
 const config: ChartConfig = {
   direct: { label: 'Direct', color: 'var(--color-teal-600)' },
   organic: { label: 'Organic', color: 'var(--color-amber-600)' },
-  social: { label: 'Social', color: 'var(--color-violet-600)' },
+  social: { label: 'Social', color: 'var(--color-purple-600)' },
   referral: { label: 'Referral', color: 'var(--color-cyan-600)' },
 }
 

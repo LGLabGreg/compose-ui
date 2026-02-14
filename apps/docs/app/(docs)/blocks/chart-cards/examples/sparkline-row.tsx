@@ -40,7 +40,7 @@ const metrics = [
     rawValue: 37.54,
     change: 4.1,
     sparkline: [32, 33, 35, 34, 36, 35, 37, 36, 38, 37, 38, 39],
-    color: 'var(--color-violet-600)',
+    color: 'var(--color-purple-600)',
     configKey: 'aov',
   },
 ]
