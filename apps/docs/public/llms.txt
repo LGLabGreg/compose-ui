@@ -100,6 +100,7 @@ If you have access to MCP tools, use the `compose-ui` MCP server:
 ## Blocks
 
 - [Statistics](https://compose-ui.dev/blocks/statistics.md): Dashboard statistics blocks for key metrics, trend indicators, and KPI summaries.
+- [Chart Cards](https://compose-ui.dev/blocks/chart-cards.md): Dashboard chart card blocks that wrap charts with headers, legends, filters, and summary statistics.
 
 ## Optional
 
