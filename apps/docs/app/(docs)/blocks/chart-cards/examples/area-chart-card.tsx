@@ -16,7 +16,7 @@ import {
 } from '@lglab/compose-ui/chart'
 import { Separator } from '@lglab/compose-ui/separator'
 import { ArrowUp, TrendingUp } from 'lucide-react'
-import { Area, AreaChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts'
+import { Area, AreaChart, CartesianGrid, Legend, Tooltip, XAxis } from 'recharts'
 
 const data = [
   { date: 'Jan', pageViews: 4200, uniqueVisitors: 2400 },
@@ -34,8 +34,8 @@ const data = [
 ]
 
 const config: ChartConfig = {
-  pageViews: { label: 'Page Views', color: 'var(--color-indigo-500)' },
-  uniqueVisitors: { label: 'Unique Visitors', color: 'var(--color-emerald-500)' },
+  pageViews: { label: 'Page Views', color: 'var(--color-teal-600)' },
+  uniqueVisitors: { label: 'Unique Visitors', color: 'var(--color-amber-600)' },
 }
 
 const summaryStats = [
@@ -47,12 +47,12 @@ const summaryStats = [
 export default function AreaChartCardBlock() {
   return (
     <section className='w-full' aria-labelledby='area-chart-card-title'>
-      <CardRoot className='group'>
+      <CardRoot>
         <CardHeader>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between'>
             <div className='space-y-1'>
               <CardTitle id='area-chart-card-title' className='flex items-center gap-2'>
-                <TrendingUp className='size-4 text-primary' aria-hidden='true' />
+                <TrendingUp className='size-4' aria-hidden='true' />
                 Website Traffic
               </CardTitle>
               <CardDescription>
@@ -71,7 +71,6 @@ export default function AreaChartCardBlock() {
             </Badge>
           </div>
 
-          {/* Summary stats row */}
           <div className='mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4'>
             {summaryStats.map((stat) => (
               <div key={stat.label} className='space-y-0.5'>
@@ -128,15 +127,6 @@ export default function AreaChartCardBlock() {
               </defs>
               <CartesianGrid vertical={false} />
               <XAxis dataKey='date' tickLine={false} axisLine={false} tickMargin={8} />
-              <YAxis
-                tickLine={false}
-                axisLine={false}
-                tickMargin={8}
-                tickFormatter={(v: number) =>
-                  v >= 1000 ? `${(v / 1000).toFixed(v >= 10000 ? 0 : 1)}K` : String(v)
-                }
-                width={40}
-              />
               <Tooltip content={<ChartTooltipContent indicator='dot' />} />
               <Legend
                 content={<ChartLegendContent />}

@@ -8,11 +8,25 @@ import {
   CardRoot,
   CardTitle,
 } from '@lglab/compose-ui/card'
-import { type ChartConfig, ChartRoot, ChartTooltipContent } from '@lglab/compose-ui/chart'
+import {
+  type ChartConfig,
+  ChartRoot,
+  ChartTooltipContent,
+  type ChartTooltipContentProps,
+} from '@lglab/compose-ui/chart'
 import { MeterIndicator, MeterRoot, MeterTrack } from '@lglab/compose-ui/meter'
 import { Separator } from '@lglab/compose-ui/separator'
 import { ArrowUp, BarChart3 } from 'lucide-react'
 import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts'
+
+const formatCurrencyCompact = (v: number) =>
+  new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    notation: 'compact',
+    compactDisplay: 'short',
+    maximumFractionDigits: v >= 10_000 ? 0 : 1,
+  }).format(v)
 
 const data = [
   { month: 'Jan', electronics: 4200, clothing: 2800, home: 1800 },
@@ -30,9 +44,9 @@ const data = [
 ]
 
 const config: ChartConfig = {
-  electronics: { label: 'Electronics', color: 'var(--color-violet-500)' },
-  clothing: { label: 'Clothing', color: 'var(--color-sky-500)' },
-  home: { label: 'Home & Garden', color: 'var(--color-amber-500)' },
+  electronics: { label: 'Electronics', color: 'var(--color-teal-600)' },
+  clothing: { label: 'Clothing', color: 'var(--color-amber-600)' },
+  home: { label: 'Home & Garden', color: 'var(--color-cyan-600)' },
 }
 
 const categories = [
@@ -42,8 +56,8 @@ const categories = [
     value: '$78.6K',
     rawValue: 78600,
     share: 47,
-    color: 'bg-violet-500',
-    lightColor: 'bg-violet-500/15',
+    color: 'bg-teal-600',
+    lightColor: 'bg-teal-600/15',
   },
   {
     key: 'clothing',
@@ -51,8 +65,8 @@ const categories = [
     value: '$52.0K',
     rawValue: 52000,
     share: 31,
-    color: 'bg-sky-500',
-    lightColor: 'bg-sky-500/15',
+    color: 'bg-amber-600',
+    lightColor: 'bg-amber-600/15',
   },
   {
     key: 'home',
@@ -60,8 +74,8 @@ const categories = [
     value: '$36.3K',
     rawValue: 36300,
     share: 22,
-    color: 'bg-amber-500',
-    lightColor: 'bg-amber-500/15',
+    color: 'bg-cyan-600',
+    lightColor: 'bg-cyan-600/15',
   },
 ]
 
@@ -73,7 +87,7 @@ export default function BarChartCardBlock() {
           <div className='flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between'>
             <div className='space-y-1'>
               <CardTitle id='bar-chart-card-title' className='flex items-center gap-2'>
-                <BarChart3 className='size-4 text-primary' aria-hidden='true' />
+                <BarChart3 className='size-4' aria-hidden='true' />
                 Revenue by Category
               </CardTitle>
               <CardDescription>
@@ -118,7 +132,19 @@ export default function BarChartCardBlock() {
                     }
                     width={36}
                   />
-                  <Tooltip content={<ChartTooltipContent indicator='dot' />} />
+                  <Tooltip
+                    content={({ active, payload, label }) => (
+                      <ChartTooltipContent
+                        active={active}
+                        payload={payload as ChartTooltipContentProps['payload']}
+                        indicator='dot'
+                        label={label != null ? `Month: ${String(label)}` : undefined}
+                        formatter={(value) =>
+                          typeof value === 'number' ? formatCurrencyCompact(value) : value
+                        }
+                      />
+                    )}
+                  />
                   <Bar
                     dataKey='electronics'
                     fill='var(--color-electronics)'
