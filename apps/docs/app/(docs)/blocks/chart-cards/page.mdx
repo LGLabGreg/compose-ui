@@ -2,7 +2,11 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import AreaChartCardExample from './examples/area-chart-card'
 import BarChartCardExample from './examples/bar-chart-card'
+import ChartWithFiltersExample from './examples/chart-with-filters'
+import ChartWithTabsExample from './examples/chart-with-tabs'
 import LineChartCardExample from './examples/line-chart-card'
+import PieChartCardExample from './examples/pie-chart-card'
+import SparklineRowExample from './examples/sparkline-row'
 
 export const metadata = {
   title: 'Chart Cards',
@@ -36,6 +40,34 @@ export const metadata = {
   filePath='app/(docs)/blocks/chart-cards/examples/line-chart-card.tsx'
 >
   <LineChartCardExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Pie Chart Card'
+  filePath='app/(docs)/blocks/chart-cards/examples/pie-chart-card.tsx'
+>
+  <PieChartCardExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Sparkline Row'
+  filePath='app/(docs)/blocks/chart-cards/examples/sparkline-row.tsx'
+>
+  <SparklineRowExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Chart with Tabs'
+  filePath='app/(docs)/blocks/chart-cards/examples/chart-with-tabs.tsx'
+>
+  <ChartWithTabsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Chart with Filters'
+  filePath='app/(docs)/blocks/chart-cards/examples/chart-with-filters.tsx'
+>
+  <ChartWithFiltersExample />
 </ExampleLoader>
 
 </ComponentPage>
