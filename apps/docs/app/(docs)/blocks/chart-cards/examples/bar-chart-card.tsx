@@ -165,33 +165,33 @@ export default function BarChartCardBlock() {
               <Separator />
 
               <div className='space-y-4'>
-                {totalByCategory.map((cat) => {
-                  const share = Math.round((cat.total / grandTotal) * 100)
+                {totalByCategory.map(({ key, label, total, bgColor, bgLight }) => {
+                  const share = Math.round((total / grandTotal) * 100)
                   return (
-                    <div key={cat.key} className='space-y-1.5'>
+                    <div key={key} className='space-y-1.5'>
                       <div className='flex items-center justify-between'>
                         <div className='flex items-center gap-2'>
                           <span
-                            className={`size-2.5 shrink-0 rounded-full ${cat.bgColor}`}
+                            className={`size-2.5 shrink-0 rounded-full ${bgColor}`}
                             aria-hidden='true'
                           />
-                          <span className='text-sm font-medium'>{cat.label}</span>
+                          <span className='text-sm font-medium'>{label}</span>
                         </div>
                         <data
-                          value={cat.total}
+                          value={total}
                           className='text-sm font-semibold tabular-nums'
                         >
-                          {formatCurrencyCompact(cat.total)}
+                          {formatCurrencyCompact(total)}
                         </data>
                       </div>
                       <div className='flex items-center gap-2'>
                         <MeterRoot
                           value={share}
-                          aria-label={`${cat.label} revenue share`}
+                          aria-label={`${label} revenue share`}
                           animated
                         >
-                          <MeterTrack className={`h-1.5 ${cat.bgLight}`}>
-                            <MeterIndicator className={cat.bgColor} />
+                          <MeterTrack className={`h-1.5 ${bgLight}`}>
+                            <MeterIndicator className={bgColor} />
                           </MeterTrack>
                         </MeterRoot>
                         <span className='w-8 text-right text-xs tabular-nums text-muted-foreground'>

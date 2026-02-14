@@ -90,12 +90,7 @@ export default function SmallLineChartCardBlock() {
         <CardRoot>
           <CardHeader className='pb-2'>
             <div className='flex items-center justify-between'>
-              <CardTitle
-                id='small-line-title'
-                className='text-sm font-medium text-muted-foreground'
-              >
-                Revenue
-              </CardTitle>
+              <CardTitle id='small-line-title'>Revenue</CardTitle>
               <SelectRoot
                 value={range}
                 onValueChange={(v) => v && setRange(v as Range)}

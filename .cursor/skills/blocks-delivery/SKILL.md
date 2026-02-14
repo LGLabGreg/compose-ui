@@ -99,6 +99,7 @@ Before implementing a block, check `.blocks/plan.md` for the assigned layout pat
 Before marking a block as `DONE`, verify:
 
 ### Visual
+
 - **Every visual element uses a Compose UI component when one exists** (blocks showcase the library — no raw divs for bars, badges, meters, separators, etc.).
 - Clear visual hierarchy and readable metric emphasis.
 - Spacing rhythm is consistent and intentional.
@@ -111,6 +112,7 @@ Before marking a block as `DONE`, verify:
 - **Small cards**: unique analytical/interactive element beyond chart type swap (e.g., reference line, peak callout, goal indicator, threshold color shift).
 
 ### Semantics & Accessibility (mandatory — check every item)
+
 - `<section>` wrapper has `aria-labelledby` pointing to the `CardTitle` id.
 - `<data>` elements include the `value` attribute with the raw numeric value (e.g., `<data value={88600}>88.6K</data>`).
 - Decorative icons, color dots, and accent bars use `aria-hidden="true"`.
@@ -158,11 +160,18 @@ These are real mistakes caught during implementation. Check for them before mark
 
 6. **Side panels / breakdown sections without landmarks.** Non-chart panels within a card need `role="group" aria-label="..."` so screen reader users can discover them.
 
+## Important
+
+- **Don't** add comments
+- Keep things simple
+- Verify correct implementation of Compose UI components in /apps/docs/app/(docs)/components
+
 ## Established Code Patterns
 
 Reference these when implementing new blocks:
 
 ### Section + Card wrapper
+
 ```tsx
 <section aria-labelledby='block-id-title'>
   <CardRoot>
@@ -175,25 +184,38 @@ Reference these when implementing new blocks:
 ```
 
 ### Metric with `<data>`
+
 ```tsx
-<data value={88600} className='text-lg font-semibold tracking-tight'>88.6K</data>
+<data value={88600} className='text-lg font-semibold tracking-tight'>
+  88.6K
+</data>
 ```
 
 ### Trend badge
+
 ```tsx
-<Badge variant='success' appearance='light' size='sm' shape='pill'
-  aria-label='Revenue increased 23.1% year over year'>
+<Badge
+  variant='success'
+  appearance='light'
+  size='sm'
+  shape='pill'
+  aria-label='Revenue increased 23.1% year over year'
+>
   <ArrowUp className='size-3' aria-hidden='true' />
   +23.1% YoY
 </Badge>
 ```
 
 ### Change span
+
 ```tsx
-<span className='text-xs font-medium text-success' aria-label='Change: +23.1%'>+23.1%</span>
+<span className='text-xs font-medium text-success' aria-label='Change: +23.1%'>
+  +23.1%
+</span>
 ```
 
 ### Category share meter (not raw divs)
+
 ```tsx
 <MeterRoot value={47} aria-label='Electronics revenue share' animated>
   <MeterTrack className='h-1.5 bg-violet-500/15'>
@@ -203,6 +225,7 @@ Reference these when implementing new blocks:
 ```
 
 ### Grouped panel landmark
+
 ```tsx
 <div role='group' aria-label='Category breakdown'>
   ...
@@ -210,6 +233,7 @@ Reference these when implementing new blocks:
 ```
 
 ### Chart with accessibility
+
 ```tsx
 <BarChart data={data} accessibilityLayer>
   ...

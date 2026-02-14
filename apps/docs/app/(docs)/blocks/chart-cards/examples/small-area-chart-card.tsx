@@ -31,12 +31,7 @@ export default function SmallAreaChartCardBlock() {
         <CardRoot>
           <CardHeader className='pb-2'>
             <div className='flex items-center justify-between'>
-              <CardTitle
-                id='small-area-title'
-                className='text-sm font-medium text-muted-foreground'
-              >
-                Daily Sessions
-              </CardTitle>
+              <CardTitle id='small-area-title'>Daily Sessions</CardTitle>
               <Badge
                 variant='success'
                 appearance='light'

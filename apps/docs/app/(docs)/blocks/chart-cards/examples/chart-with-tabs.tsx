@@ -205,7 +205,7 @@ export default function ChartWithTabsBlock() {
                 {(Object.keys(tabMeta) as TabKey[]).map((key) => {
                   const Icon = tabMeta[key].icon
                   return (
-                    <TabsTab key={key} value={key} className='gap-1.5 text-xs'>
+                    <TabsTab key={key} value={key} className='gap-1.5'>
                       <Icon className='size-3.5' aria-hidden='true' />
                       {tabMeta[key].label}
                     </TabsTab>

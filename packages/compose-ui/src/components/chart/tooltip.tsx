@@ -86,7 +86,8 @@ function ChartTooltipContent({
       <div className='flex flex-col gap-1'>
         {payload.map((item, index) => {
           const dataKey = String(item.dataKey ?? item.name ?? '')
-          const configEntry = config[dataKey]
+          const itemName = item.name ? String(item.name) : ''
+          const configEntry = config[dataKey] ?? (itemName ? config[itemName] : undefined)
           const displayName = nameKey
             ? ((item.payload?.[nameKey] as string | undefined) ?? dataKey)
             : (configEntry?.label ?? dataKey)
@@ -94,7 +95,7 @@ function ChartTooltipContent({
           const Icon = configEntry?.icon
 
           return (
-            <div key={dataKey} className='flex items-center gap-2'>
+            <div key={itemName || dataKey} className='flex items-center gap-2'>
               {!hideIndicator && (
                 <span
                   className={cn(

@@ -33,9 +33,7 @@ export default function MiniBarChartCardBlock() {
       <CardRoot>
         <CardHeader className='pb-2'>
           <div className='flex items-center justify-between'>
-            <CardTitle className='text-sm font-medium text-muted-foreground'>
-              Hourly Traffic
-            </CardTitle>
+            <CardTitle id='small-bar-title'>Hourly Traffic</CardTitle>
             <Badge
               variant='success'
               appearance='light'
