@@ -14,18 +14,16 @@ import { type TocItem, useToc } from './use-toc'
 
 function TocLink({ item, isActive }: { item: TocItem; isActive: boolean }) {
   return (
-    <li>
-      <Link
-        href={`#${item.slug}`}
-        className={`block rounded-md px-2 py-1 text-sm transition-colors ${
-          isActive
-            ? 'bg-muted font-medium text-foreground'
-            : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
-        }`}
-      >
-        {item.title}
-      </Link>
-    </li>
+    <Link
+      href={`#${item.slug}`}
+      className={`block rounded-md px-2 py-1 text-sm transition-colors ${
+        isActive
+          ? 'bg-muted font-medium text-foreground'
+          : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
+      }`}
+    >
+      {item.title}
+    </Link>
   )
 }
 
@@ -79,13 +77,22 @@ export function TableOfContents() {
           <nav className='space-y-4'>
             {examples.length > 0 && (
               <ul className='space-y-1'>
-                {examples.map((item) => (
-                  <TocLink
-                    key={item.slug}
-                    item={item}
-                    isActive={activeSlug === item.slug}
-                  />
-                ))}
+                {examples.map((item, index) => {
+                  const prevGroup = index > 0 ? examples[index - 1].group : undefined
+                  const showGroup = item.group && item.group !== prevGroup
+                  return (
+                    <li key={item.slug}>
+                      {showGroup && (
+                        <p
+                          className={`mb-1 px-2 text-xs font-medium ${index > 0 ? 'mt-3' : ''}`}
+                        >
+                          {item.group}
+                        </p>
+                      )}
+                      <TocLink item={item} isActive={activeSlug === item.slug} />
+                    </li>
+                  )
+                })}
               </ul>
             )}
             {apiItems.length > 0 && (
@@ -93,11 +100,9 @@ export function TableOfContents() {
                 <h5 className='mb-2 px-2 text-xs font-medium'>API Reference</h5>
                 <ul className='space-y-1'>
                   {apiItems.map((item) => (
-                    <TocLink
-                      key={item.slug}
-                      item={item}
-                      isActive={activeSlug === item.slug}
-                    />
+                    <li key={item.slug}>
+                      <TocLink item={item} isActive={activeSlug === item.slug} />
+                    </li>
                   ))}
                 </ul>
               </div>

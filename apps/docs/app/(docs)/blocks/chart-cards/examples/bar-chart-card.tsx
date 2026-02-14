@@ -29,12 +29,6 @@ const formatCurrencyCompact = (v: number) =>
   }).format(v)
 
 const data = [
-  { month: 'Jan', electronics: 4200, clothing: 2800, home: 1800 },
-  { month: 'Feb', electronics: 3900, clothing: 3100, home: 2100 },
-  { month: 'Mar', electronics: 5300, clothing: 3400, home: 2400 },
-  { month: 'Apr', electronics: 4800, clothing: 3700, home: 2200 },
-  { month: 'May', electronics: 6100, clothing: 4200, home: 2900 },
-  { month: 'Jun', electronics: 5700, clothing: 3900, home: 2600 },
   { month: 'Jul', electronics: 7200, clothing: 4800, home: 3300 },
   { month: 'Aug', electronics: 6800, clothing: 4500, home: 3100 },
   { month: 'Sep', electronics: 7900, clothing: 5100, home: 3600 },

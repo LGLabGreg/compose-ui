@@ -6,6 +6,7 @@ export interface TocItem {
   title: string
   slug: string
   type: 'example' | 'api'
+  group?: string
 }
 
 export interface TocContextValue {

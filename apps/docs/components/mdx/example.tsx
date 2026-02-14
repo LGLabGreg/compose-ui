@@ -16,21 +16,23 @@ import { useToc } from '@/components/use-toc'
 interface ExampleProps {
   /** The title/name of this example */
   title?: string
+  /** Optional group label for TOC sidebar */
+  group?: string
   /** The component preview to render */
   children: ReactNode
   /** The code to display (syntax highlighted server-side) */
   codeBlock: ReactNode
 }
 
-export function Example({ title, children, codeBlock }: ExampleProps) {
+export function Example({ title, group, children, codeBlock }: ExampleProps) {
   const { registerItem } = useToc()
   const slug = title ? title.toLowerCase().replace(/ /g, '-') : ''
 
   useEffect(() => {
     if (title && slug) {
-      registerItem({ title, slug, type: 'example' })
+      registerItem({ title, slug, type: 'example', group })
     }
-  }, [title, slug, registerItem])
+  }, [title, slug, group, registerItem])
 
   return (
     <div className='space-y-2'>

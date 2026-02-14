@@ -8,15 +8,21 @@ import { Example } from './example'
 interface ExampleLoaderProps {
   filePath: string
   title?: string
+  group?: string
   children: React.ReactNode
 }
 
-export async function ExampleLoader({ filePath, title, children }: ExampleLoaderProps) {
+export async function ExampleLoader({
+  filePath,
+  title,
+  group,
+  children,
+}: ExampleLoaderProps) {
   const absolutePath = path.resolve(process.cwd(), filePath)
   const source = await fs.readFile(absolutePath, 'utf-8')
 
   return (
-    <Example title={title} codeBlock={<CodeBlock code={source} />}>
+    <Example title={title} group={group} codeBlock={<CodeBlock code={source} />}>
       {children}
     </Example>
   )
