@@ -2,6 +2,7 @@
 
 import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui/avatar'
 import { Badge } from '@lglab/compose-ui/badge'
+import { Button } from '@lglab/compose-ui/button'
 import {
   CardContent,
   CardDescription,
@@ -230,13 +231,9 @@ export default function TableWithSearchBlock() {
                   </data>{' '}
                   of <data value={customers.length}>{customers.length}</data> members
                 </p>
-                <button
-                  type='button'
-                  onClick={() => onSearchChange('')}
-                  className='text-sm text-primary hover:underline'
-                >
+                <Button variant='ghost' size='sm' onClick={() => onSearchChange('')}>
                   Clear search
-                </button>
+                </Button>
               </div>
             </>
           )}
