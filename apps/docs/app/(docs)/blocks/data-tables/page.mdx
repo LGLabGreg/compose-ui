@@ -1,0 +1,25 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import SimpleDataTableExample from './examples/simple-data-table'
+
+export const metadata = {
+  title: 'Data Tables',
+  description:
+    'Pre-configured table patterns for common dashboard data views with search, filters, sorting, pagination, and more.',
+}
+
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component='data-tables'
+  section='blocks'
+>
+
+<ExampleLoader
+  title='Simple Data Table'
+  filePath='app/(docs)/blocks/data-tables/examples/simple-data-table.tsx'
+>
+  <SimpleDataTableExample />
+</ExampleLoader>
+
+</ComponentPage>

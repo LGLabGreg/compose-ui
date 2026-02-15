@@ -85,7 +85,7 @@ export const blocksNavigation: DocsNavigationSection[] = [
     items: [
       { name: 'Statistics', href: '/blocks/statistics' },
       { name: 'Chart Cards', href: '/blocks/chart-cards' },
-      { name: 'Data Tables', href: '/blocks/data-tables', badge: 'Soon' },
+      { name: 'Data Tables', href: '/blocks/data-tables' },
       { name: 'Headers & Toolbars', href: '/blocks/headers-toolbars', badge: 'Soon' },
     ],
   },
