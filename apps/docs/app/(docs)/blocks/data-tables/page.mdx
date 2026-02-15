@@ -2,6 +2,7 @@ import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import SimpleDataTableExample from './examples/simple-data-table'
 import TableWithFiltersExample from './examples/table-with-filters'
+import TableWithPaginationExample from './examples/table-with-pagination'
 import TableWithSearchExample from './examples/table-with-search'
 
 export const metadata = {
@@ -36,6 +37,13 @@ export const metadata = {
   filePath='app/(docs)/blocks/data-tables/examples/table-with-filters.tsx'
 >
   <TableWithFiltersExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Table with Pagination'
+  filePath='app/(docs)/blocks/data-tables/examples/table-with-pagination.tsx'
+>
+  <TableWithPaginationExample />
 </ExampleLoader>
 
 </ComponentPage>
