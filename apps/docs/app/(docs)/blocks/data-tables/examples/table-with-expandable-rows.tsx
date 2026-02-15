@@ -306,24 +306,23 @@ export default function TableWithExpandableRowsBlock() {
                 <Fragment key={row.id}>
                   <TableRow
                     className='cursor-pointer'
-                    onClick={() => expansion!.toggleRowExpansion(row)}
+                    onClick={() => expansion?.toggleRowExpansion(row)}
                   >
-                    <TableCell className='w-10'>
+                    <TableCell>
                       <Button
                         variant='ghost'
                         size='icon-sm'
-                        aria-expanded={expansion!.isRowExpanded(row)}
+                        aria-expanded={expansion?.isRowExpanded(row)}
                         aria-controls={`detail-${row.id}`}
                         aria-label={`Toggle details for order ${row.id}`}
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          expansion!.toggleRowExpansion(row)
+                        onClick={() => {
+                          expansion?.toggleRowExpansion(row)
                         }}
                       >
                         <ChevronRight
                           className={cn(
                             'size-4 text-muted-foreground transition-transform duration-200',
-                            expansion!.isRowExpanded(row) && 'rotate-90',
+                            expansion?.isRowExpanded(row) && 'rotate-90',
                           )}
                           aria-hidden='true'
                         />
@@ -335,7 +334,7 @@ export default function TableWithExpandableRowsBlock() {
                       </TableCell>
                     ))}
                   </TableRow>
-                  {expansion!.isRowExpanded(row) && (
+                  {expansion?.isRowExpanded(row) && (
                     <TableRow
                       id={`detail-${row.id}`}
                       className='bg-muted/30 hover:bg-muted/30'

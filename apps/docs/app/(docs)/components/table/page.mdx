@@ -527,6 +527,12 @@ export const metadata = {
         description: 'Table density size',
       },
       {
+        name: 'stickyHeader',
+        type: 'boolean',
+        default: 'false',
+        description: 'Skips the overflow wrapper and makes thead sticky. Use inside a scroll container for fixed-height scrollable tables.',
+      },
+      {
         name: '...props',
         type: 'React.ComponentProps<"table">',
         description: 'Standard table element props',
