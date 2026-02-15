@@ -1,5 +1,6 @@
 'use client'
 
+import { AvatarFallback, AvatarImage, AvatarRoot } from '@lglab/compose-ui/avatar'
 import { Badge } from '@lglab/compose-ui/badge'
 import {
   CardContent,
@@ -33,6 +34,8 @@ const orders = [
   {
     id: 'ORD-7892',
     customer: 'Olivia Martin',
+    avatar:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=128&h=128&dpr=2&q=80',
     product: 'Wireless Headphones Pro',
     amount: 249.99,
     date: '2026-02-14',
@@ -41,6 +44,8 @@ const orders = [
   {
     id: 'ORD-7891',
     customer: 'Jackson Lee',
+    avatar:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=128&h=128&dpr=2&q=80',
     product: 'Mechanical Keyboard',
     amount: 174.5,
     date: '2026-02-14',
@@ -49,6 +54,8 @@ const orders = [
   {
     id: 'ORD-7890',
     customer: 'Isabella Nguyen',
+    avatar:
+      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=128&h=128&dpr=2&q=80',
     product: 'USB-C Hub Adapter',
     amount: 59.99,
     date: '2026-02-13',
@@ -57,6 +64,8 @@ const orders = [
   {
     id: 'ORD-7889',
     customer: 'William Kim',
+    avatar:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=128&h=128&dpr=2&q=80',
     product: '4K Monitor 27"',
     amount: 449.0,
     date: '2026-02-13',
@@ -65,6 +74,8 @@ const orders = [
   {
     id: 'ORD-7888',
     customer: 'Sofia Davis',
+    avatar:
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=128&h=128&dpr=2&q=80',
     product: 'Ergonomic Mouse',
     amount: 89.95,
     date: '2026-02-12',
@@ -73,26 +84,12 @@ const orders = [
   {
     id: 'ORD-7887',
     customer: 'Liam Johnson',
+    avatar:
+      'https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80',
     product: 'Laptop Stand',
     amount: 65.0,
     date: '2026-02-12',
     status: 'cancelled' as Status,
-  },
-  {
-    id: 'ORD-7886',
-    customer: 'Emma Wilson',
-    product: 'Webcam HD 1080p',
-    amount: 129.99,
-    date: '2026-02-11',
-    status: 'shipped' as Status,
-  },
-  {
-    id: 'ORD-7885',
-    customer: 'Noah Brown',
-    product: 'Desk Lamp LED',
-    amount: 42.5,
-    date: '2026-02-11',
-    status: 'completed' as Status,
   },
 ]
 
@@ -136,7 +133,7 @@ export default function SimpleDataTableBlock() {
           <TableRoot variant='striped'>
             <TableHeader>
               <TableRow>
-                <TableHead className='w-[100px]'>Order</TableHead>
+                <TableHead>Order</TableHead>
                 <TableHead>Customer</TableHead>
                 <TableHead>Product</TableHead>
                 <TableHead>Date</TableHead>
@@ -150,7 +147,20 @@ export default function SimpleDataTableBlock() {
                 return (
                   <TableRow key={order.id}>
                     <TableCell className='font-medium'>{order.id}</TableCell>
-                    <TableCell>{order.customer}</TableCell>
+                    <TableCell>
+                      <div className='flex items-center gap-2'>
+                        <AvatarRoot size='sm'>
+                          <AvatarImage src={order.avatar} alt={order.customer} />
+                          <AvatarFallback>
+                            {order.customer
+                              .split(' ')
+                              .map((n) => n[0])
+                              .join('')}
+                          </AvatarFallback>
+                        </AvatarRoot>
+                        <span className='font-medium'>{order.customer}</span>
+                      </div>
+                    </TableCell>
                     <TableCell>{order.product}</TableCell>
                     <TableCell className='whitespace-nowrap'>
                       {formatDate(order.date)}

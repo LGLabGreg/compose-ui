@@ -1,6 +1,7 @@
 import { ComponentPage, ExampleLoader } from '@/components/mdx'
 
 import SimpleDataTableExample from './examples/simple-data-table'
+import TableWithSearchExample from './examples/table-with-search'
 
 export const metadata = {
   title: 'Data Tables',
@@ -20,6 +21,13 @@ export const metadata = {
   filePath='app/(docs)/blocks/data-tables/examples/simple-data-table.tsx'
 >
   <SimpleDataTableExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Table with Search'
+  filePath='app/(docs)/blocks/data-tables/examples/table-with-search.tsx'
+>
+  <TableWithSearchExample />
 </ExampleLoader>
 
 </ComponentPage>
