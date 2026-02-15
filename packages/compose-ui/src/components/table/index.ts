@@ -5,6 +5,8 @@ export type {
   SortDirection,
   SelectionConfig,
   SelectionState,
+  ExpansionConfig,
+  ExpansionState,
   RowKeyGetter,
   FilterDef,
   FiltersConfig,

@@ -164,6 +164,8 @@ These are real mistakes caught during implementation. Check for them before mark
 
 8. **Custom-styling input addons instead of using Group.** Never use absolute-positioned icons inside inputs with manual padding (`pl-9`). Use `GroupRoot` + `GroupAddon` + `Input` from `@lglab/compose-ui/group` — it handles icon sizing, border merging, and focus states correctly.
 
+9. **Using raw `<button>` or `<span role="button">` instead of Compose UI Button.** Never use raw HTML buttons or ARIA role hacks. Always use `Button` from `@lglab/compose-ui/button` — it provides consistent styling, focus rings, hover/active states, and keyboard handling out of the box. For icon-only triggers (expand toggles, action buttons), use `<Button variant='ghost' size='icon-sm'>`. The `<span role="button" tabIndex={0} onKeyDown={...}>` anti-pattern is never acceptable — `Button` handles all of that natively.
+
 ## Important
 
 - **Don't** add comments
@@ -273,6 +275,27 @@ const { columns, rows, totalItems, searchTerm, onSearchChange } = useTable<MyRow
     </TableRow>
   ))}
 </TableBody>
+```
+
+### Expansion toggle button (not raw button/span)
+
+```tsx
+<Button
+  variant='ghost'
+  size='icon-sm'
+  aria-expanded={expansion!.isRowExpanded(row)}
+  aria-controls={`detail-${row.id}`}
+  aria-label={`Toggle details for ${row.name}`}
+  onClick={() => expansion!.toggleRowExpansion(row)}
+>
+  <ChevronRight
+    className={cn(
+      'size-4 transition-transform duration-200',
+      expansion!.isRowExpanded(row) && 'rotate-90',
+    )}
+    aria-hidden='true'
+  />
+</Button>
 ```
 
 ### Search input with Group addon (not absolute-positioned icons)

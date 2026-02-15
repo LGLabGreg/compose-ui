@@ -71,6 +71,20 @@ export interface SelectionState<T> {
   isAllOnPageSelected: boolean
 }
 
+export interface ExpansionConfig<T> {
+  rowKey: RowKeyGetter<T>
+}
+
+export interface ExpansionState<T> {
+  expandedKeys: (string | number)[]
+  expandedCount: number
+  isExpanded: (key: string | number) => boolean
+  toggleExpansion: (key: string | number) => void
+  isRowExpanded: (row: T) => boolean
+  toggleRowExpansion: (row: T) => void
+  collapseAll: () => void
+}
+
 export interface UseTableOptions<T> {
   data: T[]
   columns: ColumnDef<T, keyof T>[]
@@ -79,6 +93,7 @@ export interface UseTableOptions<T> {
   search?: SearchConfig<T>
   filters?: FiltersConfig<T>
   selection?: SelectionConfig<T>
+  expansion?: ExpansionConfig<T>
 }
 
 // ============================================================================
@@ -121,4 +136,5 @@ export interface UseTableReturn<T> {
   clearFilters: () => void
   activeFilterCount: number
   selection?: SelectionState<T>
+  expansion?: ExpansionState<T>
 }

@@ -4,6 +4,7 @@ import { cn } from '../../lib/utils'
 import { compareValues } from './sort'
 import type {
   ColumnDef,
+  ExpansionState,
   FilterValues,
   ProcessedColumn,
   SelectionState,
@@ -24,6 +25,7 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
     search,
     filters,
     selection: selectionConfig,
+    expansion: expansionConfig,
   } = options
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -268,6 +270,77 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
     pageSelectionState,
   ])
 
+  // Expansion state
+  const [expandedKeysSet, setExpandedKeysSet] = useState<Set<string | number>>(new Set())
+
+  // Auto-collapse when page, sort, or filters change
+  const expansionResetKey = `${effectivePage}-${String(sortKey)}-${sortDirection}-${activeFilterCount}`
+  const [prevExpansionResetKey, setPrevExpansionResetKey] = useState(expansionResetKey)
+  if (expansionConfig && expansionResetKey !== prevExpansionResetKey) {
+    setPrevExpansionResetKey(expansionResetKey)
+    if (expandedKeysSet.size > 0) {
+      setExpandedKeysSet(new Set())
+    }
+  }
+
+  const isExpanded = useCallback(
+    (key: string | number) => expandedKeysSet.has(key),
+    [expandedKeysSet],
+  )
+
+  const toggleExpansion = useCallback((key: string | number) => {
+    setExpandedKeysSet((prev) => {
+      const next = new Set(prev)
+      if (next.has(key)) {
+        next.delete(key)
+      } else {
+        next.add(key)
+      }
+      return next
+    })
+  }, [])
+
+  const isRowExpanded = useCallback(
+    (row: T) => {
+      if (!expansionConfig) return false
+      return expandedKeysSet.has(expansionConfig.rowKey(row))
+    },
+    [expandedKeysSet, expansionConfig],
+  )
+
+  const toggleRowExpansion = useCallback(
+    (row: T) => {
+      if (!expansionConfig) return
+      toggleExpansion(expansionConfig.rowKey(row))
+    },
+    [toggleExpansion, expansionConfig],
+  )
+
+  const collapseAll = useCallback(() => {
+    setExpandedKeysSet(new Set())
+  }, [])
+
+  const expansion: ExpansionState<T> | undefined = useMemo(() => {
+    if (!expansionConfig) return undefined
+    return {
+      expandedKeys: Array.from(expandedKeysSet),
+      expandedCount: expandedKeysSet.size,
+      isExpanded,
+      toggleExpansion,
+      isRowExpanded,
+      toggleRowExpansion,
+      collapseAll,
+    }
+  }, [
+    expansionConfig,
+    expandedKeysSet,
+    isExpanded,
+    toggleExpansion,
+    isRowExpanded,
+    toggleRowExpansion,
+    collapseAll,
+  ])
+
   const columns = useMemo(() => {
     return columnDefs.map((def: ColumnDef<T, keyof T>): ProcessedColumn<T> => {
       const key = def.key
@@ -319,5 +392,6 @@ export function useTable<T>(options: UseTableOptions<T>): UseTableReturn<T> {
     clearFilters,
     activeFilterCount,
     selection,
+    expansion,
   }
 }

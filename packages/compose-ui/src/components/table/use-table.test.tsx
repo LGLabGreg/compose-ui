@@ -755,4 +755,166 @@ describe('useTable', () => {
       expect(result.current.currentPage).toBe(1)
     })
   })
+
+  describe('expansion', () => {
+    it('returns undefined when no expansion config', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'name', header: 'Name' }],
+        }),
+      )
+
+      expect(result.current.expansion).toBeUndefined()
+    })
+
+    it('returns expansion state when config provided', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'name', header: 'Name' }],
+          expansion: { rowKey: (row) => row.id },
+        }),
+      )
+
+      expect(result.current.expansion).toBeDefined()
+      expect(result.current.expansion!.expandedKeys).toEqual([])
+      expect(result.current.expansion!.expandedCount).toBe(0)
+    })
+
+    it('toggleExpansion expands and collapses a row', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'name', header: 'Name' }],
+          expansion: { rowKey: (row) => row.id },
+        }),
+      )
+
+      expect(result.current.expansion!.isExpanded(1)).toBe(false)
+
+      act(() => {
+        result.current.expansion!.toggleExpansion(1)
+      })
+      expect(result.current.expansion!.isExpanded(1)).toBe(true)
+      expect(result.current.expansion!.expandedCount).toBe(1)
+
+      act(() => {
+        result.current.expansion!.toggleExpansion(1)
+      })
+      expect(result.current.expansion!.isExpanded(1)).toBe(false)
+      expect(result.current.expansion!.expandedCount).toBe(0)
+    })
+
+    it('isRowExpanded and toggleRowExpansion work with row objects', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'name', header: 'Name' }],
+          expansion: { rowKey: (row) => row.id },
+        }),
+      )
+
+      expect(result.current.expansion!.isRowExpanded(testData[0])).toBe(false)
+
+      act(() => {
+        result.current.expansion!.toggleRowExpansion(testData[0])
+      })
+      expect(result.current.expansion!.isRowExpanded(testData[0])).toBe(true)
+    })
+
+    it('supports multiple expanded rows', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'name', header: 'Name' }],
+          expansion: { rowKey: (row) => row.id },
+        }),
+      )
+
+      act(() => {
+        result.current.expansion!.toggleExpansion(1)
+      })
+      act(() => {
+        result.current.expansion!.toggleExpansion(3)
+      })
+
+      expect(result.current.expansion!.isExpanded(1)).toBe(true)
+      expect(result.current.expansion!.isExpanded(2)).toBe(false)
+      expect(result.current.expansion!.isExpanded(3)).toBe(true)
+      expect(result.current.expansion!.expandedCount).toBe(2)
+    })
+
+    it('collapseAll collapses all expanded rows', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'name', header: 'Name' }],
+          expansion: { rowKey: (row) => row.id },
+        }),
+      )
+
+      act(() => {
+        result.current.expansion!.toggleExpansion(1)
+      })
+      act(() => {
+        result.current.expansion!.toggleExpansion(2)
+      })
+      expect(result.current.expansion!.expandedCount).toBe(2)
+
+      act(() => {
+        result.current.expansion!.collapseAll()
+      })
+      expect(result.current.expansion!.expandedCount).toBe(0)
+      expect(result.current.expansion!.expandedKeys).toEqual([])
+    })
+
+    it('auto-collapses when page changes', () => {
+      const paginatedData: TestData[] = Array.from({ length: 25 }, (_, i) => ({
+        id: i + 1,
+        name: `Item ${i + 1}`,
+        price: (i + 1) * 10,
+        active: i % 2 === 0,
+      }))
+
+      const { result } = renderHook(() =>
+        useTable({
+          data: paginatedData,
+          columns: [{ key: 'name', header: 'Name' }],
+          pagination: { pageSize: 10 },
+          expansion: { rowKey: (row) => row.id },
+        }),
+      )
+
+      act(() => {
+        result.current.expansion!.toggleExpansion(1)
+      })
+      expect(result.current.expansion!.expandedCount).toBe(1)
+
+      act(() => {
+        result.current.onPageChange(2)
+      })
+      expect(result.current.expansion!.expandedCount).toBe(0)
+    })
+
+    it('auto-collapses when sort changes', () => {
+      const { result } = renderHook(() =>
+        useTable({
+          data: testData,
+          columns: [{ key: 'name', header: 'Name' }],
+          expansion: { rowKey: (row) => row.id },
+        }),
+      )
+
+      act(() => {
+        result.current.expansion!.toggleExpansion(1)
+      })
+      expect(result.current.expansion!.expandedCount).toBe(1)
+
+      act(() => {
+        result.current.onSort('price')
+      })
+      expect(result.current.expansion!.expandedCount).toBe(0)
+    })
+  })
 })
