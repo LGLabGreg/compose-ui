@@ -138,8 +138,8 @@ export default function SimpleDataTableBlock() {
               <TableRow>
                 <TableHead className='w-[100px]'>Order</TableHead>
                 <TableHead>Customer</TableHead>
-                <TableHead className='hidden md:table-cell'>Product</TableHead>
-                <TableHead className='hidden sm:table-cell'>Date</TableHead>
+                <TableHead>Product</TableHead>
+                <TableHead>Date</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead className='text-right'>Amount</TableHead>
               </TableRow>
@@ -151,10 +151,8 @@ export default function SimpleDataTableBlock() {
                   <TableRow key={order.id}>
                     <TableCell className='font-medium'>{order.id}</TableCell>
                     <TableCell>{order.customer}</TableCell>
-                    <TableCell className='hidden md:table-cell'>
-                      {order.product}
-                    </TableCell>
-                    <TableCell className='hidden sm:table-cell'>
+                    <TableCell>{order.product}</TableCell>
+                    <TableCell className='whitespace-nowrap'>
                       {formatDate(order.date)}
                     </TableCell>
                     <TableCell>

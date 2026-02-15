@@ -10,7 +10,7 @@ import type { SortDirection } from './types'
 // Table Variants
 // ============================================================================
 
-const tableVariants = cva('w-full caption-bottom text-sm', {
+const tableVariants = cva('min-w-full caption-bottom text-sm', {
   variants: {
     variant: {
       default: '',
@@ -179,7 +179,7 @@ const TableHead = ({
   return (
     <th
       className={cn(
-        'h-10 px-4 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0 bg-muted',
+        'h-10 px-4 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 bg-muted',
         isInteractive &&
           'cursor-pointer select-none hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset',
         className,
