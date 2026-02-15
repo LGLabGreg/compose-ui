@@ -6,6 +6,7 @@ import { Button } from '@lglab/compose-ui/button'
 import {
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardRoot,
   CardTitle,
@@ -182,7 +183,7 @@ export default function TableWithSearchBlock() {
         <Separator />
 
         <CardContent className='p-0'>
-          <TableRoot>
+          <TableRoot variant='striped'>
             <TableHeader>
               <TableRow>
                 {columns.map((col) => (
@@ -219,25 +220,25 @@ export default function TableWithSearchBlock() {
               )}
             </TableBody>
           </TableRoot>
-
-          {searchTerm && rows.length > 0 && (
-            <>
-              <Separator />
-              <div className='flex items-center justify-between px-4 py-3'>
-                <p className='text-sm text-muted-foreground'>
-                  Showing{' '}
-                  <data value={totalItems} className='font-medium text-foreground'>
-                    {totalItems}
-                  </data>{' '}
-                  of <data value={customers.length}>{customers.length}</data> members
-                </p>
-                <Button variant='ghost' size='sm' onClick={() => onSearchChange('')}>
-                  Clear search
-                </Button>
-              </div>
-            </>
-          )}
         </CardContent>
+
+        {searchTerm && rows.length > 0 && (
+          <>
+            <Separator />
+            <CardFooter className='justify-between'>
+              <p className='text-sm text-muted-foreground'>
+                Showing{' '}
+                <data value={totalItems} className='font-medium text-foreground'>
+                  {totalItems}
+                </data>{' '}
+                of <data value={customers.length}>{customers.length}</data> members
+              </p>
+              <Button variant='ghost' size='sm' onClick={() => onSearchChange('')}>
+                Clear search
+              </Button>
+            </CardFooter>
+          </>
+        )}
       </CardRoot>
     </section>
   )

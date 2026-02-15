@@ -6,6 +6,7 @@ import { Button } from '@lglab/compose-ui/button'
 import {
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardRoot,
   CardTitle,
@@ -36,7 +37,7 @@ import {
   includesFilter,
   useTable,
 } from '@lglab/compose-ui/table'
-import { Check, ChevronDown, Filter, ListTodo, X } from 'lucide-react'
+import { Check, ChevronDown, FilterX, Flag, ListChecks, ListTodo, X } from 'lucide-react'
 
 type Priority = 'critical' | 'high' | 'medium' | 'low'
 type Status = 'in_progress' | 'todo' | 'done' | 'in_review' | 'blocked'
@@ -311,7 +312,7 @@ export default function TableWithFiltersBlock() {
               <PopoverTrigger
                 render={(props) => (
                   <Button {...props} variant='outline' size='sm'>
-                    <Filter className='size-3.5' aria-hidden='true' />
+                    <ListChecks className='size-3.5' aria-hidden='true' />
                     Status
                     {selectedStatuses.length > 0 && (
                       <span className='flex items-center justify-center size-5 rounded-full aspect-square bg-primary text-xs text-primary-foreground'>
@@ -349,7 +350,7 @@ export default function TableWithFiltersBlock() {
               <PopoverTrigger
                 render={(props) => (
                   <Button {...props} variant='outline' size='sm'>
-                    <Filter className='size-3.5' aria-hidden='true' />
+                    <Flag className='size-3.5' aria-hidden='true' />
                     Priority
                     {selectedPriorities.length > 0 && (
                       <span className='flex items-center justify-center size-5 rounded-full aspect-square bg-primary text-xs text-primary-foreground'>
@@ -395,7 +396,7 @@ export default function TableWithFiltersBlock() {
         <Separator />
 
         <CardContent className='p-0'>
-          <TableRoot>
+          <TableRoot variant='striped'>
             <TableHeader>
               <TableRow>
                 {columns.map((col) => (
@@ -419,7 +420,7 @@ export default function TableWithFiltersBlock() {
                   <TableCell colSpan={columns.length}>
                     <EmptyRoot size='sm'>
                       <EmptyIcon size='sm'>
-                        <Filter />
+                        <FilterX />
                       </EmptyIcon>
                       <EmptyTitle>No tasks match filters</EmptyTitle>
                       <EmptyDescription>
@@ -431,18 +432,17 @@ export default function TableWithFiltersBlock() {
               )}
             </TableBody>
           </TableRoot>
-
-          <Separator />
-          <div className='px-4 py-3'>
-            <p className='text-sm text-muted-foreground'>
-              Showing{' '}
-              <data value={totalItems} className='font-medium text-foreground'>
-                {totalItems}
-              </data>{' '}
-              of <data value={tasks.length}>{tasks.length}</data> tasks
-            </p>
-          </div>
         </CardContent>
+        <Separator />
+        <CardFooter>
+          <p className='text-sm text-muted-foreground'>
+            Showing{' '}
+            <data value={totalItems} className='font-medium text-foreground'>
+              {totalItems}
+            </data>{' '}
+            of <data value={tasks.length}>{tasks.length}</data> tasks
+          </p>
+        </CardFooter>
       </CardRoot>
     </section>
   )

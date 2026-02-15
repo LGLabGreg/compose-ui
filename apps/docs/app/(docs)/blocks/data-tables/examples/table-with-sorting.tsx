@@ -5,6 +5,7 @@ import { Badge } from '@lglab/compose-ui/badge'
 import {
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardRoot,
   CardTitle,
@@ -220,7 +221,7 @@ export default function TableWithSortingBlock() {
         <Separator />
 
         <CardContent className='p-0'>
-          <TableRoot>
+          <TableRoot variant='striped'>
             <TableHeader>
               <TableRow>
                 {columns.map((col) => (
@@ -240,17 +241,16 @@ export default function TableWithSortingBlock() {
               ))}
             </TableBody>
           </TableRoot>
-
-          <Separator />
-          <div className='px-4 py-3'>
-            <p className='text-sm text-muted-foreground'>
-              <data value={totalItems} className='font-medium text-foreground'>
-                {totalItems}
-              </data>{' '}
-              employees
-            </p>
-          </div>
         </CardContent>
+        <Separator />
+        <CardFooter>
+          <p className='text-sm text-muted-foreground'>
+            <data value={totalItems} className='font-medium text-foreground'>
+              {totalItems}
+            </data>{' '}
+            employees
+          </p>
+        </CardFooter>
       </CardRoot>
     </section>
   )

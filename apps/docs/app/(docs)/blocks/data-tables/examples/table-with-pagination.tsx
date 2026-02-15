@@ -4,6 +4,7 @@ import { Badge } from '@lglab/compose-ui/badge'
 import {
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardRoot,
   CardTitle,
@@ -228,7 +229,7 @@ export default function TableWithPaginationBlock() {
         <Separator />
 
         <CardContent className='p-0'>
-          <TableRoot>
+          <TableRoot variant='striped'>
             <TableHeader>
               <TableRow>
                 {columns.map((col) => (
@@ -248,93 +249,91 @@ export default function TableWithPaginationBlock() {
               ))}
             </TableBody>
           </TableRoot>
-
-          <Separator />
-
-          <div className='flex flex-col gap-3 px-4 py-3 lg:flex-row lg:items-center lg:justify-between'>
-            <p className='text-sm text-muted-foreground'>
-              Showing{' '}
-              <data value={rangeStart} className='font-medium text-foreground'>
-                {rangeStart}
-              </data>
-              –
-              <data value={rangeEnd} className='font-medium text-foreground'>
-                {rangeEnd}
-              </data>{' '}
-              of <data value={totalItems}>{totalItems}</data> products
-            </p>
-
-            <div className='flex flex-wrap gap-2 items-center'>
-              <PaginationRoot>
-                <PaginationContent>
-                  <PaginationItem>
-                    <PaginationPrevious
-                      onClick={pagination.goToPrevious}
-                      disabled={!pagination.canGoPrevious}
-                    >
-                      <ChevronLeft className='size-4' />
-                    </PaginationPrevious>
-                  </PaginationItem>
-
-                  {pagination.pages.map((page, i) => (
-                    <PaginationItem key={i}>
-                      {page === 'ellipsis' ? (
-                        <PaginationEllipsis>
-                          <Ellipsis className='size-4' />
-                        </PaginationEllipsis>
-                      ) : (
-                        <PaginationButton
-                          isActive={page === currentPage}
-                          onClick={() => pagination.goToPage(page)}
-                        >
-                          {page}
-                        </PaginationButton>
-                      )}
-                    </PaginationItem>
-                  ))}
-
-                  <PaginationItem>
-                    <PaginationNext
-                      onClick={pagination.goToNext}
-                      disabled={!pagination.canGoNext}
-                    >
-                      <ChevronRight className='size-4' />
-                    </PaginationNext>
-                  </PaginationItem>
-                </PaginationContent>
-              </PaginationRoot>
-
-              <SelectRoot
-                value={pageSize}
-                onValueChange={(value) => value && pagination.setPageSize(value)}
-                items={pageSizeItems}
-              >
-                <SelectTrigger aria-label='Select page size' className='min-w-32 min-h-8'>
-                  <SelectValue placeholder='Page size' />
-                  <SelectIcon>
-                    <ChevronsUpDown className='size-4' />
-                  </SelectIcon>
-                </SelectTrigger>
-                <SelectPortal>
-                  <SelectPositioner>
-                    <SelectPopup>
-                      <SelectList>
-                        {pageSizeItems.map(({ label, value }) => (
-                          <SelectItem key={value} value={value}>
-                            <SelectItemText>{label}</SelectItemText>
-                            <SelectItemIndicator>
-                              <Check className='size-3.5' />
-                            </SelectItemIndicator>
-                          </SelectItem>
-                        ))}
-                      </SelectList>
-                    </SelectPopup>
-                  </SelectPositioner>
-                </SelectPortal>
-              </SelectRoot>
-            </div>
-          </div>
         </CardContent>
+        <Separator />
+        <CardFooter className='flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between'>
+          <p className='text-sm text-muted-foreground'>
+            Showing{' '}
+            <data value={rangeStart} className='font-medium text-foreground'>
+              {rangeStart}
+            </data>
+            –
+            <data value={rangeEnd} className='font-medium text-foreground'>
+              {rangeEnd}
+            </data>{' '}
+            of <data value={totalItems}>{totalItems}</data> products
+          </p>
+
+          <div className='flex flex-wrap gap-2 items-center'>
+            <PaginationRoot>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    onClick={pagination.goToPrevious}
+                    disabled={!pagination.canGoPrevious}
+                  >
+                    <ChevronLeft className='size-4' />
+                  </PaginationPrevious>
+                </PaginationItem>
+
+                {pagination.pages.map((page, i) => (
+                  <PaginationItem key={i}>
+                    {page === 'ellipsis' ? (
+                      <PaginationEllipsis>
+                        <Ellipsis className='size-4' />
+                      </PaginationEllipsis>
+                    ) : (
+                      <PaginationButton
+                        isActive={page === currentPage}
+                        onClick={() => pagination.goToPage(page)}
+                      >
+                        {page}
+                      </PaginationButton>
+                    )}
+                  </PaginationItem>
+                ))}
+
+                <PaginationItem>
+                  <PaginationNext
+                    onClick={pagination.goToNext}
+                    disabled={!pagination.canGoNext}
+                  >
+                    <ChevronRight className='size-4' />
+                  </PaginationNext>
+                </PaginationItem>
+              </PaginationContent>
+            </PaginationRoot>
+
+            <SelectRoot
+              value={pageSize}
+              onValueChange={(value) => value && pagination.setPageSize(value)}
+              items={pageSizeItems}
+            >
+              <SelectTrigger aria-label='Select page size' className='min-w-32 min-h-8'>
+                <SelectValue placeholder='Page size' />
+                <SelectIcon>
+                  <ChevronsUpDown className='size-4' />
+                </SelectIcon>
+              </SelectTrigger>
+              <SelectPortal>
+                <SelectPositioner>
+                  <SelectPopup>
+                    <SelectList>
+                      {pageSizeItems.map(({ label, value }) => (
+                        <SelectItem key={value} value={value}>
+                          <SelectItemText>{label}</SelectItemText>
+                          <SelectItemIndicator>
+                            <Check className='size-3.5' />
+                          </SelectItemIndicator>
+                        </SelectItem>
+                      ))}
+                    </SelectList>
+                  </SelectPopup>
+                </SelectPositioner>
+              </SelectPortal>
+            </SelectRoot>
+          </div>
+        </CardFooter>
       </CardRoot>
     </section>
   )

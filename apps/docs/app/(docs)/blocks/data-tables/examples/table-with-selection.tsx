@@ -5,6 +5,7 @@ import { Button } from '@lglab/compose-ui/button'
 import {
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardRoot,
   CardTitle,
@@ -196,7 +197,7 @@ export default function TableWithSelectionBlock() {
         <Separator />
 
         <CardContent className='p-0'>
-          <TableRoot>
+          <TableRoot variant='striped'>
             <TableHeader>
               <TableRow>
                 <TableHead className='w-10'>
@@ -249,17 +250,16 @@ export default function TableWithSelectionBlock() {
               ))}
             </TableBody>
           </TableRoot>
-
-          <Separator />
-          <div className='px-4 py-3'>
-            <p className='text-sm text-muted-foreground'>
-              <data value={selectedCount} className='font-medium text-foreground'>
-                {selectedCount}
-              </data>{' '}
-              of <data value={totalItems}>{totalItems}</data> messages selected
-            </p>
-          </div>
         </CardContent>
+        <Separator />
+        <CardFooter>
+          <p className='text-sm text-muted-foreground'>
+            <data value={selectedCount} className='font-medium text-foreground'>
+              {selectedCount}
+            </data>{' '}
+            of <data value={totalItems}>{totalItems}</data> messages selected
+          </p>
+        </CardFooter>
       </CardRoot>
     </section>
   )
