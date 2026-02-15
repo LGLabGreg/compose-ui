@@ -8,6 +8,7 @@ import WithEmptyExample from './examples/with-empty'
 import WithLoadingExample from './examples/with-loading'
 import WithPaginationExample from './examples/with-pagination'
 import WithSearchExample from './examples/with-search'
+import WithExpansionExample from './examples/with-expansion'
 import WithSelectionExample from './examples/with-selection'
 import WithSortingExample from './examples/with-sorting'
 
@@ -73,6 +74,13 @@ export const metadata = {
 </ExampleLoader>
 
 <ExampleLoader
+  title='Row Expansion'
+  filePath='app/(docs)/components/table/examples/with-expansion.tsx'
+>
+  <WithExpansionExample />
+</ExampleLoader>
+
+<ExampleLoader
   title='Empty State'
   filePath='app/(docs)/components/table/examples/with-empty.tsx'
 >
@@ -128,6 +136,11 @@ export const metadata = {
         name: 'selection',
         type: 'SelectionConfig<T>',
         description: 'Enable row selection functionality',
+      },
+      {
+        name: 'expansion',
+        type: 'ExpansionConfig<T>',
+        description: 'Enable row expansion functionality',
       },
     ]}
   />
@@ -219,6 +232,12 @@ export const metadata = {
         type: 'SelectionState',
         description:
           'Selection state and handlers (only present when selection config provided)',
+      },
+      {
+        name: 'expansion',
+        type: 'ExpansionState',
+        description:
+          'Expansion state and handlers (only present when expansion config provided)',
       },
     ]}
   />
@@ -427,6 +446,69 @@ export const metadata = {
 </ApiSection>
 
 <ApiSection
+  title='ExpansionConfig'
+  description='Configuration for row expansion.'
+>
+  <ApiTable
+    showRequired
+    data={[
+      {
+        name: 'rowKey',
+        type: '(row: T) => string | number',
+        required: true,
+        description: 'Function to extract unique key from each row',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
+  title='ExpansionState'
+  description='Expansion state returned by useTable when expansion is enabled. Expanded rows auto-collapse when page, sort, or filters change.'
+>
+  <ApiTable
+    showDefault={false}
+    data={[
+      {
+        name: 'expandedKeys',
+        type: '(string | number)[]',
+        description: 'Array of currently expanded row keys',
+      },
+      {
+        name: 'expandedCount',
+        type: 'number',
+        description: 'Number of expanded rows',
+      },
+      {
+        name: 'isExpanded',
+        type: '(key: string | number) => boolean',
+        description: 'Check if a row key is expanded',
+      },
+      {
+        name: 'toggleExpansion',
+        type: '(key: string | number) => void',
+        description: 'Toggle expansion state by row key',
+      },
+      {
+        name: 'isRowExpanded',
+        type: '(row: T) => boolean',
+        description: 'Check if a row is expanded (uses rowKey internally)',
+      },
+      {
+        name: 'toggleRowExpansion',
+        type: '(row: T) => void',
+        description: 'Toggle expansion state of a row (uses rowKey internally)',
+      },
+      {
+        name: 'collapseAll',
+        type: '() => void',
+        description: 'Collapse all expanded rows',
+      },
+    ]}
+  />
+</ApiSection>
+
+<ApiSection
   title='TableRoot'
   description='The root table element with variant and size support.'
 >
@@ -443,6 +525,12 @@ export const metadata = {
         type: "'default' | 'compact'",
         default: "'default'",
         description: 'Table density size',
+      },
+      {
+        name: 'stickyHeader',
+        type: 'boolean',
+        default: 'false',
+        description: 'Skips the overflow wrapper and makes thead sticky. Use inside a scroll container for fixed-height scrollable tables.',
       },
       {
         name: '...props',
@@ -642,6 +730,16 @@ export const metadata = {
         name: 'SelectionState<T>',
         type: 'interface',
         description: 'Selection state interface',
+      },
+      {
+        name: 'ExpansionConfig<T>',
+        type: 'interface',
+        description: 'Expansion configuration interface',
+      },
+      {
+        name: 'ExpansionState<T>',
+        type: 'interface',
+        description: 'Expansion state interface',
       },
       {
         name: 'RowKeyGetter<T>',

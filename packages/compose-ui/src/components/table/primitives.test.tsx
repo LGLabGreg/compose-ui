@@ -29,7 +29,11 @@ describe('TableRoot', () => {
         <tbody />
       </TableRoot>,
     )
-    expect(screen.getByTestId('table')).toHaveClass('w-full', 'caption-bottom', 'text-sm')
+    expect(screen.getByTestId('table')).toHaveClass(
+      'min-w-full',
+      'caption-bottom',
+      'text-sm',
+    )
   })
 
   it('applies striped variant classes', () => {

@@ -160,10 +160,17 @@ These are real mistakes caught during implementation. Check for them before mark
 
 6. **Side panels / breakdown sections without landmarks.** Non-chart panels within a card need `role="group" aria-label="..."` so screen reader users can discover them.
 
+7. **Re-implementing logic that `useTable` already provides.** Never hand-roll search filtering, sorting, pagination, or selection with `useState`/`useMemo`. Always use the `useTable` hook from `@lglab/compose-ui/table` — it handles search (with `useDeferredValue`), sorting, filtering, pagination, and selection out of the box. Use `columns[].cell` for custom cell rendering (avatars, badges, etc.).
+
+8. **Custom-styling input addons instead of using Group.** Never use absolute-positioned icons inside inputs with manual padding (`pl-9`). Use `GroupRoot` + `GroupAddon` + `Input` from `@lglab/compose-ui/group` — it handles icon sizing, border merging, and focus states correctly.
+
+9. **Using raw `<button>` or `<span role="button">` instead of Compose UI Button.** Never use raw HTML buttons or ARIA role hacks. Always use `Button` from `@lglab/compose-ui/button` — it provides consistent styling, focus rings, hover/active states, and keyboard handling out of the box. For icon-only triggers (expand toggles, action buttons), use `<Button variant='ghost' size='icon-sm'>`. The `<span role="button" tabIndex={0} onKeyDown={...}>` anti-pattern is never acceptable — `Button` handles all of that natively.
+
 ## Important
 
 - **Don't** add comments
 - Keep things simple
+- **Before implementing any pattern, check the component examples in `apps/docs/app/(docs)/components/` first.** The examples folder for each component shows the idiomatic way to use it. This is mandatory — blocks must use the same patterns as the component docs.
 - Verify correct implementation of Compose UI components in /apps/docs/app/(docs)/components
 
 ## Established Code Patterns
@@ -238,4 +245,71 @@ Reference these when implementing new blocks:
 <BarChart data={data} accessibilityLayer>
   ...
 </BarChart>
+```
+
+### Table with useTable hook (mandatory for table blocks)
+
+```tsx
+const { columns, rows, totalItems, searchTerm, onSearchChange } = useTable<MyRow>({
+  data: myData,
+  columns: [
+    { key: 'name', header: 'Name', cell: (_value, row) => <CustomCell row={row} /> },
+    { key: 'status', header: 'Status', cell: (value) => <Badge>{value}</Badge> },
+    { key: 'amount', header: 'Amount', cellClassName: 'text-right tabular-nums' },
+  ],
+  search: { keys: ['name', 'email'] },
+})
+
+// Render with columns.map pattern:
+<TableHeader>
+  <TableRow>
+    {columns.map((col) => <TableHead key={col.key} {...col.head} />)}
+  </TableRow>
+</TableHeader>
+<TableBody>
+  {rows.map((row) => (
+    <TableRow key={row.id}>
+      {columns.map((col) => (
+        <TableCell key={col.key} {...col.cell}>{col.renderCell(row)}</TableCell>
+      ))}
+    </TableRow>
+  ))}
+</TableBody>
+```
+
+### Expansion toggle button (not raw button/span)
+
+```tsx
+<Button
+  variant='ghost'
+  size='icon-sm'
+  aria-expanded={expansion!.isRowExpanded(row)}
+  aria-controls={`detail-${row.id}`}
+  aria-label={`Toggle details for ${row.name}`}
+  onClick={() => expansion!.toggleRowExpansion(row)}
+>
+  <ChevronRight
+    className={cn(
+      'size-4 transition-transform duration-200',
+      expansion!.isRowExpanded(row) && 'rotate-90',
+    )}
+    aria-hidden='true'
+  />
+</Button>
+```
+
+### Search input with Group addon (not absolute-positioned icons)
+
+```tsx
+<GroupRoot className='w-full sm:w-64'>
+  <GroupAddon size='icon'>
+    <Search aria-hidden='true' />
+  </GroupAddon>
+  <Input
+    placeholder='Search…'
+    value={searchTerm}
+    onChange={(e) => onSearchChange(e.target.value)}
+    aria-label='Search items'
+  />
+</GroupRoot>
 ```

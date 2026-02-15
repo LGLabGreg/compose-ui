@@ -1,0 +1,97 @@
+import { ComponentPage, ExampleLoader } from '@/components/mdx'
+
+import SimpleDataTableExample from './examples/simple-data-table'
+import TableWithFiltersExample from './examples/table-with-filters'
+import TableWithPaginationExample from './examples/table-with-pagination'
+import TableWithSearchExample from './examples/table-with-search'
+import TableWithSelectionExample from './examples/table-with-selection'
+import TableWithActionsExample from './examples/table-with-actions'
+import TableWithExpandableRowsExample from './examples/table-with-expandable-rows'
+import FullDataTableExample from './examples/full-data-table'
+import ScrollableTableExample from './examples/scrollable-table'
+import TableWithSortingExample from './examples/table-with-sorting'
+
+export const metadata = {
+  title: 'Data Tables',
+  description:
+    'Pre-configured table patterns for common dashboard data views with search, filters, sorting, pagination, and more.',
+}
+
+<ComponentPage
+  title={metadata.title}
+  description={metadata.description}
+  component='data-tables'
+  section='blocks'
+>
+
+<ExampleLoader
+  title='Simple Data Table'
+  filePath='app/(docs)/blocks/data-tables/examples/simple-data-table.tsx'
+>
+  <SimpleDataTableExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Table with Search'
+  filePath='app/(docs)/blocks/data-tables/examples/table-with-search.tsx'
+>
+  <TableWithSearchExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Table with Filters'
+  filePath='app/(docs)/blocks/data-tables/examples/table-with-filters.tsx'
+>
+  <TableWithFiltersExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Table with Pagination'
+  filePath='app/(docs)/blocks/data-tables/examples/table-with-pagination.tsx'
+>
+  <TableWithPaginationExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Table with Selection'
+  filePath='app/(docs)/blocks/data-tables/examples/table-with-selection.tsx'
+>
+  <TableWithSelectionExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Table with Sorting'
+  filePath='app/(docs)/blocks/data-tables/examples/table-with-sorting.tsx'
+>
+  <TableWithSortingExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Table with Actions'
+  filePath='app/(docs)/blocks/data-tables/examples/table-with-actions.tsx'
+>
+  <TableWithActionsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Table with Expandable Rows'
+  filePath='app/(docs)/blocks/data-tables/examples/table-with-expandable-rows.tsx'
+>
+  <TableWithExpandableRowsExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Scrollable Table'
+  filePath='app/(docs)/blocks/data-tables/examples/scrollable-table.tsx'
+>
+  <ScrollableTableExample />
+</ExampleLoader>
+
+<ExampleLoader
+  title='Full Data Table'
+  filePath='app/(docs)/blocks/data-tables/examples/full-data-table.tsx'
+>
+  <FullDataTableExample />
+</ExampleLoader>
+
+</ComponentPage>
