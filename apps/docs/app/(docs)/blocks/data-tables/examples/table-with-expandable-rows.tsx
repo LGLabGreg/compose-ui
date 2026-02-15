@@ -315,7 +315,8 @@ export default function TableWithExpandableRowsBlock() {
                         aria-expanded={expansion?.isRowExpanded(row)}
                         aria-controls={`detail-${row.id}`}
                         aria-label={`Toggle details for order ${row.id}`}
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation()
                           expansion?.toggleRowExpansion(row)
                         }}
                       >
