@@ -138,7 +138,7 @@ export default function TableWithSearchBlock() {
           return (
             <Badge
               variant={role.variant}
-              appearance='light'
+              appearance='outline'
               size='sm'
               shape='pill'
               aria-label={`Role: ${role.label}`}

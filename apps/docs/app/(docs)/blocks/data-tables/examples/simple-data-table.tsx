@@ -168,7 +168,7 @@ export default function SimpleDataTableBlock() {
                     <TableCell>
                       <Badge
                         variant={status.variant}
-                        appearance='light'
+                        appearance='outline'
                         size='sm'
                         shape='pill'
                         aria-label={`Order status: ${status.label}`}

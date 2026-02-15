@@ -202,7 +202,15 @@ const formatDate = (date: string) =>
   )
 
 export default function TableWithFiltersBlock() {
-  const table = useTable<Task>({
+  const {
+    columns,
+    rows,
+    totalItems,
+    filterValues,
+    setFilterValue,
+    activeFilterCount,
+    clearFilters,
+  } = useTable<Task>({
     data: tasks,
     columns: [
       { key: 'id', header: 'Task', width: 110, cellClassName: 'font-medium' },
@@ -216,7 +224,7 @@ export default function TableWithFiltersBlock() {
               <AvatarImage src={row.avatar} alt={row.assignee} />
               <AvatarFallback>{getInitials(row.assignee)}</AvatarFallback>
             </AvatarRoot>
-            <span>{row.assignee}</span>
+            <span className='font-medium'>{row.assignee}</span>
           </div>
         ),
       },
@@ -274,8 +282,8 @@ export default function TableWithFiltersBlock() {
     },
   })
 
-  const selectedStatuses = (table.filterValues.status as Status[]) ?? []
-  const selectedPriorities = (table.filterValues.priority as Priority[]) ?? []
+  const selectedStatuses = (filterValues.status as Status[]) ?? []
+  const selectedPriorities = (filterValues.priority as Priority[]) ?? []
 
   return (
     <section className='w-full' aria-labelledby='table-with-filters-title'>
@@ -319,7 +327,7 @@ export default function TableWithFiltersBlock() {
                   <PopoverPopup className='min-w-[160px] p-2.5'>
                     <CheckboxGroupRoot
                       value={selectedStatuses}
-                      onValueChange={(value) => table.setFilterValue('status', value)}
+                      onValueChange={(value) => setFilterValue('status', value)}
                     >
                       {statuses.map((s) => (
                         <label key={s.value} className='flex items-center gap-2 text-sm'>
@@ -357,7 +365,7 @@ export default function TableWithFiltersBlock() {
                   <PopoverPopup className='min-w-[140px] p-2.5'>
                     <CheckboxGroupRoot
                       value={selectedPriorities}
-                      onValueChange={(value) => table.setFilterValue('priority', value)}
+                      onValueChange={(value) => setFilterValue('priority', value)}
                     >
                       {priorities.map((p) => (
                         <label key={p.value} className='flex items-center gap-2 text-sm'>
@@ -375,10 +383,10 @@ export default function TableWithFiltersBlock() {
               </PopoverPortal>
             </PopoverRoot>
 
-            {table.activeFilterCount > 0 && (
-              <Button variant='ghost' size='sm' onClick={table.clearFilters}>
+            {activeFilterCount > 0 && (
+              <Button variant='ghost' size='sm' onClick={clearFilters}>
                 <X className='size-3.5' aria-hidden='true' />
-                Clear filters ({table.activeFilterCount})
+                Clear filters ({activeFilterCount})
               </Button>
             )}
           </div>
@@ -390,16 +398,16 @@ export default function TableWithFiltersBlock() {
           <TableRoot>
             <TableHeader>
               <TableRow>
-                {table.columns.map((col) => (
+                {columns.map((col) => (
                   <TableHead key={col.key} {...col.head} />
                 ))}
               </TableRow>
             </TableHeader>
             <TableBody>
-              {table.rows.length > 0 ? (
-                table.rows.map((row) => (
+              {rows.length > 0 ? (
+                rows.map((row) => (
                   <TableRow key={row.id}>
-                    {table.columns.map((col) => (
+                    {columns.map((col) => (
                       <TableCell key={col.key} {...col.cell}>
                         {col.renderCell(row)}
                       </TableCell>
@@ -408,7 +416,7 @@ export default function TableWithFiltersBlock() {
                 ))
               ) : (
                 <TableRow className='hover:bg-transparent'>
-                  <TableCell colSpan={table.columns.length}>
+                  <TableCell colSpan={columns.length}>
                     <EmptyRoot size='sm'>
                       <EmptyIcon size='sm'>
                         <Filter />
@@ -428,8 +436,8 @@ export default function TableWithFiltersBlock() {
           <div className='px-4 py-3'>
             <p className='text-sm text-muted-foreground'>
               Showing{' '}
-              <data value={table.totalItems} className='font-medium text-foreground'>
-                {table.totalItems}
+              <data value={totalItems} className='font-medium text-foreground'>
+                {totalItems}
               </data>{' '}
               of <data value={tasks.length}>{tasks.length}</data> tasks
             </p>

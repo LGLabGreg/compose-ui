@@ -157,7 +157,7 @@ export default function TableWithPaginationBlock() {
           return (
             <Badge
               variant={variant}
-              appearance='light'
+              appearance='outline'
               size='sm'
               shape='pill'
               aria-label={`Category: ${label}`}
