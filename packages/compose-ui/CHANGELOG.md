@@ -1,5 +1,15 @@
 # @lglab/compose-ui
 
+## 0.39.0
+
+### Minor Changes
+
+- [#179](https://github.com/LGLabGreg/compose-ui/pull/179) [`9880e6a`](https://github.com/LGLabGreg/compose-ui/commit/9880e6a8cf4eea42551ccfd525347accca099a25) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Table exapnded row
+
+### Patch Changes
+
+- [#179](https://github.com/LGLabGreg/compose-ui/pull/179) [`5939eee`](https://github.com/LGLabGreg/compose-ui/commit/5939eeeb638971953962a2bcd10da630f9a154b8) Thanks [@LGLabGreg](https://github.com/LGLabGreg)! - Table fixes
+
 ## 0.38.1
 
 ### Patch Changes
