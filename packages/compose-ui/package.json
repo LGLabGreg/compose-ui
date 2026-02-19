@@ -256,7 +256,7 @@
   },
   "devDependencies": {
     "@base-ui/react": "^1.2.0",
-    "@types/node": "^25.2.3",
+    "@types/node": "^25.3.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "date-fns": "^4.1.0",
@@ -267,6 +267,6 @@
     "recharts": "^3.7.0",
     "tsdown": "^0.12.9",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.55.0"
+    "typescript-eslint": "^8.56.0"
   }
 }
